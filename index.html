@@ -13,17 +13,31 @@
 	<a href="https://s.codetasty.com/gkevinb/mysandbox/">Link</a>
 
 	<div id="app">
-		<input type="text" v-model="message3"></input>
+		<input type="number" v-model="row"></input>
+		<input type="number" v-model="column"></input>
 		<p v-if="seen" v-html>{{ message }}</p>
 		<p v-html="message2"></p>
 		<p v-html="message.slice(0,5) + message3.slice(1,3)"></p>
+
+		<table>
+			<tr v-for="i in stringToNum(row)">
+				<td v-for="j in stringToNum(column)">
+					<input type="checkbox" :id="matrixId(i, j)"></input>
+				</td>
+			</tr>
+		</table>
+		<button type="button">Generate Map</button>
+		<table>
+			<tr v-for="i in stringToNum(row)">
+				<td v-for="j in stringToNum(column)">[]</td>
+			</tr>
+		</table>
 
 		<ul>
 			<li v-for="todo in todos">
 				{{ todo.text }}
 			</li>
 		</ul>
-
 
 
 	</div>
