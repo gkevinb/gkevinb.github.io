@@ -11,8 +11,10 @@
 		<a href="https://s.codetasty.com/gkevinb/mysandbox/">Link</a>
 
 		<div id="app">
-			<p>{{ message }}</p>
-
+			<input type="text" v-model="message3"></input>
+			<p v-html>{{ message }}</p>
+			<p v-html="message2"></p>
+			<p v-html="message.slice(0,5) + message3.slice(1,3)"></p>
 		</div>
 
 		<script src="js/index.js"></script>
