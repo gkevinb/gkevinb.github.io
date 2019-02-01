@@ -3,6 +3,20 @@ $bg_color: #2c3e50;
 $hover_color: #160bc0;
 $text_color: white;
 
-h1{
+h1 {
     color: $bg_color;
+}
+
+#app {
+    // display: grid;
+    // grid-template-columns: 100px auto;
+    // grid-template-rows: repeat(5, 1fr);
+}
+
+#content {}
+
+.nav-item {
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
 }
