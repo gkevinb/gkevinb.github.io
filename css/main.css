@@ -51,7 +51,36 @@ table {
 h1 {
   color: #2c3e50; }
 
+#app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-areas: ". h" "n c" ". ."; }
+
+.header {
+  background-color: yellow;
+  grid-area: h; }
+
+.content {
+  background-color: orange;
+  grid-area: c; }
+
+.navigation {
+  background-color: green;
+  grid-area: n; }
+
 .nav-item {
-  border: 2px solid red;
-  width: 50px;
-  height: 50px; }
+  margin: 60px 0px 60px 0px;
+  border: 2px solid blue; }
+
+#qlearningMap {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-template-rows: repeat(3, 120px); }
+
+.tile {
+  width: 100px;
+  height: 100px;
+  border: 2px solid blue;
+  background-color: #d2b48c; }

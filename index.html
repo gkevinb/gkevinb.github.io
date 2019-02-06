@@ -5,61 +5,29 @@
 	<title>gkevinb</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.js"></script>
 </head>
 
 <body>
-	<h1>gkevinb</h1>
-
 	<div id="app">
-		<ul id="navigation">
+		<ul class="navigation">
 			<li v-for="tab in tabs" class="nav-item" :key="tab" :id="tab" v-on:click="currentTab = tab">
 				{{ tab }}
 			</li>
 		</ul>
 
-		<div id="content" v-bind:is="getCurrentTab">
-
+		<div class="header">
+			<h1>GkevinB</h1>
 		</div>
 
-		<br />
+		<div class="content" v-bind:is="getCurrentTab">
 
-		<input type="number" v-model="row"></input>
-		<input type="number" v-model="column"></input>
-		<p v-if="seen == true" v-html>{{ message }}</p>
-		<p v-html="message2"></p>
-		<p v-html="message.slice(0,5) + message3.slice(1,3)"></p>
-
-		<table>
-			<tr v-for="i in stringToNum(row)">
-				<td v-for="j in stringToNum(column)">
-					<input type="checkbox" :id="matrixId(i, j)"></input>
-				</td>
-			</tr>
-		</table>
-		<button type="button">Generate Map</button>
-		<table>
-			<tr v-for="i in stringToNum(row)">
-				<td v-for="j in stringToNum(column)">[]</td>
-			</tr>
-		</table>
-
-		<ul>
-			<li v-for="todo in todos">
-				{{ todo.text }}
-			</li>
-		</ul>
-		<ol>
-			<my-comp v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
-			</my-comp>
-		</ol>
-
-		<p v-for="grocery in groceryList" v-html="grocery.id"></p>
-
-		<animal :name="dog" :foo="func(dog)"> checkit!</animal>
+		</div>
 
 	</div>
 
 	<script src="js/index.js"></script>
+
 </body>
 
 </html>

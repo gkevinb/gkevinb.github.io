@@ -8,15 +8,76 @@ h1 {
 }
 
 #app {
-    // display: grid;
-    // grid-template-columns: 100px auto;
-    // grid-template-rows: repeat(5, 1fr);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: ". h"
+                         "n c"
+                         ". .";
 }
 
-#content {}
+.header {
+    background-color: yellow;
+    grid-area: h;
+}
+
+.content {
+    background-color: orange;
+    grid-area: c;
+}
+
+.navigation {
+    background-color: green;
+    grid-area: n;
+}
 
 .nav-item {
-    border: 2px solid red;
-    width: 50px;
-    height: 50px;
+    margin: 60px 0px 60px 0px;
+    border: 2px solid blue;
+
 }
+#qlearningMap{
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(3, 120px);;
+}
+
+.tile{
+    width: 100px;
+    height: 100px;
+    border: 2px solid blue;
+    background-color: #d2b48c;
+
+}
+//
+// .hexagon {
+//     width: 100px;
+//     height: 55px;
+//     background: red;
+//     position: relative;
+// }
+//
+// .hexagon:before {
+//     content: "";
+//     position: absolute;
+//     top: -25px;
+//     left: 0;
+//     width: 0;
+//     height: 0;
+//     border-left: 50px solid transparent;
+//     border-right: 50px solid transparent;
+//     border-bottom: 25px solid red;
+// }
+//
+// .hexagon:after {
+//     content: "";
+//     position: absolute;
+//     bottom: -25px;
+//     left: 0;
+//     width: 0;
+//     height: 0;
+//     border-left: 50px solid transparent;
+//     border-right: 50px solid transparent;
+//     border-top: 25px solid red;
+// }
