@@ -84,3 +84,21 @@ h1 {
   height: 100px;
   border: 2px solid blue;
   background-color: #d2b48c; }
+
+.tile--agent {
+  width: 100px;
+  height: 100px;
+  border: 2px solid blue;
+  background-color: red; }
+
+.tile--cliff {
+  width: 100px;
+  height: 100px;
+  border: 2px solid blue;
+  background-color: brown; }
+
+.tile--reward {
+  width: 100px;
+  height: 100px;
+  border: 2px solid blue;
+  background-color: gold; }
