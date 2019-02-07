@@ -4,6 +4,7 @@
 <head>
 	<title>gkevinb</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.js"></script>
 </head>
@@ -11,13 +12,13 @@
 <body>
 	<div id="app">
 		<ul class="navigation">
-			<li v-for="tab in tabs" class="nav-item" :key="tab" :id="tab" v-on:click="currentTab = tab">
+			<li v-for="tab in tabs" class="nav-item hexagon" :key="tab" :id="tab" v-on:click="currentTab = tab">
 				{{ tab }}
 			</li>
 		</ul>
 
 		<div class="header">
-			<h1>GkevinB</h1>
+			<h1>Gabor Kevin Barta</h1>
 		</div>
 
 		<div class="content" v-bind:is="getCurrentTab">

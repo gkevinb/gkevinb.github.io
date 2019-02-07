@@ -1,10 +1,18 @@
-$primary-color: green;
+$primary-color: #062F4F;
 $bg_color: #2c3e50;
 $hover_color: #160bc0;
 $text_color: white;
 
 h1 {
     color: $bg_color;
+    font-family: 'ZCOOL KuaiLe', cursive;
+    font-size: 60px;
+}
+body{
+    background-color: black;
+    background-image: url("../img/background.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 #app {
@@ -12,89 +20,65 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 7fr;
     grid-template-rows: 1fr 4fr 1fr;
-    grid-template-areas: ". h"
+    grid-template-areas: "n h"
                          "n c"
-                         ". .";
+                         "n .";
 }
 
 .header {
-    background-color: yellow;
     grid-area: h;
 }
 
 .content {
-    background-color: orange;
     grid-area: c;
 }
 
 .navigation {
-    background-color: green;
+    background-color: $primary-color;
     grid-area: n;
 }
 
 .nav-item {
-    margin: 60px 0px 60px 0px;
+    margin: 110px 0px 110px 0px;
     border: 2px solid blue;
+    color: white;
 
 }
-#qlearningMap{
-    display: grid;
-    grid-template-columns: repeat(4, 120px);
-    grid-template-rows: repeat(3, 120px);;
+
+.left{
+    margin-left: 30px;
+}
+.right{
+
 }
 
-.tile{
+.hexagon {
     width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: #d2b48c;
+    height: 55px;
+    background: red;
+    position: relative;
 }
-.tile--agent{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: red;
+
+.hexagon:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 25px solid red;
 }
-.tile--cliff{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: brown;
+
+.hexagon:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 25px solid red;
 }
-.tile--reward{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: gold;
-}
-//
-// .hexagon {
-//     width: 100px;
-//     height: 55px;
-//     background: red;
-//     position: relative;
-// }
-//
-// .hexagon:before {
-//     content: "";
-//     position: absolute;
-//     top: -25px;
-//     left: 0;
-//     width: 0;
-//     height: 0;
-//     border-left: 50px solid transparent;
-//     border-right: 50px solid transparent;
-//     border-bottom: 25px solid red;
-// }
-//
-// .hexagon:after {
-//     content: "";
-//     position: absolute;
-//     bottom: -25px;
-//     left: 0;
-//     width: 0;
-//     height: 0;
-//     border-left: 50px solid transparent;
-//     border-right: 50px solid transparent;
-//     border-top: 25px solid red;
-// }

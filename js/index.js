@@ -39,9 +39,9 @@ class QMatrix {
 }
 
 class QLearningAgent {
-    constructor(map, qMatrix) {
+    constructor(map) {
         this.map = map;
-        this.qMatrix = qMatrix;
+        this.qMatrix = new QMatrix(map.rows, map.columns);
         this.initialPosition = "2x0";
         this.state = this.initialPosition;
         this.nextState = null;
@@ -304,20 +304,9 @@ Vue.component("projects-tab", {
 })
 
 
-function buildAgent() {
-    var m = new RewardMap(3, 4)
-    var q = new QMatrix(3, 4)
-    var a = new QLearningAgent(m, q);
-    return a;
-}
-
-
-
-const agent = buildAgent();
-
 Vue.component("blog-tab", {
     template: `<div id="outer">
-				<button @click="episode" type="button">Generate Map</button>
+				<button @click="episode" type="button">Explore</button>
 				<div id="qlearningMap">
 				<template v-for="i in stringToNum(row)">
 				<div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)" v-for="j in stringToNum(column)">
@@ -327,10 +316,11 @@ Vue.component("blog-tab", {
 				</div>`,
     data: function() {
         return {
-            agent: agent,
+            agent: new QLearningAgent(new RewardMap(3, 4)),
             row: "3",
             column: "4",
-            movement: null
+            movement: null,
+            exploring: false,
         }
     },
     methods: {
@@ -342,34 +332,33 @@ Vue.component("blog-tab", {
         },
         styleTile: function(i, j){
             var id = this.matrixId(i, j);
-            var reward = agent.map.matrix[id];
-            if(id == agent.state) return "tile--agent"
+            var reward = this.agent.map.matrix[id];
+            if(id == this.agent.state) return "tile--agent"
             if(reward == 100) return "tile--reward";
             if(reward == -100) return "tile--cliff";
             return "tile";
         },
         explore: function() {
-            agent.move();
-            agent.updateQ();
-            //document.getElementById(agent.state).style.backgroundColor = "#d2b48c";
-            agent.state = agent.nextState;
-            console.log(agent.state)
-            var element = document.getElementById(agent.state)
-            console.log(element);
-            //document.getElementById(agent.state).style.backgroundColor = "red";
-            console.log(agent)
+            this.agent.move();
+            this.agent.updateQ();
+            this.agent.state = this.agent.nextState;
 
-            if (agent.state == "2x1" || agent.state == "2x2") {
+            if (this.agent.state == "2x1" || this.agent.state == "2x2") {
                 //agent.state = agent.initialPosition;
                 clearInterval(this.movement);
+                this.exploring = false;
             }
-            if (agent.state == "2x3"){
+            if (this.agent.state == "2x3"){
                 clearInterval(this.movement);
+                this.exploring = false;
             }
         },
         episode: function() {
-            agent.state = agent.initialPosition;
-            this.movement = setInterval(this.explore, 200);
+            if(this.exploring == false){
+                this.agent.state = this.agent.initialPosition;
+                this.movement = setInterval(this.explore, 200);
+                this.exploring = true;
+            }
         }
     },
 })
