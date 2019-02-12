@@ -53,12 +53,6 @@ h1 {
   font-family: 'ZCOOL KuaiLe', cursive;
   font-size: 60px; }
 
-body {
-  background-color: black;
-  background-image: url("../img/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat; }
-
 #app {
   height: 100%;
   display: grid;
@@ -67,50 +61,27 @@ body {
   grid-template-areas: "n h" "n c" "n ."; }
 
 .header {
-  grid-area: h; }
+  grid-area: h;
+  border: 2px solid orange; }
 
 .content {
-  grid-area: c; }
+  grid-area: c;
+  border: 2px solid red; }
 
 .navigation {
-  background-color: #062F4F;
   grid-area: n; }
 
 .nav-item {
   margin: 110px 0px 110px 0px;
-  border: 2px solid blue;
-  color: white; }
+  padding: 30px;
+  border: 2px solid #40404b;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: #70abd8; }
 
 .left {
   margin-left: 30px; }
-
-.hexagon {
-  width: 100px;
-  height: 55px;
-  background: red;
-  position: relative; }
-
-.hexagon:before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 25px solid red; }
-
-.hexagon:after {
-  content: "";
-  position: absolute;
-  bottom: -25px;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 25px solid red; }
 
 #qlearningMap {
   display: grid;

@@ -91,7 +91,7 @@ gulp.task('sass', function(){
 });
 
 // Static server
-gulp.task('browser-sync', function() {
+gulp.task('server', function() {
     browserSync.init({
         server: {
             baseDir: "./src/"
