@@ -18,8 +18,11 @@
 		</div>
 
 		<div class="navigation">
-			<ul>
+			<ul class="nav-menu">
 				<li v-for="tab in tabs" class="nav-item" :key="tab" :id="tab" @click="currentTab = tab">{{ tab }}</li>
+				<ul class="sub-menu">
+					<li v-for="project in projects" class="submenu-item" :key="project" :id="project">{{ project }}</li>
+				</ul>
 			</ul>
 		</div>
 
