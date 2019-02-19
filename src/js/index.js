@@ -12,13 +12,12 @@ Vue.component("animal", {
 
 Vue.component("home-tab", {
     name: "home-tab",
-    template: `<div id="messages">
-			   <p v-if="seen == true" v-html>{{ message }}</p>
-			   <p v-html="message2"></p>
-			   <p v-html="message.slice(0,5) + message3.slice(1,3)"></p>
+    template: `<div :id="name">
+                <img src="../img/background.jpeg" />
 			   </div>`,
     data: function() {
         return {
+            name: "home-tab",
             seen: true,
             message: "hello you!",
             message2: "<strong>YOU</strong>",
@@ -121,6 +120,7 @@ var app = new Vue({
     data: {
         currentTab: "Home",
         tabs: ["Home", "About", "Projects", "Blog"],
+        projects: ["Q-Learning"]
     },
     computed: {
         getCurrentTab: function() {

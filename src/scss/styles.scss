@@ -3,89 +3,67 @@ $bg_color: #2c3e50;
 $hover_color: #160bc0;
 $text_color: white;
 
-h1 {
-    color: $bg_color;
-    font-family: 'ZCOOL KuaiLe', cursive;
-    font-size: 60px;
-}
-// body{
-//     background-color: black;
-//     background-image: url("../img/background.jpg");
-//     background-size:cover;
-//     background-repeat: no-repeat;
-// }
 
-#app {
+.container {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 7fr;
-    grid-template-rows: 1fr 4fr 1fr;
-    grid-template-areas: "n h"
-                         "n c"
-                         "n .";
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: 140px 600px auto;
+    grid-row-gap: 20px;
+    grid-template-areas: ". h n ."
+                         ". c c ."
+                         ". . . .";
 }
 
 .header {
     grid-area: h;
-    border: 2px solid orange;
+    border-bottom: 10px solid black;
+    margin-top: 74px;
+    h1 {
+        color: $bg_color;
+        font-family: 'ZCOOL KuaiLe', cursive;
+        font-size: 50px;
+    }
 }
 
 .content {
     grid-area: c;
-    border: 2px solid red;
 }
 
 .navigation {
-    //background-color: $primary-color;
+    border-bottom: 10px solid black;
     grid-area: n;
+    font-family: 'Sawarabi Gothic';
+
+    ul {
+        margin-top: 100px;
+        margin-bottom: 10px;
+        float: right;
+    }
+    .nav-item {
+        // border: 1px solid red;
+        display: inline;
+        font-size: 20px;
+        padding: 6px;
+        margin: 16px;
+    }
+    .nav-item:hover{
+        background: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
+        border-radius: 6px;
+        color: white;
+    }
 }
 
-.nav-item {
-    margin: 110px 0px 110px 0px;
-    padding: 30px;
-    border: 2px solid rgb(64, 64, 75);
-    text-align: center;
-    font-size: 20px;
-    border-radius: 20px;
-    background-color: rgb(112, 171, 216);
-    //color: white;
-
+#home-tab{
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1;
+        opacity: 0.6;
+    }
 }
-
-.left{
-    margin-left: 30px;
-}
-.right{
-
-}
-
-// .hexagon {
-//     width: 100px;
-//     height: 55px;
-//     background: red;
-//     position: relative;
-// }
-
-// .hexagon:before {
-//     content: "";
-//     position: absolute;
-//     top: -25px;
-//     left: 0;
-//     width: 0;
-//     height: 0;
-//     border-left: 50px solid transparent;
-//     border-right: 50px solid transparent;
-//     border-bottom: 25px solid red;
-// }
-
-// .hexagon:after {
-//     content: "";
-//     position: absolute;
-//     bottom: -25px;
-//     left: 0;
-//     width: 0;
-//     height: 0;
-//     border-left: 50px solid transparent;
-//     border-right: 50px solid transparent;
-//     border-top: 25px solid red;
-// }
