@@ -1,29 +1,92 @@
+$tile_color: #d2b48c;
+$cliff_color: rgb(41, 41, 41);
+
+/*
+    Setup size of tile
+*/
+@mixin tileSize($pixelSize) {
+    width: $pixelSize;
+    height: $pixelSize;
+}
+/*
+    Setup image on tile
+*/
+@mixin backgroundImage($image) {
+    $url: "../img/#{$image}.png";
+    background: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*
+    Animation for robot falling down the hole.
+*/
+@keyframes falling {
+    from { background-size: 100px 100px; }
+    to { background-size: 0px 0px; }
+}
+
+/*
+    Animation for robot reaching the reward and jumping up and down.
+*/
+@keyframes winning {
+    0%   { background-position: center 5px; }
+    50%  { background-position: center -5px; }
+    100%  { background-position: center 5px; }
+}
+
+/*
+    Grid map for Q-Learning algorithm.
+*/
 #qlearningMap{
     display: grid;
-    grid-template-columns: repeat(4, 120px);
-    grid-template-rows: repeat(3, 120px);;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(3, 100px);;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
 }
+
 .tile{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: #d2b48c;
+    @include tileSize(100px);
+
+    background-color: $tile_color;
 }
 .tile--agent{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: red;
+    @include tileSize(100px);
+    @include backgroundImage("robot");
+
+    background-color: $tile_color;
 }
 .tile--cliff{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: brown;
+    @include tileSize(100px);
+
+    background-color: $cliff_color;
 }
 .tile--reward{
-    width: 100px;
-    height: 100px;
-    border: 2px solid blue;
-    background-color: gold;
+    @include tileSize(100px);
+    @include backgroundImage("trophy");
+
+    background-color: $tile_color;
+}
+.tile--robot--falling{
+    @include tileSize(100px);
+    @include backgroundImage("robot");
+
+    background-color: $cliff_color;
+
+    /* Robot falling animation */
+    animation-name: falling;
+    animation-duration: 2.0s;
+    animation-fill-mode: forwards;
+}
+.tile--robot--winning{
+    @include tileSize(100px);
+    @include backgroundImage("robot-won");
+
+    background-color: $tile_color;
+    
+    /* Robot winning animation */
+    animation-name: winning;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
 }

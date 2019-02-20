@@ -29,7 +29,10 @@ Vue.component("q-learning-tab", {
         styleTile: function(i, j){
             var id = this.matrixId(i, j);
             var reward = this.agent.map.matrix[id];
-            if(id == this.agent.state) return "tile--agent"
+            
+            if(reward == -100 && id == this.agent.state) return "tile--robot--falling";
+            if(reward == 100 && id == this.agent.state) return "tile--robot--winning";
+            if(id == this.agent.state) return "tile--agent";
             if(reward == 100) return "tile--reward";
             if(reward == -100) return "tile--cliff";
             return "tile";
