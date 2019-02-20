@@ -58,7 +58,7 @@ Vue.component("about-tab", {
         }
     },
 })
-Vue.component("project-tab", {
+Vue.component("projects-tab", {
     template: `<div id="tod">
 				<ul>
 					<li v-for="todo in todos">
