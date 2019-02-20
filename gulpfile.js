@@ -6,21 +6,6 @@ const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
 
-/* Template:
-gulp.task('task_name', function(){
-    // do something..
-});
-
-/*
-    -- TOP LEVEL FUNCTIONS --
-    gulp.task - Define tasks
-    gulp.src - Point to files to use
-    gulp.dest - Points to folder to output
-    gulp.watch - Watch files and folders for changes
-
-*/
-
-
 /*
 Need done argument because it assumes the task is synchronous
 */
@@ -33,13 +18,6 @@ gulp.task('message', function(done){
 // dist folder created automatically
 gulp.task('copy-html', function(){
     return gulp.src('src/*.html')
-        .pipe(gulp.dest('dist'))
-});
-
-gulp.task('copy-index', function(){
-    console.log('Copying index.html to repo root directory because of Github Pages');
-    console.log('Modify the sources in index.html to add /dist/ directory');
-    return gulp.src('dist/index.html')
         .pipe(gulp.dest('./'))
 });
 
@@ -47,37 +25,37 @@ gulp.task('copy-index', function(){
 // dist folder created automatically
 gulp.task('copy-js', function(){
     return gulp.src('src/js/*')
-        .pipe(gulp.dest('dist/js'))
+        .pipe(gulp.dest('js'))
 });
 
 // Copy ALL css files
 // dist folder created automatically
 gulp.task('copy-css', function(){
     return gulp.src('src/css/*')
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('css'))
 });
 
 // Image optimization
 gulp.task('image-min', () =>
     gulp.src('src/img/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/img'))
+        .pipe(gulp.dest('img'))
 );
 
-// Javascript minifying
-gulp.task('minify', () =>
-    gulp.src('js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist'))
-);
+// // Javascript minifying
+// gulp.task('minify', () =>
+//     gulp.src('js/*.js')
+//         .pipe(uglify())
+//         .pipe(gulp.dest('dist'))
+// );
 
-// Combine and minify Javascript files
-gulp.task('scripts', () =>
-    gulp.src('js/*.js')
-        .pipe(concat('main.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/'))
-);
+// // Combine and minify Javascript files
+// gulp.task('scripts', () =>
+//     gulp.src('js/*.js')
+//         .pipe(concat('main.js'))
+//         .pipe(uglify())
+//         .pipe(gulp.dest('dist/'))
+// );
 
 
 // Pipe is chain something together
