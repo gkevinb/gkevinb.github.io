@@ -1,5 +1,3 @@
-
-
 Vue.component("my-comp", {
     props: ["todo"],
     template: "<li>{{ todo.text }}</li>"
