@@ -1,6 +1,6 @@
 import { RewardMap, QMatrix, QLearningAgent } from '../js/qlearning.js';
 
-Vue.component("blog-tab", {
+Vue.component("q-learning-tab", {
     template: `<div id="outer">
 				<button @click="episode" type="button">Explore</button>
 				<div id="qlearningMap">

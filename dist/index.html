@@ -5,20 +5,29 @@
 	<title>gkevinb</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.js"></script>
 </head>
 
 <body>
-	<div id="app">
-		<ul class="navigation">
-			<li v-for="tab in tabs" class="nav-item hexagon" :key="tab" :id="tab" v-on:click="currentTab = tab">
-				{{ tab }}
-			</li>
-		</ul>
+	<div id="app" class="container">
 
 		<div class="header">
-			<h1>GaborKevinBarta {Work-in-progress}</h1>
+			<h1>Gabor Kevin Barta</h1>
+		</div>
+
+		<div class="navigation">
+			<ul class="nav-menu">
+				<li v-for="tab in tabs" class="nav-item" :id="tab.name" @click="currentTab = tab.name">
+					{{ tab.name }}
+					<ul v-if="tab.subtabs != null" class="sub-menu">
+						<ul v-for="subtab in tab.subtabs" class="submenu-item" :id="subtab.name" @click="currentTab = subtab.name>
+							{{ subtab.name }}
+						</ul>
+					</ul>
+				</li>
+			</ul>
 		</div>
 
 		<div class="content" v-bind:is="getCurrentTab">
