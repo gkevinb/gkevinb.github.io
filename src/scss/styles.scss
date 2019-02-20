@@ -74,7 +74,9 @@ $text_color: white;
     
     #Projects:hover ~ .sub-menu{
         display: block;
-        color: red;
+    }
+    .sub-menu:hover{
+        display: block;
     }
 
 }

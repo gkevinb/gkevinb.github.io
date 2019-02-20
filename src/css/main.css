@@ -104,8 +104,9 @@ table {
     display: block;
     text-align: left; }
   .navigation #Projects:hover ~ .sub-menu {
-    display: block;
-    color: red; }
+    display: block; }
+  .navigation .sub-menu:hover {
+    display: block; }
 
 #home-tab {
   position: relative;
