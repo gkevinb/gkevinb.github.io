@@ -69,8 +69,8 @@ table {
   grid-area: c; }
 
 .navigation {
-  border-bottom: 10px solid black;
   grid-area: n;
+  border-bottom: 10px solid black;
   font-family: 'Sawarabi Gothic'; }
   .navigation .nav-menu {
     margin-top: 100px;
@@ -79,31 +79,31 @@ table {
   .navigation .nav-item {
     display: inline;
     font-size: 20px;
-    padding: 6px;
-    margin: 16px; }
+    padding: 6px; }
   .navigation .nav-item:hover {
     background: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
     border-radius: 6px;
     color: white; }
   .navigation .sub-menu {
     display: none;
-    position: relative;
-    width: 30px;
-    margin-top: 20px;
-    border-radius: 10px;
-    margin-left: 180px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 106px;
     z-index: 10; }
   .navigation .submenu-item {
+    width: 120px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     float: none;
     color: black;
+    margin-top: 20px;
+    background-color: #e2e1e1;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left; }
-  .navigation #Projects:hover ~ .sub-menu {
+  .navigation #Projects:hover .sub-menu {
     display: block; }
   .navigation .sub-menu:hover {
     display: block; }

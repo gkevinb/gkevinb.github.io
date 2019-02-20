@@ -15,7 +15,7 @@ Vue.component("home-tab", {
     template: `<div :id="name">
                 <img src="../img/background.jpeg" />
 			   </div>`,
-    data: function() {
+    data: function () {
         return {
             name: "home-tab",
             seen: true,
@@ -45,22 +45,22 @@ Vue.component("about-tab", {
 		</tr>
 	</table>
 	</div>`,
-    data: function() {
+    data: function () {
         return {
             row: "5",
             column: "2"
         }
     },
     methods: {
-        stringToNum: function(string) {
+        stringToNum: function (string) {
             return parseInt(string, 10);
         },
-        matrixId: function(i, j) {
+        matrixId: function (i, j) {
             return "_" + i.toString() + "x" + j.toString() + "_";
         }
     },
 })
-Vue.component("projects-tab", {
+Vue.component("project-tab", {
     template: `<div id="tod">
 				<ul>
 					<li v-for="todo in todos">
@@ -76,38 +76,38 @@ Vue.component("projects-tab", {
 
 				<animal :name="dog" :foo="func(dog)"> checkit!</animal>
 				</div>`,
-    data: function() {
+    data: function () {
         return {
             dog: "Doggy!",
             cat: "Kitty!!",
             bird: "Birdy!!!",
             todos: [{
-                    text: "Wake up"
-                },
-                {
-                    text: "Take shower"
-                },
-                {
-                    text: "Go to work"
-                }
+                text: "Wake up"
+            },
+            {
+                text: "Take shower"
+            },
+            {
+                text: "Go to work"
+            }
             ],
             groceryList: [{
-                    id: 0,
-                    text: 'Vegetables'
-                },
-                {
-                    id: 1,
-                    text: 'Cheeese'
-                },
-                {
-                    id: 2,
-                    text: 'Meat'
-                },
+                id: 0,
+                text: 'Vegetables'
+            },
+            {
+                id: 1,
+                text: 'Cheeese'
+            },
+            {
+                id: 2,
+                text: 'Meat'
+            },
             ]
         }
     },
     methods: {
-        func: function(bar) {
+        func: function (bar) {
             bar += " !!!!!!"
             return bar
         }
@@ -119,11 +119,24 @@ var app = new Vue({
     el: "#app",
     data: {
         currentTab: "Home",
-        tabs: ["Home", "About", "Projects", "Blog"],
-        projects: ["Q-Learning"]
+        tabs: [{
+            name: "Home"
+        },
+        {
+            name: "About"
+        },
+        {
+            name: "Projects",
+            subtabs: [{
+                name: "Q-Learning"
+            }]
+        },
+        {
+            name: "Blog"
+        }]
     },
     computed: {
-        getCurrentTab: function() {
+        getCurrentTab: function () {
             return this.currentTab.toLowerCase() + "-tab"
         }
     }

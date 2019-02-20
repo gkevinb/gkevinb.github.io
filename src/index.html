@@ -19,10 +19,14 @@
 
 		<div class="navigation">
 			<ul class="nav-menu">
-				<li v-for="tab in tabs" class="nav-item" :key="tab" :id="tab" @click="currentTab = tab">{{ tab }}</li>
-				<ul class="sub-menu">
-					<li v-for="project in projects" class="submenu-item" :key="project" :id="project">{{ project }}</li>
-				</ul>
+				<li v-for="tab in tabs" class="nav-item" :id="tab.name" @click="currentTab = tab.name">
+					{{ tab.name }}
+					<ul v-if="tab.subtabs != null" class="sub-menu">
+						<ul v-for="subtab in tab.subtabs" class="submenu-item" :id="subtab.name" @click.stop="currentTab = subtab.name">
+							{{ subtab.name }}
+						</ul>
+					</ul>
+				</li>
 			</ul>
 		</div>
 
