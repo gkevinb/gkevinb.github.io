@@ -22,7 +22,7 @@
 				<li v-for="tab in tabs" class="nav-item" :id="tab.name" @click="currentTab = tab.name">
 					{{ tab.name }}
 					<ul v-if="tab.subtabs != null" class="sub-menu">
-						<ul v-for="subtab in tab.subtabs" class="submenu-item" :id="subtab.name" @click="currentTab = subtab.name>
+						<ul v-for="subtab in tab.subtabs" class="submenu-item" :id="subtab.name" @click.stop="currentTab = subtab.name">
 							{{ subtab.name }}
 						</ul>
 					</ul>
