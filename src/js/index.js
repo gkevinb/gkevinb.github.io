@@ -13,7 +13,7 @@ Vue.component("animal", {
 Vue.component("home-tab", {
     name: "home-tab",
     template: `<div :id="name">
-                <img src="../img/background.jpeg" />
+                <img src="img/background.jpeg" />
 			   </div>`,
     data: function () {
         return {
