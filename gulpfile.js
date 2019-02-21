@@ -86,4 +86,4 @@ gulp.task('watch', function(){
 	//gulp.watch('src/*.html', gulp.series('copy-html'));
 });
 
-gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'copy-html', 'copy-js', 'copy-css'));
+gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'copy-html', 'copy-css'));

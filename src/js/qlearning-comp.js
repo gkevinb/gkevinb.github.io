@@ -1,4 +1,4 @@
-import { RewardMap, QMatrix, QLearningAgent } from './qlearning.js';
+import { RewardMap, QLearningAgent } from './qlearning.js';
 
 Vue.component("q-learning-tab", {
     template: `<div id="outer">

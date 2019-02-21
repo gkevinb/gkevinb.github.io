@@ -46,14 +46,26 @@ class QLearningAgent {
         this.nextState = null;
         this.action = null;
     }
+    /*
+        Get coordinates from state Id
+        Ex: "2x0" -> [2, 0]
+    */
     getCoordinates(state) {
         var pattern = /\d+/g;
         var result = state.match(pattern);
         return [parseInt(result[0]), parseInt(result[1])];
     }
+    /*
+        Get state id from coordinates
+        Ex: 2, 0 -> "2x0"
+    */
     getStateId(row, column) {
         return row.toString() + "x" + column.toString()
     }
+    /*
+        Get allowed direction from this state
+        Ex: "0x0" -> [RIGHT, DOWN]
+    */
     getAllowedDirections(state) {
         var directions = [];
 
@@ -103,6 +115,7 @@ class QLearningAgent {
     getNextState(direction) {
         var row, column;
         [row, column] = this.getCoordinates(this.state);
+
         if (direction == "UP") return this.getStateId(row - 1, column);
         if (direction == "RIGHT") return this.getStateId(row, column + 1);
         if (direction == "DOWN") return this.getStateId(row + 1, column);
@@ -121,28 +134,33 @@ class QLearningAgent {
         } // Choose using greedy
         else {
             var neighborhood = this.getNeighborhood(this.state);
+            // Rewards is a bad name, it holds an array of the neighbor and it's corresponding q-value 
             var rewards = {};
             for (var i in neighborhood) {
                 var neighbor = neighborhood[i];
                 var direction = allowedDirections[i];
-                console.log(neighbor);
-                console.log(this.qMatrix.matrix[neighbor]);
-                rewards[neighborhood[i]] = this.qMatrix.matrix[this.state][this.directionMapping(direction)];
+
+                rewards[neighbor] = this.qMatrix.matrix[this.state][this.directionMapping(direction)];
             }
             console.log("HIII");
             console.log(rewards);
-            // Check how this works separately, because it if values are equal it takes last, but
-            // it should still choose randomly.
-            var max = Object.keys(rewards).reduce((a, b) => rewards[a] > rewards[b] ? a : b);
-            var index = Object.keys(rewards).indexOf(max);
-            console.log("Max: " + max);
+            
+            // Find maximum q-value
+            var maxQValue = Math.max.apply(Math, Object.values(rewards));
+            // Neighbor with maximum q-value and also the q-value
+            var rewardsWithMaxQValue = Object.entries(rewards).filter(([key, value]) => value == maxQValue );
+            // Choosen neighbor aka next state to move to
+            var choosenNextState = rewardsWithMaxQValue[Math.floor((Math.random() * rewardsWithMaxQValue.length))][0];
+            var index = Object.keys(rewards).indexOf(choosenNextState);
+
+            console.log("Choosen next state: " + choosenNextState);
             console.log(index);
 
             console.log(allowedDirections[index]);
+
             return allowedDirections[index];
         }
     }
-
     move(epsilon) {
         var choosenDirection = this.epsilonGreedy(epsilon);
         console.log("Let's go " + choosenDirection);
@@ -154,7 +172,6 @@ class QLearningAgent {
 
     findQMax(state) {
         var neighbors = this.getNeighborhood(state);
-        var directions = this.getAllowedDirections(state);
         console.log(neighbors)
         console.log(this.qMatrix.matrix[state])
         return Math.max(...this.qMatrix.matrix[state]);
@@ -168,21 +185,6 @@ class QLearningAgent {
         console.log("NEW q value");
         console.log(this.qMatrix.matrix[this.state][this.action]);
     }
-    // episode() {
-    //     do {
-    //         this.move();
-    //         this.updateQ();
-    //         this.state = this.nextState;
-    //         console.log(this.state)
-    //
-    //         if (this.state == "2x1" || this.state == "2x2") {
-    //             this.state = this.initialPosition;
-    //         }
-    //
-    //     } while (this.state != "2x3");
-    //     console.log(this.qMatrix)
-    //     console.log("DONE")
-    // }
 }
 
-export { RewardMap, QMatrix, QLearningAgent };
+export { RewardMap, QLearningAgent };
