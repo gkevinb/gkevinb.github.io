@@ -45,9 +45,6 @@ class QLearningAgent {
         this.state = this.initialPosition;
         this.nextState = null;
         this.action = null;
-        this.epsilon = 0.5;
-        this.alpha = 0.5;
-        this.gamma = 0.7;
     }
     getCoordinates(state) {
         var pattern = /\d+/g;
@@ -112,15 +109,17 @@ class QLearningAgent {
         if (direction == "LEFT") return this.getStateId(row, column - 1);
     }
 
-    epsilonGreedy() {
+    epsilonGreedy(epsilon) {
         var allowedDirections = this.getAllowedDirections(this.state);
         console.log(allowedDirections);
         console.log("Epsilon Greedy");
 
-        if (Math.random() < this.epsilon) {
+        // Choose at random
+        if (Math.random() < epsilon) {
             var choosenDirection = allowedDirections[Math.floor((Math.random() * allowedDirections.length))];
             return choosenDirection;
-        } else {
+        } // Choose using greedy
+        else {
             var neighborhood = this.getNeighborhood(this.state);
             var rewards = {};
             for (var i in neighborhood) {
@@ -132,6 +131,8 @@ class QLearningAgent {
             }
             console.log("HIII");
             console.log(rewards);
+            // Check how this works separately, because it if values are equal it takes last, but
+            // it should still choose randomly.
             var max = Object.keys(rewards).reduce((a, b) => rewards[a] > rewards[b] ? a : b);
             var index = Object.keys(rewards).indexOf(max);
             console.log("Max: " + max);
@@ -142,8 +143,8 @@ class QLearningAgent {
         }
     }
 
-    move() {
-        var choosenDirection = this.epsilonGreedy();
+    move(epsilon) {
+        var choosenDirection = this.epsilonGreedy(epsilon);
         console.log("Let's go " + choosenDirection);
         this.action = this.directionMapping(choosenDirection);
         console.log(this.getNextState(choosenDirection));
@@ -159,10 +160,10 @@ class QLearningAgent {
         return Math.max(...this.qMatrix.matrix[state]);
     }
 
-    updateQ() {
+    updateQ(alpha, gamma) {
         console.log(this.qMatrix.matrix[this.state][this.action]);
         this.qMatrix.matrix[this.state][this.action] = this.qMatrix.matrix[this.state][this.action] +
-            this.alpha * (this.map.matrix[this.nextState] + this.gamma * this.findQMax(this.nextState) -
+            alpha * (this.map.matrix[this.nextState] + gamma * this.findQMax(this.nextState) -
                 this.qMatrix.matrix[this.state][this.action]);
         console.log("NEW q value");
         console.log(this.qMatrix.matrix[this.state][this.action]);

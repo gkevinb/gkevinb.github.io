@@ -1,4 +1,4 @@
-import { RewardMap, QMatrix, QLearningAgent } from '../js/qlearning.js';
+import { RewardMap, QMatrix, QLearningAgent } from './qlearning.js';
 
 Vue.component("q-learning-tab", {
     template: `<div id="outer">
@@ -15,6 +15,9 @@ Vue.component("q-learning-tab", {
             agent: new QLearningAgent(new RewardMap(3, 4)),
             row: "3",
             column: "4",
+            epsilon: 0.5,
+            alpha: 0.5,
+            gamma: 0.7,
             movement: null,
             exploring: false,
         }
@@ -29,14 +32,17 @@ Vue.component("q-learning-tab", {
         styleTile: function(i, j){
             var id = this.matrixId(i, j);
             var reward = this.agent.map.matrix[id];
-            if(id == this.agent.state) return "tile--agent"
+            
+            if(reward == -100 && id == this.agent.state) return "tile--robot--falling";
+            if(reward == 100 && id == this.agent.state) return "tile--robot--winning";
+            if(id == this.agent.state) return "tile--agent";
             if(reward == 100) return "tile--reward";
             if(reward == -100) return "tile--cliff";
             return "tile";
         },
         explore: function() {
-            this.agent.move();
-            this.agent.updateQ();
+            this.agent.move(this.epsilon);
+            this.agent.updateQ(this.alpha, this.gamma);
             this.agent.state = this.agent.nextState;
 
             if (this.agent.state == "2x1" || this.agent.state == "2x2") {

@@ -1,10 +1,9 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
+const minify = require('gulp-minify');
 const browserSync = require('browser-sync').create();
-
 
 /*
 Need done argument because it assumes the task is synchronous
@@ -42,21 +41,18 @@ gulp.task('image-min', () =>
         .pipe(gulp.dest('img'))
 );
 
-// // Javascript minifying
-// gulp.task('minify', () =>
-//     gulp.src('js/*.js')
-//         .pipe(uglify())
-//         .pipe(gulp.dest('dist'))
-// );
 
-// // Combine and minify Javascript files
-// gulp.task('scripts', () =>
-//     gulp.src('js/*.js')
-//         .pipe(concat('main.js'))
-//         .pipe(uglify())
-//         .pipe(gulp.dest('dist/'))
-// );
-
+// Javascript minifying
+gulp.task('scripts', () => {
+    return gulp.src('src/js/*.js')
+        .pipe(minify({
+            ext:{
+                min:'.js'
+            },
+            noSource: true,
+        }))
+        .pipe(gulp.dest('js'))
+});
 
 // Pipe is chain something together
 /*
@@ -65,7 +61,9 @@ Returns scss file pipe it through sass and
 gulp.task('sass', function(){
     return gulp.src('src/scss/main.scss')
         .pipe(sass())
+        .pipe(cleanCSS())
         .pipe(gulp.dest('src/css'))
+        .pipe(browserSync.stream());
 });
 
 // Static server
@@ -75,12 +73,17 @@ gulp.task('server', function() {
             baseDir: "./src/"
         }
     });
+
+    gulp.watch("src/scss/*.scss", gulp.series('sass'));
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+    gulp.watch("src/js/*.js").on('change', browserSync.reload);
 });
 
+// Watch can be called here, but it is called when gulp browser sync is started
 gulp.task('watch', function(){
     // Watch all javascript files and if changes occure run scripts tasks
-    gulp.watch('src/img/*', gulp.series('image-min'));
-	gulp.watch('src/*.html', gulp.series('copyHtml'));
+    gulp.watch('src/scss/*', gulp.series('sass'));
+	//gulp.watch('src/*.html', gulp.series('copy-html'));
 });
 
-gulp.task('default', gulp.series('message', 'image-min', 'sass', 'copy-html', 'copy-js', 'copy-css'));
+gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'copy-html', 'copy-js', 'copy-css'));
