@@ -15,6 +15,9 @@ Vue.component("q-learning-tab", {
             agent: new QLearningAgent(new RewardMap(3, 4)),
             row: "3",
             column: "4",
+            epsilon: 0.5,
+            alpha: 0.5,
+            gamma: 0.7,
             movement: null,
             exploring: false,
         }
@@ -38,8 +41,8 @@ Vue.component("q-learning-tab", {
             return "tile";
         },
         explore: function() {
-            this.agent.move();
-            this.agent.updateQ();
+            this.agent.move(this.epsilon);
+            this.agent.updateQ(this.alpha, this.gamma);
             this.agent.state = this.agent.nextState;
 
             if (this.agent.state == "2x1" || this.agent.state == "2x2") {
