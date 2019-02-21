@@ -1,18 +1,23 @@
 $tile_color: rgb(214, 185, 147);
 $cliff_color: rgb(40, 40, 40);
 
+$robot_size: 96px;
+$trophy_size: 48px;
+
+$tile_size: 100px;
+
 /*
     Setup size of tile
 */
-@mixin tileSize($pixelSize) {
-    width: $pixelSize;
-    height: $pixelSize;
+@mixin tileSize() {
+    width: $tile_size;
+    height: $tile_size;
 }
 /*
     Setup image on tile
 */
-@mixin backgroundImage($image) {
-    $url: "../img/#{$image}.png";
+@mixin backgroundImage($image, $size) {
+    $url: "https://img.icons8.com/color/#{$size}/000000/#{$image}.png";
     background: url($url);
     background-repeat: no-repeat;
     background-position: center;
@@ -22,17 +27,20 @@ $cliff_color: rgb(40, 40, 40);
     Animation for robot falling down the hole.
 */
 @keyframes falling {
-    from { background-size: 100px 100px; }
+    from { background-size: $robot_size $robot_size; }
     to { background-size: 0px 0px; }
 }
 
 /*
     Animation for robot reaching the reward and jumping up and down.
+    Note: changin tile_size will break the animation below, adjust pixel values afterwards
 */
 @keyframes winning {
-    0%   { background-position: center 5px; }
-    50%  { background-position: center -5px; }
-    100%  { background-position: center 5px; }
+    $trophy_x_position: 56px;
+    $trophy_y_position: 36px;
+    0%   { background-position: $trophy_x_position $trophy_y_position, center 5px; }
+    50%  { background-position: $trophy_x_position $trophy_y_position - 10px, center -5px; }
+    100%  { background-position: $trophy_x_position $trophy_y_position, center 5px; }
 }
 
 /*
@@ -40,37 +48,37 @@ $cliff_color: rgb(40, 40, 40);
 */
 #qlearningMap{
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(3, 100px);;
+    grid-template-columns: repeat(4, $tile_size);
+    grid-template-rows: repeat(3, $tile_size);;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 }
 
 .tile{
-    @include tileSize(100px);
+    @include tileSize();
 
     background-color: $tile_color;
 }
 .tile--agent{
-    @include tileSize(100px);
-    @include backgroundImage("robot");
+    @include tileSize();
+    @include backgroundImage("robot-2", "#{$robot_size}");
 
     background-color: $tile_color;
 }
 .tile--cliff{
-    @include tileSize(100px);
+    @include tileSize();
 
     background-color: $cliff_color;
 }
 .tile--reward{
-    @include tileSize(100px);
-    @include backgroundImage("trophy");
+    @include tileSize();
+    @include backgroundImage("trophy", "#{$trophy_size}");
 
     background-color: $tile_color;
 }
 .tile--robot--falling{
-    @include tileSize(100px);
-    @include backgroundImage("robot");
+    @include tileSize();
+    @include backgroundImage("robot-2", "#{$robot_size}");
 
     background-color: $cliff_color;
 
@@ -80,8 +88,11 @@ $cliff_color: rgb(40, 40, 40);
     animation-fill-mode: forwards;
 }
 .tile--robot--winning{
-    @include tileSize(100px);
-    @include backgroundImage("robot-won");
+    @include tileSize();
+    $url_robot: "https://img.icons8.com/color/#{$robot_size}/000000/robot-2.png";
+    $url_trophy: "https://img.icons8.com/color/#{$trophy_size}/000000/trophy.png";
+    background: url($url_trophy), url($url_robot);
+    background-repeat: no-repeat, no-repeat;
 
     background-color: $tile_color;
     
