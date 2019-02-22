@@ -1,9 +1,11 @@
 "use strict"
 
 class RewardMap {
-    constructor(rows, columns) {
+    constructor(rows, columns, cliffs, reward) {
         this.rows = rows;
         this.columns = columns;
+        this.cliffs = cliffs;
+        this.reward = reward;
         this.matrix = {};
         this.generateRewards();
     }
@@ -14,9 +16,11 @@ class RewardMap {
                 this.matrix[key] = -1;
             }
         }
-        this.matrix["2x1"] = -100;
-        this.matrix["2x2"] = -100;
-        this.matrix["2x3"] = 100;
+        for(var cliff of this.cliffs){
+            this.matrix[cliff] = -100;
+        }
+        this.matrix[this.reward] = 100;
+        console.log(this.matrix);
     }
 }
 
@@ -38,10 +42,10 @@ class QMatrix {
 }
 
 class QLearningAgent {
-    constructor(map) {
+    constructor(map, initialPosition) {
         this.map = map;
         this.qMatrix = new QMatrix(map.rows, map.columns);
-        this.initialPosition = "2x0";
+        this.initialPosition = initialPosition;
         this.state = this.initialPosition;
         this.nextState = null;
         this.action = null;

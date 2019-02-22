@@ -5,16 +5,19 @@ Vue.component("q-learning-tab", {
 				<button @click="episode" type="button">Explore</button>
 				<div id="qlearningMap">
 				<template v-for="i in stringToNum(row)">
-				<div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)" v-for="j in stringToNum(column)">
+				<div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
 				</div>
 				</template>
 			    </div>
 				</div>`,
     data: function() {
         return {
-            agent: new QLearningAgent(new RewardMap(3, 4)),
+            cliffs: ["2x1", "2x2", "1x1"],
+            reward: "2x3",
+            start: "2x0",
             row: "3",
             column: "4",
+            agent: new QLearningAgent(new RewardMap(3, 4, ["2x1", "2x2", "1x1"], "2x3"), "2x0"),
             epsilon: 0.5,
             alpha: 0.5,
             gamma: 0.7,
@@ -45,13 +48,13 @@ Vue.component("q-learning-tab", {
             this.agent.updateQ(this.alpha, this.gamma);
             this.agent.state = this.agent.nextState;
 
-            if (this.agent.state == "2x1" || this.agent.state == "2x2") {
+            if (this.cliffs.includes(this.agent.state)) {
                 //agent.state = agent.initialPosition;
                 console.log("AAAAWWWWW")
                 clearInterval(this.movement);
                 this.exploring = false;
             }
-            if (this.agent.state == "2x3"){
+            if (this.agent.state == this.reward){
                 clearInterval(this.movement);
                 this.exploring = false;
             }
