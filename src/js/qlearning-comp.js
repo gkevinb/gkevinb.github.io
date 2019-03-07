@@ -2,7 +2,13 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 
 Vue.component("q-learning-tab", {
     template: `<div id="outer">
-				<button @click="episode" type="button">Explore</button>
+                <button @click="episode" type="button">Explore</button>
+                <p>Epsilon: {{ epsilon }}</p>
+                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
+                <p>Alpha: {{ alpha }}</p>
+                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
+                <p>Gamma: {{ gamma }}</p>
+                <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
 				<div id="qlearningMap">
 				<template v-for="i in stringToNum(row)">
 				<div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
@@ -12,12 +18,12 @@ Vue.component("q-learning-tab", {
 				</div>`,
     data: function() {
         return {
-            cliffs: ["2x1", "2x2", "1x1"],
+            cliffs: ["2x1", "2x2"],
             reward: "2x3",
             start: "2x0",
             row: "3",
             column: "4",
-            agent: new QLearningAgent(new RewardMap(3, 4, ["2x1", "2x2", "1x1"], "2x3"), "2x0"),
+            agent: new QLearningAgent(new RewardMap(3, 4, ["2x1", "2x2"], "2x3"), "2x0"),
             epsilon: 0.5,
             alpha: 0.5,
             gamma: 0.7,
