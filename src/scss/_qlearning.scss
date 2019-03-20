@@ -4,7 +4,12 @@ $cliff_color: rgb(40, 40, 40);
 $robot_size: 96px;
 $trophy_size: 48px;
 
+/* If tile size is changed here also change it in qlearning-comp.js */
 $tile_size: 100px;
+
+/* Initial row and column values, however this will change in qlearning-comp.js */
+$rows: 4;
+$columns: 5;
 
 /*
     Setup size of tile
@@ -48,10 +53,10 @@ $tile_size: 100px;
 */
 #qlearningMap{
     display: grid;
-    grid-template-columns: repeat(4, $tile_size);
-    grid-template-rows: repeat(3, $tile_size);;
-    grid-column-gap: 5px;
+    grid-template-rows: repeat($rows, $tile_size);
+    grid-template-columns: repeat($columns, $tile_size);
     grid-row-gap: 5px;
+    grid-column-gap: 5px;
 }
 
 .tile{

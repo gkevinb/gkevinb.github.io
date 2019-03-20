@@ -2,7 +2,7 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 
 Vue.component("q-learning-tab", {
     template: `<div id="outer">
-                <button @click="episode" type="button">Explore</button>
+                <button @click="explore" type="button">Explore</button>
                 <p>Epsilon: {{ epsilon }}</p>
                 <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
                 <p>Alpha: {{ alpha }}</p>
@@ -18,18 +18,33 @@ Vue.component("q-learning-tab", {
 				</div>`,
     data: function() {
         return {
-            cliffs: ["2x1", "2x2"],
+            /* Map values */
+            cliffs: ["2x1", "2x2", "1x2"],
             reward: "2x3",
             start: "2x0",
-            row: "3",
-            column: "4",
-            agent: new QLearningAgent(new RewardMap(3, 4, ["2x1", "2x2"], "2x3"), "2x0"),
+            row: "4",
+            column: "6",
+            /* q-learning variable values */
             epsilon: 0.5,
             alpha: 0.5,
             gamma: 0.7,
+            /* agent moving values */
+            agent: null,
             movement: null,
             exploring: false,
         }
+    },
+    /* created(): since the processing of the options is finished you have access to reactive
+    data properties and change them if you want. At this stage DOM has not been mounted or added yet.
+    So you cannot do any DOM manipulation here. Typically used for data fetching */
+    created(){
+        this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
+    },
+    /* mounted(): called after the DOM has been mounted or rendered. Here you have access to the
+     DOM elements and DOM manipulation can be performed for example get the innerHTML: */
+    mounted() {
+        document.getElementById("qlearningMap").style.gridTemplateRows = "repeat(" + this.rows + ", 100px)";
+        document.getElementById("qlearningMap").style.gridTemplateColumns = "repeat(" + this.column + ", 100px)";
     },
     methods: {
         stringToNum: function(string) {
@@ -49,13 +64,12 @@ Vue.component("q-learning-tab", {
             if(reward == -100) return "tile--cliff";
             return "tile";
         },
-        explore: function() {
+        move: function() {
             this.agent.move(this.epsilon);
             this.agent.updateQ(this.alpha, this.gamma);
             this.agent.state = this.agent.nextState;
 
             if (this.cliffs.includes(this.agent.state)) {
-                //agent.state = agent.initialPosition;
                 console.log("AAAAWWWWW")
                 clearInterval(this.movement);
                 this.exploring = false;
@@ -65,10 +79,10 @@ Vue.component("q-learning-tab", {
                 this.exploring = false;
             }
         },
-        episode: function() {
+        explore: function() {
             if(this.exploring == false){
                 this.agent.state = this.agent.initialPosition;
-                this.movement = setInterval(this.explore, 200);
+                this.movement = setInterval(this.move, 200);
                 this.exploring = true;
             }
         }
