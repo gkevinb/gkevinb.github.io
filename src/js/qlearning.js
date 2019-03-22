@@ -110,6 +110,10 @@ class QLearningAgent {
         }
         return neighborhood;
     }
+    /*
+        0    1    2    3
+        UP RIGHT DOWN LEFT
+    */
     directionMapping(direction) {
         if (direction == "UP") return 0;
         if (direction == "RIGHT") return 1;
@@ -128,8 +132,8 @@ class QLearningAgent {
 
     epsilonGreedy(epsilon) {
         var allowedDirections = this.getAllowedDirections(this.state);
-        console.log(allowedDirections);
-        console.log("Epsilon Greedy");
+        // console.log(allowedDirections);
+        // console.log("Epsilon Greedy");
 
         // Choose at random
         if (Math.random() < epsilon) {
@@ -146,8 +150,8 @@ class QLearningAgent {
 
                 rewards[neighbor] = this.qMatrix.matrix[this.state][this.directionMapping(direction)];
             }
-            console.log("HIII");
-            console.log(rewards);
+            // console.log("HIII");
+            // console.log(rewards);
             
             // Find maximum q-value
             var maxQValue = Math.max.apply(Math, Object.values(rewards));
@@ -157,37 +161,37 @@ class QLearningAgent {
             var choosenNextState = rewardsWithMaxQValue[Math.floor((Math.random() * rewardsWithMaxQValue.length))][0];
             var index = Object.keys(rewards).indexOf(choosenNextState);
 
-            console.log("Choosen next state: " + choosenNextState);
-            console.log(index);
+            // console.log("Choosen next state: " + choosenNextState);
+            // console.log(index);
 
-            console.log(allowedDirections[index]);
+            // console.log(allowedDirections[index]);
 
             return allowedDirections[index];
         }
     }
     move(epsilon) {
         var choosenDirection = this.epsilonGreedy(epsilon);
-        console.log("Let's go " + choosenDirection);
+        // console.log("Let's go " + choosenDirection);
         this.action = this.directionMapping(choosenDirection);
-        console.log(this.getNextState(choosenDirection));
+        // console.log(this.getNextState(choosenDirection));
         this.nextState = this.getNextState(choosenDirection);
-        console.log(this.nextState);
+        // console.log(this.nextState);
     }
 
     findQMax(state) {
         var neighbors = this.getNeighborhood(state);
-        console.log(neighbors)
-        console.log(this.qMatrix.matrix[state])
+        // console.log(neighbors)
+        // console.log(this.qMatrix.matrix[state])
         return Math.max(...this.qMatrix.matrix[state]);
     }
 
     updateQ(alpha, gamma) {
-        console.log(this.qMatrix.matrix[this.state][this.action]);
+        // console.log(this.qMatrix.matrix[this.state][this.action]);
         this.qMatrix.matrix[this.state][this.action] = this.qMatrix.matrix[this.state][this.action] +
             alpha * (this.map.matrix[this.nextState] + gamma * this.findQMax(this.nextState) -
                 this.qMatrix.matrix[this.state][this.action]);
-        console.log("NEW q value");
-        console.log(this.qMatrix.matrix[this.state][this.action]);
+        // console.log("NEW q value");
+        // console.log(this.qMatrix.matrix[this.state][this.action]);
     }
 }
 

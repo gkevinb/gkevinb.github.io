@@ -3,6 +3,7 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 Vue.component("q-learning-tab", {
     template: `<div id="outer">
                 <button @click="explore" type="button">Explore</button>
+                <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
                 <p>Epsilon: {{ epsilon }}</p>
                 <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
                 <p>Alpha: {{ alpha }}</p>
@@ -11,7 +12,11 @@ Vue.component("q-learning-tab", {
                 <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
 				<div id="qlearningMap">
 				<template v-for="i in stringToNum(row)">
-				<div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
+                <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
+                <div v-if="showQValues" class="UP"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
+                <div v-if="showQValues" class="LEFT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
+                <div v-if="showQValues" class="RIGHT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
+                <div v-if="showQValues" class="DOWN"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
 				</div>
 				</template>
 			    </div>
@@ -24,6 +29,7 @@ Vue.component("q-learning-tab", {
             start: "2x0",
             row: "4",
             column: "6",
+            showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,
             alpha: 0.5,
@@ -37,7 +43,7 @@ Vue.component("q-learning-tab", {
     /* created(): since the processing of the options is finished you have access to reactive
     data properties and change them if you want. At this stage DOM has not been mounted or added yet.
     So you cannot do any DOM manipulation here. Typically used for data fetching */
-    created(){
+    created() {
         this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
     },
     /* mounted(): called after the DOM has been mounted or rendered. Here you have access to the
@@ -50,6 +56,12 @@ Vue.component("q-learning-tab", {
         stringToNum: function(string) {
             return parseInt(string, 10);
         },
+        formatValue: function(number) {
+            if(number != 0)
+                return number.toString().substring(0, 6);
+            else
+                return "";
+        },
         matrixId: function(i, j) {
             return i.toString() + "x" + j.toString();
         },
@@ -57,11 +69,12 @@ Vue.component("q-learning-tab", {
             var id = this.matrixId(i, j);
             var reward = this.agent.map.matrix[id];
             
-            if(reward == -100 && id == this.agent.state) return "tile--robot--falling";
-            if(reward == 100 && id == this.agent.state) return "tile--robot--winning";
-            if(id == this.agent.state) return "tile--agent";
-            if(reward == 100) return "tile--reward";
-            if(reward == -100) return "tile--cliff";
+            if (reward == -100 && id == this.agent.state) return "tile--robot--falling";
+            if (reward == 100 && id == this.agent.state) return "tile--robot--winning";
+            if (id == this.agent.state) return "tile--agent";
+            if (reward == 100) return "tile--reward";
+            if (reward == -100) return "tile--cliff";
+            
             return "tile";
         },
         move: function() {
