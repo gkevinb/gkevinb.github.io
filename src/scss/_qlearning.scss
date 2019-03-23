@@ -20,7 +20,7 @@ $columns: 5;
 
 @mixin qValue() {
     font-size: $font_size;
-    color: rgba(255, 255, 255, 0.459);
+    color: rgba(255, 255, 255, 0.46);
 }
 
 .HORIZONTAL{
@@ -64,7 +64,6 @@ $columns: 5;
 }
 .DOWN{
     @extend .VERTICAL;
-
     position: relative;
 
     div {

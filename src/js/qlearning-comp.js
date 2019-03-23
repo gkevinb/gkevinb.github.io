@@ -10,7 +10,7 @@ Vue.component("q-learning-tab", {
                 <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
                 <p>Gamma: {{ gamma }}</p>
                 <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
-				<div id="qlearningMap">
+				<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
 				<template v-for="i in stringToNum(row)">
                 <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
                 <div v-if="showQValues" class="UP"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
@@ -27,7 +27,7 @@ Vue.component("q-learning-tab", {
             cliffs: ["2x1", "2x2", "1x2"],
             reward: "2x3",
             start: "2x0",
-            row: "4",
+            row: "3",
             column: "6",
             showQValues: true,
             /* q-learning variable values */
@@ -42,17 +42,19 @@ Vue.component("q-learning-tab", {
     },
     /* created(): since the processing of the options is finished you have access to reactive
     data properties and change them if you want. At this stage DOM has not been mounted or added yet.
-    So you cannot do any DOM manipulation here. Typically used for data fetching */
+    So you cannot do any DOM manipulation here. Typically used for data fetching
+    */
     created() {
         this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
     },
-    /* mounted(): called after the DOM has been mounted or rendered. Here you have access to the
-     DOM elements and DOM manipulation can be performed for example get the innerHTML: */
-    mounted() {
-        document.getElementById("qlearningMap").style.gridTemplateRows = "repeat(" + this.rows + ", 100px)";
-        document.getElementById("qlearningMap").style.gridTemplateColumns = "repeat(" + this.column + ", 100px)";
-    },
     methods: {
+        gridStyling: function(row, column) {
+            return {
+                /* Note: 100px is the value for tile size in _qlearning.scss */
+                gridTemplateRows: 'repeat(' + row + ', 100px)',
+                gridTemplateColumns: 'repeat(' + column + ', 100px)'
+            };
+        },
         stringToNum: function(string) {
             return parseInt(string, 10);
         },
