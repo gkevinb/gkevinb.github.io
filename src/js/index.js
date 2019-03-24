@@ -24,7 +24,8 @@ Vue.component("home-tab", {
     }
 })
 
-Vue.component("about-tab", {
+
+Vue.component("genmap-tab", {
     template: `
 	<div id="genmap">
 	<input type="number" v-model="row"></input>
@@ -58,6 +59,9 @@ Vue.component("about-tab", {
         }
     },
 })
+
+
+
 Vue.component("projects-tab", {
     template: `<div id="tod">
 				<ul>

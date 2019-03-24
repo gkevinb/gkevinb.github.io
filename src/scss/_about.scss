@@ -1,0 +1,39 @@
+$bg-color: #F3F3F3;
+$font-color: rgb(92, 92, 92);
+
+
+#experiences_container{
+    float: left;
+}
+
+#education_container{
+    float: left;
+}
+
+.experience{
+    background-color: $bg-color;
+    font-family: 'Thasadith', sans-serif;
+    width: 440px;
+    height: 120px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: $font-color;
+
+    .title{
+        font-size: 34px;
+        margin: 10px;
+    }
+    .institution{
+        margin: 10px;
+    }
+    .time_period{
+        float: left;
+        margin: 10px;
+    }
+    .city{
+        float: left;
+        margin: 10px;
+    }
+}
