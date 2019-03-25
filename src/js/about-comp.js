@@ -26,7 +26,7 @@ Vue.component("about-tab", {
                 {   id: 1,
                     title: 'IT Consultant',
                     company: '🏢Netcompany',
-                    timePeriod: '🗓Mar 2019 - ongoing',
+                    timePeriod: '🗓Mar 2019 - Present',
                     city: '🏙Copenhagen'
                 },
                 { 

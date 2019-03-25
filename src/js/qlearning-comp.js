@@ -1,26 +1,27 @@
 import { RewardMap, QLearningAgent } from './qlearning.js';
 
 Vue.component("q-learning-tab", {
-    template: `<div id="outer">
-                <button @click="explore" type="button">Explore</button>
-                <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
-                <p>Epsilon: {{ epsilon }}</p>
-                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
-                <p>Alpha: {{ alpha }}</p>
-                <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
-                <p>Gamma: {{ gamma }}</p>
-                <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
-				<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
-				<template v-for="i in stringToNum(row)">
-                <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
-                <div v-if="showQValues" class="UP"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
-                <div v-if="showQValues" class="LEFT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
-                <div v-if="showQValues" class="RIGHT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
-                <div v-if="showQValues" class="DOWN"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
-				</div>
-				</template>
-			    </div>
-				</div>`,
+    template: `
+    <div id="outer">
+    <button @click="explore" type="button">Explore</button>
+    <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
+    <p>Epsilon: {{ epsilon }}</p>
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
+    <p>Alpha: {{ alpha }}</p>
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
+    <p>Gamma: {{ gamma }}</p>
+    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
+	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
+    <template v-for="i in stringToNum(row)">
+    <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
+    <div v-if="showQValues" class="UP"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
+    <div v-if="showQValues" class="LEFT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
+    <div v-if="showQValues" class="RIGHT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
+    <div v-if="showQValues" class="DOWN"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
+	</div>
+	</template>
+	</div>
+	</div>`,
     data: function() {
         return {
             /* Map values */

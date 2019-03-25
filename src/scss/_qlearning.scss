@@ -125,7 +125,6 @@ $columns: 5;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
 }
-
 .tile{
     @include tileSize();
 

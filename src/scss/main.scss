@@ -1,4 +1,14 @@
+/* CSS Reset */
 @import "reset";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Thasadith');
+
+/* Layout styling */
 @import "styles";
+
+/* Component styling */
 @import "qlearning";
 @import "about";
