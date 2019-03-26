@@ -1,17 +1,75 @@
-$bg-color: #F3F3F3;
-$font-color: rgb(92, 92, 92);
+$bg_color: #F3F3F3;
+$font_color: rgb(92, 92, 92);
 
+$netcompany_blue: #122144;
+$codeum_red: #D12D26;
+$buildcode_green: #7FBC64;
+$thyssenkrupp_blue: #42A0E9;
+$sdu_blue: #354B7F;
+$bme_red: #9B3535;
 
-#experiences_container{
-    float: left;
+$bubble_size: 60px;
+
+h2{
+    font-size: 46px;
+    margin-left: -320px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
 }
 
-#education_container{
-    float: left;
+#timeline{
+    width: 10px;
+    height: 1500px;
+    background-color: gray;
+    position: absolute;
+    z-index: -10;
+    left: 265px;
 }
 
-.experience{
-    background-color: $bg-color;
+// #experiences_container{
+//     float: left;
+// }
+
+// #education_container{
+//     float: left;
+// }
+
+.experience_container{
+    width: 600px;
+    height: 200px;
+}
+
+.bubble{
+    margin-top: 45px;
+    margin-right: 20px;
+    width: $bubble_size;
+    height: $bubble_size;
+    border-radius: 100px;
+    background-color: black;
+    float: left;
+}
+#netcompany{
+    background-color: $netcompany_blue; 
+}
+#codeum{
+    background-color: $codeum_red; 
+}
+#buildcode{
+    background-color: $buildcode_green; 
+}
+#sdu{
+    background-color: $sdu_blue; 
+}
+#thyssenkrupp{
+    background-color: $thyssenkrupp_blue; 
+}
+#bme{
+    background-color: $bme_red; 
+}
+
+.experience_card{
+    background-color: $bg_color;
     font-family: 'Thasadith', sans-serif;
     width: 440px;
     height: 120px;
@@ -19,7 +77,9 @@ $font-color: rgb(92, 92, 92);
     margin: 10px;
     font-size: 16px;
     letter-spacing: 1px;
-    color: $font-color;
+    color: $font_color;
+    box-shadow: 0px 8px 15px rgb(160, 160, 160);
+    float: left;
 
     .title{
         font-size: 34px;
