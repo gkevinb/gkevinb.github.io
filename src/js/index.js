@@ -128,9 +128,9 @@ var app = new Vue({
             name: "About"
         },
         {
-            name: "Projects",
+            name: "Q-Learning",
             subtabs: [{
-                name: "Q-Learning"
+                name: "proj"
             }]
         },
         {

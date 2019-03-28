@@ -3,21 +3,21 @@ $bg_color: #2c3e50;
 $text_color: white;
 
 
-.container {
+.container_custom {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 1fr;
     grid-template-rows: 140px 600px auto;
     grid-row-gap: 20px;
-    grid-template-areas: ". h n ."
+    grid-template-areas: ". n n ."
                          ". c c ."
                          ". . . .";
 }
 
 .header {
-    grid-area: h;
-    border-bottom: 10px solid black;
-    margin-top: 74px;
+    // grid-area: h;
+    // border-bottom: 10px solid black;
+    // margin-top: 74px;
     h1 {
         color: $bg_color;
         font-family: 'ZCOOL KuaiLe', cursive;
@@ -25,24 +25,16 @@ $text_color: white;
     }
 }
 
-.content {
-    grid-area: c;
-}
+// .content {
+//     grid-area: c;
+// }
 
 .navigation {
-    grid-area: n;
     border-bottom: 10px solid black;
     font-family: 'Sawarabi Gothic';
 
-    .nav-menu {
-        margin-top: 100px;
-        margin-bottom: 10px;
-        float: right;
-    }
     .nav-item {
-        display: inline;
         font-size: 20px;
-        padding: 6px;
     }
     .nav-item:hover {
         background: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
@@ -85,9 +77,9 @@ $text_color: white;
     position: relative;
     overflow: hidden;
     img {
-        position: absolute;
-        left: 0;
-        top: 0;
+        // position: absolute;
+        // left: 0;
+        // top: 0;
         width: 100%;
         height: auto;
         z-index: 1;
