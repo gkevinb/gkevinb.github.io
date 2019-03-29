@@ -1,13 +1,3 @@
-Vue.component("my-comp", {
-    props: ["todo"],
-    template: "<li>{{ todo.text }}</li>"
-})
-
-Vue.component("animal", {
-    props: ["name", "foo"],
-    template: '<p v-html="foo"></p>'
-})
-
 Vue.component("home-tab", {
     name: "home-tab",
     template: `<div :id="name">
@@ -23,6 +13,58 @@ Vue.component("home-tab", {
         }
     }
 })
+
+var app = new Vue({
+    el: "#app",
+    data: {
+        currentTab: "Home",
+        tabs: [
+            {
+                name: "Home"
+            },
+            {
+                name: "About"
+            },
+            {
+                name: "Projects",
+                subtabs: [
+                    {
+                        name: "Q-Learning"
+                    },
+                    {   
+                        name: "Machines"
+                    }    
+                ]
+            },
+            {
+                name: "Blog"
+            }]
+    },
+    computed: {
+        getCurrentTab: function () {
+            return this.currentTab.toLowerCase() + "-tab"
+        }
+    },
+    methods: {
+        dropDownMenu: function (tab) {
+            console.log(tab);
+            return tab.subtabs ? 'dropdown' : '';
+        }
+    }
+});
+
+
+Vue.component("my-comp", {
+    props: ["todo"],
+    template: "<li>{{ todo.text }}</li>"
+})
+
+Vue.component("animal", {
+    props: ["name", "foo"],
+    template: '<p v-html="foo"></p>'
+})
+
+
 
 
 Vue.component("genmap-tab", {
@@ -116,30 +158,3 @@ Vue.component("projects-tab", {
     }
 })
 
-
-var app = new Vue({
-    el: "#app",
-    data: {
-        currentTab: "Home",
-        tabs: [{
-            name: "Home"
-        },
-        {
-            name: "About"
-        },
-        {
-            name: "Q-Learning",
-            subtabs: [{
-                name: "proj"
-            }]
-        },
-        {
-            name: "Blog"
-        }]
-    },
-    computed: {
-        getCurrentTab: function () {
-            return this.currentTab.toLowerCase() + "-tab"
-        }
-    }
-})

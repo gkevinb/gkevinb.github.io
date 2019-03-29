@@ -15,28 +15,31 @@
 <body>
 	<div id="app" class="container">
 
-		<div class="navbar navbar-light navbar-expand-lg navigation">
+		<div class="navbar navbar-expand-lg navigation">
 			<div class="navbar-brand header">
 				<h1>Gabor Kevin Barta</h1>
 			</div>
 			<button class="navbar-toggler" data-toggle="collapse" data-target="#colapser">
-				<span class="navbar-toggler-icon"></span>
+				<div class="nav-burger">
+					<div class="nav-burger-meat"></div>
+				</div>
 			</button>
 			<div class="collapse navbar-collapse" id="colapser">
 				<ul class="navbar-nav ml-auto nav-menu">
-					<li v-for="tab in tabs" class="navbar-item nav-item" :id="tab.name" @click="currentTab = tab.name">
-						<span class="nav-link">{{ tab.name }}</span>
-						<!-- <ul v-if="tab.subtabs != null" class="sub-menu">
-							<ul v-for="subtab in tab.subtabs" class="submenu-item" :id="subtab.name" @click.stop="currentTab = subtab.name">
+					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name" @click="currentTab = tab.name">
+						<span v-if="tab.subtabs" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab.name }}</span>
+						<span v-else class="nav-link">{{ tab.name }}</span>
+						<ul v-if="tab.subtabs != null" class="dropdown-menu">
+							<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name" @click.stop="currentTab = subtab.name">
 								{{ subtab.name }}
-							</ul>
-						</ul> -->
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="content" v-bind:is="getCurrentTab">
+		<div class="content" :is="getCurrentTab">
 
 		</div>
 
