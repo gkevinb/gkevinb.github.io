@@ -1,0 +1,111 @@
+$bg_color: #F3F3F3;
+$font_color: rgb(92, 92, 92);
+
+$netcompany_blue: #122144;
+$codeum_red: #D12D26;
+$buildcode_green: #7FBC64;
+$thyssenkrupp_blue: #42A0E9;
+$sdu_blue: #354B7F;
+$bme_red: #9B3535;
+
+$bubble_size: 60px;
+
+h2{
+    font-size: 46px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Thasadith', sans-serif;
+}
+
+#timeline{
+    width: 10px;
+    height: 1500px;
+    background-color: gray;
+    position: absolute;
+    z-index: -10;
+    left: 190px;
+    @include media-breakpoint-down(sm){
+        display: none;
+    }
+}
+
+.experience_container{
+    width: 600px;
+    /* Makes sure height matches content height */
+    display: block;
+    overflow: auto;
+
+    @include media-breakpoint-down(sm){
+        width: 100%;
+    }
+}
+
+.bubble{
+    margin-top: 45px;
+    margin-right: 20px;
+    width: $bubble_size;
+    height: $bubble_size;
+    border-radius: 100px;
+    background-color: black;
+    float: left;
+    @include media-breakpoint-down(sm){
+        display: none;
+    }
+}
+#netcompany{
+    background-color: $netcompany_blue; 
+}
+#codeum{
+    background-color: $codeum_red; 
+}
+#buildcode{
+    background-color: $buildcode_green; 
+}
+#sdu{
+    background-color: $sdu_blue; 
+}
+#thyssenkrupp{
+    background-color: $thyssenkrupp_blue; 
+}
+#bme{
+    background-color: $bme_red; 
+}
+
+.experience_card{
+    background-color: $bg_color;
+    font-family: 'Thasadith', sans-serif;
+    width: 480px;
+    /* Makes sure height matches content height */
+    display: block;
+    overflow: auto;
+
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: $font_color;
+    box-shadow: 0px 8px 15px rgb(97, 97, 97);
+    float: left;
+
+    @include media-breakpoint-down(sm){
+        width: 84%;
+        box-sizing: border-box;
+        margin: 8%;
+    }
+    
+    .title{
+        font-size: 34px;
+        margin: 10px;
+    }
+    .institution{
+        margin: 10px;
+    }
+    .time_period{
+        float: left;
+        margin: 10px;
+    }
+    .city{
+        float: left;
+        margin: 10px;
+    }
+}

@@ -1,3 +1,22 @@
+/* CSS Reset */
 @import "reset";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Thasadith');
+
+
+/* Bootstrap components */
+// @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+
+/* Layout styling */
 @import "styles";
+
+/* Component styling */
 @import "qlearning";
+@import "about";

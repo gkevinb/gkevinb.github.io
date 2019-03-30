@@ -7,9 +7,76 @@ $trophy_size: 48px;
 /* If tile size is changed here also change it in qlearning-comp.js */
 $tile_size: 100px;
 
-/* Initial row and column values, however this will change in qlearning-comp.js */
+/* Q Matrix values on map*/
+$font_size: 14px;
+$padding_size: 3px;
+
+/* Initial row and column values, however this will change due to qlearning-comp.js */
 $rows: 4;
 $columns: 5;
+
+
+/* =============== Q MATRIX VALUES ON MAP STYLING ===================*/
+
+@mixin qValue() {
+    font-size: $font_size;
+    color: rgba(255, 255, 255, 0.46);
+}
+
+.HORIZONTAL{
+    width: $tile_size / 2;
+    height: $tile_size / 2;
+    float: left;
+}
+.VERTICAL{
+    width: $tile_size;
+    height: $tile_size / 4;
+    float: left;
+}
+
+.UP{
+    @extend .VERTICAL;
+    text-align: center;
+
+    div {
+        @include qValue();
+        padding-top: $padding_size;
+    }
+}
+.LEFT{
+    @extend .HORIZONTAL;
+
+    div {
+        @include qValue();
+        line-height: $tile_size / 2;
+        padding-left: $padding_size;
+    }
+}
+.RIGHT{
+    @extend .HORIZONTAL;
+
+    div {
+        @include qValue();
+        float: right;
+        line-height: $tile_size / 2;
+        padding-right: $padding_size;
+    }
+}
+.DOWN{
+    @extend .VERTICAL;
+    position: relative;
+
+    div {
+        @include qValue();
+        padding-bottom: $padding_size;
+        width: $tile_size;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+}
+
+/* =============== TILE STYLING ===================*/
 
 /*
     Setup size of tile
@@ -32,8 +99,12 @@ $columns: 5;
     Animation for robot falling down the hole.
 */
 @keyframes falling {
-    from { background-size: $robot_size $robot_size; }
-    to { background-size: 0px 0px; }
+    0% { background-size: 100% 100%; }
+    100% { background-size: 1% 1%; }
+}
+@keyframes fallixng {
+    0% { background-color: blue; }
+    100% { background-color: red; }
 }
 
 /*
@@ -58,7 +129,6 @@ $columns: 5;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
 }
-
 .tile{
     @include tileSize();
 
@@ -89,8 +159,14 @@ $columns: 5;
 
     /* Robot falling animation */
     animation-name: falling;
+    // animation-delay: 1s;
     animation-duration: 2.0s;
     animation-fill-mode: forwards;
+    // -webkit-animation-name: falling;
+    // -webkit-animation-duration: 2.0s;
+    // -webkit-animation-fill-mode: forwards;
+    // animation-iteration-count: infinite;
+    // animation-timing-function: ease-out;
 }
 .tile--robot--winning{
     @include tileSize();

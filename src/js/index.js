@@ -1,17 +1,7 @@
-Vue.component("my-comp", {
-    props: ["todo"],
-    template: "<li>{{ todo.text }}</li>"
-})
-
-Vue.component("animal", {
-    props: ["name", "foo"],
-    template: '<p v-html="foo"></p>'
-})
-
 Vue.component("home-tab", {
     name: "home-tab",
     template: `<div :id="name">
-                <img src="img/background.jpeg" />
+                <img id="bg_image" src="img/background.jpeg" />
 			   </div>`,
     data: function () {
         return {
@@ -24,7 +14,59 @@ Vue.component("home-tab", {
     }
 })
 
-Vue.component("about-tab", {
+var app = new Vue({
+    el: "#app",
+    data: {
+        currentTab: "Home",
+        tabs: [
+            {
+                name: "Home"
+            },
+            {
+                name: "About"
+            },
+            {
+                name: "Projects",
+                subtabs: [
+                    {
+                        name: "Q-Learning"
+                    },
+                    {   
+                        name: "Machines"
+                    }    
+                ]
+            },
+            {
+                name: "Blog"
+            }]
+    },
+    computed: {
+        getCurrentTab: function () {
+            return this.currentTab.toLowerCase() + "-tab"
+        }
+    },
+    methods: {
+        dropDownMenu: function (tab) {
+            return tab.subtabs ? 'dropdown' : '';
+        }
+    }
+});
+
+
+Vue.component("my-comp", {
+    props: ["todo"],
+    template: "<li>{{ todo.text }}</li>"
+})
+
+Vue.component("animal", {
+    props: ["name", "foo"],
+    template: '<p v-html="foo"></p>'
+})
+
+
+
+
+Vue.component("genmap-tab", {
     template: `
 	<div id="genmap">
 	<input type="number" v-model="row"></input>
@@ -58,6 +100,9 @@ Vue.component("about-tab", {
         }
     },
 })
+
+
+
 Vue.component("projects-tab", {
     template: `<div id="tod">
 				<ul>
@@ -112,30 +157,3 @@ Vue.component("projects-tab", {
     }
 })
 
-
-var app = new Vue({
-    el: "#app",
-    data: {
-        currentTab: "Home",
-        tabs: [{
-            name: "Home"
-        },
-        {
-            name: "About"
-        },
-        {
-            name: "Projects",
-            subtabs: [{
-                name: "Q-Learning"
-            }]
-        },
-        {
-            name: "Blog"
-        }]
-    },
-    computed: {
-        getCurrentTab: function () {
-            return this.currentTab.toLowerCase() + "-tab"
-        }
-    }
-})

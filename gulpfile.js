@@ -3,6 +3,7 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const minify = require('gulp-minify');
+const inject = require('gulp-inject');
 const browserSync = require('browser-sync').create();
 
 /*
@@ -56,7 +57,7 @@ gulp.task('scripts', () => {
 
 // Pipe is chain something together
 /*
-Returns scss file pipe it through sass and
+Returns SCSS file pipe it through sass and
 */
 gulp.task('sass', function(){
     return gulp.src('src/scss/main.scss')
@@ -66,6 +67,18 @@ gulp.task('sass', function(){
         .pipe(browserSync.stream());
 });
 
+/*
+Inject CSS into HTML
+Later also inject Javascript
+*/
+gulp.task('inject-index', function () {
+    var target = gulp.src('src/index.html');
+    // It's not necessary to read the files (will speed up things), we're only after their paths:
+    var sources = gulp.src(['src/css/*.css'], {read: false});
+   
+    return target.pipe(inject(sources));
+  });
+
 // Static server
 gulp.task('server', function() {
     browserSync.init({
@@ -73,17 +86,19 @@ gulp.task('server', function() {
             baseDir: "./src/"
         }
     });
-
+    
+    // Make broswer sync on change in SASS and CSS
     gulp.watch("src/scss/*.scss", gulp.series('sass'));
+    gulp.watch("src/*.html", gulp.series('inject-index'));
     gulp.watch("src/*.html").on('change', browserSync.reload);
     gulp.watch("src/js/*.js").on('change', browserSync.reload);
 });
 
-// Watch can be called here, but it is called when gulp browser sync is started
+// Watch can be called here separately, but it is called when gulp browser sync is started
 gulp.task('watch', function(){
     // Watch all javascript files and if changes occure run scripts tasks
     gulp.watch('src/scss/*', gulp.series('sass'));
 	//gulp.watch('src/*.html', gulp.series('copy-html'));
 });
 
-gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'copy-html', 'copy-css'));
+gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'inject-index', 'copy-html', 'copy-css'));
