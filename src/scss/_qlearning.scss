@@ -99,8 +99,12 @@ $columns: 5;
     Animation for robot falling down the hole.
 */
 @keyframes falling {
-    from { background-size: $robot_size $robot_size; }
-    to { background-size: 0px 0px; }
+    0% { background-size: 100% 100%; }
+    100% { background-size: 1% 1%; }
+}
+@keyframes fallixng {
+    0% { background-color: blue; }
+    100% { background-color: red; }
 }
 
 /*
@@ -155,8 +159,14 @@ $columns: 5;
 
     /* Robot falling animation */
     animation-name: falling;
+    // animation-delay: 1s;
     animation-duration: 2.0s;
     animation-fill-mode: forwards;
+    // -webkit-animation-name: falling;
+    // -webkit-animation-duration: 2.0s;
+    // -webkit-animation-fill-mode: forwards;
+    // animation-iteration-count: infinite;
+    // animation-timing-function: ease-out;
 }
 .tile--robot--winning{
     @include tileSize();

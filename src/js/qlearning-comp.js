@@ -38,7 +38,7 @@ Vue.component("q-learning-tab", {
             /* agent moving values */
             agent: null,
             movement: null,
-            exploring: false,
+            exploring: false
         }
     },
     /* created(): since the processing of the options is finished you have access to reactive
@@ -46,15 +46,33 @@ Vue.component("q-learning-tab", {
     So you cannot do any DOM manipulation here. Typically used for data fetching
     */
     created() {
+        var mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
+        if (mobileDeviceTestExp.test(navigator.userAgent)){
+            this.cliffs = ["2x1"];
+            this.reward = "2x2";
+            this.start = "2x0";
+            this.row = "3";
+            this.column = "3";
+        }
         this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
     },
     methods: {
         gridStyling: function(row, column) {
-            return {
-                /* Note: 100px is the value for tile size in _qlearning.scss */
-                gridTemplateRows: 'repeat(' + row + ', 100px)',
-                gridTemplateColumns: 'repeat(' + column + ', 100px)'
-            };
+            var mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
+            /* Tests if mobile device */
+            if (mobileDeviceTestExp.test(navigator.userAgent)){
+                return {
+                    /* Note: 100px is the value for tile size in _qlearning.scss */
+                    gridTemplateRows: 'repeat(3, 100px)',
+                    gridTemplateColumns: 'repeat(3, 100px)'
+                };
+            }else{
+                return {
+                    /* Note: 100px is the value for tile size in _qlearning.scss */
+                    gridTemplateRows: 'repeat(' + row + ', 100px)',
+                    gridTemplateColumns: 'repeat(' + column + ', 100px)'
+                };
+            }
         },
         stringToNum: function(string) {
             return parseInt(string, 10);

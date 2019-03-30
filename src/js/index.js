@@ -1,7 +1,7 @@
 Vue.component("home-tab", {
     name: "home-tab",
     template: `<div :id="name">
-                <img src="img/background.jpeg" />
+                <img id="bg_image" src="img/background.jpeg" />
 			   </div>`,
     data: function () {
         return {
@@ -47,7 +47,6 @@ var app = new Vue({
     },
     methods: {
         dropDownMenu: function (tab) {
-            console.log(tab);
             return tab.subtabs ? 'dropdown' : '';
         }
     }
