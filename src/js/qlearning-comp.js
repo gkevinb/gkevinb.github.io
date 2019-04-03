@@ -78,8 +78,9 @@ Vue.component("q-learning-tab", {
             return parseInt(string, 10);
         },
         formatValue: function(number) {
+            var stringLength = 5;
             if(number != 0)
-                return number.toString().substring(0, 6);
+                return number.toString().substring(0, stringLength);
             else
                 return "";
         },

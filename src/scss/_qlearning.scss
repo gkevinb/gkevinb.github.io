@@ -100,7 +100,7 @@ $columns: 5;
 */
 @keyframes falling {
     0% { background-size: 100% 100%; }
-    100% { background-size: 1% 1%; }
+    100% { background-size: 0% 0%; }
 }
 @keyframes fallixng {
     0% { background-color: blue; }
@@ -159,14 +159,8 @@ $columns: 5;
 
     /* Robot falling animation */
     animation-name: falling;
-    // animation-delay: 1s;
-    animation-duration: 2.0s;
+    animation-duration: 1.5s;
     animation-fill-mode: forwards;
-    // -webkit-animation-name: falling;
-    // -webkit-animation-duration: 2.0s;
-    // -webkit-animation-fill-mode: forwards;
-    // animation-iteration-count: infinite;
-    // animation-timing-function: ease-out;
 }
 .tile--robot--winning{
     @include tileSize();

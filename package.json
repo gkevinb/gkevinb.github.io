@@ -6,8 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gkevinb/gkevinb.github.io.git"
+  },
   "author": "Gabor Kevin Barta",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkevinb/gkevinb.github.io/issues"
+  },
+  "homepage": "https://gkevinb.github.io/",
   "devDependencies": {
     "bootstrap": "^4.3.1",
     "browser-sync": "^2.26.3",
