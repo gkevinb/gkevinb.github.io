@@ -42,7 +42,6 @@ gulp.task('image-min', () =>
         .pipe(gulp.dest('img'))
 );
 
-
 // Javascript minifying
 gulp.task('scripts', () => {
     return gulp.src('src/js/*.js')

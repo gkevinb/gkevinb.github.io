@@ -17,47 +17,4 @@
 /* Component styling */
 @import "qlearning";
 @import "about";
-
-
-.flashcard__scene {
-    width: 200px;
-    height: 200px;
-    perspective: 600px;
-  }
-  
-  .flashcard {
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .flashcard.is-flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .flashcard__face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    color: #555555;
-    text-align: center;
-    font-weight: bold;
-    font-size: 60px;
-    backface-visibility: hidden;
-    background-color: rgb(236, 168, 128);
-    border-radius: 10px;
-  }
-  
-  .flashcard__face--front {
-  }
-  
-  .flashcard__face--back {
-    transform: rotateY(180deg);
-  }
-  
-  p{
-    font-family: Tahoma;
-  }
+@import "chinese";
