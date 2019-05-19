@@ -17,20 +17,30 @@ h2{
     font-family: 'Thasadith', sans-serif;
 }
 
-#timeline{
-    width: 10px;
-    height: 1500px;
-    background-color: gray;
-    position: absolute;
-    z-index: -10;
-    left: 190px;
-    @include media-breakpoint-down(sm){
-        display: none;
-    }
+// #timeline{
+//     width: 10px;
+//     height: 1500px;
+//     background-color: gray;
+//     position: absolute;
+//     z-index: -10;
+//     left: 190px;
+//     @include media-breakpoint-down(sm){
+//         display: none;
+//     }
+// }
+
+#experiences_container{
+    width: 550px;
+    float: left;
+}
+
+#education_container{
+    width: 550px;
+    float: right;
 }
 
 .experience_container{
-    width: 600px;
+    width: 550px;
     /* Makes sure height matches content height */
     display: block;
     overflow: auto;
@@ -40,18 +50,18 @@ h2{
     }
 }
 
-.bubble{
-    margin-top: 45px;
-    margin-right: 20px;
-    width: $bubble_size;
-    height: $bubble_size;
-    border-radius: 100px;
-    background-color: black;
-    float: left;
-    @include media-breakpoint-down(sm){
-        display: none;
-    }
-}
+// .bubble{
+//     margin-top: 45px;
+//     margin-right: 20px;
+//     width: $bubble_size;
+//     height: $bubble_size;
+//     border-radius: 100px;
+//     background-color: black;
+//     float: left;
+//     @include media-breakpoint-down(sm){
+//         display: none;
+//     }
+// }
 #netcompany{
     background-color: $netcompany_blue; 
 }
@@ -80,7 +90,7 @@ h2{
     overflow: auto;
 
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
     font-size: 16px;
     letter-spacing: 1px;
     color: $font_color;
@@ -107,5 +117,44 @@ h2{
     .city{
         float: left;
         margin: 10px;
+    }
+    .description{
+        float: left;
+        margin: 10px;
+        // padding-top: 10px;
+        width: 440px;
+        border-top: 3px solid #C4C4C4;
+    }
+    .text{
+        text-align: center;
+        padding-top: 10px;
+    }
+}
+
+.specialization{
+    padding-top: 10px;
+
+    #specialization_text{
+        text-align: center;
+    }
+    #specialization_title{
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+.thesis{
+    padding-top: 10px;
+
+    #thesis_text{
+        text-align: center;
+    }
+    #thesis_title{
+        text-align: center;
+        font-weight: bold;
+    }
+    #thesis_details{
+        padding-top: 10px;
+        text-align: center;
     }
 }

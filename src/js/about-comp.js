@@ -11,6 +11,9 @@ Vue.component("about-tab", {
     <div class="institution">{{ experience.company }}</div>
     <div class="time_period">{{ experience.timePeriod }}</div>
     <div class="city">{{ experience.city }}</div>
+    <div class="description">
+    <div class="text">{{ experience.text }}</div>
+    </div>
     </div>
     </div>
     </div>
@@ -23,6 +26,18 @@ Vue.component("about-tab", {
     <div class="institution">{{ degree.university }}</div>
     <div class="time_period">{{ degree.timePeriod }}</div>
     <div class="city">{{ degree.city }}</div>
+    <div class="description">
+    <div v-if="degree.specialization" class="specialization">
+    <div id="specialization_text">Specialization</div>
+    <div id="specialization_title">{{ degree.specialization }}</div>
+    </div>
+    <div class="text">{{ degree.text }}</div>
+    <div class="thesis">
+    <div id="thesis_text">Thesis</div>
+    <div id="thesis_title">{{ degree.thesisTitle }}</div>
+    <div id="thesis_details">{{ degree.thesisDetails }}</div>
+    </div>
+    </div>
     </div>
     </div>
     </div>
@@ -35,7 +50,8 @@ Vue.component("about-tab", {
                     title: 'IT Consultant',
                     company: '🏢Netcompany',
                     timePeriod: '🗓Mar 2019 - Present',
-                    city: '🏙Copenhagen'
+                    city: '🏙Copenhagen',
+                    text: 'Netcompany is an IT consultancy with expertise in a wide range of domains. Development of internal social media website to sign-up for company wide events. Working on modernizing software infrastructure at CPH Airport.'
                 },
                 { 
                     id: 2,
@@ -43,7 +59,8 @@ Vue.component("about-tab", {
                     title: 'Junior Backend Developer',
                     company: '🏢Codeum A/S',
                     timePeriod: '🗓Nov 2018 - Jan 2019',
-                    city: '🏙Copenhagen'
+                    city: '🏙Copenhagen',
+                    text: 'Codeum is a software company with a background in the global gaming industry, specializing in building and operating gaming platforms and providing service to online bookmakers around the world. Creating Java client-side API for online gambling service. Developing an online gaming platform in ASP.NET Core.'
                 },
                 {
                     id: 3,
@@ -51,7 +68,8 @@ Vue.component("about-tab", {
                     title: 'Software Engineer Intern',
                     company: '🏢BuildCode IVS',
                     timePeriod: '🗓Sep 2017 - Jun 2018',
-                    city: '🏙Odense'
+                    city: '🏙Odense',
+                    text: 'Software engineer intern at Buildcode, a construction consultant company focusing on digitizing and optimizing quality insurance in the construction industry. Develop add-on extensions for AutoDesk Revit using pyRevit, an IronPython script library. Create visualizations and perform calculations on data collected by drones using LIDAR technology.'
                 },
                 {
                     id: 4,
@@ -59,7 +77,8 @@ Vue.component("about-tab", {
                     title: 'University Instructor',
                     company: '🏫University of Southern Denmark',
                     timePeriod: '🗓Sep 2017 - Jun 2018',
-                    city: '🏙Odense'
+                    city: '🏙Odense',
+                    text: 'Instructor at SDU Odense for BSc. and MSc. Software Engineering courses. Modeling and Simulation (MSc. level), Statistics and Experimental Methods (BSc. level), Artificial Intelligence (BSc. level).'
                 },
                 {
                     id: 5,
@@ -67,7 +86,8 @@ Vue.component("about-tab", {
                     title: 'Software Developer Intern',
                     company: '🏢ThyssenKrupp Presta Hungary',
                     timePeriod: '🗓Jul 2015 - Dec 2015',
-                    city: '🏙Budapest'
+                    city: '🏙Budapest',
+                    text: 'AUTOSAR BSW module software testing using CUnit framework. Software development on in-house developed gateway embedded system using C programming language.'
                 }
             ],
             degrees: [
@@ -76,7 +96,10 @@ Vue.component("about-tab", {
                     title: 'MSc in Software Engineering',
                     university: '🏫University of Southern Denmark',
                     timePeriod: '🗓Sep 2017 - Jun 2018',
-                    city: '🏙Odense'
+                    city: '🏙Odense',
+                    text: 'As a software engineer, I have gained knowledge on developing intelligent solutions on numerous platforms. The education has provided me with experience in developing mobile apps, IT security, and online solutions.',
+                    thesisTitle: 'Data-based Generation of Reliability Models',
+                    thesisDetails: 'Developing an automated method of extracting a fault tree representation of a system from time series data.'
                 },
                 { 
                     id: 2,
@@ -84,7 +107,11 @@ Vue.component("about-tab", {
                     title: 'BSc in Electrical Engineering',
                     university: '🏫Budapest University of Technology and Economics',
                     timePeriod: '🗓Sep 2012 - Jun 2016',
-                    city: '🏙Budapest'
+                    city: '🏙Budapest',
+                    specialization: 'Embedded and Control Systems',
+                    text: 'As an electrical engineer specializing in embedded systems, I have gained experience in developing software on embedded devices and control systems. I have developed programs on microcontrollers and FPGAs.',
+                    thesisTitle: 'Testing of AUTOSAR I-PDU Multiplexer',
+                    thesisDetails: 'Unit testing of a basic software module called I-PDU Multiplexer in the AUTOSAR, a standardized automotive software architecture, at ThyssenKrupp Presta Hungary.'
                 }
             ]
         }
