@@ -78,7 +78,7 @@ Vue.component("about-tab", {
                     company: '🏫University of Southern Denmark',
                     timePeriod: '🗓Sep 2017 - Jun 2018',
                     city: '🏙Odense',
-                    text: 'Instructor at SDU Odense for BSc. and MSc. Software Engineering courses. Modeling and Simulation (MSc. level), Statistics and Experimental Methods (BSc. level), Artificial Intelligence (BSc. level).'
+                    text: 'Instructor at SDU Odense for BSc. and MSc. Software Engineering courses. Instructed lab exercises in the following courses: Modeling and Simulation (MSc. level), Statistics and Experimental Methods (BSc. level), and Artificial Intelligence (BSc. level).'
                 },
                 {
                     id: 5,

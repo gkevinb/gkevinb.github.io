@@ -32,11 +32,17 @@ h2{
 #experiences_container{
     width: 550px;
     float: left;
+    @include media-breakpoint-down(sm){
+        width: 100%;
+    }
 }
 
 #education_container{
     width: 550px;
     float: right;
+    @include media-breakpoint-down(sm){
+        width: 100%;
+    }
 }
 
 .experience_container{
@@ -118,16 +124,21 @@ h2{
         float: left;
         margin: 10px;
     }
-    .description{
-        float: left;
-        margin: 10px;
-        // padding-top: 10px;
-        width: 440px;
-        border-top: 3px solid #C4C4C4;
-    }
     .text{
         text-align: center;
         padding-top: 10px;
+    }
+}
+
+.description{
+    float: left;
+    margin: 10px;
+    // padding-top: 10px;
+    width: 440px;
+    border-top: 3px solid #C4C4C4;
+
+    @include media-breakpoint-down(sm){
+        display: none;
     }
 }
 
