@@ -53,19 +53,6 @@ var app = new Vue({
 });
 
 
-Vue.component("my-comp", {
-    props: ["todo"],
-    template: "<li>{{ todo.text }}</li>"
-})
-
-Vue.component("animal", {
-    props: ["name", "foo"],
-    template: '<p v-html="foo"></p>'
-})
-
-
-
-
 Vue.component("genmap-tab", {
     template: `
 	<div id="genmap">
@@ -101,23 +88,12 @@ Vue.component("genmap-tab", {
     },
 })
 
-
-
 Vue.component("projects-tab", {
-    template: `<div id="tod">
-				<ul>
-					<li v-for="todo in todos">
-						{{ todo.text }}
-					</li>
-				</ul>
-				<ol>
-					<my-comp v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
-					</my-comp>
-				</ol>
-
-				<p v-for="grocery in groceryList" v-html="grocery.id"></p>
-
-				<animal :name="dog" :foo="func(dog)"> checkit!</animal>
+    props: ['tabs', 'cu'],
+    template:  `<div>
+                <ul v-for="tab in tabs" v-if="tab.name == cu">
+                    <li v-for="subtab in tab.subtabs" @click="cu = subtab.name">{{ subtab.name }}</li>
+                </ul>
 				</div>`,
     data: function () {
         return {

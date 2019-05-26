@@ -51,7 +51,7 @@ Vue.component("about-tab", {
                     company: '🏢Netcompany',
                     timePeriod: '🗓Mar 2019 - Present',
                     city: '🏙Copenhagen',
-                    text: 'Netcompany is an IT consultancy with expertise in a wide range of domains. Development of internal social media website to sign-up for company wide events. Working on modernizing software infrastructure at CPH Airport.'
+                    text: 'Netcompany is an IT consultancy with expertise in a wide range of domains. Development of internal social media website to sign-up for company wide events. Software component analysis at CPH Airport.'
                 },
                 { 
                     id: 2,

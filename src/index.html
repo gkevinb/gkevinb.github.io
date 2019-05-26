@@ -16,6 +16,7 @@
 <body>
 	<div id="app" class="container">
 
+		<!-- Navigation bar -->
 		<div class="navbar navbar-expand-lg navigation">
 			<div class="navbar-brand header">
 				<h1>Gabor Kevin Barta</h1>
@@ -30,6 +31,8 @@
 					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name" @click="currentTab = tab.name">
 						<span v-if="tab.subtabs" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab.name }}</span>
 						<span v-else class="nav-link">{{ tab.name }}</span>
+
+						<!-- Subtab dropdown -->
 						<ul v-if="tab.subtabs != null" class="dropdown-menu">
 							<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name" @click.stop="currentTab = subtab.name">
 								{{ subtab.name }}
@@ -40,7 +43,13 @@
 			</div>
 		</div>
 
-		<div class="content" :is="getCurrentTab">
+		<!-- Subtab menu -->
+		<ul v-for="tab in tabs" v-if="tab.name == currentTab">
+			<li v-for="subtab in tab.subtabs" @click="currentTab = subtab.name">{{ subtab.name }}</li>
+		</ul>
+
+		<!-- Main content -->
+		<div class="content" :is="getCurrentTab" :tabs="tabs" :cu="currentTab">
 
 		</div>
 
