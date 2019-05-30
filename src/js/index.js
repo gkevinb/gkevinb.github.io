@@ -1,19 +1,3 @@
-Vue.component("home-tab", {
-    name: "home-tab",
-    template: `<div :id="name">
-                <img id="bg_image" src="img/background.jpeg" />
-			   </div>`,
-    data: function () {
-        return {
-            name: "home-tab",
-            seen: true,
-            message: "hello you!",
-            message2: "<strong>YOU</strong>",
-            message3: "default"
-        }
-    }
-})
-
 var app = new Vue({
     el: "#app",
     data: {
@@ -30,10 +14,7 @@ var app = new Vue({
                 subtabs: [
                     {
                         name: "Q-Learning"
-                    },
-                    {   
-                        name: "Machines"
-                    }    
+                    }
                 ]
             },
             {
@@ -52,47 +33,53 @@ var app = new Vue({
     }
 });
 
+/*
+Not used
+*/
+// Vue.component("genmap-tab", {
+//     template: `
+// 	<div id="genmap">
+// 	<input type="number" v-model="row"></input>
+// 		<input type="number" v-model="column"></input>
+// 		<table>
+// 		<tr v-for="i in stringToNum(row)">
+// 			<td v-for="j in stringToNum(column)">
+// 				<input type="checkbox" :id="matrixId(i, j)"></input>
+// 			</td>
+// 		</tr>
+// 	</table>
+// 	<button type="button">Generate Map</button>
+// 	<table>
+// 		<tr v-for="i in stringToNum(row)">
+// 			<td v-for="j in stringToNum(column)">[]</td>
+// 		</tr>
+// 	</table>
+// 	</div>`,
+//     data: function () {
+//         return {
+//             row: "5",
+//             column: "2"
+//         }
+//     },
+//     methods: {
+//         stringToNum: function (string) {
+//             return parseInt(string, 10);
+//         },
+//         matrixId: function (i, j) {
+//             return "_" + i.toString() + "x" + j.toString() + "_";
+//         }
+//     },
+// })
 
-Vue.component("genmap-tab", {
-    template: `
-	<div id="genmap">
-	<input type="number" v-model="row"></input>
-		<input type="number" v-model="column"></input>
-		<table>
-		<tr v-for="i in stringToNum(row)">
-			<td v-for="j in stringToNum(column)">
-				<input type="checkbox" :id="matrixId(i, j)"></input>
-			</td>
-		</tr>
-	</table>
-	<button type="button">Generate Map</button>
-	<table>
-		<tr v-for="i in stringToNum(row)">
-			<td v-for="j in stringToNum(column)">[]</td>
-		</tr>
-	</table>
-	</div>`,
-    data: function () {
-        return {
-            row: "5",
-            column: "2"
-        }
-    },
-    methods: {
-        stringToNum: function (string) {
-            return parseInt(string, 10);
-        },
-        matrixId: function (i, j) {
-            return "_" + i.toString() + "x" + j.toString() + "_";
-        }
-    },
-})
 
+/* 
+Needs revision
+*/
 Vue.component("projects-tab", {
     props: ['tabs', 'cu'],
     template:  `<div>
                 <ul v-for="tab in tabs" v-if="tab.name == cu">
-                    <li v-for="subtab in tab.subtabs" @click="cu = subtab.name">{{ subtab.name }}</li>
+                    <!--<li v-for="subtab in tab.subtabs" @click="cu = subtab.name">{{ subtab.name }}</li>-->
                 </ul>
 				</div>`,
     data: function () {
