@@ -20,6 +20,7 @@ Vue.component("home-tab", {
                 </a>
                 </div>
                 </div>
+                <p>Website is continously under construction to showcase my projects, interest, and expertise.</p>
 			    </div>`,
     data: function () {
         return {

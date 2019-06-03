@@ -58,8 +58,16 @@
     a:visited{
         color: white;
     }
+    a:hover{
+        text-decoration: none;
+    }
 
     .link_icon{
         width: 40px;
     }
+
+    transition: all 0.6s;
+}
+.link_container:hover{
+    transform: scale(1.2);
 }
