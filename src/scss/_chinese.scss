@@ -1,12 +1,9 @@
 #flashcards{
     display: grid;
-    // grid-column-gap: 30px;
     grid-row-gap: 15px;
     grid-template-columns: repeat(4, 1fr);
-    // grid-template-rows: repeat(5, 1fr);
+    
     @include media-breakpoint-down(sm){
-        // grid-template-columns: repeat(1, 1fr);
-        
         // https://love2dev.com/blog/absolute-centering-css/
         display: flex;
         align-items: center;

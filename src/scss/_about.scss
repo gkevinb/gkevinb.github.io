@@ -44,18 +44,6 @@ h2{
     }
 }
 
-// .bubble{
-//     margin-top: 45px;
-//     margin-right: 20px;
-//     width: $bubble_size;
-//     height: $bubble_size;
-//     border-radius: 100px;
-//     background-color: black;
-//     float: left;
-//     @include media-breakpoint-down(sm){
-//         display: none;
-//     }
-// }
 #netcompany{
     background-color: $netcompany_blue; 
 }
@@ -121,7 +109,6 @@ h2{
 .description{
     float: left;
     margin: 10px;
-    // padding-top: 10px;
     width: 95%;
     border-top: 3px solid #C4C4C4;
 
