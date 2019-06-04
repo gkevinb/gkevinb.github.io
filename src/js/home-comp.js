@@ -1,8 +1,7 @@
 Vue.component("home-tab", {
     name: "home-tab",
     template:  `<div :id="name">
-                <img id="bg_image" src="img/background.jpeg" />
-                <div id="intro_container">
+		        <div id="intro_container">
                 <p>Hi, my name is Kevin.</p>
                 <p>I'm a full stack developer based in Budapest.</p>
                 <br />
@@ -20,8 +19,7 @@ Vue.component("home-tab", {
                 </a>
                 </div>
                 </div>
-                <p>Website is continously under construction to showcase my projects, interest, and expertise.</p>
-			    </div>`,
+                </div>`,
     data: function () {
         return {
             name: "home-tab",

@@ -17,22 +17,10 @@ h2{
     font-family: 'Thasadith', sans-serif;
 }
 
-// #timeline{
-//     width: 10px;
-//     height: 1500px;
-//     background-color: gray;
-//     position: absolute;
-//     z-index: -10;
-//     left: 190px;
-//     @include media-breakpoint-down(sm){
-//         display: none;
-//     }
-// }
-
 #experiences_container{
     width: 550px;
     float: left;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(md){
         width: 100%;
     }
 }
@@ -40,7 +28,7 @@ h2{
 #education_container{
     width: 550px;
     float: right;
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(md){
         width: 100%;
     }
 }
@@ -51,7 +39,7 @@ h2{
     display: block;
     overflow: auto;
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(md){
         width: 100%;
     }
 }
@@ -103,10 +91,10 @@ h2{
     box-shadow: 0px 8px 15px rgb(97, 97, 97);
     float: left;
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(md){
         width: 84%;
         box-sizing: border-box;
-        margin: 8%;
+        margin: 6% 8%;
     }
     
     .title{
@@ -134,7 +122,7 @@ h2{
     float: left;
     margin: 10px;
     // padding-top: 10px;
-    width: 440px;
+    width: 95%;
     border-top: 3px solid #C4C4C4;
 
     @include media-breakpoint-down(sm){
