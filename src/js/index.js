@@ -16,7 +16,7 @@ var app = new Vue({
                         name: "Q-Learning"
                     },
                     {
-                        name: "Chinese-Flashcards"
+                        name: "Chinese Flashcards"
                     }
                 ]
             },
@@ -25,8 +25,14 @@ var app = new Vue({
             }]
     },
     computed: {
+        /*
+        Get identifier for current tab.
+        Replaces space with dash, makes all letters lowercase and adds "-tab".
+        Input: Chinese Flashcards
+        Output: chinese-flashcards-tab
+        */
         getCurrentTab: function () {
-            return this.currentTab.toLowerCase() + "-tab"
+            return this.currentTab.replace(' ', '-').toLowerCase() + "-tab"
         }
     },
     methods: {
