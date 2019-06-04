@@ -32,6 +32,7 @@ Vue.component("chinese-flashcard", {
             height: 200,
             padding: 10,
             showOutline: true,
+            strokeColor: '#B52020',
             strokeAnimationSpeed: 5,
             delayBetweenStrokes: 500
         });
