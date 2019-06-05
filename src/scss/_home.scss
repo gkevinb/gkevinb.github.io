@@ -10,7 +10,6 @@ $shadow-color: #505050;
 
     /* Text */
     color: white;
-    text-align: center;
     text-shadow: 4px 4px 8px $shadow-color;
     font-family: 'Montserrat', sans-serif;
 
@@ -64,6 +63,7 @@ $shadow-color: #505050;
 
     /* Text */
     font-size: 24px;
+    text-align: center;
 
     @include media-breakpoint-down(sm){
         width: 100%;
