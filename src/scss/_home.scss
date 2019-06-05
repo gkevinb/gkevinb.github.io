@@ -1,14 +1,23 @@
-#home-tab{
-    position: relative;
+$shadow-color: #505050;
 
+#home-tab{
+    /* Positioning */
+    position: relative;
     width: 100%;
     height: 700px;
     min-width: 100%;
     min-height: 100%;
-    
+
+    /* Text */
+    color: white;
+    text-align: center;
+    text-shadow: 4px 4px 8px $shadow-color;
+    font-family: 'Montserrat', sans-serif;
+
+    /* Layout */
     display: grid;
     grid-template-columns: 30px repeat(2, 1fr) 30px;
-    grid-template-rows: 60px repeat(2, 1fr) 120px;
+    grid-template-rows: 60px repeat(2, 1fr) 100px;
     grid-template-areas: 
         ". . . ."
         ". . i ."
@@ -17,7 +26,8 @@
 
     /* Rearrange layout when on mobile */
     @include media-breakpoint-down(md){
-        grid-template-rows: 40px auto auto;
+        height: 740px;
+        grid-template-rows: 30px auto auto;
         grid-template-columns: 30px auto 30px;
         grid-template-areas: 
         ". . ."
@@ -48,14 +58,12 @@
 }
 
 #intro_container{
+    /* Positioning */
     grid-area: i;
+    padding: 0 20px;
 
-    padding: 20px;
-
-    /* Text styling */
+    /* Text */
     font-size: 24px;
-    color: white;
-    text-align: center;
 
     @include media-breakpoint-down(sm){
         width: 100%;
@@ -71,14 +79,12 @@
 }
 
 .link_container{
-    /* Text */
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-
     /* Positioning */
     float: left;
     margin: 20px;
+
+    /* Text */
+    font-size: 18px;
 
     /* Link */
     a{
@@ -96,10 +102,17 @@
         color: white;
     }
 
+    /* Link Icon */
     .link_icon{
         width: 40px;
+
+        /* Create drop shadow below PNG image */
+        /* https://stackoverflow.com/questions/3186688/drop-shadow-for-png-image-in-css */
+        -webkit-filter: drop-shadow(3px 3px 8px $shadow-color);
+        filter: drop-shadow(3px 3px 8px $shadow-color);
     }
     
+    /* Animation */
     transition: all 0.6s;
 
     @include media-breakpoint-down(sm){
@@ -110,8 +123,10 @@
         transition: none;
     }
 }
+/* Animation on hover */
 .link_container:hover{
     transform: scale(1.3);
+
     /* Turn off scale transform when on mobile */
     @include media-breakpoint-down(sm){
         transform: none;
