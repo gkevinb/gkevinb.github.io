@@ -1,4 +1,23 @@
-#flashcards{
+#chinese_header{
+    text-align: center;
+    h1{
+        font-size: 48px;
+        @include media-breakpoint-down(sm){
+            font-size: 36px;
+        }
+    }
+    p{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 10px;
+        @include media-breakpoint-down(sm){
+            width: 90%;
+        }
+    }
+
+}
+
+#flashcards_x4{
     display: grid;
     grid-row-gap: 15px;
     grid-template-columns: repeat(4, 1fr);
@@ -11,4 +30,11 @@
         flex-direction: column;
         width: 100%;
     }
-  }
+}
+#flashcards_x1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}

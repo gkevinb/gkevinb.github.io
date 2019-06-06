@@ -50,8 +50,11 @@ $card-size: 200px;
 
         /* Font styling */
         font-weight: bold;
-        font-size: 60px;
-        font-family: Tahoma;
+        font-size: 40px;
+        // font-family: cursive;
+        div{
+            margin: 27px 0;
+        }
     }
   
     .flashcard__face--front {

@@ -6,10 +6,11 @@ Vue.component("chinese-flashcard", {
      },
     template: `
         <div class="flashcard__scene">
-            <div :id="flipCardId" class="flashcard" @click=flipFlashcard>
+            <div :id="flipCardId" class="flashcard" @click=flipFlashcard @mouseover=writeStroke>
                 <div :id="frontCardId" class="flashcard__face flashcard__face--front"></div>
                 <div class="flashcard__face flashcard__face--back">
-                    <span>{{ english }}</span>
+                    <div>{{ english }}</div>
+                    <div>{{ pinyin }}</div>
                 </div>
             </div>
         </div>`,
@@ -43,6 +44,9 @@ Vue.component("chinese-flashcard", {
         },
         flipFlashcard: function() {
             this.card.classList.toggle('is-flipped');
+        },
+        writeStroke: function() {
+            this.writer.animateCharacter();
         }
     }
 });

@@ -134,5 +134,5 @@ Vue.component("about-tab", {
         matrixId: function (i, j) {
             return "_" + i.toString() + "x" + j.toString() + "_";
         }
-    },
+    }
 })

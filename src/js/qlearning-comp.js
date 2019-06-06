@@ -121,5 +121,5 @@ Vue.component("q-learning-tab", {
                 this.exploring = true;
             }
         }
-    },
+    }
 })
