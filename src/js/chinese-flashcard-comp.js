@@ -9,8 +9,9 @@ Vue.component("chinese-flashcard", {
             <div :id="flipCardId" class="flashcard" @click=flipFlashcard @mouseover=writeStroke>
                 <div :id="frontCardId" class="flashcard__face flashcard__face--front"></div>
                 <div class="flashcard__face flashcard__face--back">
-                    <div>{{ english }}</div>
-                    <div>{{ pinyin }}</div>
+                    <div id="pinyin">{{ pinyin }}</div>
+                    <div id="divider"></div>
+                    <div id="english">{{ english }}</div>
                 </div>
             </div>
         </div>`,

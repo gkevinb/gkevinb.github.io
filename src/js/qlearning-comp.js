@@ -28,8 +28,8 @@ Vue.component("q-learning-tab", {
             cliffs: ["2x1", "2x2", "1x2"],
             reward: "2x3",
             start: "2x0",
-            row: "3",
-            column: "6",
+            row: "4",
+            column: "8",
             showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,

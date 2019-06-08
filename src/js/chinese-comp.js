@@ -5,11 +5,11 @@ Vue.component("chinese-flashcards-tab", {
                 <h1>Chinese Flashcards</h1>
                 <p>Click on a card to reveal the english and pinyin meaning of the Chinese symbol. Use this application to memrise the Chinese symbols, their pronunciation, and their meaning.</p>
                 <button @click="pickCards(characters.length)" type="button">All</button>
-                <button @click="pickRandomCard()" type="button">Random</button>
+                <button @click="pickCards(1)" type="button">Random</button>
                 <button @click="reset()" type="button">Reset</button>
                 </div>
                 <div :id="flashcardStyling()">
-                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.id" :english="char.english" :character="char.character" :pinyin="char.pinyin">
+                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin">
                 </chinese-flashcard>
                 </div>
 			    </div>`,
@@ -52,7 +52,7 @@ Vue.component("chinese-flashcards-tab", {
                     'id' : 6,
                     'character' : '一',
                     'english' : '1',
-                    'pinyin' : 'yi'
+                    'pinyin' : 'yī'
                 },
                 {
                     'id' : 7,
@@ -76,7 +76,7 @@ Vue.component("chinese-flashcards-tab", {
                     'id' : 10,
                     'character' : '五',
                     'english' : '5',
-                    'pinyin' : 'wu'
+                    'pinyin' : 'wǔ'
                 },
                 {
                     'id' : 11,
@@ -134,18 +134,74 @@ Vue.component("chinese-flashcards-tab", {
                 },
                 {
                     'id' : 20,
-                    'character' : '们',
-                    'english' : 'us',
-                    'pinyin' : 'women'
+                    'character' : '字',
+                    'english' : 'symbol',
+                    'pinyin' : 'zì'
+                },
+                {
+                    'id' : 21,
+                    'character' : '中',
+                    'english' : 'middle',
+                    'pinyin' : 'zhōng'
+                },
+                {
+                    'id' : 22,
+                    'character' : '吃',
+                    'english' : 'to eat',
+                    'pinyin' : 'chī'
+                },
+                {
+                    'id' : 23,
+                    'character' : '请',
+                    'english' : 'please',
+                    'pinyin' : 'qǐng'
+                },
+                {
+                    'id' : 24,
+                    'character' : '来',
+                    'english' : 'to come',
+                    'pinyin' : 'lái'
+                },
+                {
+                    'id' : 25,
+                    'character' : '他',
+                    'english' : 'he',
+                    'pinyin' : 'tā'
+                },
+                {
+                    'id' : 26,
+                    'character' : '她',
+                    'english' : 'she',
+                    'pinyin' : 'tā'
+                },
+                {
+                    'id' : 27,
+                    'character' : '的',
+                    'english' : '\'s',
+                    'pinyin' : 'de'
+                },
+                {
+                    'id' : 28,
+                    'character' : '吗',
+                    'english' : '?',
+                    'pinyin' : 'ma'
+                },
+                {
+                    'id' : 29,
+                    'character' : '吧',
+                    'english' : 'ok?',
+                    'pinyin' : 'ba'
+                },
+                {
+                    'id' : 30,
+                    'character' : '美',
+                    'english' : 'beautiful',
+                    'pinyin' : 'měi'
                 },
             ]
         }
     },
     methods: {
-        pickRandomCard: function () {
-            this.chosenCharacters =  [this.characters[Math.floor(Math.random() * this.characters.length)]];
-            console.log(this.chosenCharacters);
-        },
         reset: function () {
             this.chosenCharacters = null;
         },

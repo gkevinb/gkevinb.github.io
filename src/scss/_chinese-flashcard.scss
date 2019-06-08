@@ -1,6 +1,7 @@
 $rotate-degrees: 180deg;
 $card-color: #E7CDA7;
 $font-color: #B52020;
+$divider-color: #967560;
 
 $card-size: 200px;
 
@@ -51,9 +52,19 @@ $card-size: 200px;
         /* Font styling */
         font-weight: bold;
         font-size: 40px;
-        // font-family: cursive;
-        div{
-            margin: 27px 0;
+
+        #english{
+            margin: 18.5px auto;
+        }
+        #divider{
+            width: 80%;
+            margin: auto;
+            background-color: $divider-color;
+            border: 3px solid $divider-color;
+            border-radius: 3px;
+        }
+        #pinyin{
+            margin: 18.5px 0;
         }
     }
   
