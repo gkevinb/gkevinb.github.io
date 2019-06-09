@@ -11,7 +11,7 @@ $tile_size: 100px;
 $font_size: 14px;
 $padding_size: 3px;
 
-/* Initial row and column values, however this will change due to qlearning-comp.js */
+/* Initial row and column values, however this will change during runtime due to qlearning-comp.js */
 $rows: 4;
 $columns: 5;
 
@@ -52,20 +52,29 @@ $bolt-color: #C4C4C4;
 }
 
 #control_panel{
-    width: 400px;
+    height: 100%;
+    // display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "s h h h h s"
+        "e e e e e e"
+        "e e e e e e";
+
+    width: 600px;
     background-color: beige;
     border-radius: 20px;
+
 }
 #left_screw{
-    float: left;
+    grid-area: s;
 }
 #control_panel-title{
-    float: left;
+    grid-area: h;
 }
 #right_screw{
-    float: right;
+    grid-area: s;
 }
-
 
 
 /* =============== Q MATRIX VALUES ON MAP STYLING ===================*/
