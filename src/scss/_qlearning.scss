@@ -15,6 +15,58 @@ $padding_size: 3px;
 $rows: 4;
 $columns: 5;
 
+/* =============== Control Panel ============= */
+
+$screw-size: 40px;
+$screw-color: #535353;
+$bolt-color: #C4C4C4;
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg);
+        transform:rotate(360deg); 
+    }
+}
+
+.screw{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.35 * $screw-size;
+    color: $screw-color;
+
+    height: $screw-size;
+    width: $screw-size;
+
+    background-color: $bolt-color;
+    border: 1px solid $bolt-color;
+    border-radius: $screw-size;
+
+    div{
+        /* Adjust values below after changing screw-size */
+        margin-top: -0.66 * $screw-size;
+        margin-left: 0.09 * $screw-size;
+    }
+    
+}
+.screw:hover{
+    animation:spin 1s linear;
+}
+
+#control_panel{
+    width: 400px;
+    background-color: beige;
+    border-radius: 20px;
+}
+#left_screw{
+    float: left;
+}
+#control_panel-title{
+    float: left;
+}
+#right_screw{
+    float: right;
+}
+
+
 
 /* =============== Q MATRIX VALUES ON MAP STYLING ===================*/
 

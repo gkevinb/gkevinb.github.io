@@ -3,6 +3,10 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 Vue.component("q-learning-tab", {
     template: `
     <div id="outer">
+    <div id="control_panel">
+    <div id="left_screw" class="screw"><div>x</div></div>
+    <div id="control_panel-title">Control Panel</div>
+    <div id="right_screw" class="screw"><div>x</div></div>
     <button @click="explore" type="button">Explore</button>
     <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
     <p>Epsilon: {{ epsilon }}</p>
@@ -11,6 +15,7 @@ Vue.component("q-learning-tab", {
     <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
     <p>Gamma: {{ gamma }}</p>
     <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
+    </div>
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
     <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
@@ -28,8 +33,8 @@ Vue.component("q-learning-tab", {
             cliffs: ["2x1", "2x2", "1x2"],
             reward: "2x3",
             start: "2x0",
-            row: "4",
-            column: "8",
+            row: "3",
+            column: "5",
             showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,
