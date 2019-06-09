@@ -53,28 +53,77 @@ $bolt-color: #C4C4C4;
 
 #control_panel{
     height: 100%;
-    // display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     grid-template-areas: 
-        "s h h h h s"
-        "e e e e e e"
-        "e e e e e e";
+        "l  h  h  r"
+        "et es ev lob"
+        "at as av rb"
+        "gt gs gv leb"
+        "qt qc .  eb";
 
     width: 600px;
     background-color: beige;
     border-radius: 20px;
 
+    #left_screw{
+        grid-area: l;
+    }
+    #control_panel-title{
+        grid-area: h;
+    }
+    #right_screw{
+        grid-area: r;
+    }
+    #epsilon_text{
+        grid-area: et;
+    }
+    #alpha_text{
+        grid-area: at;
+    }
+    #gamma_text{
+        grid-area: gt;
+    }
+    #qvalue_text{
+        grid-area: qt;
+    }
+    #epsilon_slider{
+        grid-area: es;
+    }
+    #alpha_slider{
+        grid-area: as;
+    }
+    #gamma_slider{
+        grid-area: gs;
+    }
+    #qvalue_checkbox{
+        grid-area: qc;
+    }
+    #epsilon_value{
+        grid-area: ev;
+    }
+    #alpha_value{
+        grid-area: av;
+    }
+    #gamma_value{
+        grid-area: gv;
+    }
+    #load_button{
+        grid-area: lob;
+    }
+    #reset_button{
+        grid-area: rb;
+    }
+    #learn_button{
+        grid-area: leb;
+    }
+    #explore_button{
+        grid-area: eb
+    }
+
 }
-#left_screw{
-    grid-area: s;
-}
-#control_panel-title{
-    grid-area: h;
-}
-#right_screw{
-    grid-area: s;
-}
+
 
 
 /* =============== Q MATRIX VALUES ON MAP STYLING ===================*/

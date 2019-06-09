@@ -7,14 +7,23 @@ Vue.component("q-learning-tab", {
     <div id="left_screw" class="screw"><div>x</div></div>
     <div id="control_panel-title">Control Panel</div>
     <div id="right_screw" class="screw"><div>x</div></div>
-    <button @click="explore" type="button">Explore</button>
-    <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
-    <p>Epsilon: {{ epsilon }}</p>
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
-    <p>Alpha: {{ alpha }}</p>
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
-    <p>Gamma: {{ gamma }}</p>
-    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
+    <div id="epsilon_text">Epsilon</div>
+    <div id="alpha_text">Alpha</div>
+    <div id="gamma_text">Gamma</div>
+    <div id="qvalue_text">Show Q Values</div>
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsilon_slider" v-model="epsilon">
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alpha_slider" v-model="alpha">
+    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamma_slider" v-model="gamma">
+    <input type="checkbox" id="qvalue_checkbox" v-model="showQValues">
+    
+    <div id="epsilon_value">{{ epsilon }}</div>
+    <div id="alpha_value">{{ alpha }}</div>
+    <div id="gamma_value">{{ gamma }}</div>
+    <button id="load_button" type="button">Load</button>
+    <button id="reset_button" type="button">Reset</button>
+    <button id="learn_button" type="button">Learn</button>
+    <button id="explore_button" @click="explore" type="button">Explore</button>
+    
     </div>
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
