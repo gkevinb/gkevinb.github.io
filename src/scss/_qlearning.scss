@@ -54,39 +54,51 @@ $bolt-color: #C4C4C4;
 #control_panel{
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 80px 80px 50px 100px;
+    grid-template-rows: repeat(5, 50px);
     grid-template-areas: 
         "l  h  h  r"
         "et es ev lob"
         "at as av rb"
         "gt gs gv leb"
-        "qt qc .  eb";
+        "qt qt .  eb";
 
-    width: 600px;
-    background-color: beige;
+    width: 340px;
+    background-color: #969696;
+    color: #CCCCCC;
     border-radius: 20px;
 
     #left_screw{
         grid-area: l;
+        margin: 10px;
     }
     #control_panel-title{
         grid-area: h;
+        font-size: 24px;
+        text-align: center;
     }
     #right_screw{
         grid-area: r;
+        margin: 10px;
+        margin-left: 50px;
     }
     #epsilon_text{
         grid-area: et;
+        margin: 10px;
     }
     #alpha_text{
         grid-area: at;
+        padding: 10px;
     }
     #gamma_text{
         grid-area: gt;
+        padding: 10px;
     }
     #qvalue_text{
         grid-area: qt;
+        padding: 10px;
     }
     #epsilon_slider{
         grid-area: es;
@@ -98,7 +110,17 @@ $bolt-color: #C4C4C4;
         grid-area: gs;
     }
     #qvalue_checkbox{
-        grid-area: qc;
+        grid-area: qt;
+        margin-left: 140px;
+        margin-top: 14px;
+    }
+    .value_screen{
+        background-color: #282828;
+        color: #91C87E;
+        padding: 10px;
+        width: 50px;
+        font-size: 16px;
+        border: 3px solid #CCCCCC;
     }
     #epsilon_value{
         grid-area: ev;
@@ -111,15 +133,19 @@ $bolt-color: #C4C4C4;
     }
     #load_button{
         grid-area: lob;
+        margin: 5px 10px;
     }
     #reset_button{
         grid-area: rb;
+        margin: 5px 10px;
     }
     #learn_button{
         grid-area: leb;
+        margin: 5px 10px;
     }
     #explore_button{
-        grid-area: eb
+        grid-area: eb;
+        margin: 5px 10px;
     }
 
 }

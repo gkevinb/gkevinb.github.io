@@ -16,13 +16,13 @@ Vue.component("q-learning-tab", {
     <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamma_slider" v-model="gamma">
     <input type="checkbox" id="qvalue_checkbox" v-model="showQValues">
     
-    <div id="epsilon_value">{{ epsilon }}</div>
-    <div id="alpha_value">{{ alpha }}</div>
-    <div id="gamma_value">{{ gamma }}</div>
-    <button id="load_button" type="button">Load</button>
-    <button id="reset_button" type="button">Reset</button>
-    <button id="learn_button" type="button">Learn</button>
-    <button id="explore_button" @click="explore" type="button">Explore</button>
+    <div id="epsilon_value" class="value_screen">{{ epsilon }}</div>
+    <div id="alpha_value" class="value_screen">{{ alpha }}</div>
+    <div id="gamma_value" class="value_screen">{{ gamma }}</div>
+    <button id="load_button" class="btn btn-success" type="button">Load</button>
+    <button id="reset_button" class="btn btn-success" @click="reset" type="button">Reset</button>
+    <button id="learn_button" class="btn btn-success" type="button">Learn</button>
+    <button id="explore_button" class="btn btn-success" @click="explore" type="button">Explore</button>
     
     </div>
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
@@ -134,6 +134,11 @@ Vue.component("q-learning-tab", {
                 this.movement = setInterval(this.move, 200);
                 this.exploring = true;
             }
+        },
+        reset: function() {
+            clearInterval(this.movement);
+            this.exploring = false;
+            this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
         }
     }
 })
