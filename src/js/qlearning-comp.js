@@ -32,7 +32,8 @@ Vue.component("q-learning-tab", {
     <div v-if="showQValues" class="DOWN"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
 	</div>
 	</template>
-	</div>
+    </div>
+    <br/>
 	</div>`,
     data: function() {
         return {

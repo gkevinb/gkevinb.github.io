@@ -51,7 +51,7 @@ $bg-color: #969696;
         "et es ev lob"
         "at as av rb"
         "gt gs gv leb"
-        "qt qt qc  eb";
+        "qt qt qc eb";
 
     width: fit-content;
     padding: 10px;
@@ -60,15 +60,32 @@ $bg-color: #969696;
     color: $light-grey;
 
     border: 10px outset rgb(196, 196, 196);
-    // border-style: outset;
-    // border-width: 10px;
-    // border-top-color: rgb(129, 129, 129);
-    // border-left-color: black;
-    // border-right-color: rgb(121, 121, 121);
-    // border-bottom-color: white;
+
     border-radius: 20px;
 
     font-size: 20px;
+
+    @include media-breakpoint-down(sm){
+        margin: auto;
+
+        grid-template-columns: 40px 90px 50px 90px;
+        grid-template-areas: 
+        "l  h  h  h"
+        "et es ev lob"
+        "at as av rb"
+        "gt gs gv leb"
+        "qt qt qt eb";
+
+        border-style: outset;
+        border-width: 10px;
+        border-top-color: rgb(129, 129, 129);
+        border-left-color: rgb(129, 129, 129);
+        border-right-color: rgb(175, 175, 175);
+        border-bottom-color: rgb(175, 175, 175);
+
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 
     #left_screw{
         grid-area: l;
@@ -81,10 +98,16 @@ $bg-color: #969696;
         margin-left: 14px;
 
         font-size: 32px;
+        @include media-breakpoint-down(sm){
+            margin-left: 9px;
+        }
     }
     #right_screw{
         grid-area: h;
         margin-left: 220px;
+        @include media-breakpoint-down(sm){
+            margin-left: 210px;
+        }
     }
     .greek-letters{
         margin-top: -5px;
@@ -121,7 +144,10 @@ $bg-color: #969696;
         grid-area: qc;
 
         margin-top: 17px;
-        // margin-left: 160px;
+        @include media-breakpoint-down(sm){
+            grid-area: qt;
+            margin-left: 160px;
+        }
     }
     .value_screen{
         margin: 4px 0;
