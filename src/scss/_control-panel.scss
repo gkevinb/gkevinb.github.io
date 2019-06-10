@@ -34,7 +34,6 @@ $bg-color: #969696;
         margin-top: -0.66 * $screw-size;
         margin-left: 0.09 * $screw-size;
     }
-    
 }
 .screw:hover{
     animation:spin 1s linear;
@@ -78,6 +77,7 @@ $bg-color: #969696;
 
         border-style: outset;
         border-width: 10px;
+
         border-top-color: rgb(129, 129, 129);
         border-left-color: rgb(129, 129, 129);
         border-right-color: rgb(175, 175, 175);
@@ -144,6 +144,7 @@ $bg-color: #969696;
         grid-area: qc;
 
         margin-top: 17px;
+
         @include media-breakpoint-down(sm){
             grid-area: qt;
             margin-left: 160px;
@@ -187,5 +188,4 @@ $bg-color: #969696;
     #explore_button{
         grid-area: eb;
     }
-
 }

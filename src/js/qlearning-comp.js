@@ -25,12 +25,14 @@ Vue.component("q-learning-tab", {
     </div>
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
-    <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
+    <div v-for="j in stringToNum(column)" class="tile--background">
+    <div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
     <div v-if="showQValues" class="UP"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
     <div v-if="showQValues" class="LEFT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
     <div v-if="showQValues" class="RIGHT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
     <div v-if="showQValues" class="DOWN"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
-	</div>
+    </div>
+    </div>
 	</template>
     </div>
     <br/>
@@ -38,11 +40,11 @@ Vue.component("q-learning-tab", {
     data: function() {
         return {
             /* Map values */
-            cliffs: ["2x1", "2x2", "1x2"],
-            reward: "2x3",
+            cliffs: ["2x1", "2x2", "2x3", "2x4"],
+            reward: "2x5",
             start: "2x0",
             row: "3",
-            column: "5",
+            column: "8",
             showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,

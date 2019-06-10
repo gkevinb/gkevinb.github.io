@@ -99,8 +99,14 @@ $columns: 5;
     Animation for robot falling down the hole.
 */
 @keyframes falling {
-    0% { background-size: 100% 100%; }
-    100% { background-size: 0% 0%; }
+    0% {
+        height: 100%;
+        width: 100%; 
+    }
+    100% {
+        height: 0%;
+        width: 0%;
+    }
 }
 
 /*
@@ -128,9 +134,9 @@ $columns: 5;
     @include media-breakpoint-down(sm){
         width: fit-content;
         margin: auto;
+        padding: 5px;
 
         background-color: rgb(146, 134, 101);
-        padding: 5px;
 
         /* Border Styling */
         border-style: inset;
@@ -144,8 +150,22 @@ $columns: 5;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-    
 }
+
+/*
+    Background tile behind each tile. This workaround is 
+    needed to make robot falling animation work on mobile.
+*/
+.tile--background{
+    @include tileSize();
+
+    background-color: $cliff_color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .tile{
     @include tileSize();
 
@@ -161,23 +181,41 @@ $columns: 5;
     @include tileSize();
 
     background-color: $cliff_color;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
 }
 .tile--reward{
     @include tileSize();
     @include backgroundImage("trophy", "#{$trophy_size}");
 
     background-color: $tile_color;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
 }
 .tile--robot--falling{
     @include tileSize();
     @include backgroundImage("robot-2", "#{$robot_size}");
 
     background-color: $cliff_color;
-
+    
     /* Robot falling animation */
     animation-name: falling;
     animation-duration: 1.5s;
     animation-fill-mode: forwards;
+
+    /* Needed for keeping falling animation in the center */
+    background-size: cover;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
 }
 .tile--robot--winning{
     @include tileSize();
@@ -192,4 +230,9 @@ $columns: 5;
     animation-name: winning;
     animation-duration: 1.0s;
     animation-iteration-count: infinite;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
 }
