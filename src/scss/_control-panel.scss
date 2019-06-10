@@ -1,0 +1,165 @@
+/* =============== Control Panel ============= */
+
+$screw-size: 40px;
+$screw-color: #535353;
+$bolt-color: #C4C4C4;
+
+$neon-green: #91C87E;
+$screen-color: #282828;
+$screen-border: #CCCCCC;
+$light-grey: #E4E4E4;
+$bg-color: #969696;
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg);
+        transform:rotate(360deg); 
+    }
+}
+
+.screw{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.35 * $screw-size;
+    color: $screw-color;
+
+    height: $screw-size;
+    width: $screw-size;
+
+    background-color: $bolt-color;
+    border: 1px solid $bolt-color;
+    border-radius: $screw-size;
+
+    div{
+        /* Adjust values below after changing screw-size */
+        margin-top: -0.66 * $screw-size;
+        margin-left: 0.09 * $screw-size;
+    }
+    
+}
+.screw:hover{
+    animation:spin 1s linear;
+}
+
+#control_panel{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 40px 100px 50px 90px;
+    grid-template-rows: repeat(5, 50px);
+    grid-template-areas: 
+        "l  h  h  h"
+        "et es ev lob"
+        "at as av rb"
+        "gt gs gv leb"
+        "qt qt qc  eb";
+
+    width: fit-content;
+    padding: 10px;
+
+    background-color: $bg-color;
+    color: $light-grey;
+
+    border: 10px outset rgb(196, 196, 196);
+    // border-style: outset;
+    // border-width: 10px;
+    // border-top-color: rgb(129, 129, 129);
+    // border-left-color: black;
+    // border-right-color: rgb(121, 121, 121);
+    // border-bottom-color: white;
+    border-radius: 20px;
+
+    font-size: 20px;
+
+    #left_screw{
+        grid-area: l;
+    }
+    #control_panel-title{
+        grid-area: h;
+        
+        margin-top: -5px;
+        margin-bottom: 10px;
+        margin-left: 14px;
+
+        font-size: 32px;
+    }
+    #right_screw{
+        grid-area: h;
+        margin-left: 220px;
+    }
+    .greek-letters{
+        margin-top: -5px;
+        margin-left: 10px;
+
+        font-family: 'GFS Didot', serif;
+        font-size: 36px;
+    }
+    #epsilon_text{
+        grid-area: et;
+    }
+    #alpha_text{
+        grid-area: at;
+    }
+    #gamma_text{
+        grid-area: gt;
+    }
+    #qvalue_text{
+        grid-area: qt;
+
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    #epsilon_slider{
+        grid-area: es;
+    }
+    #alpha_slider{
+        grid-area: as;
+    }
+    #gamma_slider{
+        grid-area: gs;
+    }
+    #qvalue_checkbox{
+        grid-area: qc;
+
+        margin-top: 17px;
+        // margin-left: 160px;
+    }
+    .value_screen{
+        margin: 4px 0;
+        padding: 4px 4px;
+        width: 50px;
+        border: 3px solid $screen-border;
+
+        background-color: $screen-color;
+        color: $neon-green;
+        
+        font-family: 'PT Mono', monospace;
+    }
+    #epsilon_value{
+        grid-area: ev;
+    }
+    #alpha_value{
+        grid-area: av;
+    }
+    #gamma_value{
+        grid-area: gv;
+    }
+    .control-panel__button{
+        color: $light-grey;
+        background-color: $neon-green;
+        border-color: $neon-green;
+        font-size: 20px;
+    }
+    #load_button{
+        grid-area: lob;
+    }
+    #reset_button{
+        grid-area: rb;
+    }
+    #learn_button{
+        grid-area: leb;
+    }
+    #explore_button{
+        grid-area: eb;
+    }
+
+}

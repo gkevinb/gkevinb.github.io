@@ -11,7 +11,7 @@ $tile_size: 100px;
 $font_size: 14px;
 $padding_size: 3px;
 
-/* Initial row and column values, however this will change due to qlearning-comp.js */
+/* Initial row and column values, however this will change during runtime due to qlearning-comp.js */
 $rows: 4;
 $columns: 5;
 
@@ -101,10 +101,6 @@ $columns: 5;
 @keyframes falling {
     0% { background-size: 100% 100%; }
     100% { background-size: 0% 0%; }
-}
-@keyframes fallixng {
-    0% { background-color: blue; }
-    100% { background-color: red; }
 }
 
 /*

@@ -3,21 +3,33 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 Vue.component("q-learning-tab", {
     template: `
     <div id="outer">
-    <button @click="explore" type="button">Explore</button>
-    <input type="checkbox" id="q_value_checkbox" v-model="showQValues">Show Q Values<br>
-    <p>Epsilon: {{ epsilon }}</p>
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsi" v-model="epsilon">
-    <p>Alpha: {{ alpha }}</p>
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alph" v-model="alpha">
-    <p>Gamma: {{ gamma }}</p>
-    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamm" v-model="gamma">
+    <div id="control_panel">
+    <div id="left_screw" class="screw"><div>x</div></div>
+    <div id="control_panel-title">Control Panel</div>
+    <div id="right_screw" class="screw"><div>x</div></div>
+    <div id="epsilon_text" class="greek-letters">ε</div>
+    <div id="alpha_text" class="greek-letters">α</div>
+    <div id="gamma_text" class="greek-letters">γ</div>
+    <div id="qvalue_text">Show Q Values</div>
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsilon_slider" v-model="epsilon">
+    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alpha_slider" v-model="alpha">
+    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamma_slider" v-model="gamma">
+    <input type="checkbox" id="qvalue_checkbox" v-model="showQValues">
+    <div id="epsilon_value" class="value_screen">{{ formatValue(epsilon) }}</div>
+    <div id="alpha_value" class="value_screen">{{ formatValue(alpha) }}</div>
+    <div id="gamma_value" class="value_screen">{{ formatValue(gamma) }}</div>
+    <button id="load_button" class="btn control-panel__button" type="button" disabled>Load</button>
+    <button id="reset_button" class="btn control-panel__button" @click="reset" type="button">Reset</button>
+    <button id="learn_button" class="btn control-panel__button" type="button" disabled>Learn</button>
+    <button id="explore_button" class="btn control-panel__button" @click="explore" type="button">Explore</button>
+    </div>
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
     <div v-for="j in stringToNum(column)" :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
-    <div v-if="showQValues" class="UP"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
-    <div v-if="showQValues" class="LEFT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
-    <div v-if="showQValues" class="RIGHT"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
-    <div v-if="showQValues" class="DOWN"><div>{{formatValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
+    <div v-if="showQValues" class="UP"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
+    <div v-if="showQValues" class="LEFT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
+    <div v-if="showQValues" class="RIGHT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
+    <div v-if="showQValues" class="DOWN"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
 	</div>
 	</template>
 	</div>
@@ -28,8 +40,8 @@ Vue.component("q-learning-tab", {
             cliffs: ["2x1", "2x2", "1x2"],
             reward: "2x3",
             start: "2x0",
-            row: "4",
-            column: "8",
+            row: "3",
+            column: "5",
             showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,
@@ -77,12 +89,18 @@ Vue.component("q-learning-tab", {
         stringToNum: function(string) {
             return parseInt(string, 10);
         },
-        formatValue: function(number) {
+        formatQValue: function(number) {
             var stringLength = 5;
             if(number != 0)
                 return number.toString().substring(0, stringLength);
             else
                 return "";
+        },
+        formatValue: function(number) {
+            if(number == 0 || number == 1)
+                return number.toString() + '.0';
+            else
+                return number.toString();
         },
         matrixId: function(i, j) {
             return i.toString() + "x" + j.toString();
@@ -120,6 +138,11 @@ Vue.component("q-learning-tab", {
                 this.movement = setInterval(this.move, 200);
                 this.exploring = true;
             }
+        },
+        reset: function() {
+            clearInterval(this.movement);
+            this.exploring = false;
+            this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
         }
     }
 })

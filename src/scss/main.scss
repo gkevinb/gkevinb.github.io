@@ -6,6 +6,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 @import url('https://fonts.googleapis.com/css?family=Thasadith');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=GFS+Didot&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
 
 /* Bootstrap components */
 @import "node_modules/bootstrap/scss/functions";
@@ -17,6 +20,7 @@
 
 /* Component styling */
 @import "home";
+@import "control-panel";
 @import "qlearning";
 @import "about";
 @import "chinese-flashcard";
