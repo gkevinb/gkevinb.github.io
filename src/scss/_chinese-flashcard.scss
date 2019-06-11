@@ -24,7 +24,7 @@ $card-size: 200px;
     width: $card-size;
     height: $card-size;
     perspective: 600px;
-    margin: 39px;
+    margin: 40px auto;
 
     .flashcard {
         position: relative;

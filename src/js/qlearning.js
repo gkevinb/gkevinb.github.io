@@ -9,18 +9,21 @@ class RewardMap {
         this.matrix = {};
         this.generateRewards();
     }
+    /* Generate reward values depending on if tile is cliff or reward. */
     generateRewards() {
+        /* Default reward value of tiles is -1 */
         for (var i = 0; i < this.rows; i++) {
             for (var j = 0; j < this.columns; j++) {
                 var key = i.toString() + "x" + j.toString();
                 this.matrix[key] = -1;
             }
         }
+        /* Cliff tiles have a reward value of -100 */
         for(var cliff of this.cliffs){
             this.matrix[cliff] = -100;
         }
+        /* Reward tile has a reward value of 100 */
         this.matrix[this.reward] = 100;
-        console.log(this.matrix);
     }
 }
 
@@ -31,6 +34,7 @@ class QMatrix {
         this.columns = columns;
         this.generateMatrix();
     }
+    /* Set Q-matrix value to all 0's */
     generateMatrix() {
         for (var i = 0; i < this.rows; i++) {
             for (var j = 0; j < this.columns; j++) {
@@ -60,7 +64,7 @@ class QLearningAgent {
         return [parseInt(result[0]), parseInt(result[1])];
     }
     /*
-        Get state id from coordinates
+        Get state Id from coordinates
         Ex: 2, 0 -> "2x0"
     */
     getStateId(row, column) {
@@ -90,6 +94,10 @@ class QLearningAgent {
         }
         return directions;
     }
+    /*
+        Get neighborhood of current state.
+        Ex: "0x0" -> ["0x1", "1x0"]
+    */
     getNeighborhood(state) {
         var neighborhood = [];
 
@@ -120,6 +128,9 @@ class QLearningAgent {
         if (direction == "DOWN") return 2;
         if (direction == "LEFT") return 3;
     }
+    /*
+        Get next state depending on direction and current state.
+    */
     getNextState(direction) {
         var row, column;
         [row, column] = this.getCoordinates(this.state);
@@ -140,7 +151,7 @@ class QLearningAgent {
         } // Choose using greedy
         else {
             var neighborhood = this.getNeighborhood(this.state);
-            // Rewards is a bad name, it holds an array of the neighbor and it's corresponding q-value 
+            // Rewards is a bad name, it holds an array of the neighbor and it's corresponding q-value
             var rewards = {};
             for (var i in neighborhood) {
                 var neighbor = neighborhood[i];
@@ -166,7 +177,6 @@ class QLearningAgent {
         this.action = this.directionMapping(choosenDirection);
 
         this.nextState = this.getNextState(choosenDirection);
-
     }
 
     findQMax(state) {
