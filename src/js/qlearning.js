@@ -20,7 +20,6 @@ class RewardMap {
             this.matrix[cliff] = -100;
         }
         this.matrix[this.reward] = 100;
-        console.log(this.matrix);
     }
 }
 

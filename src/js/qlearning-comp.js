@@ -3,6 +3,10 @@ import { RewardMap, QLearningAgent } from './qlearning.js';
 Vue.component("q-learning-tab", {
     template: `
     <div id="outer">
+    <div id="qlearning-header">
+    <h1>Q-Learning Algorithm</h1>
+    <p>Robot game demonstrating the Q-Learning algorithm.</p>
+    </div>
     <div id="control_panel">
     <div id="left_screw" class="screw"><div>x</div></div>
     <div id="control_panel-title">Control Panel</div>
@@ -44,7 +48,7 @@ Vue.component("q-learning-tab", {
             reward: "2x5",
             start: "2x0",
             row: "3",
-            column: "8",
+            column: "6",
             showQValues: true,
             /* q-learning variable values */
             epsilon: 0.5,
