@@ -189,3 +189,9 @@ $bg-color: #969696;
         grid-area: eb;
     }
 }
+.control-panel__button{
+    color: $light-grey;
+    background-color: $neon-green;
+    border-color: $neon-green;
+    font-size: 20px;
+}

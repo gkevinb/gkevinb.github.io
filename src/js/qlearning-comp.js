@@ -5,7 +5,18 @@ Vue.component("q-learning-tab", {
     <div id="outer">
     <div id="qlearning-header">
     <h1>Q-Learning Algorithm</h1>
-    <p>Robot game demonstrating the Q-Learning algorithm.</p>
+    <h2>The Cliff Walking Problem</h2>
+    </div>
+    <div id="qlearning-instructions">
+    <p>The Q-Learning algorithm is a reinforcement learning algorithm. It is a reinforcement learning method since it involves an agent, a set of states, and a set of actions for each state. The agent accumulates rewards when a specific action is taken at a specific state. The cliff walking problem is a classic problem solved by the Q-learning algorithm. The scenario is the following, the robot wants to find the shortest path to the trophy. However if the it steps on the black tiles it will fall down the cliff. The robot learns to find the shortest path to the trophy through trial and error. After each step taken the Q-values are updated for the that action at the specific state.</p>
+    <ul>
+        <li><span class="control-panel__button">Explore</span> start robot to explore map and look for the trophy.</li>
+        <li>Reset: reset robot to starting position.</li>
+        <li>Epsilon</li>
+        <li>Alpha</li>
+        <li>Gamma</li>
+    </ul>
+    
     </div>
     <div id="control_panel">
     <div id="left_screw" class="screw"><div>x</div></div>
