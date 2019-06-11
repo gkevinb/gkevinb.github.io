@@ -27,6 +27,7 @@ Vue.component("q-learning-tab", {
     <button id="learn_button" class="btn control-panel__button" type="button" disabled>Learn</button>
     <button id="explore_button" class="btn control-panel__button" @click="explore" type="button">Explore</button>
     </div>
+
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
     <div v-for="j in stringToNum(column)" class="tile--background">
@@ -39,6 +40,7 @@ Vue.component("q-learning-tab", {
     </div>
 	</template>
     </div>
+
     <br/>
 	</div>`,
     data: function() {
@@ -50,11 +52,11 @@ Vue.component("q-learning-tab", {
             row: "3",
             column: "6",
             showQValues: true,
-            /* q-learning variable values */
+            /* Q-learning variable values */
             epsilon: 0.5,
             alpha: 0.5,
             gamma: 0.7,
-            /* agent moving values */
+            /* Agent and movement values */
             agent: null,
             movement: null,
             exploring: false
@@ -76,6 +78,9 @@ Vue.component("q-learning-tab", {
         this.agent = new QLearningAgent(new RewardMap(this.row, this.column, this.cliffs, this.reward), this.start);
     },
     methods: {
+        /*
+            Create grid layout depending on if a mobile device or the row and column values.
+        */
         gridStyling: function(row, column) {
             var mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
             /* Tests if mobile device */
@@ -93,9 +98,18 @@ Vue.component("q-learning-tab", {
                 };
             }
         },
+        /*
+            Convert string to number.
+            Ex: "3" -> 3
+        */
         stringToNum: function(string) {
             return parseInt(string, 10);
         },
+        /*
+            Format Q-values to only have 5 digits including decimal and negative sign.
+            If Q-value is 0 return empty string.
+            Ex: -42.295 -> -42.2
+        */
         formatQValue: function(number) {
             var stringLength = 5;
             if(number != 0)
@@ -103,15 +117,26 @@ Vue.component("q-learning-tab", {
             else
                 return "";
         },
+        /*
+            Add '.0' if number is 0 or 1.
+            Ex: 0 -> 0.0
+        */
         formatValue: function(number) {
             if(number == 0 || number == 1)
                 return number.toString() + '.0';
             else
                 return number.toString();
         },
+        /*
+            Format matrix Id from row and column number.
+            Ex: 1, 3 -> 1x3
+        */
         matrixId: function(i, j) {
             return i.toString() + "x" + j.toString();
         },
+        /*
+            Style tile depending on reward value and agent's current state.
+        */
         styleTile: function(i, j){
             var id = this.matrixId(i, j);
             var reward = this.agent.map.matrix[id];
@@ -124,21 +149,26 @@ Vue.component("q-learning-tab", {
             
             return "tile";
         },
+        /*
+            Periodically called function representing the movement of the agent.
+        */
         move: function() {
             this.agent.move(this.epsilon);
             this.agent.updateQ(this.alpha, this.gamma);
             this.agent.state = this.agent.nextState;
 
-            if (this.cliffs.includes(this.agent.state)) {
-                console.log("AAAAWWWWW")
+            /* Agent falls down cliff */
+            if (this.cliffs.includes(this.agent.state)){
                 clearInterval(this.movement);
                 this.exploring = false;
             }
+            /* Agent finds reward */
             if (this.agent.state == this.reward){
                 clearInterval(this.movement);
                 this.exploring = false;
             }
         },
+        /* Start function to initiate exploration. */
         explore: function() {
             if(this.exploring == false){
                 this.agent.state = this.agent.initialPosition;
@@ -146,6 +176,7 @@ Vue.component("q-learning-tab", {
                 this.exploring = true;
             }
         },
+        /* Reset Q-matrix and agent to initial location. */
         reset: function() {
             clearInterval(this.movement);
             this.exploring = false;
