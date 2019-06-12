@@ -1,5 +1,31 @@
 $shadow-color: #505050;
 
+$construction-tape-color: yellow;
+$construction-tape-size: 80px;
+$construction-tape-border-width: 15px;
+
+@mixin contruction-tape (){
+    position: absolute;
+
+    background-color: $construction-tape-color;
+
+    height: $construction-tape-size;
+
+    border-top: $construction-tape-border-width solid transparent;
+    border-bottom: $construction-tape-border-width solid transparent;
+    border-image-source: url(/img/construction-tape-border.png);
+    border-image-repeat: repeat;
+}
+
+@mixin contruction-tape-ends (){
+    width: 80px;
+    transform: rotate(225deg);
+
+    @include media-breakpoint-down(md){
+        display: none;
+    }
+}
+
 #home-tab{
     /* Positioning */
     position: relative;
@@ -7,11 +33,6 @@ $shadow-color: #505050;
     height: 700px;
     min-width: 100%;
     min-height: 100%;
-
-    /* Text */
-    color: white;
-    text-shadow: 4px 4px 8px $shadow-color;
-    font-family: 'Montserrat', sans-serif;
 
     /* Layout */
     display: grid;
@@ -64,6 +85,9 @@ $shadow-color: #505050;
     /* Text */
     font-size: 24px;
     text-align: center;
+    color: white;
+    text-shadow: 4px 4px 8px $shadow-color;
+    font-family: 'Montserrat', sans-serif;
 
     @include media-breakpoint-down(sm){
         width: 100%;
@@ -76,12 +100,17 @@ $shadow-color: #505050;
 
     /* Center links */
     margin: 0 auto;
+
+    /* Text */
+    color: white;
+    text-shadow: 4px 4px 8px $shadow-color;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .link_container{
     /* Positioning */
     float: left;
-    margin: 20px;
+    margin: 12px;
 
     /* Text */
     font-size: 18px;
@@ -131,4 +160,56 @@ $shadow-color: #505050;
     @include media-breakpoint-down(sm){
         transform: none;
     }
+}
+
+#construction-tape__middle{
+    @include contruction-tape();
+    transform: rotate(45deg);
+
+    top: 434px;
+    left: -54px;
+    width: 560px;
+    padding-top: 8px;
+
+    text-align: center;
+    font-size: 22px;
+    
+    border-image-slice: 56% 0%;
+
+    @include media-breakpoint-down(md){
+        transform: none;
+        width: 100%;
+        top: 720px;
+        left: 0px;
+        height: auto;
+        padding-bottom: 6px;
+        padding: 8px 10px;
+    }
+    @include media-breakpoint-only(md){
+        top: 630px;
+    }
+}
+
+#construction-tape__left {
+    @include contruction-tape();
+    @include contruction-tape-ends();
+
+    top: 208px;
+    left: -40px;
+    
+    clip-path: polygon(100% 100%, 0 100%, 0 0);
+
+    border-image-slice: 54% 0%;
+}
+
+#construction-tape__right {
+    @include contruction-tape();
+    @include contruction-tape-ends();
+
+    top: 660px;
+    left: 412px;
+
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
+    
+    border-image-slice: 55% 0%;
 }

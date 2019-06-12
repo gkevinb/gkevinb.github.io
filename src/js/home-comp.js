@@ -10,15 +10,18 @@ Vue.component("home-tab", {
                 <p>This is my portfolio website to showcase some of my work and interest. Feel free to have a look around and get in contact with me.</p>
                 </div>
                 <div id="links_container">
-                <div v-for="website in websites" class="link_container">
-                <a :href="website.link">
-                <div>
-                <img :src="website.image" class="link_icon"/>
-                <span>{{ website.name }}</span>
+                    <div v-for="website in websites" class="link_container">
+                        <a :href="website.link">
+                        <div>
+                            <img :src="website.image" class="link_icon"/>
+                            <span>{{ website.name }}</span>
+                        </div>
+                        </a>
+                    </div>
                 </div>
-                </a>
-                </div>
-                </div>
+                <div id="construction-tape__left"></div>
+                <div id="construction-tape__middle">WEBSITE CONTINUOUSLY UNDER CONSTRUCTION</div>
+                <div id="construction-tape__right"></div>
                 </div>`,
     data: function () {
         return {
