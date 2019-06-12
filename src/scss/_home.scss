@@ -11,10 +11,17 @@ $construction-tape-border-width: 15px;
 
     height: $construction-tape-size;
 
-    border-top: $construction-tape-border-width solid transparent;
-    border-bottom: $construction-tape-border-width solid transparent;
+    border-top: $construction-tape-border-width dashed black;
+    border-bottom: $construction-tape-border-width dashed black;
+    
     border-image-source: url(/img/construction-tape-border.png);
     border-image-repeat: repeat;
+
+    -webkit-border-top: $construction-tape-border-width solid transparent;
+    -webkit-border-bottom: $construction-tape-border-width solid transparent;
+    -webkit-border-image-source: url(/img/construction-tape-border.png);
+    -webkit-border-image-repeat: repeat;
+    
 }
 
 @mixin contruction-tape-ends (){
@@ -175,6 +182,7 @@ $construction-tape-border-width: 15px;
     font-size: 22px;
     
     border-image-slice: 56% 0%;
+    -webkit-border-image-slice: 56% 0%;
 
     @include media-breakpoint-down(md){
         transform: none;
@@ -198,8 +206,10 @@ $construction-tape-border-width: 15px;
     left: -40px;
     
     clip-path: polygon(100% 100%, 0 100%, 0 0);
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 0 0);
 
     border-image-slice: 54% 0%;
+    -webkit-border-image-slice: 54% 0%;
 }
 
 #construction-tape__right {
@@ -210,6 +220,9 @@ $construction-tape-border-width: 15px;
     left: 412px;
 
     clip-path: polygon(100% 100%, 0 100%, 100% 0);
+    -webkit-clip-path: polygon(100% 100%, 0 100%, 100% 0);
     
     border-image-slice: 55% 0%;
+    -webkit-border-image-slice: 55% 0%;
+    
 }
