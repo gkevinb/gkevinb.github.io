@@ -215,7 +215,7 @@ Vue.component("chinese-flashcards-tab", {
             let temp;
             let index;
 
-            // Whilevthere are elements in the array
+            // While there are elements in the array
             while (ctr > 0) {
             // Pick a random index
                 index = Math.floor(Math.random() * ctr);

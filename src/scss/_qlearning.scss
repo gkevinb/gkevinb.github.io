@@ -1,3 +1,6 @@
+$neon-green: #91C87E;
+$light-grey: #E4E4E4;
+
 #qlearning-header{
     text-align: center;
 
@@ -16,4 +19,36 @@
             width: 90%;
         }
     }
+}
+
+#qlearning-legend{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 90px 510px;
+    grid-template-rows: repeat(7, 100px);
+
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    // background-color: beige;
+
+    border-radius: 5px;
+}
+
+.button-replica{
+    color: $light-grey;
+    background-color: $neon-green;
+    border-color: $neon-green;
+    font-size: 20px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    width: 90px;
+}
+
+.explanation{
+    text-align: center;
+    margin: auto;
 }

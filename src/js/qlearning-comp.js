@@ -9,46 +9,52 @@ Vue.component("q-learning-tab", {
     </div>
     <div id="qlearning-instructions">
     <p>The Q-Learning algorithm is a reinforcement learning algorithm. It is a reinforcement learning method since it involves an agent, a set of states, and a set of actions for each state. The agent accumulates rewards when a specific action is taken at a specific state. The cliff walking problem is a classic problem solved by the Q-learning algorithm. The scenario is the following, the robot wants to find the shortest path to the trophy. However if the it steps on the black tiles it will fall down the cliff. The robot learns to find the shortest path to the trophy through trial and error. After each step taken the Q-values are updated for the that action at the specific state.</p>
-    <ul>
-        <li><span class="control-panel__button">Explore</span> start robot to explore map and look for the trophy.</li>
-        <li>Reset: reset robot to starting position.</li>
-        <li>Epsilon</li>
-        <li>Alpha</li>
-        <li>Gamma</li>
-    </ul>
+    <div id="qlearning-legend">
+        <div class="greek-letters">ε</div><div class="explanation">Greedy factor is defined by how greedy we are with the neighboring Q values.</div>
+        <div class="greek-letters">α</div><div class="explanation">Learning rate is defined by how much we accept the new Q value over the old Q value.</div>
+        <div class="greek-letters">γ</div><div class="explanation">Discount factor is used to balance the immediate and future reward.</div>
+        <div class="button-replica">Load</div><div class="explanation">Disabled</div>
+        <div class="button-replica">Reset</div><div class="explanation">Reset Q values and place robot at starting position.</div>
+        <div class="button-replica">Learn</div><div class="explanation">Disabled</div>
+        <div class="button-replica">Explore</div><div class="explanation">Start exploring the map and look for the trophy. Press again if the robot falls down the cliff or finds the trophy to start exploring again.</div>
+    </div>
     
     </div>
     <div id="control_panel">
-    <div id="left_screw" class="screw"><div>x</div></div>
-    <div id="control_panel-title">Control Panel</div>
-    <div id="right_screw" class="screw"><div>x</div></div>
-    <div id="epsilon_text" class="greek-letters">ε</div>
-    <div id="alpha_text" class="greek-letters">α</div>
-    <div id="gamma_text" class="greek-letters">γ</div>
-    <div id="qvalue_text">Show Q Values</div>
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsilon_slider" v-model="epsilon">
-    <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alpha_slider" v-model="alpha">
-    <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamma_slider" v-model="gamma">
-    <input type="checkbox" id="qvalue_checkbox" v-model="showQValues">
-    <div id="epsilon_value" class="value_screen">{{ formatValue(epsilon) }}</div>
-    <div id="alpha_value" class="value_screen">{{ formatValue(alpha) }}</div>
-    <div id="gamma_value" class="value_screen">{{ formatValue(gamma) }}</div>
-    <button id="load_button" class="btn control-panel__button" type="button" disabled>Load</button>
-    <button id="reset_button" class="btn control-panel__button" @click="reset" type="button">Reset</button>
-    <button id="learn_button" class="btn control-panel__button" type="button" disabled>Learn</button>
-    <button id="explore_button" class="btn control-panel__button" @click="explore" type="button">Explore</button>
+        <div id="left_screw" class="screw"><div>x</div></div>
+        <div id="control_panel-title">Control Panel</div>
+        <div id="right_screw" class="screw"><div>x</div></div>
+
+        <div id="epsilon_letter" class="greek-letters">ε</div>
+        <div id="alpha_letter" class="greek-letters">α</div>
+        <div id="gamma_letter" class="greek-letters">γ</div>
+        <div id="qvalue_text">Display Q Values</div>
+
+        <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="epsilon_slider" v-model="epsilon">
+        <input type="range" min="0" max="1" value="0.5" step="0.1" class="slider" id="alpha_slider" v-model="alpha">
+        <input type="range" min="0" max="1" value="0.7" step="0.1" class="slider" id="gamma_slider" v-model="gamma">
+        <input type="checkbox" id="qvalue_checkbox" v-model="displayQValues">
+
+        <div id="epsilon_value" class="value_screen">{{ formatValue(epsilon) }}</div>
+        <div id="alpha_value" class="value_screen">{{ formatValue(alpha) }}</div>
+        <div id="gamma_value" class="value_screen">{{ formatValue(gamma) }}</div>
+
+        <button id="load_button" class="btn control-panel__button" type="button" disabled>Load</button>
+        <button id="reset_button" class="btn control-panel__button" @click="reset" type="button">Reset</button>
+        <button id="learn_button" class="btn control-panel__button" type="button" disabled>Learn</button>
+        <button id="explore_button" class="btn control-panel__button" @click="explore" type="button">Explore</button>
     </div>
 
 	<div id="qlearningMap" v-bind:style="gridStyling(row, column)">
     <template v-for="i in stringToNum(row)">
-    <div v-for="j in stringToNum(column)" class="tile--background">
-    <div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
-    <div v-if="showQValues" class="UP"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
-    <div v-if="showQValues" class="LEFT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
-    <div v-if="showQValues" class="RIGHT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
-    <div v-if="showQValues" class="DOWN"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
-    </div>
-    </div>
+        <div v-for="j in stringToNum(column)" class="tile--background">
+            <div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">
+                <div v-if="displayQValues" class="UP"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][0])}}</div></div>
+                <div v-if="displayQValues" class="LEFT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][3])}}</div></div>
+                <div v-if="displayQValues" class="RIGHT"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][1])}}</div></div>
+                <div v-if="displayQValues" class="DOWN"><div>{{formatQValue(agent.qMatrix.matrix[matrixId(i - 1, j - 1)][2])}}</div></div>
+            </div>
+        </div>
 	</template>
     </div>
 
@@ -62,7 +68,7 @@ Vue.component("q-learning-tab", {
             start: "2x0",
             row: "3",
             column: "6",
-            showQValues: true,
+            displayQValues: true,
             /* Q-learning variable values */
             epsilon: 0.5,
             alpha: 0.5,
