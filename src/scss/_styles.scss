@@ -7,9 +7,9 @@ $text_color: white;
         color: $bg_color;
         font-family: 'ZCOOL KuaiLe', cursive;
         font-size: 50px;
-        margin-right: 0;
+        margin: 0;
+
         @include media-breakpoint-down(sm){
-            margin-right: 0;
             font-size: 24px;
         }
     }
@@ -21,7 +21,7 @@ $text_color: white;
 }
 
 .nav-burger{
-    $nav_burger_size: 40px;
+    $nav_burger_size: 30px;
     $nav_burger_color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
 
     box-sizing: content-box; /* Make sure this is default */
