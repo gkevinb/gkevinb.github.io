@@ -71,12 +71,18 @@ Inject CSS into HTML
 Later also inject Javascript
 */
 gulp.task('inject-index', function () {
-    var target = gulp.src('src/index.html');
-    // It's not necessary to read the files (will speed up things), we're only after their paths:
-    var sources = gulp.src(['src/css/*.css'], {read: false});
-   
-    return target.pipe(inject(sources));
-  });
+    // var target = gulp.src('./src/index.html');
+    // // It's not necessary to read the files (will speed up things), we're only after their paths:
+    // var sources = gulp.src(['./src/css/*.css'], {read: false}, {relative: true} );
+
+    // return target.pipe(inject(sources))
+    //     .pipe(gulp.dest('./src'));
+
+    // Pipe relative path
+    return gulp.src('./src/*.html')
+        .pipe(inject(gulp.src('./src/css/*.css', {read: false}), {relative: true}))
+        .pipe(gulp.dest('./src'));
+});
 
 // Static server
 gulp.task('server', function() {
