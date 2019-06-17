@@ -21,24 +21,30 @@ $text_color: white;
 }
 
 .nav-burger{
-    $nav_burger_size: 30px;
+    $nav_burger_color__before: linear-gradient(180deg, #D48590 90%, #ECAC81 100%);
     $nav_burger_color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
+    $nav_burger_color__after: linear-gradient(180deg, #D48590 0%, #ECAC81 10%);
 
-    box-sizing: content-box; /* Make sure this is default */
-
-    width: $nav_burger_size;
-    height: $nav_burger_size * 0.6;
-
-    border-top: $nav_burger_size * 0.2 solid;
-    border-bottom: $nav_burger_size * 0.2 solid;
-
-    border-image-source: $nav_burger_color;
-    border-image-slice: 1;
+    // $nav_burger_color: linear-gradient(90deg, #D48590 0%, #ECAC81 100%);
+    // $nav_burger_color__after: linear-gradient(270deg, #D48590 0%, #ECAC81 100%);
 
     .nav-burger-meat{
-        margin-top: $nav_burger_size * 0.2;
-        height: $nav_burger_size * 0.2;
         background: $nav_burger_color;
+    }
+    .nav-burger-meat__X{
+        background: linear-gradient(90deg, #D48590 0%, #ECAC81 100%);
+    }
+    .nav-burger-meat::before{
+        background: $nav_burger_color__before;
+    }
+    .nav-burger-meat__X::before{
+        background: $nav_burger_color__before;
+    }
+    .nav-burger-meat::after{
+        background: $nav_burger_color__after;
+    }
+    .nav-burger-meat__X::after{
+        background: linear-gradient(270deg, #D48590 0%, #ECAC81 100%);
     }
 }
 

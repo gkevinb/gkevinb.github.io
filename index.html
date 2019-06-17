@@ -17,7 +17,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- inject:css -->
-	<link rel="stylesheet" href="css/hamburgers.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<!-- endinject -->
 
@@ -35,11 +34,11 @@
 			<div class="navbar-brand header">
 				<h1>Gabor Kevin Barta</h1>
 			</div>
-			<button class="navbar-toggler" data-toggle="collapse" data-target="#colapser">
-				<div class="nav-burger">
-					<div class="nav-burger-meat"></div>
-				</div>
-			</button>
+			<button class="navbar-toggler hamburger hamburger--squeeze" @click="hamburgerX()" data-toggle="collapse" data-target="#colapser" type="button">
+				<span class="nav-burger hamburger-box">
+				  <span id="hamburger-meat-id" class="nav-burger-meat hamburger-inner"></span>
+				</span>
+			  </button>
 			<div class="collapse navbar-collapse" id="colapser">
 				<ul class="navbar-nav ml-auto nav-menu">
 					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name" @click="currentTab = tab.name">

@@ -38,6 +38,13 @@ var app = new Vue({
     methods: {
         dropDownMenu: function (tab) {
             return tab.subtabs ? 'dropdown' : '';
+        },
+        hamburgerX: function() {
+            var hamburger = document.querySelector(".hamburger");
+            // Toggle class "is-active"
+            hamburger.classList.toggle("is-active");
+            // Do something else, like open/close menu
+            document.getElementById("hamburger-meat-id").classList.toggle("nav-burger-meat__X");
         }
     }
 });
@@ -91,4 +98,3 @@ Vue.component("projects-tab", {
         }
     }
 })
-

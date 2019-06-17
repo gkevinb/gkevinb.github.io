@@ -94,7 +94,7 @@ gulp.task('server', function() {
     
     // Make broswer sync on change in SASS and CSS
     gulp.watch("src/scss/*.scss", gulp.series('sass'));
-    gulp.watch("src/*.html", gulp.series('inject-index'));
+    // gulp.watch("src/*.html", gulp.series('inject-index'));
     gulp.watch("src/*.html").on('change', browserSync.reload);
     gulp.watch("src/js/*.js").on('change', browserSync.reload);
 });

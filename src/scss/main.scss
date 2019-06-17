@@ -16,6 +16,12 @@
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins/_breakpoints";
 
+
+$hamburger-hover-opacity       : 1;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity;
+
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+
 /* Layout styling */
 @import "styles";
 
