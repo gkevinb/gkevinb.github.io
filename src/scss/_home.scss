@@ -193,6 +193,7 @@ $construction-tape-border-width: 15px;
         height: auto;
         padding-bottom: 6px;
         padding: 8px 10px;
+        margin-bottom: 16px;
     }
     @include media-breakpoint-only(md){
         top: 630px;

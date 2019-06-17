@@ -18,15 +18,19 @@ $text_color: white;
 .content {
     margin-top: 30px;
     margin-bottom: 30px;
+    @include media-breakpoint-down(sm){
+        margin-top: 0px;
+    }
+}
+
+#nav-burger-button{
+    padding: 0;
 }
 
 .nav-burger{
     $nav_burger_color__before: linear-gradient(180deg, #D48590 90%, #ECAC81 100%);
     $nav_burger_color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
     $nav_burger_color__after: linear-gradient(180deg, #D48590 0%, #ECAC81 10%);
-
-    // $nav_burger_color: linear-gradient(90deg, #D48590 0%, #ECAC81 100%);
-    // $nav_burger_color__after: linear-gradient(270deg, #D48590 0%, #ECAC81 100%);
 
     .nav-burger-meat{
         background: $nav_burger_color;
