@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css?family=GFS+Didot&display=swap');
 @import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
 /* Bootstrap components */
 @import "node_modules/bootstrap/scss/functions";
@@ -31,5 +32,6 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 @import "control-panel";
 @import "qlearning-map";
 @import "about";
+@import "business-card";
 @import "chinese-flashcard";
 @import "chinese";
