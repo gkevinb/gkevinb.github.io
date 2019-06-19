@@ -3,14 +3,18 @@ $business-card-height: 320px;
 
 $rotate-degrees: 180deg;
 
+$text-color: white;
+$text-border-color: #969696;
+
 .business-card__scene {
     @include flashcard-scene($business-card-width, $business-card-height);
+    
 }
 #business-card {
     @include flashcard();
     width: fit-content;
 }
-  
+
 #business-card.is-flipped {
     @include rotateY-axis($rotate-degrees);
 }
@@ -24,12 +28,6 @@ $rotate-degrees: 180deg;
     height: 320px;
     // left: 60px;
     // top: 250px;
-    @include media-breakpoint-down(md){
-        transform: rotate(90deg);
-        margin-top: 200px;
-        margin-left: -108px;
-        margin-bottom: 160px;
-    }
 
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
     border-radius: 10px;
@@ -47,7 +45,8 @@ $rotate-degrees: 180deg;
         font-size: 36px;
         line-height: 55px;
         
-        color: #FFFFFF;
+        color: $text-color;
+        -webkit-text-stroke: $text-border-color 1px;
         
     }
 
@@ -241,9 +240,7 @@ $rotate-degrees: 180deg;
         background: #FF7373;
         border-radius: 2px;
     }
-
     #position{
-
         position: absolute;
         width: 211px;
         height: 28px;
@@ -257,27 +254,92 @@ $rotate-degrees: 180deg;
         line-height: 28px;
         /* identical to box height */
 
-        color: #FFFFFF;
-    }
-    
-}
+        color: $text-color;
 
+        -webkit-text-stroke: $text-border-color 0.5px;
+    }
+}
 
 .business-card__face--back {
     @include rotateY-axis($rotate-degrees);
     @include backfaceVisibility();
 
-    // position: absolute;
     width: 560px;
     height: 320px;
+
+    font-family: 'Roboto Mono', monospace;
 
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
     border-radius: 10px;
 
-    // @include media-breakpoint-down(md){
-    //     transform: rotate(90deg);
-    //     margin-top: 200px;
-    //     margin-left: -108px;
-    //     margin-bottom: 160px;
-    // }
+}
+
+#brand-container{
+    position: absolute;
+    left: 56px;
+    top: 234px;
+}
+
+.brand-logo{
+    margin: 10px;
+    width: 70px;
+    text-align: center;
+    font-size: 48px;
+    color: $text-color;
+    // -webkit-text-stroke: $text-border-color 0.5px;
+}
+
+#contact-container{
+    padding-top: 40px;
+}
+
+.contact-info{
+    width: 74%;
+    margin: auto;
+    overflow: hidden;
+    color: $text-color;
+
+    .contact-icon{
+        margin: 10px;
+        width: 60px;
+        text-align: center;
+        font-size: 32px;
+        float: left;
+    }
+    .contact-text{
+        font-size: 20px;
+        float: left;
+        margin: 10px;
+        -webkit-text-stroke: $text-border-color 0.5px;
+    }
+}
+
+#save-contact__button{
+    width: 40%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px;
+
+    border-radius: 10px;
+    background-color: rgb(179, 179, 179);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+    font-size: 20px;
+
+    /* Link */
+    a{
+        text-decoration: none;
+        color: $text-color;
+    }
+    a:active{
+        color: $text-color;
+    }
+    a:visited{
+        color: $text-color;
+    }
+    a:hover{
+        text-decoration: none;
+        color: $text-color;
+    }
 }

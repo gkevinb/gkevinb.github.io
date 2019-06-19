@@ -1,3 +1,5 @@
+import { shuffle } from './algorithms.js';
+
 Vue.component("chinese-flashcards-tab", {
     name: "chinese-flashcard-tab",
     template:  `<div :id="name">
@@ -206,27 +208,7 @@ Vue.component("chinese-flashcards-tab", {
             this.chosenCharacters = null;
         },
         pickCards: function (numberOf) {
-            this.chosenCharacters = null;
-            var chars = this.characters;
-            this.chosenCharacters = this.shuffle(chars).slice(0, numberOf);
-        },
-        shuffle: function (arra1) {
-            let ctr = arra1.length;
-            let temp;
-            let index;
-
-            // Whilevthere are elements in the array
-            while (ctr > 0) {
-            // Pick a random index
-                index = Math.floor(Math.random() * ctr);
-            // Decrease ctr by 1
-                ctr--;
-            // And swap the last element with it
-                temp = arra1[ctr];
-                arra1[ctr] = arra1[index];
-                arra1[index] = temp;
-            }
-            return arra1;
+            this.chosenCharacters = shuffle(this.characters).slice(0, numberOf);
         },
         flashcardStyling: function() {
             if(this.chosenCharacters == null){
