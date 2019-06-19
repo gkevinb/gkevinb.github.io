@@ -1,7 +1,25 @@
+$business-card-width: 560px;
+$business-card-height: 320px;
 
+$rotate-degrees: 180deg;
 
-#business-card__front{
-    position: relative;
+.business-card__scene {
+    @include flashcard-scene($business-card-width, $business-card-height);
+}
+#business-card {
+    @include flashcard();
+    width: fit-content;
+}
+  
+#business-card.is-flipped {
+    @include rotateY-axis($rotate-degrees);
+}
+
+.business-card__face--front{
+    @include backfaceVisibility();
+
+    position: absolute;
+    
     width: 560px;
     height: 320px;
     // left: 60px;
@@ -13,8 +31,7 @@
         margin-bottom: 160px;
     }
 
-
-    background: linear-gradient(270deg, #202020 0%, rgba(32, 32, 32, 0.692708) 66.09%, rgba(6, 6, 6, 0.133296) 122.41%, rgba(0, 0, 0, 0) 122.42%);
+    background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
     border-radius: 10px;
 
     #name{
@@ -91,12 +108,12 @@
     }
     #coding{
         position: absolute;
-        width: 62px;
+        width: 42px;
         height: 42px;
-        left: 235px;
-        top: 98px;
+        left: 240px;
+        top: 100px;
         
-        font-family: Kreon;
+        font-family: 'Rubik', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 28px;
@@ -243,4 +260,24 @@
         color: #FFFFFF;
     }
     
+}
+
+
+.business-card__face--back {
+    @include rotateY-axis($rotate-degrees);
+    @include backfaceVisibility();
+
+    // position: absolute;
+    width: 560px;
+    height: 320px;
+
+    background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
+    border-radius: 10px;
+
+    // @include media-breakpoint-down(md){
+    //     transform: rotate(90deg);
+    //     margin-top: 200px;
+    //     margin-left: -108px;
+    //     margin-bottom: 160px;
+    // }
 }
