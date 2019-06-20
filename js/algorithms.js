@@ -1,1 +1,1 @@
-"use strict";function shuffle(o){let n,t,e=o.length;for(;e>0;)t=Math.floor(Math.random()*e),n=o[--e],o[e]=o[t],o[t]=n;return o}console.log($(window)),$(window).on("orientationchange",function(o){$(window).height(),$(window).width()});export{shuffle};
+"use strict";function shuffle(t){let e,f,r=t.length;for(;r>0;)f=Math.floor(Math.random()*r),e=t[--r],t[r]=t[f],t[f]=e;return t}export{shuffle};

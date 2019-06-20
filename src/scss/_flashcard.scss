@@ -41,6 +41,14 @@
     -o-transform: rotateZ($degrees);
 }
 
+@mixin rotate3D($x, $y, $z, $degrees) {
+    transform: rotate3d($x, $y, $z, $degrees);
+    -ms-transform: rotate3d($x, $y, $z, $degrees);
+    -webkit-transform: rotate3d($x, $y, $z, $degrees);
+    -moz-transform: rotate3d($x, $y, $z, $degrees);
+    -o-transform: rotate3d($x, $y, $z, $degrees);
+}
+
 /* Hide the back face of the card when turned around, need for safari support */
 @mixin backfaceVisibility() {
     -webkit-backface-visibility: hidden;

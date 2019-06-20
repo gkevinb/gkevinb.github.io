@@ -4,7 +4,6 @@ Vue.component("business-card-tab", {
     name: "business-card-tab",
     template:  `<div :id="name">
                 <h1>Digital Business Card</h1>
-                <button onClick="window.scroll(0, document.body.scrollHeight);">Jump to business card</button>
                 <div id="business-card__scene">
                     <div id="business-card" @click=flipFlashcard>
                         <div class="business-card__face--front">
@@ -40,7 +39,7 @@ Vue.component("business-card-tab", {
                                 </div>
                             </div>
                             <div id="save-contact__button">
-                                <a id="save-contact__link" href="../file/user.vcf" download="user.vcf">Save to Contact</a>
+                                <a id="save-contact__link" href="../files/user.vcf" download="user.vcf">Save to Contact</a>
                             </div>
                         </div>
                     </div>
