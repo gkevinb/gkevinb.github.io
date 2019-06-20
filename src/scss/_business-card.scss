@@ -7,6 +7,12 @@ $text-color: white;
 $text-border-color: #969696;
 
 
+#business-card-tab{
+    h1{
+        text-align: center;
+    }
+}
+
 @media only screen and (orientation: portrait){
     #business-card-tab{
         @include media-breakpoint-down(sm){
@@ -22,10 +28,10 @@ $text-border-color: #969696;
     }
 }
 
-.business-card__scene {
-    @include flashcard-scene($business-card-width, $business-card-height);
-    
+#business-card__scene {
+    // @include flashcard-scene($business-card-width, $business-card-height);
 }
+
 #business-card {
     @include flashcard();
     width: fit-content;
