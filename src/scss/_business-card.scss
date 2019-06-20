@@ -6,6 +6,14 @@ $rotate-degrees: 180deg;
 $text-color: white;
 $text-border-color: #969696;
 
+@media only screen and (orientation: landscape) and (max-width: 760px){
+    #business-card-tab {
+        margin-top: -150px;
+        @include rotateZ-axis(-90deg);
+        // width: 400px;
+    }
+}
+
 .business-card__scene {
     @include flashcard-scene($business-card-width, $business-card-height);
     
@@ -13,10 +21,39 @@ $text-border-color: #969696;
 #business-card {
     @include flashcard();
     width: fit-content;
+
+    position: relative;
+
+    /* Centers business-card in the middle on any device */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    @include media-breakpoint-down(sm){
+
+        @include rotateZ-axis(-90deg);
+
+        margin-top: 60px;
+        position: relative;
+        height: 640px;
+
+        /* Centers business-card in the middle on any device */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 #business-card.is-flipped {
     @include rotateY-axis($rotate-degrees);
+
+    @include media-breakpoint-down(sm){
+        transform: rotate3d(1, 1, 0, 180deg);
+    }
 }
 
 .business-card__face--front{
@@ -26,11 +63,13 @@ $text-border-color: #969696;
     
     width: 560px;
     height: 320px;
-    // left: 60px;
-    // top: 250px;
 
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
     border-radius: 10px;
+
+    @include media-breakpoint-down(sm){
+        transform: rotateZ(180deg);
+    }
 
     #name{
         position: absolute;
@@ -272,6 +311,9 @@ $text-border-color: #969696;
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
     border-radius: 10px;
 
+    @include media-breakpoint-down(sm){
+        @include rotateX-axis(180deg);
+    }
 }
 
 #brand-container{

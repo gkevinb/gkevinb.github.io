@@ -3,6 +3,8 @@ import { shuffle } from './algorithms.js';
 Vue.component("business-card-tab", {
     name: "business-card-tab",
     template:  `<div :id="name">
+                <h1>Digital Business Card</h1>
+                <h2>Rotate Phone and add me to your contacts!!!!!!!!!!!!!!!!</h2>
                 <div id="business-card__scene">
                     <div id="business-card" @click=flipFlashcard>
                         <div class="business-card__face--front">

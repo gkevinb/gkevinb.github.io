@@ -32,6 +32,15 @@
     -o-transform: rotateX($degrees);
 }
 
+/* Rotate along X-axis and support all browsers */
+@mixin rotateZ-axis($degrees) {
+    transform: rotateZ($degrees);
+    -ms-transform: rotateZ($degrees);
+    -webkit-transform: rotateZ($degrees);
+    -moz-transform: rotateZ($degrees);
+    -o-transform: rotateZ($degrees);
+}
+
 /* Hide the back face of the card when turned around, need for safari support */
 @mixin backfaceVisibility() {
     -webkit-backface-visibility: hidden;
