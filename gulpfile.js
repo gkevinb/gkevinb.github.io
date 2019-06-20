@@ -15,24 +15,31 @@ gulp.task('message', function(done){
 });
 
 // Copy ALL HTML files
-// dist folder created automatically
+// dest folder created automatically
 gulp.task('copy-html', function(){
     return gulp.src('src/*.html')
         .pipe(gulp.dest('./'))
 });
 
 // Copy ALL js files
-// dist folder created automatically
+// dest folder created automatically
 gulp.task('copy-js', function(){
     return gulp.src('src/js/*')
         .pipe(gulp.dest('js'))
 });
 
 // Copy ALL css files
-// dist folder created automatically
+// dest folder created automatically
 gulp.task('copy-css', function(){
     return gulp.src('src/css/*')
         .pipe(gulp.dest('css'))
+});
+
+// Copy ALL css files
+// dest folder created automatically
+gulp.task('copy-files', function(){
+    return gulp.src('src/files/*')
+        .pipe(gulp.dest('files'))
 });
 
 // Image optimization
@@ -106,4 +113,4 @@ gulp.task('watch', function(){
 	//gulp.watch('src/*.html', gulp.series('copy-html'));
 });
 
-gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'inject-index', 'copy-html', 'copy-css'));
+gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'inject-index', 'copy-html', 'copy-css', 'copy-files'));

@@ -11,6 +11,13 @@ $text-border-color: #969696;
     h1{
         text-align: center;
     }
+    button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 @media only screen and (orientation: portrait){
@@ -28,9 +35,9 @@ $text-border-color: #969696;
     }
 }
 
-#business-card__scene {
-    // @include flashcard-scene($business-card-width, $business-card-height);
-}
+// #business-card__scene {
+//     // @include flashcard-scene($business-card-width, $business-card-height);
+// }
 
 #business-card {
     @include flashcard();
