@@ -10,6 +10,9 @@ $text-border-color: #969696;
 #business-card-tab{
     h1{
         text-align: center;
+        @include media-breakpoint-down(sm){
+            margin-bottom: 200px;
+        }
     }
     button{
         display: flex;
@@ -24,7 +27,7 @@ $text-border-color: #969696;
     #business-card-tab{
         @include media-breakpoint-down(sm){
             overflow: hidden;
-            height: 800px;
+            height: 840px;
         }
     }
 }
@@ -35,7 +38,7 @@ $text-border-color: #969696;
         height: 200px;
         @include rotateZ-axis(-90deg);
         margin: auto;
-        width: 48%;
+        width: 50%;
     }
     #business-card {
         margin-top: 150px;
@@ -66,7 +69,7 @@ $text-border-color: #969696;
     @include media-breakpoint-down(sm){
 
         @include rotateZ-axis(-90deg);
-        margin-top: 30px;
+        margin-top: 0px;
         position: relative;
     }
 }
