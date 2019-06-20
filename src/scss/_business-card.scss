@@ -6,11 +6,19 @@ $rotate-degrees: 180deg;
 $text-color: white;
 $text-border-color: #969696;
 
+
+@media only screen and (orientation: portrait){
+    #business-card-tab{
+        @include media-breakpoint-down(sm){
+            overflow: hidden;
+        }
+    }
+}
+
 @media only screen and (orientation: landscape) and (max-width: 760px){
-    #business-card-tab {
+    #business-card__scene {
         margin-top: -150px;
         @include rotateZ-axis(-90deg);
-        // width: 400px;
     }
 }
 
