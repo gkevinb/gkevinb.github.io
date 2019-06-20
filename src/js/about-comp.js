@@ -1,4 +1,4 @@
-Vue.component("about-tab", {
+Vue.component("experience-tab", {
     template: `
     <div id="cv">
     <div id="timeline"></div>

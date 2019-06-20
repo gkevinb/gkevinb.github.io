@@ -1,0 +1,401 @@
+$business-card-width: 560px;
+$business-card-height: 320px;
+
+$rotate-degrees: 180deg;
+
+$text-color: white;
+$text-border-color: #969696;
+
+
+#business-card-tab{
+    h1{
+        text-align: center;
+    }
+}
+
+@media only screen and (orientation: portrait){
+    #business-card-tab{
+        @include media-breakpoint-down(sm){
+            overflow: hidden;
+        }
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 760px){
+    #business-card__scene {
+        margin-top: -150px;
+        @include rotateZ-axis(-90deg);
+    }
+}
+
+#business-card__scene {
+    // @include flashcard-scene($business-card-width, $business-card-height);
+}
+
+#business-card {
+    @include flashcard();
+    width: fit-content;
+
+    position: relative;
+
+    /* Centers business-card in the middle on any device */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    @include media-breakpoint-down(sm){
+
+        @include rotateZ-axis(-90deg);
+
+        margin-top: 60px;
+        position: relative;
+        height: 640px;
+
+        /* Centers business-card in the middle on any device */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+#business-card.is-flipped {
+    @include rotateY-axis($rotate-degrees);
+
+    @include media-breakpoint-down(sm){
+        transform: rotate3d(1, 1, 0, 180deg);
+    }
+}
+
+.business-card__face--front{
+    @include backfaceVisibility();
+
+    position: absolute;
+    
+    width: 560px;
+    height: 320px;
+
+    background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
+    border-radius: 10px;
+
+    @include media-breakpoint-down(sm){
+        transform: rotateZ(180deg);
+    }
+
+    #name{
+        position: absolute;
+        width: 378px;
+        height: 55px;
+        left: 98px;
+        top: 20px;
+        
+        font-family: 'Roboto Mono', monospace;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 55px;
+        
+        color: $text-color;
+        -webkit-text-stroke: $text-border-color 1px;
+        
+    }
+
+    #laptop{
+        position: absolute;
+        width: 132px;
+        height: 88px;
+        left: 214px;
+        top: 82px;
+        
+        background: #838383;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 6px 6px 0px 0px;
+        
+    }
+    
+    #keyboard{
+        position: absolute;
+        width: 162px;
+        height: 10px;
+        left: 199px;
+        top: 170px;
+        
+        background: #C4C4C4;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 2px 2px 10px 10px;
+    }
+
+    #mousepad{
+        position: absolute;
+        width: 36px;
+        height: 5px;
+        left: 262px;
+        top: 170px;
+        
+        background: #6B6B6B;
+        border-radius: 0px 0px 10px 10px;        
+    }
+    #screen{
+        position: absolute;
+        width: 114px;
+        height: 70px;
+        left: 223px;
+        top: 91px;
+        
+        background: #2F2F2F;
+        border-radius: 2px;
+    }
+    #tab{
+        position: absolute;
+        width: 114px;
+        height: 11px;
+        left: 223px;
+        top: 91px;
+
+        background: #473F3A;
+        border-radius: 2px 2px 0px 0px;
+    }
+    #coding{
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        left: 240px;
+        top: 100px;
+        
+        font-family: 'Rubik', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 45px;
+        
+        color: #53E183;
+    }
+    #exit{
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 227px;
+        top: 94px;
+        
+        border-radius: 5px;
+        background: #EE5A5A;
+    }
+    #empty{
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 235px;
+        top: 94px;
+        
+        border-radius: 5px;
+        background: #A7A7A7;
+    }
+    #minimize{
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 243px;
+        top: 94px;
+        
+        border-radius: 5px;
+        background: #66EE5A;
+    }
+    #red-line__1{
+        position: absolute;
+        width: 37px;
+        height: 4px;
+        left: 290px;
+        top: 119px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__2{
+        position: absolute;
+        width: 16px;
+        height: 4px;
+        left: 311px;
+        top: 109px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__3{
+        position: absolute;
+        width: 45px;
+        height: 4px;
+        left: 268px;
+        top: 139px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__4{
+        position: absolute;
+        width: 8px;
+        height: 4px;
+        left: 319px;
+        top: 139px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__5{
+        position: absolute;
+        width: 28px;
+        height: 4px;
+        left: 233px;
+        top: 139px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__6{
+        position: absolute;
+        width: 28px;
+        height: 4px;
+        left: 299px;
+        top: 129px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__7{
+        position: absolute;
+        width: 6px;
+        height: 4px;
+        left: 290px;
+        top: 129px;
+        
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__8{
+        position: absolute;
+        width: 94px;
+        height: 4px;
+        left: 233px;
+        top: 149px;
+
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #red-line__9{
+        position: absolute;
+        width: 16px;
+        height: 4px;
+        left: 290px;
+        top: 109px;
+
+        background: #FF7373;
+        border-radius: 2px;
+    }
+    #position{
+        position: absolute;
+        width: 211px;
+        height: 28px;
+        left: 176px;
+        top: 195px;
+
+        font-family: 'Roboto Mono', monospace;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 28px;
+        /* identical to box height */
+
+        color: $text-color;
+
+        -webkit-text-stroke: $text-border-color 0.5px;
+    }
+}
+
+.business-card__face--back {
+    @include rotateY-axis($rotate-degrees);
+    @include backfaceVisibility();
+
+    width: 560px;
+    height: 320px;
+
+    font-family: 'Roboto Mono', monospace;
+
+    background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
+    border-radius: 10px;
+
+    @include media-breakpoint-down(sm){
+        @include rotateX-axis(180deg);
+    }
+}
+
+#brand-container{
+    position: absolute;
+    left: 56px;
+    top: 234px;
+}
+
+.brand-logo{
+    margin: 10px;
+    width: 70px;
+    text-align: center;
+    font-size: 48px;
+    color: $text-color;
+    // -webkit-text-stroke: $text-border-color 0.5px;
+}
+
+#contact-container{
+    padding-top: 40px;
+}
+
+.contact-info{
+    width: 74%;
+    margin: auto;
+    overflow: hidden;
+    color: $text-color;
+
+    .contact-icon{
+        margin: 10px;
+        width: 60px;
+        text-align: center;
+        font-size: 32px;
+        float: left;
+    }
+    .contact-text{
+        font-size: 20px;
+        float: left;
+        margin: 10px;
+        -webkit-text-stroke: $text-border-color 0.5px;
+    }
+}
+
+#save-contact__button{
+    width: 40%;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px;
+
+    border-radius: 10px;
+    background-color: rgb(179, 179, 179);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+    font-size: 20px;
+
+    /* Link */
+    a{
+        text-decoration: none;
+        color: $text-color;
+    }
+    a:active{
+        color: $text-color;
+    }
+    a:visited{
+        color: $text-color;
+    }
+    a:hover{
+        text-decoration: none;
+        color: $text-color;
+    }
+}

@@ -7,7 +7,15 @@ var app = new Vue({
                 name: "Home"
             },
             {
-                name: "About"
+                name: "About",
+                subtabs: [
+                    {
+                        name: "Experience"
+                    },
+                    {
+                        name: "Business Card"
+                    }
+                ]
             },
             {
                 name: "Projects",
