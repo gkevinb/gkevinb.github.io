@@ -1,7 +1,7 @@
-@mixin flashcard-scene($width, $height) {
+@mixin flashcard-scene($width, $height, $perspective) {
     width: $width;
     height: $height;
-    perspective: 600px;
+    perspective: $perspective;
     margin: 40px auto;
 }
 
@@ -51,6 +51,6 @@
 
 /* Hide the back face of the card when turned around, need for safari support */
 @mixin backfaceVisibility() {
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }

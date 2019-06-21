@@ -4,9 +4,10 @@ $font-color: #B52020;
 $divider-color: #967560;
 
 $card-size: 200px;
+$perspective: 600px;
 
 .flashcard__scene {
-    @include flashcard-scene($card-size, $card-size);
+    @include flashcard-scene($card-size, $card-size, $perspective);
 
     .flashcard {
         @include flashcard();

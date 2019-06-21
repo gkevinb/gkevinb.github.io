@@ -2,6 +2,8 @@ $business-card-width: 560px;
 $business-card-height: 320px;
 $business-card-radius: 10px;
 
+$perspective: 1800px;
+
 $rotate-degrees: 180deg;
 
 $text-color: white;
@@ -32,7 +34,7 @@ $red-line-color: #FF7373;
 @media only screen and (orientation: landscape) and (max-width: 760px){
     #business-card__scene {
         @include rotateZ-axis(-90deg);
-
+        @include flashcard-scene(376px, $business-card-height, $perspective);
         /* Centers business card vertically */
         height: 200px;
         width: 50%;
@@ -47,6 +49,10 @@ $red-line-color: #FF7373;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @include flashcard-scene(0px, $business-card-height, $perspective);
+    @include media-breakpoint-up(sm){
+        @include flashcard-scene(376px, $business-card-height, $perspective);
+    }
 }
 
 #business-card {
@@ -62,7 +68,7 @@ $red-line-color: #FF7373;
     @include rotateY-axis($rotate-degrees);
 
     @include media-breakpoint-down(sm){
-        @include rotate3D(1, 1, 0, 180deg);
+        @include rotate3D(1, 1, 0, $rotate-degrees);
     }
 }
 
@@ -78,7 +84,11 @@ $red-line-color: #FF7373;
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
 
     @include media-breakpoint-down(sm){
-        transform: rotateZ(180deg);
+        transform: rotateZ($rotate-degrees);
+    }
+    @include media-breakpoint-down(lg){
+        /* Needed to fix bug on Ipad with backface visibility */
+        z-index: -1;
     }
 
     #name{
@@ -89,8 +99,6 @@ $red-line-color: #FF7373;
         top: 20px;
         
         font-family: 'Roboto Mono', monospace;
-        font-style: normal;
-        font-weight: normal;
         font-size: 36px;
         line-height: 55px;
         
@@ -162,8 +170,6 @@ $red-line-color: #FF7373;
         top: 100px;
         
         font-family: 'Rubik', sans-serif;
-        font-style: normal;
-        font-weight: normal;
         font-size: 28px;
         line-height: 45px;
         
@@ -284,7 +290,7 @@ $red-line-color: #FF7373;
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
 
     @include media-breakpoint-down(sm){
-        @include rotateX-axis(180deg);
+        @include rotateX-axis($rotate-degrees);
     }
 }
 
