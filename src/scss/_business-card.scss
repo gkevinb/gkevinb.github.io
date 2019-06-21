@@ -1,32 +1,29 @@
 $business-card-width: 560px;
 $business-card-height: 320px;
+$business-card-radius: 10px;
 
 $rotate-degrees: 180deg;
 
 $text-color: white;
 $text-border-color: #969696;
 
+$red-line-color: #FF7373;
+
 
 #business-card-tab{
     h1{
         text-align: center;
         @include media-breakpoint-down(sm){
+            /* Pushes business card down the screen */
             margin-bottom: 200px;
         }
-    }
-    button{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
     }
 }
 
 @media only screen and (orientation: portrait){
     #business-card-tab{
         @include media-breakpoint-down(sm){
-            overflow: hidden;
+            /* Creates whitespace below business card */
             height: 840px;
         }
     }
@@ -34,14 +31,13 @@ $text-border-color: #969696;
 
 @media only screen and (orientation: landscape) and (max-width: 760px){
     #business-card__scene {
-        margin-top: -150px;
-        height: 200px;
         @include rotateZ-axis(-90deg);
-        margin: auto;
+
+        /* Centers business card vertically */
+        height: 200px;
         width: 50%;
-    }
-    #business-card {
-        margin-top: 150px;
+        /* Centers business card horizontally */
+        margin: auto;
     }
 }
 
@@ -51,26 +47,14 @@ $text-border-color: #969696;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    @include media-breakpoint-down(sm){
-
-        margin-top: 160px;
-        position: relative;
-    }
-
 }
 
 #business-card {
     @include flashcard();
     width: fit-content;
-    position: relative;
-
 
     @include media-breakpoint-down(sm){
-
         @include rotateZ-axis(-90deg);
-        margin-top: 0px;
-        position: relative;
     }
 }
 
@@ -87,11 +71,11 @@ $text-border-color: #969696;
 
     position: absolute;
     
-    width: 560px;
-    height: 320px;
+    width: $business-card-width;
+    height: $business-card-height;
+    border-radius: $business-card-radius;
 
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
-    border-radius: 10px;
 
     @include media-breakpoint-down(sm){
         transform: rotateZ(180deg);
@@ -215,95 +199,57 @@ $text-border-color: #969696;
         border-radius: 5px;
         background: #66EE5A;
     }
-    #red-line__1{
+    .red-line{
         position: absolute;
-        width: 37px;
         height: 4px;
+
+        background: $red-line-color;
+        border-radius: 2px;
+    }
+    #red-line__1{
+        width: 37px;
         left: 290px;
         top: 119px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__2{
-        position: absolute;
         width: 16px;
-        height: 4px;
         left: 311px;
         top: 109px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__3{
-        position: absolute;
         width: 45px;
-        height: 4px;
         left: 268px;
         top: 139px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__4{
-        position: absolute;
         width: 8px;
-        height: 4px;
         left: 319px;
         top: 139px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__5{
-        position: absolute;
         width: 28px;
-        height: 4px;
         left: 233px;
         top: 139px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__6{
-        position: absolute;
         width: 28px;
-        height: 4px;
         left: 299px;
         top: 129px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__7{
-        position: absolute;
         width: 6px;
-        height: 4px;
         left: 290px;
         top: 129px;
-        
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__8{
-        position: absolute;
         width: 94px;
-        height: 4px;
         left: 233px;
         top: 149px;
-
-        background: #FF7373;
-        border-radius: 2px;
     }
     #red-line__9{
-        position: absolute;
         width: 16px;
-        height: 4px;
         left: 290px;
         top: 109px;
-
-        background: #FF7373;
-        border-radius: 2px;
     }
     #position{
         position: absolute;
@@ -329,13 +275,13 @@ $text-border-color: #969696;
     @include rotateY-axis($rotate-degrees);
     @include backfaceVisibility();
 
-    width: 560px;
-    height: 320px;
+    width: $business-card-width;
+    height: $business-card-height;
+    border-radius: $business-card-radius;
 
     font-family: 'Roboto Mono', monospace;
 
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
-    border-radius: 10px;
 
     @include media-breakpoint-down(sm){
         @include rotateX-axis(180deg);
@@ -354,7 +300,6 @@ $text-border-color: #969696;
     text-align: center;
     font-size: 48px;
     color: $text-color;
-    // -webkit-text-stroke: $text-border-color 0.5px;
 }
 
 #contact-container{

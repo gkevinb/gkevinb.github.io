@@ -17,15 +17,15 @@ Vue.component("business-card-tab", {
                             <div id="exit"></div>
                             <div id="empty"></div>
                             <div id="minimize"></div>
-                            <div id="red-line__1"></div>
-                            <div id="red-line__2"></div>
-                            <div id="red-line__3"></div>
-                            <div id="red-line__4"></div>
-                            <div id="red-line__5"></div>
-                            <div id="red-line__6"></div>
-                            <div id="red-line__7"></div>
-                            <div id="red-line__8"></div>
-                            <div id="red-line__9"></div>
+                            <div id="red-line__1" class="red-line"></div>
+                            <div id="red-line__2" class="red-line"></div>
+                            <div id="red-line__3" class="red-line"></div>
+                            <div id="red-line__4" class="red-line"></div>
+                            <div id="red-line__5" class="red-line"></div>
+                            <div id="red-line__6" class="red-line"></div>
+                            <div id="red-line__7" class="red-line"></div>
+                            <div id="red-line__8" class="red-line"></div>
+                            <div id="red-line__9" class="red-line"></div>
                             <div id="position">{{ position }}</div>
                             <div id="brand-container">
                             <i v-for="brand in chosenBrands" :class="brandStyling(brand.code)"></i>
