@@ -23,35 +23,6 @@ $text_color: white;
     }
 }
 
-#nav-burger-button{
-    padding: 0;
-}
-
-.nav-burger{
-    $nav_burger_color__before: linear-gradient(180deg, #D48590 90%, #ECAC81 100%);
-    $nav_burger_color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
-    $nav_burger_color__after: linear-gradient(180deg, #D48590 0%, #ECAC81 10%);
-
-    .nav-burger-meat{
-        background: $nav_burger_color;
-    }
-    .nav-burger-meat__X{
-        background: linear-gradient(90deg, #D48590 0%, #ECAC81 100%);
-    }
-    .nav-burger-meat::before{
-        background: $nav_burger_color__before;
-    }
-    .nav-burger-meat__X::before{
-        background: $nav_burger_color__before;
-    }
-    .nav-burger-meat::after{
-        background: $nav_burger_color__after;
-    }
-    .nav-burger-meat__X::after{
-        background: linear-gradient(270deg, #D48590 0%, #ECAC81 100%);
-    }
-}
-
 .navigation {
     border-bottom: 10px solid black;
     font-family: 'Sawarabi Gothic';

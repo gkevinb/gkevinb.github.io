@@ -52,7 +52,7 @@ var app = new Vue({
             // Toggle class "is-active"
             hamburger.classList.toggle("is-active");
             // Do something else, like open/close menu
-            document.getElementById("hamburger-meat-id").classList.toggle("nav-burger-meat__X");
+            document.getElementById("nav-burger-meat-js").classList.toggle("nav-burger-meat__X");
         }
     }
 });
