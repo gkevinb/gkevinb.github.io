@@ -34,18 +34,24 @@ var app = new Vue({
     },
     computed: {
         /*
-        Get identifier for current tab.
-        Replaces space with dash, makes all letters lowercase and adds "-tab".
-        Input: Chinese Flashcards
-        Output: chinese-flashcards-tab
+            Get identifier for current tab.
+            Replaces space with dash, makes all letters lowercase and adds "-tab".
+            Input: Chinese Flashcards
+            Output: chinese-flashcards-tab
         */
         getCurrentTab: function () {
-            return this.currentTab.replace(' ', '-').toLowerCase() + "-tab"
+            return this.currentTab.replace(' ', '-').toLowerCase() + "-tab";
         }
     },
     methods: {
         dropDownMenu: function (tab) {
             return tab.subtabs ? 'dropdown' : '';
+        },
+        /* If tab has no subtabs set as current tab */
+        setCurrentTab: function (tab) {
+            if(tab.subtabs == null){
+                this.currentTab = tab.name;
+            }
         },
         hamburgerX: function() {
             var hamburger = document.querySelector(".hamburger");
@@ -57,46 +63,17 @@ var app = new Vue({
     }
 });
 
-
-
 /* 
 Needs revision
 */
-Vue.component("projects-tab", {
+Vue.component("blog-tab", {
     props: ['tabs', 'cu'],
     template:  `<div>
-                <ul v-for="tab in tabs" v-if="tab.name == cu">
-                    <!--<li v-for="subtab in tab.subtabs" @click="cu = subtab.name">{{ subtab.name }}</li>-->
-                </ul>
+                <h1>Blog section coming soon...</h1>
 				</div>`,
     data: function () {
         return {
-            dog: "Doggy!",
-            cat: "Kitty!!",
-            bird: "Birdy!!!",
-            todos: [{
-                text: "Wake up"
-            },
-            {
-                text: "Take shower"
-            },
-            {
-                text: "Go to work"
-            }
-            ],
-            groceryList: [{
-                id: 0,
-                text: 'Vegetables'
-            },
-            {
-                id: 1,
-                text: 'Cheeese'
-            },
-            {
-                id: 2,
-                text: 'Meat'
-            },
-            ]
+            message: 'hello'
         }
     },
     methods: {
