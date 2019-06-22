@@ -9,15 +9,19 @@ Vue.component("chinese-flashcards-tab", {
                 <button @click="pickCards(characters.length)" type="button">All</button>
                 <button @click="pickCards(1)" type="button">Random</button>
                 <button @click="reset()" type="button">Reset</button>
+                <span>Mute</span>
+                <input type="checkbox" id="mute_checkbox" v-model="mute">
+                <span>(Remember to unmute device as well)</span>
                 </div>
                 <div :id="flashcardStyling()">
-                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin">
+                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin" :audio="setAudio(char.audio)">
                 </chinese-flashcard>
                 </div>
 			    </div>`,
     data: function () {
         return {
             name: "chinese-flashcards",
+            mute: false,
             chosenCharacters: null,
             characters: [
                 {
@@ -168,7 +172,8 @@ Vue.component("chinese-flashcards-tab", {
                     'id' : 25,
                     'character' : '他',
                     'english' : 'he',
-                    'pinyin' : 'tā'
+                    'pinyin' : 'tā',
+                    'audio' : 'ta1'
                 },
                 {
                     'id' : 26,
@@ -203,6 +208,9 @@ Vue.component("chinese-flashcards-tab", {
             ]
         }
     },
+    created() {
+        this.pickCards(this.characters.length);
+    },
     methods: {
         reset: function () {
             this.chosenCharacters = null;
@@ -219,6 +227,15 @@ Vue.component("chinese-flashcards-tab", {
                 }else{
                     return "flashcards_x4";
                 }
+            }
+        },
+        /* If mute is true return null for audio, if mute is false, return audio */
+        setAudio: function (audio) {
+            if(this.mute){
+                return null;
+            }
+            else{
+                return audio;
             }
         }
     }
