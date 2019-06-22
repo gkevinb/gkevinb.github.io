@@ -25,7 +25,45 @@
             width: 90%;
         }
     }
+
+    #reminder{
+        margin-top: 10px;
+    }
 }
+
+/* Sound/Mute Checkbox Styling */
+
+$mute-checkbox-size: 48px;
+$mute-checkbox-margin-bottom: -19px;
+
+@mixin mute-checkbox($image) {
+    $url: '/img/#{$image}.png';
+    background: url($url);
+    background-position: center;
+    background-size: $mute-checkbox-size $mute-checkbox-size;
+    height: $mute-checkbox-size;
+    width: $mute-checkbox-size;
+
+    border: 2px solid rgb(72, 73, 77);
+    background-color: rgb(206, 206, 206);
+    border-radius: 30px;
+}
+
+#mute_checkbox{
+    display:none;
+}
+#mute_checkbox + label
+{
+    @include mute-checkbox('sound');
+    margin-bottom: $mute-checkbox-margin-bottom;
+}
+#mute_checkbox:checked + label
+{
+    @include mute-checkbox('mute');
+}
+
+
+/* Flashcard Layout Styling */
 
 #flashcards_x4{
     display: grid;
