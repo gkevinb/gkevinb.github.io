@@ -38,6 +38,9 @@ Vue.component("business-card-tab", {
                                     <div class="contact-text">{{ info.value }}</div>
                                 </div>
                             </div>
+                            <div id="qr-code">
+                                <img src="../img/qr-code.png" alt="QR CODE" height="100" width="100">
+                            </div>
                             <div id="save-contact__button">
                                 <a id="save-contact__link" href="../files/user.vcf" download="user.vcf">Save to Contact</a>
                             </div>
