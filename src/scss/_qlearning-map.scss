@@ -134,14 +134,13 @@ $columns: 5;
 
     background-color: $map-color;
     padding: 5px;
-    width: fit-content;
     margin: auto;
 
+    width: fit-content;
+    /* Firefox compatibility */
+    width: -moz-fit-content;
+
     @include media-breakpoint-down(sm){
-        // background-color: $map-color;
-        // padding: 5px;
-        // width: fit-content;
-        // margin: auto;
         
         /* Border Styling */
         border-style: inset;

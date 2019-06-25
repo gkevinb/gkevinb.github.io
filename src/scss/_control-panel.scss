@@ -53,6 +53,9 @@ $bg-color: #969696;
         "qt qt qc eb";
 
     width: fit-content;
+    /* Firefox compatibility */
+    width: -moz-fit-content;
+    
     padding: 10px;
 
     background-color: $bg-color;

@@ -58,6 +58,8 @@ $red-line-color: #FF7373;
 #business-card {
     @include flashcard();
     width: fit-content;
+    /* Firefox compatibility */
+    width: -moz-fit-content;
 
     @include media-breakpoint-down(sm){
         @include rotateZ-axis(-90deg);
