@@ -74,6 +74,11 @@ $red-line-color: #FF7373;
     }
 }
 
+/* Fix issue with Safari backface visibility on elements with absolute positioning */
+.business-card-front__element{
+    @include backfaceVisibility();
+}
+
 .business-card__face--front{
     @include backfaceVisibility();
 
@@ -88,12 +93,9 @@ $red-line-color: #FF7373;
     @include media-breakpoint-down(sm){
         transform: rotateZ($rotate-degrees);
     }
-    @include media-breakpoint-down(lg){
-        /* Needed to fix bug on Ipad with backface visibility */
-        z-index: -1;
-    }
 
     #name{
+        @extend .business-card-front__element;
         position: absolute;
         width: 378px;
         height: 55px;
@@ -110,6 +112,7 @@ $red-line-color: #FF7373;
     }
 
     #laptop{
+        @extend .business-card-front__element;
         position: absolute;
         width: 132px;
         height: 88px;
@@ -117,12 +120,15 @@ $red-line-color: #FF7373;
         top: 82px;
         
         background: #838383;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
         border-radius: 6px 6px 0px 0px;
         
     }
     
     #keyboard{
+        @extend .business-card-front__element;
         position: absolute;
         width: 162px;
         height: 10px;
@@ -130,11 +136,14 @@ $red-line-color: #FF7373;
         top: 170px;
         
         background: #C4C4C4;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+        -webkit-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 2px 2px 10px 10px;
     }
 
     #mousepad{
+        @extend .business-card-front__element;
         position: absolute;
         width: 36px;
         height: 5px;
@@ -145,6 +154,7 @@ $red-line-color: #FF7373;
         border-radius: 0px 0px 10px 10px;        
     }
     #screen{
+        @extend .business-card-front__element;
         position: absolute;
         width: 114px;
         height: 70px;
@@ -155,6 +165,7 @@ $red-line-color: #FF7373;
         border-radius: 2px;
     }
     #tab{
+        @extend .business-card-front__element;
         position: absolute;
         width: 114px;
         height: 11px;
@@ -165,6 +176,7 @@ $red-line-color: #FF7373;
         border-radius: 2px 2px 0px 0px;
     }
     #coding{
+        @extend .business-card-front__element;
         position: absolute;
         width: 42px;
         height: 42px;
@@ -178,6 +190,7 @@ $red-line-color: #FF7373;
         color: #53E183;
     }
     #exit{
+        @extend .business-card-front__element;
         position: absolute;
         width: 5px;
         height: 5px;
@@ -188,6 +201,7 @@ $red-line-color: #FF7373;
         background: #EE5A5A;
     }
     #empty{
+        @extend .business-card-front__element;
         position: absolute;
         width: 5px;
         height: 5px;
@@ -198,6 +212,7 @@ $red-line-color: #FF7373;
         background: #A7A7A7;
     }
     #minimize{
+        @extend .business-card-front__element;
         position: absolute;
         width: 5px;
         height: 5px;
@@ -208,6 +223,7 @@ $red-line-color: #FF7373;
         background: #66EE5A;
     }
     .red-line{
+        @extend .business-card-front__element;
         position: absolute;
         height: 4px;
 
@@ -260,6 +276,7 @@ $red-line-color: #FF7373;
         top: 109px;
     }
     #position{
+        @extend .business-card-front__element;
         position: absolute;
         width: 211px;
         height: 28px;
@@ -297,6 +314,7 @@ $red-line-color: #FF7373;
 }
 
 #brand-container{
+    @include backfaceVisibility();
     position: absolute;
     left: 56px;
     top: 234px;
