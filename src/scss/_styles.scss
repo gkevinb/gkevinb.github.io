@@ -1,10 +1,8 @@
-$primary-color: #062F4F;
-$bg_color: #2c3e50;
-$text_color: white;
+$primary-color: #383B45;
 
 .header {
     h1 {
-        color: $bg_color;
+        color: $primary-color;
         font-family: 'ZCOOL KuaiLe', cursive;
         font-size: 50px;
         margin: 0;
@@ -24,7 +22,7 @@ $text_color: white;
 }
 
 .navigation {
-    border-bottom: 10px solid black;
+    border-bottom: 7px solid $primary-color;
     font-family: 'Sawarabi Gothic';
 
     // Makes dropdown trigger on hover
@@ -37,6 +35,7 @@ $text_color: white;
     // }
 
     .nav-item {
+        color: $primary-color;
         font-size: 20px;
         text-align: center;
     }
