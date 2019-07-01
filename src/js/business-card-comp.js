@@ -119,7 +119,7 @@ Vue.component("business-card-tab", {
                 {
                     'name'  : 'phone',
                     'code'  : 'fas fa-phone',
-                    'value' : '(+45) 91 40 17 71'
+                    'value' : '(+36) 20 437 3094'
                 },
                 {
                     'name'  : 'website',
