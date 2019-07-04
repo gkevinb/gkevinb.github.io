@@ -17,9 +17,17 @@ h2{
     font-family: 'Thasadith', sans-serif;
 }
 
+#cv{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include media-breakpoint-down(lg){
+        grid-template-columns: 1fr;
+    }
+}
+
 #experiences_container{
     width: 550px;
-    float: left;
+
     @include media-breakpoint-down(md){
         width: 100%;
     }
@@ -27,7 +35,7 @@ h2{
 
 #education_container{
     width: 550px;
-    float: right;
+
     @include media-breakpoint-down(md){
         width: 100%;
     }

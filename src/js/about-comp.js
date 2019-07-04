@@ -1,7 +1,6 @@
 Vue.component("experience-tab", {
     template: `
     <div id="cv">
-    <div id="timeline"></div>
     <div id="experiences_container">
     <h2>Work</h2>
     <div v-for="experience in experiences" class="experience_container">
