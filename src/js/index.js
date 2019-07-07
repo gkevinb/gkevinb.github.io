@@ -55,10 +55,13 @@ var app = new Vue({
         },
         hamburgerX: function() {
             var hamburger = document.querySelector(".hamburger");
-            // Toggle class "is-active"
-            hamburger.classList.toggle("is-active");
-            // Do something else, like open/close menu
-            document.getElementById("nav-burger-meat-js").classList.toggle("nav-burger-meat__X");
+            var colapser = document.getElementById("colapser");
+
+            /* Fixes double click hamburger icon bug #102 */
+            if(!colapser.classList.contains("collapsing")){
+                hamburger.classList.toggle("is-active");
+                document.getElementById("nav-burger-meat-js").classList.toggle("nav-burger-meat__X");
+            }
         }
     }
 });
