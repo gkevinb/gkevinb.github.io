@@ -27,19 +27,19 @@ Vue.component("home-tab", {
         return {
             name: "home-tab",
             websites: [
-                {   
+                {
                     id: 1,
                     name: 'Linkedin',
                     link: 'https://www.linkedin.com/in/gabor-kevin-barta/',
                     image: '../img/linkedin_icon.png'
                 },
-                {   
+                {
                     id: 2,
                     name: 'Github',
                     link: 'https://github.com/gkevinb',
                     image: '../img/github_icon.png'
                 },
-                {   
+                {
                     id: 3,
                     name: 'Codepen',
                     link: 'https://codepen.io/gkevinb/',
