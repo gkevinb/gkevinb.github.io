@@ -3,6 +3,7 @@ $primary-color: #383B45;
 $linkedin-blue: #0077B5;
 $github-grey: #181717;
 $codepen-black: #000000;
+$hackerrank-green: #2EC866;
 
 $footer-grey: rgb(163, 163, 163);
 
@@ -109,6 +110,17 @@ $footer-grey: rgb(163, 163, 163);
     #credit-title{
         font-size: 18px;
     }
+    #credit-links{
+        font-size: 14px;
+    }
+    @include white-links();
+    a{
+        text-decoration: underline;
+    }
+    a:hover{
+        text-decoration: underline;
+        color: $footer-grey;
+    }
 }
 
 .footer-content{
@@ -175,5 +187,8 @@ $footer-grey: rgb(163, 163, 163);
     }
     #codepen-icon:hover{
         color: $codepen-black;
+    }
+    #hackerrank-icon:hover{
+        color: $hackerrank-green;
     }
 }
