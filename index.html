@@ -68,7 +68,14 @@
 		<div class="footer">
 
 			<div class="footer-credit">
-				<!-- <div id="credit-title"><p>Give Credit</p></div> -->
+				<div id="credit-title">
+					<p v-if="getSources()">Give Credit</p>
+				</div>
+				<div id="credit-links">
+					<p v-for="source in getSources()">
+						<a :href="source.link">{{ source.name }}</a>
+					</p>
+				</div>
 				
 			</div>
 			<div class="footer-content">
@@ -83,6 +90,7 @@
 					<a id="linkedin-icon" class="connect-icon" href="https://www.linkedin.com/in/gabor-kevin-barta/"><i class="fab fa-linkedin"></i></a>
 					<a id="github-icon" class="connect-icon" href="https://github.com/gkevinb"><i class="fab fa-github"></i></a>
 					<a id="codepen-icon" class="connect-icon" href="https://codepen.io/gkevinb/"><i class="fab fa-codepen"></i></a>
+					<a id="hackerrank-icon" class="connect-icon" href="https://www.hackerrank.com/gkevinb"><i class="fab fa-hackerrank"></i></a>
 				</div>
 				
 			</div>
