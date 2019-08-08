@@ -9,7 +9,6 @@ Vue.component("chinese-flashcards-tab", {
                         
                         <button @click="pickCards(characters.length)" type="button">All</button>
                         <button @click="pickCards(1)" type="button">Random</button>
-                        <button @click="reset()" type="button">Reset</button>
                     </div>
                     <div :id="flashcardStyling()">
                         <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin">
@@ -203,6 +202,9 @@ Vue.component("chinese-flashcards-tab", {
                 },
             ]
         }
+    },
+    mounted() {
+        this.chosenCharacters = this.characters
     },
     methods: {
         reset: function () {

@@ -49,6 +49,7 @@ $icon-margin: 16px;
     }
     @include media-breakpoint-down(md){
         grid-template-columns: 1fr;
+        height: auto;
     }
     @include media-breakpoint-only(lg){
         grid-template-columns: 7px 2fr 3fr 2fr 7px;
@@ -56,18 +57,14 @@ $icon-margin: 16px;
 }
 .footer-with-credit{
     @include media-breakpoint-down(md){
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: 120px 120px 200px;
         grid-template-areas: "content" "credit" "connect";
-
-        height: 440px;
     }
 }
 .footer-without-credit{
     @include media-breakpoint-down(md){
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: 120px 200px;
         grid-template-areas: "content" "connect";
-        
-        height: 320px;
     }
 }
 
