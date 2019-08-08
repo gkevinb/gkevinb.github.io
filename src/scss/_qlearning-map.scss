@@ -125,7 +125,7 @@ $columns: 5;
 /*
     Grid map for Q-Learning algorithm.
 */
-#qlearningMap{
+#qlearning-map{
     display: grid;
     grid-template-rows: repeat($rows, $tile_size);
     grid-template-columns: repeat($columns, $tile_size);

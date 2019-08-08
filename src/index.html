@@ -5,13 +5,13 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141910422-1"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	
-	gtag('config', 'UA-141910422-1');
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-141910422-1');
 	</script>
-	
+
 	<title>gkevinb</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,21 +37,25 @@
 			</div>
 
 			<!-- Navigation Hamburger -->
-			<button id="nav-burger-button" class="navbar-toggler hamburger hamburger--squeeze" @click="hamburgerX()" data-toggle="collapse" data-target="#colapser" type="button">
+			<button id="nav-burger-button" class="navbar-toggler hamburger hamburger--squeeze" @click="hamburgerX()"
+				data-toggle="collapse" data-target="#colapser" type="button">
 				<span class="nav-burger hamburger-box">
-				  <span id="nav-burger-meat-js" class="nav-burger-meat hamburger-inner"></span>
+					<span id="nav-burger-meat-js" class="nav-burger-meat hamburger-inner"></span>
 				</span>
-			  </button>
+			</button>
 
 			<div class="collapse navbar-collapse" id="colapser">
 				<ul class="navbar-nav ml-auto nav-menu">
-					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name" @click="setCurrentTab(tab)">
-						<span v-if="tab.subtabs" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab.name }}</span>
+					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name"
+						@click="setCurrentTab(tab)">
+						<span v-if="tab.subtabs" class="nav-link dropdown-toggle"
+							data-toggle="dropdown">{{ tab.name }}</span>
 						<span v-else class="nav-link">{{ tab.name }}</span>
 
 						<!-- Subtab dropdown -->
 						<ul v-if="tab.subtabs != null" class="dropdown-menu">
-							<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name" @click.stop="setCurrentTab(subtab)">
+							<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name"
+								@click.stop="setCurrentTab(subtab)">
 								{{ subtab.name }}
 							</li>
 						</ul>
@@ -62,9 +66,9 @@
 
 		<!-- Main content -->
 		<div class="content" :is="getCurrentTab" :tabs="tabs" :cu="currentTab">
-`
 		</div>
 
+		<!-- Footer content -->
 		<footer-comp :current_tab="currentTab" :tabs="tabs"></footer-comp>
 
 	</div>
