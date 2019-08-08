@@ -203,7 +203,7 @@ Vue.component("chinese-flashcards-tab", {
             ]
         }
     },
-    mounted() {
+    created() {
         this.chosenCharacters = this.characters
     },
     methods: {
@@ -214,14 +214,10 @@ Vue.component("chinese-flashcards-tab", {
             this.chosenCharacters = shuffle(this.characters).slice(0, numberOf);
         },
         flashcardStyling: function() {
-            if(this.chosenCharacters == null){
-                return "flashcards_x4";
+            if(this.chosenCharacters.length == 1){
+                return "flashcards_x1";
             }else{
-                if(this.chosenCharacters.length == 1){
-                    return "flashcards_x1";
-                }else{
-                    return "flashcards_x4";
-                }
+                return "flashcards_x4";
             }
         }
     }
