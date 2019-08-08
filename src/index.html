@@ -31,7 +31,7 @@
 	<div id="app" class="container">
 
 		<!-- Navigation Bar -->
-		<div class="navbar navbar-expand-lg navigation">
+		<div id="navigation" class="navbar navbar-expand-lg">
 			<div class="navbar-brand header">
 				<h1>Gabor Kevin Barta</h1>
 			</div>
@@ -62,39 +62,11 @@
 
 		<!-- Main content -->
 		<div class="content" :is="getCurrentTab" :tabs="tabs" :cu="currentTab">
-
+`
 		</div>
 
-		<div class="footer">
+		<footer-comp :current_tab="currentTab" :tabs="tabs"></footer-comp>
 
-			<div class="footer-credit">
-				<div id="credit-title">
-					<p v-if="getSources()">Give Credit</p>
-				</div>
-				<div id="credit-links">
-					<p v-for="source in getSources()">
-						<a :href="source.link">{{ source.name }}</a>
-					</p>
-				</div>
-				
-			</div>
-			<div class="footer-content">
-				<div id="made-with" class="footer-content__text"><p>Made with ❤️by <span id="my-name">Gabor Kevin Barta</span></p></div>
-				<div id="hosted-by" class="footer-content__text"><p>Hosted by <a href="https://pages.github.com/">GitHub Pages</a></p></div>
-				<div id="view-source" class="footer-content__text"><p>View <a href="https://github.com/gkevinb/gkevinb.github.io">Source Code</a></p></div>
-
-			</div>
-			<div class="footer-connect">
-				<div id="connect-title"><p>Connect</p></div>
-				<div id="connect-icons">
-					<a id="linkedin-icon" class="connect-icon" href="https://www.linkedin.com/in/gabor-kevin-barta/"><i class="fab fa-linkedin"></i></a>
-					<a id="github-icon" class="connect-icon" href="https://github.com/gkevinb"><i class="fab fa-github"></i></a>
-					<a id="codepen-icon" class="connect-icon" href="https://codepen.io/gkevinb/"><i class="fab fa-codepen"></i></a>
-					<a id="hackerrank-icon" class="connect-icon" href="https://www.hackerrank.com/gkevinb"><i class="fab fa-hackerrank"></i></a>
-				</div>
-				
-			</div>
-		</div>
 	</div>
 
 	<script src="js/algorithms.js" type="module"></script>
@@ -105,6 +77,7 @@
 	<script src="js/business-card-comp.js" type="module"></script>
 	<script src="js/chinese-flashcard-comp.js" type="module"></script>
 	<script src="js/chinese-comp.js" type="module"></script>
+	<script src="js/footer-comp.js" type="module"></script>
 	<script src="js/index.js" type="module"></script>
 
 	<!-- jQuery library -->

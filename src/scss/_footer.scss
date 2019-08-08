@@ -1,0 +1,164 @@
+$primary-color: #383B45;
+
+$linkedin-blue: #0077B5;
+$github-grey: #181717;
+$codepen-black: #000000;
+$hackerrank-green: #2EC866;
+
+$footer-grey: rgb(163, 163, 163);
+
+$footer-large-text: 20px;
+$footer-small-text: 14px;
+
+$footer-padding: 40px;
+$icon-margin: 16px;
+
+@mixin grey-on-hover-underline-links() {
+    a{
+        text-decoration: underline;
+    }
+    a:hover{
+        text-decoration: underline;
+        color: $footer-grey;
+    }
+}
+
+
+.footer{
+    background-color: $primary-color;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+    width: 100%;
+    
+    position: absolute;
+    margin: auto;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
+    grid-template-areas: ". credit content connect .";
+
+    p{
+        margin-bottom: 4px;
+    }
+
+    @include media-breakpoint-down(sm){
+        grid-template-columns: 1fr;
+        margin-top: 80px;
+    }
+    @include media-breakpoint-down(md){
+        grid-template-columns: 1fr;
+    }
+    @include media-breakpoint-only(lg){
+        grid-template-columns: 7px 2fr 3fr 2fr 7px;
+    }
+}
+.footer-with-credit{
+    @include media-breakpoint-down(md){
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "content" "credit" "connect";
+
+        height: 440px;
+    }
+}
+.footer-without-credit{
+    @include media-breakpoint-down(md){
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "content" "connect";
+        
+        height: 320px;
+    }
+}
+
+.footer-credit{
+    grid-area: credit;
+    padding: $footer-padding;
+
+    @include media-breakpoint-down(md){
+        padding: $footer-padding 0 0 0;
+        text-align: center;
+    }
+    #credit-title{
+        font-size: $footer-large-text;
+    }
+    #credit-links{
+        font-size: $footer-small-text;
+    }
+    @include white-links();
+    @include grey-on-hover-underline-links();
+}
+
+.footer-content{
+    grid-area: content;
+    padding: $footer-padding;
+
+    @include media-breakpoint-down(md){
+        padding: $footer-padding 0 0 0;
+        text-align: center;
+    }
+
+    @include white-links();
+    @include grey-on-hover-underline-links();
+
+    .footer-content__text{
+        width: fit-content;
+        margin: auto;
+        font-size: $footer-small-text;
+    }
+    #made-with{
+        font-size: $footer-large-text;
+    }
+    #my-name{
+        color: $footer-grey;
+    }
+}
+
+.footer-connect{
+    grid-area: connect;
+    padding: $footer-padding;
+
+    @include media-breakpoint-down(md){
+        padding: $footer-padding 0 $footer-padding 0;
+    }
+
+    @include white-links();
+
+    #connect-title{
+        float: right;
+        font-size: $footer-large-text;
+        @include media-breakpoint-down(md){
+            float: none;
+            text-align: center;
+        }
+    }
+    #connect-icons{
+        clear: both;
+        float: right;
+        font-size: 36px;
+        @include media-breakpoint-down(md){
+            float: none;
+            text-align: center;
+            font-size: 54px;
+        }
+    }
+    .connect-icon{
+        margin-left: $icon-margin;
+        @include media-breakpoint-down(md){
+            margin-left: $icon-margin;
+            margin-right: $icon-margin;
+        }
+    }
+    #linkedin-icon:hover{
+        color: $linkedin-blue;
+    }
+    #github-icon:hover{
+        color: $github-grey;
+    }
+    #codepen-icon:hover{
+        color: $codepen-black;
+    }
+    #hackerrank-icon:hover{
+        color: $hackerrank-green;
+    }
+}
