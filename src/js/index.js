@@ -92,33 +92,6 @@ var app = new Vue({
                 hamburger.classList.toggle("is-active");
                 document.getElementById("nav-burger-meat-js").classList.toggle("nav-burger-meat__X");
             }
-        },
-        getSources: function() {
-            var sources = null;
-            // console.log(this.tabs);
-            for(var tab of this.tabs){
-                // console.log(tab.name);
-                // console.log(this.currentTab);
-                if(tab.name == this.currentTab){
-                    if(tab.sources != null){
-                        sources = tab.sources;
-                    }
-                }
-                if(tab.subtabs != null){
-                    for(var subtab of tab.subtabs){
-                        console.log(subtab.name);
-                        console.log(this.currentTab);
-                        if(subtab.name == this.currentTab){
-                            console.log("X")
-                            if(subtab.sources != null){
-                                console.log("XW")
-                                sources = subtab.sources;
-                            }
-                        }
-                    }
-                }
-            }
-            return sources;
         }
     }
 });

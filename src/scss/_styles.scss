@@ -1,12 +1,5 @@
 $primary-color: #383B45;
 
-$linkedin-blue: #0077B5;
-$github-grey: #181717;
-$codepen-black: #000000;
-$hackerrank-green: #2EC866;
-
-$footer-grey: rgb(163, 163, 163);
-
 @mixin white-links() {
     a{
         color: white;
@@ -43,17 +36,13 @@ $footer-grey: rgb(163, 163, 163);
     }
 }
 
-.navigation {
+#navigation {
     border-bottom: 7px solid $primary-color;
     font-family: 'Sawarabi Gothic';
 
-    // Makes dropdown trigger on hover
-    // .dropdown:hover > .dropdown-menu {
-    //     display: block;
-    // }
-    // .dropdown > .dropdown-toggle:active {
-    //     /*Without this, clicking will make it sticky*/
-    //     pointer-events: none;
+    /* Need to change padding for Iphone 5s size screens */
+    // @include media-breakpoint-down(xs){
+    //     padding: 0px;
     // }
 
     .nav-item {
@@ -71,124 +60,4 @@ $footer-grey: rgb(163, 163, 163);
 
 .container{
     height: auto;
-}
-
-.footer{
-    background-color: $primary-color;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-
-    width: 100%;
-    height: 200px;
-    
-    position: absolute;
-    margin: auto;
-    left: 0;
-
-    display: grid;
-    grid-template-columns: 1fr 2fr 3fr 2fr 1fr;
-    grid-template-areas: ". credit content connect .";
-
-    p{
-        margin-bottom: 4px;
-    }
-
-    @include media-breakpoint-down(sm){
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: 1fr;
-        grid-template-areas: "content" "credit" "connect";
-
-        margin-top: 80px;
-        height: 400px;
-    }
-}
-
-.footer-credit{
-    grid-area: credit;
-    padding: 40px;
-
-    #credit-title{
-        font-size: 18px;
-    }
-    #credit-links{
-        font-size: 14px;
-    }
-    @include white-links();
-    a{
-        text-decoration: underline;
-    }
-    a:hover{
-        text-decoration: underline;
-        color: $footer-grey;
-    }
-}
-
-.footer-content{
-    grid-area: content;
-    padding: 40px;
-
-    @include media-breakpoint-down(sm){
-        padding: 0px;
-        padding-top: 30px;
-    }
-
-    @include white-links();
-    a{
-        text-decoration: underline;
-    }
-    a:hover{
-        text-decoration: underline;
-        color: $footer-grey;
-    }
-
-    .footer-content__text{
-        width: fit-content;
-        margin: auto;
-        font-size: 14px;
-    }
-    #made-with{
-        font-size: 18px;
-    }
-    #my-name{
-        color: $footer-grey;
-    }
-}
-
-.footer-connect{
-    grid-area: connect;
-    padding: 40px;
-
-    @include white-links();
-    a{
-        text-decoration: none;
-    }
-    a:hover{
-        text-decoration: none;
-        color: $footer-grey;
-    }
-
-    #connect-title{
-        float: right;
-        font-size: 18px;
-    }
-    #connect-icons{
-        clear: both;
-        float: right;
-        font-size: 36px;
-    }
-    .connect-icon{
-        margin-left: 10px;
-    }
-    #linkedin-icon:hover{
-        color: $linkedin-blue;
-    }
-    #github-icon:hover{
-        color: $github-grey;
-    }
-    #codepen-icon:hover{
-        color: $codepen-black;
-    }
-    #hackerrank-icon:hover{
-        color: $hackerrank-green;
-    }
 }
