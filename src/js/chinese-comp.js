@@ -5,7 +5,7 @@ Vue.component("chinese-flashcards-tab", {
     template:  `<div :id="name">
                     <div id="chinese_header">
                         <h1>Chinese Flashcards</h1>
-                        <p>Click on a card to reveal the english and pinyin meaning of the Chinese symbol. Use this application to memrise the Chinese symbols, their pronunciation, and their meaning.</p>
+                        <p>Click on a card to reveal the english and pinyin meaning of the Chinese symbol. Use this application to memorize the Chinese symbols, their pronunciation, and their meaning.</p>
                         
                         <button @click="pickCards(characters.length)" type="button">All</button>
                         <button @click="pickCards(1)" type="button">Random</button>
