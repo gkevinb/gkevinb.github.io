@@ -86,7 +86,7 @@ $icon-margin: 16px;
 
 .footer-content{
     grid-area: content;
-    padding: $footer-padding;
+    padding: $footer-padding; 
 
     @include media-breakpoint-down(md){
         padding: $footer-padding 0 0 0;
@@ -100,6 +100,7 @@ $icon-margin: 16px;
         width: fit-content;
         margin: auto;
         font-size: $footer-small-text;
+        text-align: center;
     }
     #made-with{
         font-size: $footer-large-text;
