@@ -7,10 +7,17 @@ $perspective: 1800px;
 $rotate-degrees: 180deg;
 
 $text-color: white;
+$brand-logo-size: 48px;
+
 $text-border-color: #969696;
 
 $red-line-color: #FF7373;
 
+@mixin resizeSVG($size) {
+    svg{
+        width: $size;
+    }
+}
 
 #business-card-tab{
     h1{
@@ -324,8 +331,25 @@ $red-line-color: #FF7373;
     margin: 10px;
     width: 70px;
     text-align: center;
-    font-size: 48px;
+    font-size: $brand-logo-size;
     color: $text-color;
+}
+
+.brand-svg{
+    svg{
+        margin-top: -4px;
+        fill: $text-color;
+        width: $brand-logo-size;
+    }
+}
+
+/* Custom styling for some SVG logos */
+
+#DotNet{
+    @include resizeSVG(56px);
+}
+#MySql{
+    @include resizeSVG(56px);
 }
 
 #contact-container{

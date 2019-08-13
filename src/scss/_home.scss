@@ -41,6 +41,10 @@ $construction-tape-border-width: 15px;
     min-width: 100%;
     min-height: 100%;
 
+    svg{
+        fill: white
+    }
+
     /* Layout */
     display: grid;
     grid-template-columns: 30px repeat(2, 1fr) 30px;
