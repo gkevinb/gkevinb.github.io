@@ -1,7 +1,7 @@
 Vue.component("home-tab", {
     name: "home-tab",
     template:  `<div :id="name">
-		        <div id="intro_container">
+		        <div id="intro-container">
                 <p>Hi, my name is Kevin.</p>
                 <p>I'm a full stack developer based in Budapest.</p>
                 <br />
@@ -9,13 +9,11 @@ Vue.component("home-tab", {
                 <br />
                 <p>This is my portfolio website to showcase some of my work and interest. Feel free to have a look around and get in contact with me.</p>
                 </div>
-                <div id="links_container">
-                    <div v-for="website in websites" class="link_container">
+                <div id="links-container">
+                    <div v-for="website in websites" class="link-container">
                         <a :href="website.link">
-                        <div>
-                            <img :src="website.image" class="link_icon"/>
-                            <span>{{ website.name }}</span>
-                        </div>
+                            <i :class="website.icon" class="link-icon"></i>
+                            <div class="link-text">{{ website.name }}</div>
                         </a>
                     </div>
                 </div>
@@ -31,19 +29,22 @@ Vue.component("home-tab", {
                     id: 1,
                     name: 'Linkedin',
                     link: 'https://www.linkedin.com/in/gabor-kevin-barta/',
-                    image: '../img/linkedin_icon.png'
+                    image: '../img/linkedin_icon.png',
+                    icon: 'fab fa-linkedin'
                 },
                 {
                     id: 2,
                     name: 'Github',
                     link: 'https://github.com/gkevinb',
-                    image: '../img/github_icon.png'
+                    image: '../img/github_icon.png',
+                    icon: 'fab fa-github'
                 },
                 {
                     id: 3,
                     name: 'Codepen',
                     link: 'https://codepen.io/gkevinb/',
-                    image: '../img/codepen_icon.png'
+                    image: '../img/codepen_icon.png',
+                    icon: 'fab fa-codepen'
                 }
             ]
         }
