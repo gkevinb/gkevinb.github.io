@@ -22,6 +22,10 @@ var app = new Vue({
                             {
                                 name: "Font Awesome Free",
                                 link: "https://fontawesome.com/"
+                            },
+                            {
+                                name: "Simple SVG Icons",
+                                link: "https://simpleicons.org/"
                             }
                         ]
                     }
