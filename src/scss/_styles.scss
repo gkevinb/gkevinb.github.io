@@ -28,7 +28,7 @@ $primary-color: #383B45;
 .content {
     margin-top: 30px;
     margin-bottom: 30px;
-    min-height: 60vh;
+    min-height: 64vh;
     height: auto;
 
     @include media-breakpoint-down(sm){
