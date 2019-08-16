@@ -79,7 +79,10 @@ $construction-tape-border-width: 15px;
 
     /* Adjust background to be centered when on mobile */
     @include media-breakpoint-down(sm){
-        background-position: 23.5%;
+        background-position: 25%;
+    }
+    @include media-breakpoint-only(md){
+        background-position: 10%;
     }
 }
 
@@ -98,6 +101,7 @@ $construction-tape-border-width: 15px;
     @include media-breakpoint-down(sm){
         width: 100%;
         font-size: 18px;
+        padding: 0;
     }
 }
 
@@ -162,7 +166,7 @@ $construction-tape-border-width: 15px;
     transition: all 0.6s;
 
     @include media-breakpoint-down(sm){
-        margin: 20px auto;
+        margin: 18px auto;
         /* Turn off scale transform when on mobile */
         transition: none;
     }
