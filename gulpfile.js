@@ -92,7 +92,7 @@ gulp.task('inject-index', function () {
 });
 
 // Static server
-gulp.task('server', function() {
+gulp.task('serve', function() {
     browserSync.init({
         server: {
             baseDir: "./src/"
