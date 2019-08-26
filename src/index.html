@@ -6,7 +6,10 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141910422-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-141910422-1');
@@ -30,44 +33,48 @@
 </head>
 
 <body>
-	<div id="app" class="container">
+	<div id="app">
 
-		<!-- Navigation Bar -->
-		<div id="navigation" class="navbar navbar-expand-lg">
-			<div class="navbar-brand header">
-				<h1>Gabor Kevin Barta</h1>
+		<div id="custom-container" class="container">
+
+			<!-- Navigation Bar -->
+			<div id="navigation" class="navbar navbar-expand-lg">
+				<div class="navbar-brand header">
+					<h1>Gabor Kevin Barta</h1>
+				</div>
+
+				<!-- Navigation Hamburger -->
+				<button id="nav-burger-button" class="navbar-toggler hamburger hamburger--squeeze" @click="hamburgerX()"
+					data-toggle="collapse" data-target="#colapser" type="button">
+					<span class="nav-burger hamburger-box">
+						<span id="nav-burger-meat-js" class="nav-burger-meat hamburger-inner"></span>
+					</span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="colapser">
+					<ul class="navbar-nav ml-auto nav-menu">
+						<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name"
+							@click="setCurrentTab(tab)">
+							<span v-if="tab.subtabs" class="nav-link dropdown-toggle"
+								data-toggle="dropdown">{{ tab.name }}</span>
+							<span v-else class="nav-link">{{ tab.name }}</span>
+
+							<!-- Subtab dropdown -->
+							<ul v-if="tab.subtabs != null" class="dropdown-menu">
+								<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name"
+									@click.stop="setCurrentTab(subtab)">
+									{{ subtab.name }}
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 
-			<!-- Navigation Hamburger -->
-			<button id="nav-burger-button" class="navbar-toggler hamburger hamburger--squeeze" @click="hamburgerX()"
-				data-toggle="collapse" data-target="#colapser" type="button">
-				<span class="nav-burger hamburger-box">
-					<span id="nav-burger-meat-js" class="nav-burger-meat hamburger-inner"></span>
-				</span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="colapser">
-				<ul class="navbar-nav ml-auto nav-menu">
-					<li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name"
-						@click="setCurrentTab(tab)">
-						<span v-if="tab.subtabs" class="nav-link dropdown-toggle"
-							data-toggle="dropdown">{{ tab.name }}</span>
-						<span v-else class="nav-link">{{ tab.name }}</span>
-
-						<!-- Subtab dropdown -->
-						<ul v-if="tab.subtabs != null" class="dropdown-menu">
-							<li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name"
-								@click.stop="setCurrentTab(subtab)">
-								{{ subtab.name }}
-							</li>
-						</ul>
-					</li>
-				</ul>
+			<!-- Main content -->
+			<div class="content" :is="getCurrentTab" :tabs="tabs" :cu="currentTab">
 			</div>
-		</div>
 
-		<!-- Main content -->
-		<div class="content" :is="getCurrentTab" :tabs="tabs" :cu="currentTab">
 		</div>
 
 		<!-- Footer content -->
