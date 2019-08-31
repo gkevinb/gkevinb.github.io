@@ -31,7 +31,7 @@ Vue.component("q-learning-tab", {
             <button id="learn_button" class="btn control-panel__button" type="button" disabled>Learn</button>
             <button id="explore_button" class="btn control-panel__button" @click="explore" type="button">Explore</button>
         </div>
-        <div id="qlearning-map" v-bind:style="gridStyling(row, column)">
+        <div id="qlearning-map" :style="gridStyling(row, column)">
             <template v-for="i in stringToNum(row)">
                 <div v-for="j in stringToNum(column)" class="tile--background">
                     <div :class="styleTile(i - 1, j - 1)" :id="matrixId(i - 1, j - 1)">

@@ -46,7 +46,6 @@ Vue.component("nav-comp", {
         setCurrentTab: function (tab) {
             if(tab.subtabs == null){
                 this.currentTab = tab.name;
-                console.log(this.currentTab);
                 this.$emit('current-tab', this.currentTab);
             }
         },
