@@ -10,18 +10,20 @@ $bme_red: #9B3535;
 
 $bubble_size: 60px;
 
-h2{
-    font-size: 46px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-family: 'Thasadith', sans-serif;
-}
 
 #cv{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     @include media-breakpoint-down(lg){
         grid-template-columns: 1fr;
+    }
+    
+    h2{
+        font-size: 46px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-family: 'Thasadith', sans-serif;
     }
 }
 

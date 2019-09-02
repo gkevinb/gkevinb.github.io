@@ -60,6 +60,9 @@ var app = new Vue({
                             }
                         ]
                     }
+                    ,{
+                        name: 'Github Projects'
+                    }
                 ]
             },
             {
