@@ -55,7 +55,7 @@ var app = new Vue({
                                 link: "https://3dtransforms.desandro.com/card-flip"
                             },
                             {
-                                name: "Hanzi Chinese Characters Writer",
+                                name: "Hanzi Chinese Writer",
                                 link: "https://chanind.github.io/hanzi-writer/"
                             }
                         ]

@@ -74,6 +74,11 @@ $icon-margin: 16px;
         padding: $footer-padding 0 0 0;
         text-align: center;
     }
+
+    @include media-breakpoint-only(lg){
+        padding: $footer-padding 0 0 2*$footer-padding;
+    }
+
     #credit-title{
         font-size: $footer-large-text;
     }
@@ -86,7 +91,7 @@ $icon-margin: 16px;
 
 .footer-content{
     grid-area: content;
-    padding: $footer-padding; 
+    padding: $footer-padding 0;
 
     @include media-breakpoint-down(md){
         padding: $footer-padding 0 0 0;
@@ -123,6 +128,10 @@ $icon-margin: 16px;
         padding: $footer-padding 0 $footer-padding 0;
     }
 
+    @include media-breakpoint-only(lg){
+        padding: $footer-padding 2*$footer-padding 0 0;
+    }
+
     @include white-links();
 
     #connect-title{
@@ -150,6 +159,11 @@ $icon-margin: 16px;
             margin-right: $icon-margin;
         }
     }
+    /* Left most icon doesn't need margin */
+    .connect-icon:first-child{
+        margin: 0;
+    }
+
     #linkedin-icon:hover{
         color: $linkedin-blue;
     }
