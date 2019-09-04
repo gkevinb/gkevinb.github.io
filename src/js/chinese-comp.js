@@ -6,18 +6,17 @@ Vue.component("chinese-flashcards-tab", {
                     <div id="chinese_header">
                         <h1>Chinese Flashcards</h1>
                         <p>Click on a card to reveal the english and pinyin meaning of the Chinese symbol. Use this application to memorize the Chinese symbols, their pronunciation, and their meaning.</p>
-                        
                         <button @click="pickCards(characters.length)" type="button">All</button>
                         <button @click="pickCards(1)" type="button">Random</button>
                     </div>
                     <div :id="flashcardStyling()">
-                        <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin">
+                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin" :audio="setAudio(char.character)">
                         </chinese-flashcard>
-                    </div>
 			    </div>`,
     data: function () {
         return {
             name: "chinese-flashcards",
+            mute: false,
             chosenCharacters: null,
             characters: [
                 {
@@ -168,7 +167,8 @@ Vue.component("chinese-flashcards-tab", {
                     'id' : 25,
                     'character' : '他',
                     'english' : 'he',
-                    'pinyin' : 'tā'
+                    'pinyin' : 'tā',
+                    'audio' : 'ta1'
                 },
                 {
                     'id' : 26,
@@ -204,12 +204,9 @@ Vue.component("chinese-flashcards-tab", {
         }
     },
     created() {
-        this.chosenCharacters = this.characters
+        this.pickCards(this.characters.length);
     },
     methods: {
-        reset: function () {
-            this.chosenCharacters = null;
-        },
         pickCards: function (numberOf) {
             this.chosenCharacters = shuffle(this.characters).slice(0, numberOf);
         },
@@ -218,6 +215,15 @@ Vue.component("chinese-flashcards-tab", {
                 return "flashcards_x1";
             }else{
                 return "flashcards_x4";
+            }
+        },
+        /* If mute is true return null for audio, if mute is false, return audio */
+        setAudio: function (audio) {
+            if(this.mute){
+                return null;
+            }
+            else{
+                return audio;
             }
         }
     }

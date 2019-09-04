@@ -3,10 +3,11 @@ Vue.component("chinese-flashcard", {
         english: String,
         character: String,
         pinyin: String,
+        audio: String,
      },
     template: `
         <div class="flashcard__scene">
-            <div :id="flipCardId" class="flashcard" @click=flipFlashcard @mouseover=writeStroke>
+            <div :id="flipCardId" class="flashcard" @click=flipFlashcard(audio) @mouseover=writeStroke>
                 <div :id="frontCardId" class="flashcard__face flashcard__face--front"></div>
                 <div class="flashcard__face flashcard__face--back">
                     <div id="pinyin">{{ pinyin }}</div>
@@ -43,8 +44,20 @@ Vue.component("chinese-flashcard", {
         generateRandomId: function() {
             return Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
         },
-        flipFlashcard: function() {
+        flipFlashcard: function(audio) {
             this.card.classList.toggle('is-flipped');
+            if(audio != null){
+                this.playAudio(audio);
+            }
+        },
+        playAudio: function(audio) {
+            var url = 'files/audio/' + audio + '.mp3';
+
+            var sound = new Howl({
+                src: [url]
+            });
+              
+            sound.play();
         },
         writeStroke: function() {
             this.writer.animateCharacter();
