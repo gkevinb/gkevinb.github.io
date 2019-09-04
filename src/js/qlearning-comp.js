@@ -5,8 +5,19 @@ Vue.component("q-learning-tab", {
     <div id="qlearning">
         <div id="qlearning-header">
             <h1>Q-Learning Algorithm</h1>
-            <p>Robot game demonstrating the Q-Learning algorithm.</p>
-        </div>
+    <h2>The Cliff Walking Problem</h2>
+    </div>
+    <div id="qlearning-instructions">
+    <p>The Q-Learning algorithm is a reinforcement learning algorithm. It is a reinforcement learning method since it involves an agent, a set of states, and a set of actions for each state. The agent accumulates rewards when a specific action is taken at a specific state. The cliff walking problem is a classic problem solved by the Q-learning algorithm. The scenario is the following, the robot wants to find the shortest path to the trophy. However if the it steps on the black tiles it will fall down the cliff. The robot learns to find the shortest path to the trophy through trial and error. After each step taken the Q-values are updated for the that action at the specific state.</p>
+    <div id="qlearning-legend">
+        <div class="greek-letters">ε</div><div class="explanation">Greedy factor is defined by how greedy we are with the neighboring Q values.</div>
+        <div class="greek-letters">α</div><div class="explanation">Learning rate is defined by how much we accept the new Q value over the old Q value.</div>
+        <div class="greek-letters">γ</div><div class="explanation">Discount factor is used to balance the immediate and future reward.</div>
+        <div class="button-replica">Load</div><div class="explanation">Disabled</div>
+        <div class="button-replica">Reset</div><div class="explanation">Reset Q values and place robot at starting position.</div>
+        <div class="button-replica">Learn</div><div class="explanation">Disabled</div>
+        <div class="button-replica">Explore</div><div class="explanation">Start exploring the map and look for the trophy. Press again if the robot falls down the cliff or finds the trophy to start exploring again.</div>
+    </div>
         <div id="control_panel">
             <div id="left_screw" class="screw"><div>x</div></div>
             <div id="control_panel-title">Control Panel</div>
@@ -53,7 +64,7 @@ Vue.component("q-learning-tab", {
             start: "2x0",
             row: "3",
             column: "6",
-            showQValues: true,
+            displayQValues: true,
             /* Q-learning variable values */
             epsilon: 0.5,
             alpha: 0.5,
