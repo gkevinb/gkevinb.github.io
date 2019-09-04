@@ -161,6 +161,10 @@ $icon-margin: 16px;
     /* Left most icon doesn't need margin */
     .connect-icon:first-child{
         margin: 0;
+        @include media-breakpoint-down(md){
+            margin-left: $icon-margin;
+            margin-right: $icon-margin;
+        }
     }
 
     #linkedin-icon:hover{
