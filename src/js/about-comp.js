@@ -86,6 +86,16 @@ Vue.component("experience-tab", {
                 },
                 {
                     id: 5,
+                    tag: 'demola',
+                    title: 'Software Developer',
+                    company: '🏢Demola Budapest',
+                    link: 'https://www.demola.net/',
+                    timePeriod: '🗓Mar 2016 - Jun 2016',
+                    city: '🏙Budapest',
+                    text: 'Siemens initiated project through the Demola Organization. Developing an Arduino prototype for Battery Monitoring System which uses CAN Communication.'
+                },
+                {
+                    id: 6,
                     tag: 'thyssenkrupp',
                     title: 'Software Developer Intern',
                     company: '🏢ThyssenKrupp Presta Hungary',
