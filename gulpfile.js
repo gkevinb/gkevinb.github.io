@@ -38,7 +38,7 @@ gulp.task('copy-css', function(){
 // Copy ALL css files
 // dest folder created automatically
 gulp.task('copy-files', function(){
-    return gulp.src('src/files/*')
+    return gulp.src('src/files/**/*')
         .pipe(gulp.dest('files'))
 });
 
