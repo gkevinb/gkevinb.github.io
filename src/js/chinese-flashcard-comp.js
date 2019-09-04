@@ -51,7 +51,6 @@ Vue.component("chinese-flashcard", {
             }
         },
         playAudio: function(audio) {
-            console.log(audio);
             var url = 'files/audio/' + audio + '.mp3';
 
             var sound = new Howl({

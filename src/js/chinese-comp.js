@@ -12,7 +12,7 @@ Vue.component("chinese-flashcards-tab", {
                     <div id="reminder">(Remember to unmute device as well)</div>
                 </div>
                 <div :id="flashcardStyling()">
-                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin" :audio="setAudio(char.audio)">
+                <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english" :character="char.character" :pinyin="char.pinyin" :audio="setAudio(char.character)">
                 </chinese-flashcard>
                 </div>
 			    </div>`,
