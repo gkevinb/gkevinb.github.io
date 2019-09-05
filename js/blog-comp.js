@@ -1,1 +1,0 @@
-Vue.component("blog-tab",{props:["tabs","cu"],template:"<div>\n                <h1>Blog section coming soon...</h1>\n\t\t\t\t</div>",data:function(){return{message:"hello"}},methods:{func:function(t){return t+=" !!!!!!"}}});

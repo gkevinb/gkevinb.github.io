@@ -1,0 +1,47 @@
+<div id="cv">
+    <div id="experiences_container">
+        <h2>Work</h2>
+        <div v-for="experience in experiences" class="experience_container">
+            <div class="bubble" :id="experience.tag"></div>
+            <div class="experience_card">
+                <div class="title">{{ experience.title }}</div>
+                <a :href="experience.link">
+                    <div class="institution">{{ experience.company }}</div>
+                </a>
+                <div class="time_period">{{ experience.timePeriod }}</div>
+                <div class="city">{{ experience.city }}</div>
+                <div class="description">
+                    <div class="text">{{ experience.text }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="education_container">
+        <h2>Education</h2>
+        <div v-for="degree in degrees" class="experience_container">
+            <div class="bubble" :id="degree.tag"></div>
+            <div class="experience_card">
+                <div class="title">{{ degree.title }}</div>
+                <a :href="degree.link">
+                    <div class="institution">{{ degree.university }}</div>
+                </a>
+                <div class="time_period">{{ degree.timePeriod }}</div>
+                <div class="city">{{ degree.city }}</div>
+                <div class="description">
+                    <div v-if="degree.specialization" class="specialization">
+                        <div id="specialization_text">Specialization</div>
+                        <div id="specialization_title">{{ degree.specialization }}</div>
+                    </div>
+                    <div class="text">{{ degree.text }}</div>
+                    <div class="thesis">
+                        <div id="thesis_text">Thesis</div>
+                        <a :href="degree.thesisLink">
+                            <div id="thesis_title">{{ degree.thesisTitle }}</div>
+                        </a>
+                        <div id="thesis_details">{{ degree.thesisDetails }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

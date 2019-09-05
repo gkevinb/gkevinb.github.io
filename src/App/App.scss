@@ -1,7 +1,3 @@
-/* CSS Reset */
-// @import "reset";
-
-/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 @import url('https://fonts.googleapis.com/css?family=Thasadith');
@@ -14,36 +10,57 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
 
-// @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-// @import "node_modules/@fortawesome/fontawesome-free/scss/brands";
-// @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
-
 /* Bootstrap components */
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins/_breakpoints";
 
-/*  
-    Custom nav-burger styling with help of hamburgers library
-    MUST BE IN THIS SPECIFIC ORDER
-    first nav-burger then hamburges node_modules library
+$primary-color: #383B45;
+
+@mixin white-links() {
+    a{
+        color: white;
+    }
+    a:active{
+        color: white;
+    }
+    a:visited{
+        color: white;
+    }
+}
+
+/* Sticky Footer 
+* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 */
-@import "nav-burger";
-@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+#app{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#custom-container{
+    flex: 1;
+}
 
-/* Layout styling */
-@import "styles";
+.header {
+    h1 {
+        color: $primary-color;
+        font-family: 'ZCOOL KuaiLe', cursive;
+        font-size: 50px;
+        margin: 0;
 
-/* Flashcard sytling (needed for chinese flashcard and business card */
-@import "flashcard";
+        @include media-breakpoint-down(sm){
+            font-size: 24px;
+        }
+    }
+}
 
-/* Component styling */
-@import "home";
-@import "footer";
-@import "qlearning";
-@import "control-panel";
-@import "qlearning-map";
-@import "about";
-@import "business-card";
-@import "chinese-flashcard";
-@import "chinese";
+.content {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    min-height: 64vh;
+    height: auto;
+
+    @include media-breakpoint-down(sm){
+        margin-top: 16px;
+    }
+}

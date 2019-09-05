@@ -1,0 +1,511 @@
+/* Bootstrap components */
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+
+$neon-green: #91C87E;
+$light-grey: #E4E4E4;
+
+#qlearning-header{
+    text-align: center;
+
+    h1{
+        font-size: 48px;
+        @include media-breakpoint-down(sm){
+            font-size: 36px;
+        }
+    }
+    
+    p{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 10px;
+        @include media-breakpoint-down(sm){
+            width: 90%;
+        }
+    }
+}
+
+#qlearning-legend{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: repeat(7, 100px);
+
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 80px;
+
+    border-radius: 5px;
+}
+
+.button-replica{
+    color: $light-grey;
+    background-color: $neon-green;
+    border-color: $neon-green;
+    font-size: 20px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    width: 90px;
+}
+
+.explanation{
+    text-align: center;
+    margin: auto;
+}
+
+
+
+/* =============== Control Panel ============= */
+
+$screw-size: 40px;
+$screw-color: #535353;
+$bolt-color: #C4C4C4;
+
+$neon-green: #91C87E;
+$screen-color: #282828;
+$screen-border: #CCCCCC;
+$light-grey: #E4E4E4;
+$bg-color: #969696;
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg);
+        transform:rotate(360deg); 
+    }
+}
+
+@mixin greek-letter-positioning () {
+    margin-top: -5px;
+}
+
+.greek-letters{
+    font-family: 'GFS Didot', serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+.screw{
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.35 * $screw-size;
+    color: $screw-color;
+
+    height: $screw-size;
+    width: $screw-size;
+
+    background-color: $bolt-color;
+    border: 1px solid $bolt-color;
+    border-radius: $screw-size;
+
+    div{
+        /* Adjust values below after changing screw-size */
+        margin-top: -0.66 * $screw-size;
+        margin-left: 0.09 * $screw-size;
+    }
+}
+.screw:hover{
+    animation:spin 1s linear;
+}
+
+#control_panel{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 40px 110px 50px 90px;
+    grid-template-rows: repeat(5, 50px);
+    grid-template-areas: 
+        "l  h  h  h"
+        "et es ev lob"
+        "at as av rb"
+        "gt gs gv leb"
+        "qt qt qc eb";
+
+    width: fit-content;
+    /* Firefox compatibility */
+    width: -moz-fit-content;
+    
+    padding: 10px;
+
+    background-color: $bg-color;
+    color: $light-grey;
+
+    border: 10px outset rgb(196, 196, 196);
+
+    border-radius: 20px;
+
+    font-size: 20px;
+
+    @include media-breakpoint-down(sm){
+        margin: auto;
+
+        grid-template-columns: 40px 90px 50px 90px;
+        grid-template-areas: 
+        "l  h  h  h"
+        "et es ev lob"
+        "at as av rb"
+        "gt gs gv leb"
+        "qt qt qt eb";
+
+        border-style: outset;
+        border-width: 10px;
+
+        border-top-color: rgb(129, 129, 129);
+        border-left-color: rgb(129, 129, 129);
+        border-right-color: rgb(175, 175, 175);
+        border-bottom-color: rgb(175, 175, 175);
+
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    #left_screw{
+        grid-area: l;
+    }
+    #control_panel-title{
+        grid-area: h;
+        
+        margin-top: -5px;
+        margin-bottom: 10px;
+        margin-left: 18px;
+
+        font-size: 32px;
+        @include media-breakpoint-down(sm){
+            margin-left: 10px;
+        }
+    }
+    #right_screw{
+        grid-area: h;
+        margin-left: 230px;
+        @include media-breakpoint-down(sm){
+            margin-left: 210px;
+        }
+    }
+    #epsilon_letter{
+        grid-area: et;
+        @include greek-letter-positioning ();
+    }
+    #alpha_letter{
+        grid-area: at;
+        @include greek-letter-positioning ();
+    }
+    #gamma_letter{
+        grid-area: gt;
+        @include greek-letter-positioning ();
+    }
+    #qvalue_text{
+        grid-area: qt;
+
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    #epsilon_slider{
+        grid-area: es;
+    }
+    #alpha_slider{
+        grid-area: as;
+    }
+    #gamma_slider{
+        grid-area: gs;
+    }
+    #qvalue_checkbox{
+        grid-area: qc;
+
+        // margin: 17px auto;
+        margin-top: 17px;
+        margin-left: 7px;
+
+        @include media-breakpoint-down(sm){
+            grid-area: qt;
+            margin-left: 170px;
+        }
+    }
+    .value_screen{
+        margin: 4px 0;
+        padding: 4px 4px;
+        width: 50px;
+        border: 3px solid $screen-border;
+
+        background-color: $screen-color;
+        color: $neon-green;
+        
+        font-family: 'PT Mono', monospace;
+    }
+    #epsilon_value{
+        grid-area: ev;
+    }
+    #alpha_value{
+        grid-area: av;
+    }
+    #gamma_value{
+        grid-area: gv;
+    }
+    .control-panel__button{
+        color: $light-grey;
+        background-color: $neon-green;
+        border-color: $neon-green;
+        font-size: 16px;
+    }
+    #load_button{
+        grid-area: lob;
+    }
+    #reset_button{
+        grid-area: rb;
+    }
+    #learn_button{
+        grid-area: leb;
+    }
+    #explore_button{
+        grid-area: eb;
+    }
+}
+
+
+
+
+$map-color: rgb(146, 134, 101);
+$tile_color: rgb(214, 185, 147);
+$cliff_color: rgb(40, 40, 40);
+
+$robot_size: 96px;
+$trophy_size: 48px;
+
+/* If tile size is changed here also change it in qlearning-comp.js */
+$tile_size: 100px;
+
+/* Q Matrix values on map*/
+$font_size: 14px;
+$padding_size: 3px;
+
+/* Initial row and column values, however this will change during runtime due to qlearning-comp.js */
+$rows: 4;
+$columns: 5;
+
+
+/* =============== Q MATRIX VALUES ON MAP STYLING ===================*/
+
+@mixin qValue() {
+    font-size: $font_size;
+    color: rgba(255, 255, 255, 0.46);
+}
+
+.HORIZONTAL{
+    width: $tile_size / 2;
+    height: $tile_size / 2;
+    float: left;
+}
+.VERTICAL{
+    width: $tile_size;
+    height: $tile_size / 4;
+    float: left;
+}
+
+.UP{
+    @extend .VERTICAL;
+    text-align: center;
+
+    div {
+        @include qValue();
+        padding-top: $padding_size;
+    }
+}
+.LEFT{
+    @extend .HORIZONTAL;
+
+    div {
+        @include qValue();
+        line-height: $tile_size / 2;
+        padding-left: $padding_size;
+    }
+}
+.RIGHT{
+    @extend .HORIZONTAL;
+
+    div {
+        @include qValue();
+        float: right;
+        line-height: $tile_size / 2;
+        padding-right: $padding_size;
+    }
+}
+.DOWN{
+    @extend .VERTICAL;
+    position: relative;
+
+    div {
+        @include qValue();
+        padding-bottom: $padding_size;
+        width: $tile_size;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+    }
+}
+
+/* =============== TILE STYLING ===================*/
+
+/*
+    Setup size of tile
+*/
+@mixin tileSize() {
+    width: $tile_size;
+    height: $tile_size;
+}
+/*
+    Setup image on tile
+*/
+@mixin backgroundImage($image, $size) {
+    $url: "../../assets/img/#{$image}.png";
+    background: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*
+    Animation for robot falling down the hole.
+*/
+@keyframes falling {
+    0% {
+        height: 100%;
+        width: 100%; 
+    }
+    100% {
+        height: 0%;
+        width: 0%;
+    }
+}
+
+/*
+    Animation for robot reaching the reward and jumping up and down.
+    Note: changin tile_size will break the animation below, adjust pixel values afterwards
+*/
+@keyframes winning {
+    $trophy_x_position: 57px;
+    $trophy_y_position: 36px;
+    0%   { background-position: $trophy_x_position $trophy_y_position, center 5px; }
+    50%  { background-position: $trophy_x_position $trophy_y_position - 10px, center -5px; }
+    100%  { background-position: $trophy_x_position $trophy_y_position, center 5px; }
+}
+
+/*
+    Grid map for Q-Learning algorithm.
+*/
+#qlearning-map{
+    display: grid;
+    grid-template-rows: repeat($rows, $tile_size);
+    grid-template-columns: repeat($columns, $tile_size);
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+
+    background-color: $map-color;
+    padding: 5px;
+    margin: auto;
+
+    width: fit-content;
+    /* Firefox compatibility */
+    width: -moz-fit-content;
+
+    @include media-breakpoint-down(sm){
+        
+        /* Border Styling */
+        border-style: inset;
+        border-width: 10px;
+
+        border-top: none;
+        border-left-color: rgb(214, 214, 214);
+        border-right-color: rgb(51, 51, 51);
+        border-bottom-color: rgb(121, 121, 121);
+
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+/*
+    Background tile behind each tile. This workaround is 
+    needed to make robot falling animation work on mobile.
+*/
+.tile--background{
+    @include tileSize();
+
+    background-color: $cliff_color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile{
+    @include tileSize();
+
+    background-color: $tile_color;
+}
+.tile--agent{
+    @include tileSize();
+    @include backgroundImage("robot", "#{$robot_size}");
+
+    background-color: $tile_color;
+}
+.tile--cliff{
+    @include tileSize();
+
+    background-color: $cliff_color;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
+}
+.tile--reward{
+    @include tileSize();
+    @include backgroundImage("trophy", "#{$trophy_size}");
+
+    background-color: $tile_color;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
+}
+.tile--robot--falling{
+    @include tileSize();
+    @include backgroundImage("robot", "#{$robot_size}");
+
+    background-color: $cliff_color;
+    
+    /* Robot falling animation */
+    animation-name: falling;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+
+    /* Needed for keeping falling animation in the center */
+    background-size: cover;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
+}
+.tile--robot--winning{
+    @include tileSize();
+    $url_robot: "../../assets/img/robot.png";
+    $url_trophy: "../../assets/img/trophy.png";
+    background: url($url_trophy), url($url_robot);
+    
+    background-repeat: no-repeat, no-repeat;
+    background-color: $tile_color;
+    
+    /* Robot winning animation */
+    animation-name: winning;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
+
+    /* Turn off Q-value divs for this tile */
+    div{
+        display: none;
+    }
+}
