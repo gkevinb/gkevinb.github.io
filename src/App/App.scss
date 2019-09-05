@@ -64,25 +64,3 @@ $primary-color: #383B45;
         margin-top: 16px;
     }
 }
-
-#navigation {
-    border-bottom: 7px solid $primary-color;
-    font-family: 'Sawarabi Gothic';
-
-    /* Need to change padding for Iphone 5s size screens */
-    // @include media-breakpoint-down(xs){
-    //     padding: 0px;
-    // }
-
-    .nav-item {
-        color: $primary-color;
-        font-size: 20px;
-        text-align: center;
-    }
-    .nav-item:hover {
-        color: white;
-        background: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
-        border-radius: 6px;
-
-    }
-}
