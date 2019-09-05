@@ -41,12 +41,12 @@ export default {
             }
         },
         playAudio: function(audio) {
-            var url = '../../assets/files/audio/' + audio + '.mp3';
-            console.log(url)
+            var url = 'files/audio/' + audio + '.mp3';
+
             var sound = new Howl({
                 src: [url]
             });
-            console.log(sound)
+            
             sound.play();
         },
         writeStroke: function() {
