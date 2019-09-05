@@ -1,0 +1,50 @@
+<div :id="name">
+    <h1>Digital Business Card</h1>
+    <div id="business-card__scene">
+        <div id="business-card" @click=flipFlashcard>
+            <div class="business-card__face--front">
+                <div id="name">{{ fullName }}</div>
+                <div id="laptop"></div>
+                <div id="keyboard"></div>
+                <div id="mousepad"></div>
+                <div id="screen"></div>
+                <div id="tab"></div>
+                <div id="coding">{{ codeSymbol }}</div>
+                <div id="exit"></div>
+                <div id="empty"></div>
+                <div id="minimize"></div>
+                <div id="red-line__1" class="red-line"></div>
+                <div id="red-line__2" class="red-line"></div>
+                <div id="red-line__3" class="red-line"></div>
+                <div id="red-line__4" class="red-line"></div>
+                <div id="red-line__5" class="red-line"></div>
+                <div id="red-line__6" class="red-line"></div>
+                <div id="red-line__7" class="red-line"></div>
+                <div id="red-line__8" class="red-line"></div>
+                <div id="red-line__9" class="red-line"></div>
+                <div id="position">{{ position }}</div>
+                <div id="brand-container">
+                    <template v-for="brand in chosenBrands">
+                        <i v-if="brand.code != undefined" :class="brandStyling(brand.code)"></i>
+                        <i v-if="brand.svg != undefined" v-html="brand.svg" :id="brand.name"
+                            class="brand-logo fab brand-svg"></i>
+                    </template>
+                </div>
+            </div>
+            <div class="business-card__face--back">
+                <div id="contact-container">
+                    <div v-for="info in contact" class="contact-info">
+                        <i :class="contactIconStyling(info.code)"></i>
+                        <div class="contact-text">{{ info.value }}</div>
+                    </div>
+                </div>
+                <div id="qr-code">
+                    <img src="../../assets/img/qr-code.png" alt="QR CODE" height="100" width="100">
+                </div>
+                <div id="save-contact__button">
+                    <a id="save-contact__link" href="https://www.dropbox.com/s/5ja3gb354bwc54a/user.vcf?dl=1" download="user.vcf">Save to Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

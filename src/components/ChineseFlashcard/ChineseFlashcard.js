@@ -1,22 +1,12 @@
-Vue.component("chinese-flashcard", {
+export default {
+    name: "chinese-flashcard",
     props: {
         english: String,
         character: String,
         pinyin: String,
         audio: String,
      },
-    template: `
-        <div class="flashcard__scene">
-            <div :id="flipCardId" class="flashcard" @click=flipFlashcard(audio) @mouseover=writeStroke>
-                <div :id="frontCardId" class="flashcard__face flashcard__face--front"></div>
-                <div class="flashcard__face flashcard__face--back">
-                    <div id="pinyin">{{ pinyin }}</div>
-                    <div id="divider"></div>
-                    <div id="english">{{ english }}</div>
-                </div>
-            </div>
-        </div>`,
-    data: function() {
+    data() {
         return {
             writer: null,
             card: null,
@@ -51,8 +41,8 @@ Vue.component("chinese-flashcard", {
             }
         },
         playAudio: function(audio) {
-            var url = 'files/audio/' + audio + '.mp3';
-
+            var url = '../../assets/files/audio/' + audio + '.mp3';
+            console.log(url)
             var sound = new Howl({
                 src: [url]
             });
@@ -63,4 +53,4 @@ Vue.component("chinese-flashcard", {
             this.writer.animateCharacter();
         }
     }
-});
+}

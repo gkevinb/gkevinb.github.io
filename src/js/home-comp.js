@@ -21,7 +21,7 @@ Vue.component("home-tab", {
                 <div id="construction-tape__middle">WEBSITE CONTINUOUSLY UNDER CONSTRUCTION</div>
                 <div id="construction-tape__right"></div>
                 </div>`,
-    data: function () {
+    data() {
         return {
             name: "home-tab",
             websites: [

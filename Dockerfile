@@ -1,9 +1,11 @@
 FROM nginx:alpine
 
 RUN mkdir /www
-COPY index.html /www/index.html
-COPY css /www/css
-COPY js /www/js
-COPY img /www/img
-COPY files /www/files
+
+COPY dist/css /www/css
+COPY dist/img /www/img
+COPY dist/js /www/js
+COPY dist/favicon.ico /www/favicon.ico
+COPY dist/index.html /www/index.html
+
 COPY nginx.conf /etc/nginx/nginx.conf

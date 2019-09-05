@@ -1,1 +1,0 @@
-"use strict";function shuffle(t){let e,f,r=t.length;for(;r>0;)f=Math.floor(Math.random()*r),e=t[--r],t[r]=t[f],t[f]=e;return t}export{shuffle};

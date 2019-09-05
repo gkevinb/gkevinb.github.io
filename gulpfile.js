@@ -5,6 +5,7 @@ const imagemin = require('gulp-imagemin');
 const minify = require('gulp-minify');
 const inject = require('gulp-inject');
 const browserSync = require('browser-sync').create();
+const del = require('del');
 
 /*
 Need done argument because it assumes the task is synchronous
@@ -112,5 +113,17 @@ gulp.task('watch', function(){
     gulp.watch('src/scss/*', gulp.series('sass'));
 	//gulp.watch('src/*.html', gulp.series('copy-html'));
 });
+
+/* Copy all files in dist folder to project folder */
+gulp.task('copy-dist', function(){
+    return gulp.src('dist/**/*')
+        .pipe(gulp.dest('./'))
+});
+
+gulp.task('clean', function(){
+    return del(['js', 'css', 'img', 'index.html', 'favicon.ico'], {force:true});
+});
+
+gulp.task('deploy', gulp.series('clean', 'copy-dist'));
 
 gulp.task('default', gulp.series('image-min', 'sass', 'scripts', 'inject-index', 'copy-html', 'copy-css', 'copy-files'));
