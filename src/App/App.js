@@ -74,6 +74,10 @@ export default {
                                 {
                                     name: "Hanzi Chinese Writer",
                                     link: "https://chanind.github.io/hanzi-writer/"
+                                },
+                                {
+                                    name: "Howler.js",
+                                    link: "https://howlerjs.com/"
                                 }
                             ]
                         }, {
