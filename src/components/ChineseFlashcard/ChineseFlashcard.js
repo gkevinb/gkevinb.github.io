@@ -1,3 +1,6 @@
+import { Howl } from 'howler';
+const HanziWriter = require('hanzi-writer');
+
 export default {
     name: "chinese-flashcard",
     props: {
