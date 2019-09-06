@@ -18,7 +18,8 @@ export default {
             /* Agent and movement values */
             agent: null,
             movement: null,
-            exploring: false
+            exploring: false,
+            speed: 150
         }
     },
     /* created(): since the processing of the options is finished you have access to reactive
@@ -131,7 +132,7 @@ export default {
         explore: function() {
             if(this.exploring == false){
                 this.agent.state = this.agent.initialPosition;
-                this.movement = setInterval(this.move, 200);
+                this.movement = setInterval(this.move, this.speed);
                 this.exploring = true;
             }
         },

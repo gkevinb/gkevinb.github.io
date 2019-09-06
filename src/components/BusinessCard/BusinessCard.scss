@@ -28,13 +28,12 @@ $red-line-color: #FF7373;
     }
 }
 
-#business-card-tab{
-    h1{
-        text-align: center;
-        @include media-breakpoint-down(sm){
-            /* Pushes business card down the screen */
-            margin-bottom: 200px;
-        }
+#business-card__header{
+    text-align: center;
+    
+    @include media-breakpoint-down(sm){
+        /* Pushes business card down the screen */
+        margin-bottom: 200px;
     }
 }
 

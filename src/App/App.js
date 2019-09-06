@@ -80,7 +80,8 @@ export default {
                                     link: "https://howlerjs.com/"
                                 }
                             ]
-                        }, {
+                        },
+                        {
                             name: 'Github Projects'
                         }
                     ]

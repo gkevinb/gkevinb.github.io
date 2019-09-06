@@ -13,7 +13,9 @@ export default {
             position: "Fullstack Developer",
             codeSymbol: "</>",
             card: null,
+            flipping: null,
             chosenBrands: null,
+            numberOfBrandsToDisplay: 5,
             brands: [{
                     'name': 'Docker',
                     'code': 'fab fa-docker',
@@ -115,17 +117,20 @@ export default {
     },
     mounted() {
         this.card = document.getElementById("business-card");
-        this.chooseBrands(5);
+        this.chooseBrands();
     },
     methods: {
         flipFlashcard: function () {
             /*
                 Checks if classList is not empty, because when it is not empty, it means the card is
                 flipped to the backside. And that is when the new brands are selected to be displayed
-                on the frontside of the card.
+                on the frontside of the card. Intervals are need to not change brands on double tap
+                on frontside of the card.
             */
             if (this.card.classList.length != 0) {
-                this.chooseBrands(5);
+                clearInterval(this.flipping);
+            }else{
+                this.flipping = setInterval(this.chooseBrands, 400);
             }
             this.card.classList.toggle('is-flipped');
         },
@@ -135,8 +140,8 @@ export default {
         contactIconStyling: function (code) {
             return 'contact-icon ' + code;
         },
-        chooseBrands: function (numberOf) {
-            this.chosenBrands = shuffle(this.brands).slice(0, numberOf);
+        chooseBrands: function () {
+            this.chosenBrands = shuffle(this.brands).slice(0, this.numberOfBrandsToDisplay);
         }
     }
 }
