@@ -13,9 +13,7 @@
     width: 100%;
 }
 
-button{
-    margin: 5px;
-}
+
 
 #chinese_header{
     text-align: center;
@@ -34,6 +32,10 @@ button{
         @include media-breakpoint-down(sm){
             width: 90%;
         }
+    }
+
+    button{
+        margin: 5px;
     }
 
     #reminder{

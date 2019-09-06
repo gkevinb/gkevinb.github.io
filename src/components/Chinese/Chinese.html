@@ -10,6 +10,7 @@
         <input type="checkbox" name="mute" id="mute_checkbox" v-model="mute" /><label id="mute-checbox__label"
             for="mute_checkbox"></label>
         <div id="reminder">(Remember to unmute device as well)</div>
+        
     </div>
     <div :id="flashcardStyling()">
         <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english"
