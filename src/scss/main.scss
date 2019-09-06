@@ -1,45 +1,44 @@
-/* CSS Reset */
-// @import "reset";
+// /* UNUSED, ONLY HERE FOR REFERENCE FOR WHAT SCSS PARTIALS WERE USED!!!!!!!! */
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
-@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
-@import url('https://fonts.googleapis.com/css?family=Thasadith');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css?family=GFS+Didot&display=swap');
-@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+// /* Fonts */
+// @import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+// @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
+// @import url('https://fonts.googleapis.com/css?family=Thasadith');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=GFS+Didot&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
 
-/* Bootstrap components */
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+// /* Bootstrap components */
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins/_breakpoints";
 
-/*  
-    Custom nav-burger styling with help of hamburgers library
-    MUST BE IN THIS SPECIFIC ORDER
-    first nav-burger then hamburges node_modules library
-*/
-@import "nav-burger";
-@import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
+// /*  
+//     Custom nav-burger styling with help of hamburgers library
+//     MUST BE IN THIS SPECIFIC ORDER
+//     first nav-burger then hamburges node_modules library
+// */
+// @import "nav-burger";
+// @import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
 
-/* Layout styling */
-@import "styles";
+// /* Layout styling */
+// @import "styles";
 
-/* Flashcard sytling (needed for chinese flashcard and business card */
-@import "flashcard";
+// /* Flashcard sytling (needed for chinese flashcard and business card */
+// @import "flashcard";
 
-/* Component styling */
-@import "home";
-@import "footer";
-@import "qlearning";
-@import "control-panel";
-@import "qlearning-map";
-@import "about";
-@import "business-card";
-@import "chinese-flashcard";
-@import "chinese";
+// /* Component styling */
+// @import "home";
+// @import "footer";
+// @import "qlearning";
+// @import "control-panel";
+// @import "qlearning-map";
+// @import "about";
+// @import "business-card";
+// @import "chinese-flashcard";
+// @import "chinese";

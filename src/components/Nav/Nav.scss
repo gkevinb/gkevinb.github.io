@@ -42,6 +42,11 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
     }
 }
 
+/*  
+    Custom nav-burger styling with help of hamburgers library
+    MUST BE IN THIS SPECIFIC ORDER
+    first nav-burger then hamburges node_modules library
+*/
 @import "node_modules/hamburgers/_sass/hamburgers/hamburgers";
 
 
