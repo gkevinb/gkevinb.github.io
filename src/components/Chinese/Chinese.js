@@ -192,6 +192,30 @@ export default {
                     'english' : 'beautiful',
                     'pinyin' : 'měi'
                 },
+                // {
+                //     'id' : 31,
+                //     'character' : '吗美',
+                //     'english' : 'USA',
+                //     'pinyin' : 'FAKE'
+                // },
+                // {
+                //     'id' : 32,
+                //     'character' : '请人',
+                //     'english' : 'USA',
+                //     'pinyin' : 'FAKE'
+                // },
+                // {
+                //     'id' : 33,
+                //     'character' : '美他',
+                //     'english' : 'USA',
+                //     'pinyin' : 'FAKE'
+                // },
+                // {
+                //     'id' : 34,
+                //     'character' : '他美',
+                //     'english' : 'USA',
+                //     'pinyin' : 'FAKE'
+                // },
             ]
         }
     },
@@ -210,13 +234,16 @@ export default {
             }
         },
         /* If mute is true return null for audio, if mute is false, return audio */
-        setAudio: function (audio) {
+        setAudio: function () {
             if(this.mute){
-                return null;
+                return false;
             }
             else{
-                return audio;
+                return true;
             }
+        },
+        createCharacterArray: function(characters) {
+            return characters.split("");
         }
     }
 }

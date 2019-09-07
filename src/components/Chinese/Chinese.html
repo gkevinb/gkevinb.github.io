@@ -14,7 +14,7 @@
     </div>
     <div :id="flashcardStyling()">
         <chinese-flashcard v-for="(char, index) in chosenCharacters" :key="char.character" :english="char.english"
-            :character="char.character" :pinyin="char.pinyin" :audio="setAudio(char.character)">
+            :character="createCharacterArray(char.character)" :pinyin="char.pinyin" :audio="setAudio()">
         </chinese-flashcard>
     </div>
 </div>
