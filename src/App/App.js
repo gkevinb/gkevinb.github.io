@@ -9,21 +9,27 @@ import GithubProjects from '../components/GithubProjects/GithubProjects.vue'
 import Blog from '../components/Blog/Blog.vue'
 
 
+import {
+    HTTP
+} from "../assets/js/http-common.js"
+
+
 export default {
     name: 'app',
     components: {
-        'home-tab' : Home,
-        'nav-comp' : Nav,
-        'footer-comp' : Footer,
-        'experience-tab' : About,
-        'business-card-tab' : BusinessCard,
-        'q-learning-tab' : QLearning,
-        'chinese-flashcards-tab' : Chinese,
-        'github-projects-tab' : GithubProjects,
-        'blog-tab' : Blog
+        'home-tab': Home,
+        'nav-comp': Nav,
+        'footer-comp': Footer,
+        'experience-tab': About,
+        'business-card-tab': BusinessCard,
+        'q-learning-tab': QLearning,
+        'chinese-flashcards-tab': Chinese,
+        'github-projects-tab': GithubProjects,
+        'blog-tab': Blog
     },
     data() {
         return {
+            repos: null,
             currentTab: "Home",
             tabs: [{
                     name: "Home",
@@ -92,6 +98,15 @@ export default {
             ]
         };
     },
+    created() {
+        HTTP.get("users/gkevinb/repos?sort=updated")
+            .then(response => {
+                this.repos = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+    },
     computed: {
         /*
             Get identifier for current tab.
@@ -102,8 +117,5 @@ export default {
         getCurrentTab: function () {
             return this.currentTab.replace(' ', '-').toLowerCase() + "-tab";
         }
-    },
-    methods: {
-
     }
 }

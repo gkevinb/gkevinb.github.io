@@ -32,25 +32,17 @@
 </template>
 
 <script>
-import { HTTP } from "../../assets/js/http-common.js";
-
 export default {
   name: "github-projects-tab",
-  props: {},
+  props: {
+    repos: Array
+  },
   data() {
     return {
-      repos: null
+      // repos: null
     };
   },
-  created() {
-    HTTP.get("search/repositories?q=gkevinb/")
-      .then(response => {
-        this.repos = response.data.items;
-      })
-      .catch(e => {
-        this.errors.push(e);
-      });
-  },
+  created() {},
   mounted() {}
 };
 </script>
