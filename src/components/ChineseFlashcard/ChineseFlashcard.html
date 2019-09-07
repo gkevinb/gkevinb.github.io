@@ -1,5 +1,5 @@
 <div class="flashcard__scene">
-    <div :id="flipCardId" class="flashcard" @click=flipFlashcard(audio) @mouseover=writeStroke>
+    <div :id="flipCardId" class="flashcard" @click=flipFlashcard @mouseover=writeStroke>
         <div :id="frontCardId" class="flashcard__face flashcard__face--front"></div>
         <div class="flashcard__face flashcard__face--back">
             <div id="pinyin">{{ pinyin }}</div>

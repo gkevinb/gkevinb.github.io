@@ -14,12 +14,18 @@ export default {
             writer: null,
             card: null,
             flipCardId: null,
-            frontCardId: null
+            frontCardId: null,
+            sound: null
         }
     },
     created() {
         this.flipCardId = this.generateRandomId();
         this.frontCardId = this.generateRandomId();
+
+        let url= 'files/audio/' + this.audio + '.mp3';
+        this.sound = new Howl({
+            src: [url]
+        });
     },
     mounted() {
         this.card = document.getElementById(this.flipCardId);
@@ -37,20 +43,12 @@ export default {
         generateRandomId: function() {
             return Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7);
         },
-        flipFlashcard: function(audio) {
+        flipFlashcard: function() {
             this.card.classList.toggle('is-flipped');
-            if(audio != null){
-                this.playAudio(audio);
-            }
-        },
-        playAudio: function(audio) {
-            var url = 'files/audio/' + audio + '.mp3';
-
-            var sound = new Howl({
-                src: [url]
-            });
             
-            sound.play();
+            if(this.audio != null){
+                this.sound.play();
+            }
         },
         writeStroke: function() {
             this.writer.animateCharacter();
