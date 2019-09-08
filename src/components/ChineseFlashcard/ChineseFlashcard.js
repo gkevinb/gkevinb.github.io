@@ -47,35 +47,11 @@ export default {
     mounted() {
         this.card = document.getElementById(this.flipCardId);
         if (this.character.length == 1) {
-            this.writer = HanziWriter.create(this.frontCardId, this.character[0], {
-                width: 200,
-                height: 200,
-                padding: 10,
-                showOutline: true,
-                strokeColor: '#B52020',
-                strokeAnimationSpeed: 5,
-                delayBetweenStrokes: 500
-            });
+            this.writer = HanziWriter.create(this.frontCardId, this.character[0], this.hanziWriterSettings(200, 10));
         }
         if (this.character.length == 2) {
-            this.writer = HanziWriter.create(this.leftCardId, this.character[0], {
-                width: 100,
-                height: 100,
-                padding: 0,
-                showOutline: true,
-                strokeColor: '#B52020',
-                strokeAnimationSpeed: 5,
-                delayBetweenStrokes: 500
-            });
-            this.writer2 = HanziWriter.create(this.rightCardId, this.character[1], {
-                width: 100,
-                height: 100,
-                padding: 0,
-                showOutline: true,
-                strokeColor: '#B52020',
-                strokeAnimationSpeed: 5,
-                delayBetweenStrokes: 500
-            });
+            this.writer = HanziWriter.create(this.leftCardId, this.character[0], this.hanziWriterSettings(100, 0));
+            this.writer2 = HanziWriter.create(this.rightCardId, this.character[1], this.hanziWriterSettings(100, 0));
         }
     },
     methods: {
@@ -91,6 +67,17 @@ export default {
         },
         writeStroke: function () {
             this.writer.animateCharacter();
+        },
+        hanziWriterSettings: function (_size, _padding) {
+            return {
+                width: _size,
+                height: _size,
+                padding: _padding,
+                showOutline: true,
+                strokeColor: '#B52020',
+                strokeAnimationSpeed: 5,
+                delayBetweenStrokes: 500
+            }
         }
     }
 }
