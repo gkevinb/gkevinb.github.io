@@ -9,25 +9,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 
-
 /* Bootstrap components */
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+@import "../assets/scss/bootstrap";
 
 $primary-color: #383B45;
-
-@mixin white-links() {
-    a{
-        color: white;
-    }
-    a:active{
-        color: white;
-    }
-    a:visited{
-        color: white;
-    }
-}
 
 /* Sticky Footer 
 * https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/

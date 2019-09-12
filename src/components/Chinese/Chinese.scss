@@ -1,8 +1,5 @@
 /* Bootstrap components */
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/_breakpoints";
-
+@import "../../assets/scss/bootstrap";
 
 @mixin single-flashcard() {
     // https://love2dev.com/blog/absolute-centering-css/
@@ -12,8 +9,6 @@
     flex-direction: column;
     width: 100%;
 }
-
-
 
 #chinese_header{
     text-align: center;

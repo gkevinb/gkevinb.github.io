@@ -1,6 +1,5 @@
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+/* Bootstrap components */
+@import "../../assets/scss/bootstrap";
 
 $bg_color: #F3F3F3;
 $font_color: rgb(92, 92, 92);
