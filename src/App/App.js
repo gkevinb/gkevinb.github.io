@@ -34,6 +34,7 @@ export default {
             connect: null,
             card: null,
             china: null,
+            sources: null,
 
             currentTab: "Home",
             tabs: [{
@@ -154,6 +155,13 @@ export default {
         DB.get("database/china.json")
             .then(response => {
                 this.china = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+        DB.get("database/credit.json")
+            .then(response => {
+                this.sources = response.data;
             })
             .catch(e => {
                 this.errors.push(e);
