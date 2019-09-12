@@ -24,8 +24,8 @@
         <div id="connect-title">
             <p>Connect</p>
         </div>
-        <div id="connect-icons">
-            <a v-for="link in links" :id="link.id" class="connect-icon" :href="link.url"><i :class="link.icon"></i></a>
+        <div v-if="connect" id="connect-icons">
+            <a v-for="link in connect.links" :id="link.id" class="connect-icon" :href="link.url"><i :class="link.icon"></i></a>
         </div>
     </div>
 </div>

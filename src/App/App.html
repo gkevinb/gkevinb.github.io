@@ -6,12 +6,12 @@
 		<nav-comp :tabs="tabs" v-on:current-tab="currentTab = $event"></nav-comp>
 
 		<!-- Main content -->
-		<div class="content" :is="getCurrentTab" :repos="repos">
+		<div class="content" :is="getCurrentTab" :repos="repos" :connect="connect">
 		</div>
 
 	</div>
 
 	<!-- Footer content -->
-	<footer-comp :current_tab="currentTab" :tabs="tabs"></footer-comp>
+	<footer-comp :current_tab="currentTab" :tabs="tabs" :connect="connect"></footer-comp>
 
 </div>

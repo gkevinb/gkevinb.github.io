@@ -2,32 +2,33 @@ export default {
     name: "footer-comp",
     props: {
         current_tab: String,
-        tabs: Array
+        tabs: Array,
+        connect: Object
     },
     data() {
         return {
             sources: [],
-            links: [{
-                    id: 'linkedin-icon',
-                    url: 'https://www.linkedin.com/in/gabor-kevin-barta/',
-                    icon: 'fab fa-linkedin'
-                },
-                {
-                    id: 'github-icon',
-                    url: 'https://github.com/gkevinb',
-                    icon: 'fab fa-github'
-                },
-                {
-                    id: 'codepen-icon',
-                    url: 'https://codepen.io/gkevinb/',
-                    icon: 'fab fa-codepen'
-                },
-                {
-                    id: 'hackerrank-icon',
-                    url: 'https://www.hackerrank.com/gkevinb',
-                    icon: 'fab fa-hackerrank'
-                }
-            ]
+            // links: [{
+            //         id: 'linkedin-icon',
+            //         url: 'https://www.linkedin.com/in/gabor-kevin-barta/',
+            //         icon: 'fab fa-linkedin'
+            //     },
+            //     {
+            //         id: 'github-icon',
+            //         url: 'https://github.com/gkevinb',
+            //         icon: 'fab fa-github'
+            //     },
+            //     {
+            //         id: 'codepen-icon',
+            //         url: 'https://codepen.io/gkevinb/',
+            //         icon: 'fab fa-codepen'
+            //     },
+            //     {
+            //         id: 'hackerrank-icon',
+            //         url: 'https://www.hackerrank.com/gkevinb',
+            //         icon: 'fab fa-hackerrank'
+            //     }
+            // ]
         }
     },
     watch: {

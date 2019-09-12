@@ -8,9 +8,9 @@
         <p>This is my portfolio website to showcase some of my work and interest. Feel free to have a look around and
             get in contact with me.</p>
     </div>
-    <div id="links-container">
-        <div v-for="website in websites" class="link-container">
-            <a :href="website.link">
+    <div v-if="connect" id="links-container">
+        <div v-for="website in connect.links.slice(0, 3)" class="link-container">
+            <a :href="website.url">
                 <i :class="website.icon" class="link-icon"></i>
                 <div class="link-text">{{ website.name }}</div>
             </a>

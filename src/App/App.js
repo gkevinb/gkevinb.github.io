@@ -122,6 +122,7 @@ export default {
             });
         DB.get("database/connect.json")
             .then(response => {
+                console.log("Connect!")
                 this.connect = response.data;
             })
             .catch(e => {

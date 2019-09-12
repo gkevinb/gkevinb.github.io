@@ -1,21 +1,25 @@
 {
     "links": [{
             "id": "linkedin-icon",
+            "name" : "Linkedin",
             "url": "https://www.linkedin.com/in/gabor-kevin-barta/",
             "icon": "fab fa-linkedin"
         },
         {
             "id": "github-icon",
+            "name" : "Github",
             "url": "https://github.com/gkevinb",
             "icon": "fab fa-github"
         },
         {
             "id": "codepen-icon",
+            "name" : "Codepen",
             "url": "https://codepen.io/gkevinb/",
             "icon": "fab fa-codepen"
         },
         {
             "id": "hackerrank-icon",
+            "name" : "Hackerrank",
             "url": "https://www.hackerrank.com/gkevinb",
             "icon": "fab fa-hackerrank"
         }
