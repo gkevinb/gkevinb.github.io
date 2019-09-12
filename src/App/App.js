@@ -127,44 +127,26 @@ export default {
         HTTP.get("users/gkevinb/repos?sort=updated")
             .then(response => {
                 this.repos = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
         DB.get("database/cv.json")
             .then(response => {
                 this.cv = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
         DB.get("database/connect.json")
             .then(response => {
                 this.connect = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
         DB.get("database/card.json")
             .then(response => {
                 this.card = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
         DB.get("database/china.json")
             .then(response => {
                 this.china = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
-        DB.get("database/credit.json")
+        DB.get("database/source.json")
             .then(response => {
                 this.sources = response.data;
-            })
-            .catch(e => {
-                this.errors.push(e);
             });
     },
     computed: {

@@ -32,7 +32,7 @@ gulp.task('copy-dist', function(){
 });
 
 gulp.task('clean', function(){
-    return del(['js', 'css', 'img', 'files', 'index.html', 'favicon.ico'], {force:true});
+    return del(['js', 'css', 'img', 'files', 'database', 'index.html', 'favicon.ico'], {force:true});
 });
 
 gulp.task('deploy', gulp.series('clean', 'copy-dist'));
