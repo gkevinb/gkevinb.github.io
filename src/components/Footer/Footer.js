@@ -2,12 +2,12 @@ export default {
     name: "footer-comp",
     props: {
         current_tab: String,
-        tabs: Array,
-        connect: Object
+        connect: Object,
+        sources: Object,
     },
     data() {
         return {
-            sources: []
+            current_sources: []
         }
     },
     watch: {
@@ -17,39 +17,25 @@ export default {
             as props in this component.
         */
         current_tab: function () {
-            var sources = [];
-
-            for (var tab of this.tabs) {
-                if (tab.name == this.current_tab) {
-                    if (tab.sources != null) {
-                        sources = tab.sources;
-                    }
-                }
-                if (tab.subtabs != null) {
-                    for (var subtab of tab.subtabs) {
-                        if (subtab.name == this.current_tab) {
-                            if (subtab.sources != null) {
-                                sources = subtab.sources;
-                            }
-                        }
-                    }
-                }
+            if(this.sources[this.current_tab]){
+                this.current_sources = this.sources[this.current_tab];
+            }else{
+                this.current_sources = []
             }
-            this.sources = sources;
         },
         /*
             Watch sources variable and if there are sources make sure footer is with credit section
             in mobile version. If sources is empty then credit section should be taken out so it
             won't take up empty space.
         */
-        sources: function () {
+       current_sources: function () {
             var footer = document.getElementById('footer-id');
 
-            if (this.sources.length == 0 && footer.classList.contains('footer-with-credit')) {
+            if (this.current_sources.length == 0 && footer.classList.contains('footer-with-credit')) {
                 footer.classList.toggle('footer-with-credit')
                 footer.classList.toggle('footer-without-credit')
             }
-            if (this.sources.length != 0 && footer.classList.contains('footer-without-credit')) {
+            if (this.current_sources.length != 0 && footer.classList.contains('footer-without-credit')) {
                 footer.classList.toggle('footer-without-credit')
                 footer.classList.toggle('footer-with-credit')
             }

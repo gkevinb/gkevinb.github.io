@@ -1,10 +1,10 @@
 <div id="footer-id" class="footer footer-without-credit">
-    <div v-if="sources.length > 0" class="footer-credit">
+    <div v-if="current_sources.length > 0" class="footer-credit">
         <div id="credit-title">
             <p>Give Credit</p>
         </div>
         <div id="credit-links">
-            <p v-for="source in sources">
+            <p v-for="source in current_sources">
                 <a :href="source.link">{{ source.name }}</a>
             </p>
         </div>

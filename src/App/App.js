@@ -47,19 +47,6 @@ export default {
                         },
                         {
                             name: "Business Card",
-                            sources: [{
-                                    name: "3D Card Flip Animation",
-                                    link: "https://3dtransforms.desandro.com/card-flip"
-                                },
-                                {
-                                    name: "Font Awesome Free",
-                                    link: "https://fontawesome.com/"
-                                },
-                                {
-                                    name: "Simple SVG Icons",
-                                    link: "https://simpleicons.org/"
-                                }
-                            ]
                         }
                     ]
                 },
@@ -67,31 +54,9 @@ export default {
                     name: "Projects",
                     subtabs: [{
                             name: "Q-Learning",
-                            sources: [{
-                                    name: "Robot 2 icon by Icons8",
-                                    link: "https://icons8.com/icon/22858/robot-2"
-                                },
-                                {
-                                    name: "Trophy icon by Icons8",
-                                    link: "https://icons8.com/icon/16951/trophy"
-                                }
-                            ]
                         },
                         {
                             name: "Chinese Flashcards",
-                            sources: [{
-                                    name: "3D Card Flip Animation",
-                                    link: "https://3dtransforms.desandro.com/card-flip"
-                                },
-                                {
-                                    name: "Hanzi Chinese Writer",
-                                    link: "https://chanind.github.io/hanzi-writer/"
-                                },
-                                {
-                                    name: "Howler.js",
-                                    link: "https://howlerjs.com/"
-                                }
-                            ]
                         },
                         {
                             name: 'Github Projects'
@@ -102,25 +67,25 @@ export default {
                     name: "Blog"
                 }
             ],
-            api: [{
-                    component: "Home",
-                    request: {
-                        method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
-                        path: "database/connect.json"
-                    },
-                    response: null,
-                },
-                {
-                    component: "Experience",
-                    request: {
-                        method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
-                        path: "database/cv.json"
-                    },
-                    response: null,
-                },
-            ]
+            // api: [{
+            //         component: "Home",
+            //         request: {
+            //             method: "GET",
+            //             routeEndPoint: "https://gkevinb.github.io/",
+            //             path: "database/connect.json"
+            //         },
+            //         response: null,
+            //     },
+            //     {
+            //         component: "Experience",
+            //         request: {
+            //             method: "GET",
+            //             routeEndPoint: "https://gkevinb.github.io/",
+            //             path: "database/cv.json"
+            //         },
+            //         response: null,
+            //     },
+            // ]
         };
     },
     created() {
