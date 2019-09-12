@@ -10,9 +10,9 @@ import Blog from '../components/Blog/Blog.vue'
 
 
 import {
-    HTTP
+    HTTP,
+    DB
 } from "../assets/js/http-common.js"
-
 
 export default {
     name: 'app',
@@ -30,17 +30,23 @@ export default {
     data() {
         return {
             repos: null,
+            cv: null,
+            connect: null,
+
             currentTab: "Home",
             tabs: [{
                     name: "Home",
+                    input: null,
                 },
                 {
                     name: "About",
                     subtabs: [{
-                            name: "Experience"
+                            name: "Experience",
+                            input: null,
                         },
                         {
                             name: "Business Card",
+                            input: null,
                             sources: [{
                                     name: "3D Card Flip Animation",
                                     link: "https://3dtransforms.desandro.com/card-flip"
@@ -73,6 +79,7 @@ export default {
                         },
                         {
                             name: "Chinese Flashcards",
+                            input: null,
                             sources: [{
                                     name: "3D Card Flip Animation",
                                     link: "https://3dtransforms.desandro.com/card-flip"
@@ -106,6 +113,20 @@ export default {
             .catch(e => {
                 this.errors.push(e);
             });
+        DB.get("database/cv.json")
+            .then(response => {
+                this.cv = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+        DB.get("database/connect.json")
+            .then(response => {
+                this.connect = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
     },
     computed: {
         /*
@@ -116,6 +137,22 @@ export default {
         */
         getCurrentTab: function () {
             return this.currentTab.replace(' ', '-').toLowerCase() + "-tab";
+        }
+    },
+    methods: {
+        getRequestData: function (jsonData) {
+            for (let tab of this.tabs) {
+                if (tab.name == this.currentTab) {
+                    tab.input = jsonData;
+                }
+                if (tab.subtabs != null) {
+                    for (let subtab of tab.subtabs) {
+                        if (subtab.name == this.currentTab) {
+                            subtab.input = jsonData;
+                        }
+                    }
+                }
+            }
         }
     }
 }
