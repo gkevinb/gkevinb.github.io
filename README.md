@@ -6,6 +6,11 @@ Currently under construction
 
 [www.gkevinb.github.io](https://gkevinb.github.io/)
 
+## File structure 
+
+- `src` and `public` are development directories.
+- `css`, `js`, `files`, and `database` are production directories used inorder for the website to be deployed on Github Pages.
+
 
 ## Project setup
 ```
@@ -30,6 +35,16 @@ npm run test
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Builds and copies production files to be deployed on Github Pages
+```
+./deploy.sh 
+```
+
+### Simulate production environment using Docker
+```
+docker-compose up --build
 ```
 
 ### Customize configuration
