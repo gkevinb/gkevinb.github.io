@@ -1,7 +1,7 @@
 export default {
     name: "home-tab",
     props: {
-        connect: Object
+        input: Object
     },
     data() {
         return {

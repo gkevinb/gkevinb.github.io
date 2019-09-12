@@ -5,7 +5,7 @@
     <p>Note some of them might be incomplete or just really simple projects.</p>
 
     <h2>Repos</h2>
-    <div v-for="repo in repos" :key="repo.id" class="repo-container">
+    <div v-for="repo in input" :key="repo.id" class="repo-container">
       <h4>{{ repo.name }}</h4>
       <h6>Repo</h6>
       <a :href="repo.html_url">{{ repo.html_url }}</a>
@@ -21,7 +21,7 @@
 export default {
   name: "github-projects-tab",
   props: {
-    repos: Array
+    input: Array
   },
   data() {
     return {

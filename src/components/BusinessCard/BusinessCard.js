@@ -3,7 +3,7 @@ import { shuffle } from "../../assets/js/algorithms.js"
 export default {
     name: "business-card-tab",
     props: {
-        cardData: Object
+        input: Object
     },
     data() {
         return {
@@ -43,7 +43,7 @@ export default {
             return 'contact-icon ' + code;
         },
         chooseBrands: function () {
-            this.chosenBrands = shuffle(this.cardData.brands).slice(0, this.numberOfBrandsToDisplay);
+            this.chosenBrands = shuffle(this.input.brands).slice(0, this.numberOfBrandsToDisplay);
         }
     }
 }

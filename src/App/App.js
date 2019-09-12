@@ -8,11 +8,7 @@ import Chinese from '../components/Chinese/Chinese.vue'
 import GithubProjects from '../components/GithubProjects/GithubProjects.vue'
 import Blog from '../components/Blog/Blog.vue'
 
-
-import {
-    HTTP,
-    DB
-} from "../assets/js/http-common.js"
+import axios from 'axios';
 
 export default {
     name: 'app',
@@ -29,13 +25,6 @@ export default {
     },
     data() {
         return {
-            repos: null,
-            cv: null,
-            connect: null,
-            card: null,
-            china: null,
-            sources: null,
-
             currentTab: "Home",
             tabs: [{
                     name: "Home",
@@ -67,52 +56,67 @@ export default {
                     name: "Blog"
                 }
             ],
-            // api: [{
-            //         component: "Home",
-            //         request: {
-            //             method: "GET",
-            //             routeEndPoint: "https://gkevinb.github.io/",
-            //             path: "database/connect.json"
-            //         },
-            //         response: null,
-            //     },
-            //     {
-            //         component: "Experience",
-            //         request: {
-            //             method: "GET",
-            //             routeEndPoint: "https://gkevinb.github.io/",
-            //             path: "database/cv.json"
-            //         },
-            //         response: null,
-            //     },
-            // ]
+            apis: [{
+                    component: "Home",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/connect.json"
+                    }
+                },
+                {
+                    component: "Footer",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/source.json"
+                    }
+                },
+                {
+                    component: "Experience",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/cv.json"
+                    }
+                },
+                {
+                    component: "Chinese Flashcards",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/china.json"
+                    }
+                },
+                {
+                    component: "Business Card",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/card.json"
+                    }
+                },
+                {
+                    component: "Github Projects",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://api.github.com/",
+                        path: "users/gkevinb/repos?sort=updated"
+                    }
+                },
+            ],
+            inputData: {
+                /* Home and Footer need to be there by default because there are the first ones to render */
+                Home: null,
+                Footer: null,
+            }
         };
     },
     created() {
-        HTTP.get("users/gkevinb/repos?sort=updated")
-            .then(response => {
-                this.repos = response.data;
-            });
-        DB.get("database/cv.json")
-            .then(response => {
-                this.cv = response.data;
-            });
-        DB.get("database/connect.json")
-            .then(response => {
-                this.connect = response.data;
-            });
-        DB.get("database/card.json")
-            .then(response => {
-                this.card = response.data;
-            });
-        DB.get("database/china.json")
-            .then(response => {
-                this.china = response.data;
-            });
-        DB.get("database/source.json")
-            .then(response => {
-                this.sources = response.data;
-            });
+        /* Perform all API calls to get data needed to populate all content for each component properly */
+        for (let api of this.apis) {
+            this.apiCall(api.component, api.request);
+        }
     },
     computed: {
         /*
@@ -126,41 +130,15 @@ export default {
         }
     },
     methods: {
-        // requestData: function () {
-        //     for (let tab of this.tabs) {
-        //         if (tab.request != null) {
-        //             let request = tab.request;
-        //             tab.response = this.apiCall(request.routeEndPoint, request.path);
-        //         }
-        //         // if (tab.subtabs != null) {
-        //         //     for (let subtab of tab.subtabs) {
-        //         //         if (subtab.name == this.currentTab) {
-        //         //             subtab.input = jsonData;
-        //         //         }
-        //         //     }
-        //         // }
-        //     }
-        // },
-        // apiCall: function (routeEndPoint, path) {
-        //     let responseData = null;
-
-        //     let API = axios.create({
-        //         baseURL: routeEndPoint,
-        //     })
-        //     API.get(path)
-        //         .then(response => {
-        //             // console.log(response.data)
-        //             responseData = response.data;
-        //             // console.log(responseData)
-        //         })
-        //         .catch(e => {
-        //             this.errors.push(e);
-        //         });
-        //     // console.log(responseData)
-        //     return responseData;
-        // },
-        // callBack: function () {
-
-        // }
+        apiCall: function (component, request) {
+            let API = axios.create({
+                baseURL: request.routeEndPoint,
+            })
+            /* Note: GET is hardcoded, for know, since it is the only type of request made */
+            API.get(request.path)
+                .then(response => {
+                    this.inputData[component] = response.data;
+                });
+        }
     }
 }

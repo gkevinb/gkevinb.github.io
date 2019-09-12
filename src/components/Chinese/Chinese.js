@@ -4,7 +4,7 @@ import ChineseFlashcard from '../ChineseFlashcard/ChineseFlashcard.vue'
 export default {
     name: "chinese-flashcards-tab",
     props: {
-        china: Object
+        input: Object
     },
     components: {
         'chinese-flashcard' : ChineseFlashcard
@@ -17,11 +17,11 @@ export default {
         }
     },
     created() {
-        this.chosenCharacters = this.china.characters;
+        this.chosenCharacters = this.input.characters;
     },
     methods: {
         pickCards: function (numberOf) {
-            this.chosenCharacters = shuffle(this.china.characters).slice(0, numberOf);
+            this.chosenCharacters = shuffle(this.input.characters).slice(0, numberOf);
         },
         flashcardStyling: function() {
             if(this.chosenCharacters.length == 1){
