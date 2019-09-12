@@ -36,7 +36,7 @@
             </div>
             <div class="business-card__face--back">
                 <div id="contact-container">
-                    <div v-for="info in contact" class="contact-info">
+                    <div v-for="info in cardData.contact" class="contact-info">
                         <i :class="contactIconStyling(info.code)"></i>
                         <div class="contact-text">{{ info.value }}</div>
                     </div>

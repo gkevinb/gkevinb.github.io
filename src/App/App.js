@@ -32,21 +32,20 @@ export default {
             repos: null,
             cv: null,
             connect: null,
+            card: null,
+            china: null,
 
             currentTab: "Home",
             tabs: [{
                     name: "Home",
-                    input: null,
                 },
                 {
                     name: "About",
                     subtabs: [{
                             name: "Experience",
-                            input: null,
                         },
                         {
                             name: "Business Card",
-                            input: null,
                             sources: [{
                                     name: "3D Card Flip Animation",
                                     link: "https://3dtransforms.desandro.com/card-flip"
@@ -79,7 +78,6 @@ export default {
                         },
                         {
                             name: "Chinese Flashcards",
-                            input: null,
                             sources: [{
                                     name: "3D Card Flip Animation",
                                     link: "https://3dtransforms.desandro.com/card-flip"
@@ -102,6 +100,25 @@ export default {
                 {
                     name: "Blog"
                 }
+            ],
+            api: [{
+                    component: "Home",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/connect.json"
+                    },
+                    response: null,
+                },
+                {
+                    component: "Experience",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://gkevinb.github.io/",
+                        path: "database/cv.json"
+                    },
+                    response: null,
+                },
             ]
         };
     },
@@ -122,8 +139,21 @@ export default {
             });
         DB.get("database/connect.json")
             .then(response => {
-                console.log("Connect!")
                 this.connect = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+        DB.get("database/card.json")
+            .then(response => {
+                this.card = response.data;
+            })
+            .catch(e => {
+                this.errors.push(e);
+            });
+        DB.get("database/china.json")
+            .then(response => {
+                this.china = response.data;
             })
             .catch(e => {
                 this.errors.push(e);
@@ -141,19 +171,41 @@ export default {
         }
     },
     methods: {
-        getRequestData: function (jsonData) {
-            for (let tab of this.tabs) {
-                if (tab.name == this.currentTab) {
-                    tab.input = jsonData;
-                }
-                if (tab.subtabs != null) {
-                    for (let subtab of tab.subtabs) {
-                        if (subtab.name == this.currentTab) {
-                            subtab.input = jsonData;
-                        }
-                    }
-                }
-            }
-        }
+        // requestData: function () {
+        //     for (let tab of this.tabs) {
+        //         if (tab.request != null) {
+        //             let request = tab.request;
+        //             tab.response = this.apiCall(request.routeEndPoint, request.path);
+        //         }
+        //         // if (tab.subtabs != null) {
+        //         //     for (let subtab of tab.subtabs) {
+        //         //         if (subtab.name == this.currentTab) {
+        //         //             subtab.input = jsonData;
+        //         //         }
+        //         //     }
+        //         // }
+        //     }
+        // },
+        // apiCall: function (routeEndPoint, path) {
+        //     let responseData = null;
+
+        //     let API = axios.create({
+        //         baseURL: routeEndPoint,
+        //     })
+        //     API.get(path)
+        //         .then(response => {
+        //             // console.log(response.data)
+        //             responseData = response.data;
+        //             // console.log(responseData)
+        //         })
+        //         .catch(e => {
+        //             this.errors.push(e);
+        //         });
+        //     // console.log(responseData)
+        //     return responseData;
+        // },
+        // callBack: function () {
+
+        // }
     }
 }

@@ -1,7 +1,7 @@
 <div id="cv">
     <div id="experiences_container">
         <h2>Work</h2>
-        <div v-for="experience in experiences" class="experience_container">
+        <div v-for="experience in cv.experiences" class="experience_container">
             <div class="bubble" :id="experience.tag"></div>
             <div class="experience_card">
                 <div class="title">{{ experience.title }}</div>
@@ -18,7 +18,7 @@
     </div>
     <div id="education_container">
         <h2>Education</h2>
-        <div v-for="degree in degrees" class="experience_container">
+        <div v-for="degree in cv.degrees" class="experience_container">
             <div class="bubble" :id="degree.tag"></div>
             <div class="experience_card">
                 <div class="title">{{ degree.title }}</div>
