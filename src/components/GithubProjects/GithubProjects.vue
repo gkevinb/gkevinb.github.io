@@ -5,14 +5,18 @@
     <p>Note some of them might be incomplete or just really simple projects.</p>
 
     <h2>Repos</h2>
-    <div v-for="repo in input" :key="repo.id" class="repo-container">
-      <h4>{{ repo.name }}</h4>
-      <h6>Repo</h6>
-      <a :href="repo.html_url">{{ repo.html_url }}</a>
-      <br>
-      <h6 v-if="repo.homepage">Website</h6>
-      <a :href="repo.homepage">{{ repo.homepage }}</a>
-      <br>
+    <div id="repos-container">
+      <div v-for="repo in input" :key="repo.id" class="repo-container">
+        <h4>{{ repo.name }}</h4>
+        <p>{{ repo.description }}</p>
+        <h6>Repo</h6>
+        <a :href="repo.html_url"><i class="fas fa-database"></i></a>
+        <h6 v-if="repo.homepage">Website</h6>
+        <a :href="repo.homepage"><i v-if="repo.homepage" class="fas fa-globe"></i></a>
+        <i class="fas fa-code-branch"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -34,10 +38,22 @@ export default {
 </script>
 
 <style lang="scss">
-
-.repo-container{
+#repos-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  i{
+    font-size: 40px;
+  }
 }
 
+.repo-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 320px;
+  border: 1px solid red;
+}
 </style>
