@@ -20,8 +20,7 @@
 
                 <!-- Subtab dropdown -->
                 <ul v-if="tab.subtabs != null" class="dropdown-menu">
-                    <li v-for="subtab in tab.subtabs" class="dropdown-item" :id="subtab.name"
-                        @click.stop="setCurrentTab(subtab)">
+                    <li v-for="subtab in tab.subtabs" class="sub-tab dropdown-item" @click.stop="setCurrentTab(subtab)">
                         {{ subtab.name }}
                     </li>
                 </ul>

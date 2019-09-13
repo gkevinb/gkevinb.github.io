@@ -70,4 +70,10 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
         border-radius: 6px;
 
     }
+    .sub-tab:active{
+        background-color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
+        // background-color: #ECAC81;
+        background-color: #F8F9FA;
+        color: black;
+    }
 }
