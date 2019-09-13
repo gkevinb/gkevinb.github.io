@@ -56,8 +56,6 @@ $light-grey: #E4E4E4;
     margin: auto;
 }
 
-
-
 /* =============== Control Panel ============= */
 
 $screw-size: 40px;
@@ -130,12 +128,10 @@ $bg-color: #969696;
 
     background-color: $bg-color;
     color: $light-grey;
+    font-size: 20px;
 
     border: 10px outset rgb(196, 196, 196);
-
     border-radius: 20px;
-
-    font-size: 20px;
 
     @include media-breakpoint-down(sm){
         margin: auto;
@@ -261,8 +257,7 @@ $bg-color: #969696;
     }
 }
 
-
-
+/* ====================== Q LEARNING MAP ======================= */
 
 $map-color: rgb(146, 134, 101);
 $tile_color: rgb(214, 185, 147);
@@ -283,7 +278,7 @@ $rows: 4;
 $columns: 5;
 
 
-/* =============== Q MATRIX VALUES ON MAP STYLING ===================*/
+/* =============== Q MATRIX VALUES ON MAP STYLING =================== */
 
 @mixin qValue() {
     font-size: $font_size;

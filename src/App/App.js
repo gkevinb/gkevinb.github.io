@@ -139,6 +139,12 @@ export default {
                 .then(response => {
                     this.inputData[component] = response.data;
                 });
+        },
+        getLinks: function () {
+            return this.inputData['Home'];
+        },
+        getSources: function () {
+            return this.inputData['Footer'];
         }
     }
 }
