@@ -41,14 +41,15 @@ export default {
                 },
                 {
                     name: "Projects",
-                    subtabs: [{
+                    subtabs: [
+                        {
+                            name: 'Github Projects'
+                        },
+                        {
                             name: "Q-Learning",
                         },
                         {
                             name: "Chinese Flashcards",
-                        },
-                        {
-                            name: 'Github Projects'
                         }
                     ]
                 },
@@ -101,7 +102,7 @@ export default {
                     request: {
                         method: "GET",
                         routeEndPoint: "https://api.github.com/",
-                        path: "users/gkevinb/repos?sort=updated"
+                        path: "users/gkevinb/repos?sort=pushed"
                     }
                 },
             ],
