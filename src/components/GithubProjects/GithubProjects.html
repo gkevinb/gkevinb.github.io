@@ -1,0 +1,39 @@
+<div id="github-projects">
+    <div id="github-projects-header">
+        <h1>Github Projects</h1>
+        <p>Here are some of my Github Projects which also have a separate Github Pages website.</p>
+        <p>Note some of them might be incomplete or just really simple projects.</p>
+        <br>
+    </div>
+    <div id="repos-container">
+        <div v-for="repo in input" :key="repo.id" class="repo-container">
+            <div class="repo-name">
+                <h4>{{ repo.name }}</h4>
+            </div>
+            <div class="repo-desc">
+                <p>{{ repo.description }}</p>
+            </div>
+            <div class="links-container">
+                <div class="repository-link-container">
+                    <a :href="repo.html_url" target="_blank">
+                        <div class="repo-link">
+                            <i class="icons fas fa-database"></i>
+                            <div>Repository</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="website-link-container" v-if="repo.homepage">
+                    <a :href="repo.homepage" target="_blank">
+                        <div class="repo-link">
+                            <i v-if="repo.homepage" class="icons fas fa-globe"></i>
+                            <div>Website</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- <i class="fas fa-code-branch"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-exclamation-circle"></i> -->
+        </div>
+    </div>
+</div>
