@@ -33,5 +33,14 @@
             "name": "Simple SVG Icons",
             "link": "https://simpleicons.org/"
         }
+    ],
+    "Github Projects": [{
+            "name": "Github API",
+            "link": "https://developer.github.com/v3/"
+        },
+        {
+            "name": "Font Awesome Free",
+            "link": "https://fontawesome.com/"
+        }
     ]
 }
