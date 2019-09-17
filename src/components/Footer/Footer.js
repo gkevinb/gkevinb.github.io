@@ -29,7 +29,7 @@ export default {
             won't take up empty space.
         */
        current_sources: function () {
-            var footer = document.getElementById('footer-id');
+            let footer = document.getElementById('footer-id');
 
             if (this.current_sources.length == 0 && footer.classList.contains('footer-with-credit')) {
                 footer.classList.toggle('footer-with-credit')

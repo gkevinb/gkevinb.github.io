@@ -27,7 +27,7 @@ export default {
     So you cannot do any DOM manipulation here. Typically used for data fetching
     */
     created() {
-        var mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
+        let mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
         if (mobileDeviceTestExp.test(navigator.userAgent)){
             this.cliffs = ["2x1"];
             this.reward = "2x2";
@@ -42,7 +42,7 @@ export default {
             Create grid layout depending on if a mobile device or the row and column values.
         */
         gridStyling: function(row, column) {
-            var mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
+            let mobileDeviceTestExp = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|' + 'Opera Mini|IEMobile|Mobile' , 'i');
             /* Tests if mobile device */
             if (mobileDeviceTestExp.test(navigator.userAgent)){
                 return {
@@ -71,7 +71,7 @@ export default {
             Ex: -42.295 -> -42.2
         */
         formatQValue: function(number) {
-            var stringLength = 5;
+            let stringLength = 5;
             if(number != 0)
                 return number.toString().substring(0, stringLength);
             else
@@ -98,8 +98,8 @@ export default {
             Style tile depending on reward value and agent's current state.
         */
         styleTile: function(i, j){
-            var id = this.matrixId(i, j);
-            var reward = this.agent.map.matrix[id];
+            let id = this.matrixId(i, j);
+            let reward = this.agent.map.matrix[id];
             
             if (reward == -100 && id == this.agent.state) return "tile--robot--falling";
             if (reward == 100 && id == this.agent.state) return "tile--robot--winning";

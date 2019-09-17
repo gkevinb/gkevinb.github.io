@@ -20,8 +20,8 @@ export default {
             }
         },
         hamburgerX: function() {
-            var hamburger = document.querySelector(".hamburger");
-            var colapser = document.getElementById("colapser");
+            let hamburger = document.querySelector(".hamburger");
+            let colapser = document.getElementById("colapser");
 
             /* Fixes double click hamburger icon bug #102 */
             if(!colapser.classList.contains("collapsing")){

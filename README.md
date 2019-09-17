@@ -9,7 +9,7 @@ Currently under construction
 ## File structure 
 
 - `src` and `public` are development directories.
-- `css`, `js`, `files`, and `database` are production directories used inorder for the website to be deployed on Github Pages.
+- `css`, `js`, `files`, and `database` are production directories used in order for the website to be deployed on Github Pages.
 
 
 ## Project setup
@@ -39,7 +39,7 @@ npm run lint
 
 ### Builds and copies production files to be deployed on Github Pages
 ```
-./deploy.sh 
+gulp deploy
 ```
 
 ### Simulate production environment using Docker

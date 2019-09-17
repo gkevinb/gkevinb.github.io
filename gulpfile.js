@@ -7,7 +7,7 @@ const exec = require('child_process').exec;
 Need done argument because it assumes the task is synchronous
 */
 gulp.task('message', function (done) {
-    console.log('Gulp is runninng....');
+    console.log('Gulp is running....');
     done();
 });
 

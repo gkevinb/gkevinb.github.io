@@ -12,14 +12,14 @@ class RewardMap {
     /* Generate reward values depending on if tile is cliff or reward. */
     generateRewards() {
         /* Default reward value of tiles is -1 */
-        for (var i = 0; i < this.rows; i++) {
-            for (var j = 0; j < this.columns; j++) {
-                var key = i.toString() + "x" + j.toString();
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.columns; j++) {
+                let key = i.toString() + "x" + j.toString();
                 this.matrix[key] = -1;
             }
         }
         /* Cliff tiles have a reward value of -100 */
-        for(var cliff of this.cliffs){
+        for(let cliff of this.cliffs){
             this.matrix[cliff] = -100;
         }
         /* Reward tile has a reward value of 100 */
@@ -36,9 +36,9 @@ class QMatrix {
     }
     /* Set Q-matrix value to all 0's */
     generateMatrix() {
-        for (var i = 0; i < this.rows; i++) {
-            for (var j = 0; j < this.columns; j++) {
-                var key = i.toString() + "x" + j.toString();
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.columns; j++) {
+                let key = i.toString() + "x" + j.toString();
                 this.matrix[key] = [0, 0, 0, 0];
             }
         }
@@ -59,8 +59,8 @@ class QLearningAgent {
         Ex: "2x0" -> [2, 0]
     */
     getCoordinates(state) {
-        var pattern = /\d+/g;
-        var result = state.match(pattern);
+        let pattern = /\d+/g;
+        let result = state.match(pattern);
         return [parseInt(result[0]), parseInt(result[1])];
     }
     /*
@@ -75,9 +75,9 @@ class QLearningAgent {
         Ex: "0x0" -> [RIGHT, DOWN]
     */
     getAllowedDirections(state) {
-        var directions = [];
+        let directions = [];
 
-        var row, column;
+        let row, column;
         [row, column] = this.getCoordinates(state);
 
         if (row > 0) {
@@ -99,9 +99,9 @@ class QLearningAgent {
         Ex: "0x0" -> ["0x1", "1x0"]
     */
     getNeighborhood(state) {
-        var neighborhood = [];
+        let neighborhood = [];
 
-        var row, column;
+        let row, column;
         [row, column] = this.getCoordinates(state);
 
         if (row > 0) {
@@ -132,7 +132,7 @@ class QLearningAgent {
         Get next state depending on direction and current state.
     */
     getNextState(direction) {
-        var row, column;
+        let row, column;
         [row, column] = this.getCoordinates(this.state);
 
         if (direction == "UP") return this.getStateId(row - 1, column);
@@ -142,38 +142,38 @@ class QLearningAgent {
     }
 
     epsilonGreedy(epsilon) {
-        var allowedDirections = this.getAllowedDirections(this.state);
+        let allowedDirections = this.getAllowedDirections(this.state);
 
         // Choose at random
         if (Math.random() < epsilon) {
-            var choosenDirection = allowedDirections[Math.floor((Math.random() * allowedDirections.length))];
+            let choosenDirection = allowedDirections[Math.floor((Math.random() * allowedDirections.length))];
             return choosenDirection;
         } // Choose using greedy
         else {
-            var neighborhood = this.getNeighborhood(this.state);
+            let neighborhood = this.getNeighborhood(this.state);
             // Rewards is a bad name, it holds an array of the neighbor and it's corresponding q-value
-            var rewards = {};
-            for (var i in neighborhood) {
-                var neighbor = neighborhood[i];
-                var direction = allowedDirections[i];
+            let rewards = {};
+            for (let i in neighborhood) {
+                let neighbor = neighborhood[i];
+                let direction = allowedDirections[i];
 
                 rewards[neighbor] = this.qMatrix.matrix[this.state][this.directionMapping(direction)];
             }
             
             // Find maximum q-value
-            var maxQValue = Math.max.apply(Math, Object.values(rewards));
+            let maxQValue = Math.max.apply(Math, Object.values(rewards));
             // Neighbor with maximum q-value and also the q-value
             // eslint-disable-next-line
-            var rewardsWithMaxQValue = Object.entries(rewards).filter(([key, value]) => value == maxQValue );
+            let rewardsWithMaxQValue = Object.entries(rewards).filter(([key, value]) => value == maxQValue );
             // Choosen neighbor aka next state to move to
-            var choosenNextState = rewardsWithMaxQValue[Math.floor((Math.random() * rewardsWithMaxQValue.length))][0];
-            var index = Object.keys(rewards).indexOf(choosenNextState);
+            let choosenNextState = rewardsWithMaxQValue[Math.floor((Math.random() * rewardsWithMaxQValue.length))][0];
+            let index = Object.keys(rewards).indexOf(choosenNextState);
 
             return allowedDirections[index];
         }
     }
     move(epsilon) {
-        var choosenDirection = this.epsilonGreedy(epsilon);
+        let choosenDirection = this.epsilonGreedy(epsilon);
 
         this.action = this.directionMapping(choosenDirection);
 
