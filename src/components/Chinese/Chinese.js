@@ -11,7 +11,6 @@ export default {
     },
     data() {
         return {
-            name: "chinese-flashcards",
             mute: false,
             chosenCharacters: null,
         }

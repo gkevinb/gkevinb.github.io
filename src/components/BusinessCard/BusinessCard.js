@@ -7,7 +7,6 @@ export default {
     },
     data() {
         return {
-            name: "business-card-tab",
             fullName: "GABOR KEVIN BARTA",
             position: "Fullstack Developer",
             codeSymbol: "</>",

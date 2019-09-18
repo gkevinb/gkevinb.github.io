@@ -1,26 +1,26 @@
 export default {
     name: "footer-comp",
     props: {
-        current_tab: String,
+        currentTab: String,
         connect: Object,
         sources: Object,
     },
     data() {
         return {
-            current_sources: []
+            currentSources: []
         }
     },
     watch: {
         /*
-            Watch current_tab variable and populate sources if the current_tab has any sources.
+            Watch currentTab variable and populate sources if the currentTab has any sources.
             Check out the data structure in the Vue.js app in the index.js file. It is passed in
             as props in this component.
         */
-        current_tab: function () {
-            if(this.sources[this.current_tab]){
-                this.current_sources = this.sources[this.current_tab];
+       currentTab: function () {
+            if(this.sources[this.currentTab]){
+                this.currentSources = this.sources[this.currentTab];
             }else{
-                this.current_sources = []
+                this.currentSources = []
             }
         },
         /*
@@ -28,14 +28,14 @@ export default {
             in mobile version. If sources is empty then credit section should be taken out so it
             won't take up empty space.
         */
-       current_sources: function () {
+       currentSources: function () {
             let footer = document.getElementById('footer-id');
 
-            if (this.current_sources.length == 0 && footer.classList.contains('footer-with-credit')) {
+            if (this.currentSources.length == 0 && footer.classList.contains('footer-with-credit')) {
                 footer.classList.toggle('footer-with-credit')
                 footer.classList.toggle('footer-without-credit')
             }
-            if (this.current_sources.length != 0 && footer.classList.contains('footer-without-credit')) {
+            if (this.currentSources.length != 0 && footer.classList.contains('footer-without-credit')) {
                 footer.classList.toggle('footer-without-credit')
                 footer.classList.toggle('footer-with-credit')
             }

@@ -19,7 +19,13 @@ export default {
             agent: null,
             movement: null,
             exploring: false,
-            speed: 150
+            speed: 150,
+            /* Static values for directions*/
+            UP: 0,
+            RIGHT: 1,
+            DOWN: 2,
+            LEFT: 3,
+            QVALUEDIGIT: 5
         }
     },
     /* created(): since the processing of the options is finished you have access to reactive
@@ -71,9 +77,8 @@ export default {
             Ex: -42.295 -> -42.2
         */
         formatQValue: function(number) {
-            let stringLength = 5;
             if(number != 0)
-                return number.toString().substring(0, stringLength);
+                return number.toString().substring(0, this.QVALUEDIGIT);
             else
                 return "";
         },
