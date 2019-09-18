@@ -104,7 +104,7 @@ $bg-color: #969696;
     }
 }
 .screw:hover{
-    animation:spin 1s linear;
+    animation: spin 1s linear;
 }
 
 #control_panel{
@@ -147,6 +147,7 @@ $bg-color: #969696;
         border-style: outset;
         border-width: 10px;
 
+        /* Safari renders outset border colors slightly differently */
         border-top-color: rgb(129, 129, 129);
         border-left-color: rgb(129, 129, 129);
         border-right-color: rgb(175, 175, 175);

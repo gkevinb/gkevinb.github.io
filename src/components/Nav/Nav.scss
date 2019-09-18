@@ -4,6 +4,9 @@ $primary-color: #383B45;
 $hamburger-hover-opacity : 1;
 $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 
+$gradient-pink: #D48590;
+$gradient-orange: #ECAC81;
+
 /* Custom nav-burger styling */
 
 #nav-burger-button {
@@ -11,11 +14,11 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
 }
 
 .nav-burger {
-    $nav-burger-color__before: linear-gradient(180deg, #D48590 90%, #ECAC81 100%);
-    $nav-burger-color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
-    $nav-burger-color__after: linear-gradient(180deg, #D48590 0%, #ECAC81 10%);
-    $nav-burger-color-X: linear-gradient(90deg, #D48590 0%, #ECAC81 100%);
-    $nav-burger-color-X__after: linear-gradient(270deg, #D48590 0%, #ECAC81 100%);
+    $nav-burger-color__before: linear-gradient(180deg, $gradient-pink 90%, $gradient-orange 100%);
+    $nav-burger-color: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 100%);
+    $nav-burger-color__after: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 10%);
+    $nav-burger-color-X: linear-gradient(90deg, $gradient-pink 0%, $gradient-orange 100%);
+    $nav-burger-color-X__after: linear-gradient(270deg, $gradient-pink 0%, $gradient-orange 100%);
 
     .nav-burger-meat {
         background: $nav-burger-color;
@@ -66,13 +69,13 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity;
     }
     .nav-item:hover {
         color: white;
-        background: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
+        background: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 100%);
         border-radius: 6px;
 
     }
     .sub-tab:active{
-        background-color: linear-gradient(180deg, #D48590 0%, #ECAC81 100%);
-        // background-color: #ECAC81;
+        background-color: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 100%);
+        // background-color: $gradient-orange;
         background-color: #F8F9FA;
         color: black;
     }

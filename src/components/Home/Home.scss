@@ -1,9 +1,11 @@
 /* Bootstrap components */
 @import "../../assets/scss/bootstrap";
+@import "../../assets/scss/white-links";
 
 $shadow-color: #505050;
 
 $construction-tape-color: yellow;
+$contruction-tape-border-color: black;
 $construction-tape-size: 80px;
 $construction-tape-border-width: 15px;
 
@@ -14,8 +16,8 @@ $construction-tape-border-width: 15px;
 
     height: $construction-tape-size;
 
-    border-top: $construction-tape-border-width dashed black;
-    border-bottom: $construction-tape-border-width dashed black;
+    border-top: $construction-tape-border-width dashed $contruction-tape-border-color;
+    border-bottom: $construction-tape-border-width dashed $contruction-tape-border-color;
     
     border-image-source: url(../../assets/img/construction-tape-border.png);
     border-image-repeat: repeat;
@@ -28,7 +30,7 @@ $construction-tape-border-width: 15px;
 }
 
 @mixin contruction-tape-ends (){
-    width: 80px;
+    width: $construction-tape-size;
     transform: rotate(225deg);
 
     @include media-breakpoint-down(md){
@@ -130,21 +132,7 @@ $construction-tape-border-width: 15px;
     margin-right: 60px;
     width: 96px;
 
-    /* Link */
-    a{
-        text-decoration: none;
-        color: white;
-    }
-    a:active{
-        color: white;
-    }
-    a:visited{
-        color: white;
-    }
-    a:hover{
-        text-decoration: none;
-        color: white;
-    }
+    @include white-links();
 
     /* Link Icon */
     .link-icon{
