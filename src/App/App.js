@@ -6,6 +6,7 @@ import BusinessCard from '../components/BusinessCard/BusinessCard.vue'
 import QLearning from '../components/QLearning/QLearning.vue'
 import Chinese from '../components/Chinese/Chinese.vue'
 import GithubProjects from '../components/GithubProjects/GithubProjects.vue'
+import CustomScripts from '../components/CustomScripts/CustomScripts.vue'
 import Blog from '../components/Blog/Blog.vue'
 
 import axios from 'axios';
@@ -21,6 +22,7 @@ export default {
         'q-learning-tab': QLearning,
         'chinese-flashcards-tab': Chinese,
         'github-projects-tab': GithubProjects,
+        'custom-scripts-tab': CustomScripts,
         'blog-tab': Blog
     },
     data() {
@@ -29,7 +31,7 @@ export default {
             tabs: {
                 Home: [],
                 About: ["Experience", "Business Card"],
-                Projects: ["Github Projects", "Q-Learning", "Chinese Flashcards"],
+                Projects: ["Github Projects", "Custom Scripts", "Q-Learning", "Chinese Flashcards"],
                 Blog: []
             },
             apis: [{
@@ -78,6 +80,14 @@ export default {
                         method: "GET",
                         routeEndPoint: "https://api.github.com/",
                         path: "users/gkevinb/repos?sort=pushed"
+                    }
+                },
+                {
+                    component: "Custom Scripts",
+                    request: {
+                        method: "GET",
+                        routeEndPoint: "https://api.github.com/",
+                        path: "repos/gkevinb/custom-scripts/contents/"
                     }
                 },
             ],

@@ -1,0 +1,8 @@
+<div id="custom-scripts-tab">
+    <h1>Custom Scripts</h1>
+    <button @click="showCode" type="button">SHOW</button>
+    <div v-for="(value, command) in commands">
+        <h3>{{ command }}</h3>
+        <pre v-if="show">{{ value }}</pre>
+    </div>
+</div>
