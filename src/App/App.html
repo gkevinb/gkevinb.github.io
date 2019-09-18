@@ -3,7 +3,7 @@
 	<div id="custom-container" class="container">
 
 		<!-- Navigation Bar -->
-		<nav-comp :tabs="tabs" v-on:current-tab="currentTab = $event"></nav-comp>
+		<nav-comp :tabs="tabs" @current-tab="currentTab = $event"></nav-comp>
 
 		<!-- Main content -->
 		<div class="content" :is="getCurrentTab" :input="inputData[currentTab]"></div>
@@ -11,7 +11,6 @@
 	</div>
 
 	<!-- Footer content -->
-	<!-- inputData['Home'] is used since the connect links technically belong to the Home component API request -->
 	<footer-comp :currentTab="currentTab" :connect="getLinks()" :sources="getSources()"></footer-comp>
 
 </div>

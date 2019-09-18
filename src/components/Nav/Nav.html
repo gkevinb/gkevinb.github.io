@@ -13,15 +13,16 @@
 
     <div class="collapse navbar-collapse" id="colapser">
         <ul class="navbar-nav ml-auto nav-menu">
-            <li v-for="tab in tabs" class="navbar-item nav-item" :class="dropDownMenu(tab)" :id="tab.name"
-                @click="setCurrentTab(tab)">
-                <span v-if="tab.subtabs" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab.name }}</span>
-                <span v-else class="nav-link">{{ tab.name }}</span>
+            <li v-for="(subTabs, tab) in tabs" class="navbar-item nav-item" :class="dropDownMenu(subTabs)" :id="tab"
+                @click="setCurrentTab(tab, subTabs)">
+
+                <span v-if="subTabs.length == 0" class="nav-link">{{ tab }}</span>
+                <span v-else class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab }}</span>
 
                 <!-- Subtab dropdown -->
-                <ul v-if="tab.subtabs != null" class="dropdown-menu">
-                    <li v-for="subtab in tab.subtabs" class="sub-tab dropdown-item" @click.stop="setCurrentTab(subtab)">
-                        {{ subtab.name }}
+                <ul v-if="subTabs != []" class="dropdown-menu">
+                    <li v-for="subTab in subTabs" class="sub-tab dropdown-item" @click.stop="setCurrentTab(subTab)">
+                        {{ subTab }}
                     </li>
                 </ul>
             </li>

@@ -1,7 +1,7 @@
 export default {
     name: "nav-comp",
     props: {
-        tabs: Array
+        tabs: Object
     },
     data() {
         return {
@@ -9,13 +9,12 @@ export default {
         }
     },
     methods: {
-        dropDownMenu: function (tab) {
-            return tab.subtabs ? 'dropdown' : '';
+        dropDownMenu: function (subTabs) {
+            return subTabs.length != 0 ? 'dropdown' : '';
         },
-        /* If tab has no subtabs set as current tab */
-        setCurrentTab: function (tab) {
-            if(tab.subtabs == null){
-                this.currentTab = tab.name;
+        setCurrentTab: function (tab, subTabs = []) {
+            if(subTabs.length == 0){
+                this.currentTab = tab;
                 this.$emit('current-tab', this.currentTab);
             }
         },

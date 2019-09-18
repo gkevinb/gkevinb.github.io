@@ -26,37 +26,12 @@ export default {
     data() {
         return {
             currentTab: "Home",
-            tabs: [{
-                    name: "Home",
-                },
-                {
-                    name: "About",
-                    subtabs: [{
-                            name: "Experience",
-                        },
-                        {
-                            name: "Business Card",
-                        }
-                    ]
-                },
-                {
-                    name: "Projects",
-                    subtabs: [
-                        {
-                            name: 'Github Projects'
-                        },
-                        {
-                            name: "Q-Learning",
-                        },
-                        {
-                            name: "Chinese Flashcards",
-                        }
-                    ]
-                },
-                {
-                    name: "Blog"
-                }
-            ],
+            tabs: {
+                Home: [],
+                About: ["Experience", "Business Card"],
+                Projects: ["Github Projects", "Q-Learning", "Chinese Flashcards"],
+                Blog: []
+            },
             apis: [{
                     component: "Home",
                     request: {
