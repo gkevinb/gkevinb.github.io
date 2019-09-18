@@ -69,9 +69,11 @@
             "timePeriod": "🗓Sep 2017 - Jun 2018",
             "city": "🏙Odense",
             "text": "As a software engineer, I have gained knowledge on developing intelligent solutions on numerous platforms. The education has provided me with experience in developing mobile apps, IT security, and online solutions.",
-            "thesisTitle": "Data-based Generation of Reliability Models",
-            "thesisLink": "https://www.dropbox.com/s/gdhstffrp8z29pv/GaborKevinBarta_MSc_Thesis.pdf?dl=1",
-            "thesisDetails": "Developing an automated method of extracting a fault tree representation of a system from time series data."
+            "thesis": {
+                "title": "Data-based Generation of Reliability Models",
+                "link": "https://www.dropbox.com/s/gdhstffrp8z29pv/GaborKevinBarta_MSc_Thesis.pdf?dl=1",
+                "details": "Developing an automated method of extracting a fault tree representation of a system from time series data."
+            }
         },
         {
             "id": 2,
@@ -83,9 +85,11 @@
             "city": "🏙Budapest",
             "specialization": "Embedded and Control Systems",
             "text": "As an electrical engineer specializing in embedded systems, I have gained experience in developing software on embedded devices and control systems. I have developed programs on microcontrollers and FPGAs.",
-            "thesisTitle": "Testing of AUTOSAR I-PDU Multiplexer",
-            "thesisLink": "https://www.dropbox.com/s/eiw8yymxvcvghku/GaborKevinBarta_BSc_Thesis.pdf?dl=1",
-            "thesisDetails": "Unit testing of a basic software module called I-PDU Multiplexer in the AUTOSAR, a standardized automotive software architecture, at ThyssenKrupp Presta Hungary."
+            "thesis": {
+                "title": "Testing of AUTOSAR I-PDU Multiplexer",
+                "link": "https://www.dropbox.com/s/eiw8yymxvcvghku/GaborKevinBarta_BSc_Thesis.pdf?dl=1",
+                "details": "Unit testing of a basic software module called I-PDU Multiplexer in the AUTOSAR, a standardized automotive software architecture, at ThyssenKrupp Presta Hungary."
+            }
         }
     ]
 }

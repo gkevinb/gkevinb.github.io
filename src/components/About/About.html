@@ -35,10 +35,10 @@
                     <div class="text">{{ degree.text }}</div>
                     <div class="thesis">
                         <div id="thesis_text">Thesis</div>
-                        <a :href="degree.thesisLink">
-                            <div id="thesis_title">{{ degree.thesisTitle }}</div>
+                        <a :href="degree.thesis.link">
+                            <div id="thesis_title">{{ degree.thesis.title }}</div>
                         </a>
-                        <div id="thesis_details">{{ degree.thesisDetails }}</div>
+                        <div id="thesis_details">{{ degree.thesis.details }}</div>
                     </div>
                 </div>
             </div>
