@@ -20,7 +20,7 @@
                 <span v-else class="nav-link dropdown-toggle" data-toggle="dropdown">{{ tab }}</span>
 
                 <!-- Subtab dropdown -->
-                <ul v-if="subTabs != []" class="dropdown-menu">
+                <ul v-if="subTabs.length != 0" class="dropdown-menu">
                     <li v-for="subTab in subTabs" class="sub-tab dropdown-item" @click.stop="setCurrentTab(subTab)">
                         {{ subTab }}
                     </li>
