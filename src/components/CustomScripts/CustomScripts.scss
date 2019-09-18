@@ -1,57 +1,59 @@
-#custom-scripts-tab{
-    h3{
+$terminal-color: rgb(37, 37, 37);
+
+#custom-scripts-tab {
+    h3 {
         color: red;
     }
-    pre{
+
+    pre {
         background-color: black;
         color: rgb(110, 255, 66);
     }
 }
 
-.terminal-window{
-    background-color: rgb(37, 37, 37);
+
+.terminal-window {
+    background-color: $terminal-color;
     border-radius: 16px;
     margin: 30px;
     padding: 10px;
 }
 
-.terminal-header{
+.terminal-header {
     display: flex;
     flex-direction: row;
 
     font-size: 24px;
     font-family: 'Courier New', Courier, monospace;
 
-    .dollar{
+    .dollar {
         color: greenyellow;
         margin: 0 10px;
         align-self: center;
     }
-    .command{
-        color: white;
-        align-self: center;
-    }
-    .button-copy{
-        margin-left: auto;
-        color: white;
-        font-size: 32px;
-        padding: 0;
-        align-self: center;
-        i{
-            margin-top: 10px;
-        }
-    }
-    .button-show{
-        color: white;
-        font-size: 32px;
-        padding: 0;
-        align-self: center;
-        i{
-            margin-top: 10px;
-        }
-    }
-}
 
-.terminal-body{
-    // margin-top: 20px;
+    .command {
+        color: white;
+        align-self: center;
+    }
+
+    .button-copy {
+        margin-left: auto;
+    }
+
+    .button-show {
+        margin-left: 20px;
+    }
+    
+    .terminal-button {
+        background-color: $terminal-color;
+        border: none;
+        color: white;
+        font-size: 32px;
+        width: 36px;
+        height: 40px;
+        cursor: pointer;
+        padding: 0;
+        align-self: center;
+    }
 }
