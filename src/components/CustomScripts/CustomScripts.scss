@@ -7,3 +7,51 @@
         color: rgb(110, 255, 66);
     }
 }
+
+.terminal-window{
+    background-color: rgb(37, 37, 37);
+    border-radius: 16px;
+    margin: 30px;
+    padding: 10px;
+}
+
+.terminal-header{
+    display: flex;
+    flex-direction: row;
+
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+
+    .dollar{
+        color: greenyellow;
+        margin: 0 10px;
+        align-self: center;
+    }
+    .command{
+        color: white;
+        align-self: center;
+    }
+    .button-copy{
+        margin-left: auto;
+        color: white;
+        font-size: 32px;
+        padding: 0;
+        align-self: center;
+        i{
+            margin-top: 10px;
+        }
+    }
+    .button-show{
+        color: white;
+        font-size: 32px;
+        padding: 0;
+        align-self: center;
+        i{
+            margin-top: 10px;
+        }
+    }
+}
+
+.terminal-body{
+    // margin-top: 20px;
+}
