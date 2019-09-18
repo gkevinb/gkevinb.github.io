@@ -5,7 +5,7 @@
         </div>
         <div id="credit-links">
             <p v-for="source in currentSources">
-                <a :href="source.link">{{ source.name }}</a>
+                <a :href="source.link" target="_blank">{{ source.name }}</a>
             </p>
         </div>
     </div>
@@ -14,10 +14,10 @@
             <p>Made with ❤️ by <span id="my-name">Gabor Kevin Barta</span></p>
         </div>
         <div id="hosted-by" class="footer-content__text">
-            <p>Hosted by <a href="https://pages.github.com/">GitHub Pages</a></p>
+            <p>Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
         </div>
         <div id="view-source" class="footer-content__text">
-            <p>View <a href="https://github.com/gkevinb/gkevinb.github.io">Source Code</a></p>
+            <p>View <a href="https://github.com/gkevinb/gkevinb.github.io" target="_blank">Source Code</a></p>
         </div>
     </div>
     <div class="footer-connect">
@@ -25,7 +25,9 @@
             <p>Connect</p>
         </div>
         <div v-if="connect" id="connect-icons">
-            <a v-for="link in connect.links" :id="link.id" class="connect-icon" :href="link.url"><i :class="link.icon"></i></a>
+            <a v-for="link in connect.links" :id="link.id" class="connect-icon" :href="link.url" target="_blank">
+                <i :class="link.icon"></i>
+            </a>
         </div>
     </div>
 </div>

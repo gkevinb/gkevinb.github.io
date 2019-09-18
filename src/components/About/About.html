@@ -1,14 +1,14 @@
-<div id="cv">
-    <div id="experiences_container">
+<div id="experiences-tab">
+    <div id="experiences-container">
         <h2>Work</h2>
-        <div v-for="experience in input.experiences" class="experience_container">
+        <div v-for="experience in input.experiences" class="experience-container">
             <div class="bubble" :id="experience.tag"></div>
-            <div class="experience_card">
+            <div class="experience-card">
                 <div class="title">{{ experience.title }}</div>
-                <a :href="experience.link">
+                <a :href="experience.link" target="_blank">
                     <div class="institution">{{ experience.company }}</div>
                 </a>
-                <div class="time_period">{{ experience.timePeriod }}</div>
+                <div class="time-period">{{ experience.timePeriod }}</div>
                 <div class="city">{{ experience.city }}</div>
                 <div class="description">
                     <div class="text">{{ experience.text }}</div>
@@ -16,29 +16,29 @@
             </div>
         </div>
     </div>
-    <div id="education_container">
+    <div id="education-container">
         <h2>Education</h2>
-        <div v-for="degree in input.degrees" class="experience_container">
+        <div v-for="degree in input.degrees" class="experience-container">
             <div class="bubble" :id="degree.tag"></div>
-            <div class="experience_card">
+            <div class="experience-card">
                 <div class="title">{{ degree.title }}</div>
-                <a :href="degree.link">
+                <a :href="degree.link" target="_blank">
                     <div class="institution">{{ degree.university }}</div>
                 </a>
-                <div class="time_period">{{ degree.timePeriod }}</div>
+                <div class="time-period">{{ degree.timePeriod }}</div>
                 <div class="city">{{ degree.city }}</div>
                 <div class="description">
                     <div v-if="degree.specialization" class="specialization">
-                        <div id="specialization_text">Specialization</div>
-                        <div id="specialization_title">{{ degree.specialization }}</div>
+                        <div id="specialization-text">Specialization</div>
+                        <div id="specialization-title">{{ degree.specialization }}</div>
                     </div>
                     <div class="text">{{ degree.text }}</div>
-                    <div class="thesis">
-                        <div id="thesis_text">Thesis</div>
+                    <div v-if="degree.thesis" class="thesis">
+                        <div id="thesis-text">Thesis</div>
                         <a :href="degree.thesis.link">
-                            <div id="thesis_title">{{ degree.thesis.title }}</div>
+                            <div id="thesis-title">{{ degree.thesis.title }}</div>
                         </a>
-                        <div id="thesis_details">{{ degree.thesis.details }}</div>
+                        <div id="thesis-details">{{ degree.thesis.details }}</div>
                     </div>
                 </div>
             </div>

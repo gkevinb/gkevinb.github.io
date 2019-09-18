@@ -1,20 +1,20 @@
 /* Bootstrap components */
 @import "../../assets/scss/bootstrap";
 
-$bg_color: #F3F3F3;
-$font_color: rgb(92, 92, 92);
+$bg-color: #F3F3F3;
+$font-color: rgb(92, 92, 92);
 
-$netcompany_blue: #122144;
-$codeum_red: #D12D26;
-$buildcode_green: #7FBC64;
-$thyssenkrupp_blue: #42A0E9;
-$sdu_blue: #354B7F;
-$bme_red: #9B3535;
+$netcompany-blue: #122144;
+$codeum-red: #D12D26;
+$buildcode-green: #7FBC64;
+$thyssenkrupp-blue: #42A0E9;
+$sdu-blue: #354B7F;
+$bme-red: #9B3535;
 
-$bubble_size: 60px;
+$bubble-size: 60px;
 
 
-#cv{
+#experiences-tab{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
@@ -30,7 +30,7 @@ $bubble_size: 60px;
     }
 }
 
-#experiences_container{
+#experiences-container{
     width: 550px;
 
     @include media-breakpoint-down(md){
@@ -38,7 +38,7 @@ $bubble_size: 60px;
     }
 }
 
-#education_container{
+#education-container{
     width: 550px;
 
     @include media-breakpoint-down(md){
@@ -46,7 +46,7 @@ $bubble_size: 60px;
     }
 }
 
-.experience_container{
+.experience-container{
     width: 550px;
     /* Makes sure height matches content height */
     display: block;
@@ -58,26 +58,26 @@ $bubble_size: 60px;
 }
 
 #netcompany{
-    background-color: $netcompany_blue; 
+    background-color: $netcompany-blue; 
 }
 #codeum{
-    background-color: $codeum_red; 
+    background-color: $codeum-red; 
 }
 #buildcode{
-    background-color: $buildcode_green; 
+    background-color: $buildcode-green; 
 }
 #sdu{
-    background-color: $sdu_blue; 
+    background-color: $sdu-blue; 
 }
 #thyssenkrupp{
-    background-color: $thyssenkrupp_blue; 
+    background-color: $thyssenkrupp-blue; 
 }
 #bme{
-    background-color: $bme_red; 
+    background-color: $bme-red; 
 }
 
-.experience_card{
-    background-color: $bg_color;
+.experience-card{
+    background-color: $bg-color;
     font-family: 'Thasadith', sans-serif;
     width: 480px;
     /* Makes sure height matches content height */
@@ -88,7 +88,7 @@ $bubble_size: 60px;
     margin: 30px;
     font-size: 16px;
     letter-spacing: 1px;
-    color: $font_color;
+    color: $font-color;
     box-shadow: 0px 8px 15px rgb(97, 97, 97);
     float: left;
 
@@ -105,7 +105,7 @@ $bubble_size: 60px;
     .institution{
         margin: 10px;
     }
-    .time_period{
+    .time-period{
         float: left;
         margin: 10px;
     }
@@ -133,10 +133,10 @@ $bubble_size: 60px;
 .specialization{
     padding-top: 10px;
 
-    #specialization_text{
+    #specialization-text{
         text-align: center;
     }
-    #specialization_title{
+    #specialization-title{
         text-align: center;
         font-weight: bold;
     }
@@ -145,14 +145,14 @@ $bubble_size: 60px;
 .thesis{
     padding-top: 10px;
 
-    #thesis_text{
+    #thesis-text{
         text-align: center;
     }
-    #thesis_title{
+    #thesis-title{
         text-align: center;
         font-weight: bold;
     }
-    #thesis_details{
+    #thesis-details{
         padding-top: 10px;
         text-align: center;
     }
