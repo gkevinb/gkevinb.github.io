@@ -1,39 +1,74 @@
 $terminal-color: rgb(37, 37, 37);
+$top-bar-color: #c0c0c0;
+
+$terminal-border-radius: 10px;
+$circle-size: 20px;
 
 #custom-scripts-tab {
-    h3 {
-        color: red;
-    }
-
     pre {
         background-color: black;
         color: rgb(110, 255, 66);
     }
 }
 
-
-.terminal-window {
-    background-color: $terminal-color;
-    border-radius: 16px;
-    margin: 30px;
-    padding: 10px;
-}
-
-.terminal-header {
+#terminal-tool-bar {
     display: flex;
     flex-direction: row;
 
+    background-color: $top-bar-color;
+    height: 40px;
+    border-top-left-radius: $terminal-border-radius;
+    border-top-right-radius: $terminal-border-radius;
+    margin: 30px 30px 0 30px;
+    padding: 10px;
+
+    .circle{
+        width: $circle-size;
+        height: $circle-size;
+        border-radius: $circle-size;
+        margin: 0 5px;
+    }
+    #red{
+        background-color: rgb(255, 68, 68);
+    }
+    #yellow{
+        background-color: rgb(255, 225, 57);
+    }
+    #green{
+        background-color: rgb(0, 185, 0);
+    }
+}
+
+#terminal-window {
+    background-color: $terminal-color;
+    border-bottom-left-radius: $terminal-border-radius;
+    border-bottom-right-radius: $terminal-border-radius;
+    margin: 0 30px;
+    padding: 20px;
+}
+
+.command-header {
+    display: flex;
+    flex-direction: row;
+
+    margin: 20px;
     font-size: 24px;
     font-family: 'Courier New', Courier, monospace;
 
     .dollar {
         color: greenyellow;
-        margin: 0 10px;
+        margin-right: 10px;
         align-self: center;
     }
 
     .command {
         color: white;
+        align-self: center;
+    }
+
+    .argument {
+        color: rgb(255, 79, 79);
+        margin-left: 10px;
         align-self: center;
     }
 
@@ -44,7 +79,7 @@ $terminal-color: rgb(37, 37, 37);
     .button-show {
         margin-left: 20px;
     }
-    
+
     .terminal-button {
         background-color: $terminal-color;
         border: none;
@@ -56,4 +91,8 @@ $terminal-color: rgb(37, 37, 37);
         padding: 0;
         align-self: center;
     }
+}
+
+.command-body{
+    margin: 10px;
 }
