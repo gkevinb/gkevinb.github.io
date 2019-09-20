@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
 const exec = require('child_process').exec;
+const jsonminify = require('gulp-jsonminify');
+ 
 
 /*
 Need done argument because it assumes the task is synchronous
@@ -18,6 +20,13 @@ gulp.task('build', function (cb) {
         console.log(stderr);
         cb(err);
     });
+});
+
+/* Minify JSON files */
+gulp.task('minify-json', function () {
+    return gulp.src(['dist/database/*.json'])
+        .pipe(jsonminify())
+        .pipe(gulp.dest('dist/database/'));
 });
 
 // Copy ALL files
@@ -46,4 +55,4 @@ gulp.task('clean', function () {
     });
 });
 
-gulp.task('deploy', gulp.series('build', 'clean', 'copy-dist'));
+gulp.task('deploy', gulp.series('build', 'minify-json', 'clean', 'copy-dist'));
