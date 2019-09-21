@@ -1,4 +1,8 @@
 import axios from 'axios';
+import hljs from 'highlight.js/lib/highlight';
+import bash from 'highlight.js/lib/languages/bash';
+import 'highlight.js/styles/atom-one-dark.css';
+hljs.registerLanguage('bash', bash);
 
 export default {
     name: "custom-scripts-tab",
@@ -8,8 +12,7 @@ export default {
     data() {
         return {
             commands: {},
-            show: {}
-            // show: {"generate-boilerplate": true, "hello-world": false, "vue-comp": false}
+            show: [],
         };
     },
     created() {
@@ -21,19 +24,26 @@ export default {
                 var pattern = /.+\..+/g;
                 if (!pattern.test(file.name)) {
                     this.commands[file.name] = {}
+                    this.commands[file.name]['id'] = i;
                     this.commands[file.name]['name'] = file.name;
-                    this.show[file.name] = false;
+                    this.show.push(false)
                     this.apiCall(file.name, file.download_url)
                 }
             }
         }
     },
-    methods: {
-        getBashCommands: function () {
-            let commands = []
-
-            return commands;
+    watch: {
+        show: function () {
+            let milliseconds = 0;
+            setTimeout(function () {
+                //your code to be executed after 0 milliseconds, immediately!
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+            }, milliseconds);
         },
+    },
+    methods: {
         apiCall: function (name, path) {
             const GithubAPI = axios.create({
                 baseURL: "",
@@ -44,9 +54,5 @@ export default {
                     this.commands[name]['algorithm'] = response.data;
                 });
         },
-        showCode: function(command) {
-            console.log(this.commands[command.name])
-            this.commands[command.name].show = this.commands[command.name].show ? false : true
-        }
     }
 };

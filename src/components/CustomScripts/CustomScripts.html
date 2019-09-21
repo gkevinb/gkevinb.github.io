@@ -9,26 +9,22 @@
         <div id="green" class="circle"></div>
     </div>
     <div id="terminal-window">
-        <div v-for="command in commands" class="terminal-command" :key="command.name">
+        <div v-for="command in commands" class="terminal-command" :key="command.id">
             <div class="command-header">
                 <div class="dollar">$</div>
                 <div class="command">{{ command.name }}</div>
-                <!-- <div class="argument">$arg1</div>
-                <div class="argument">$arg2</div> -->
+                <!-- <div class="argument">$arg1</div> -->
+                <!-- <div class="argument">$arg2</div> -->
                 <button class="terminal-button button-copy" type="button">
                     <i class="far fa-copy"></i>
                 </button>
-                <input type="checkbox" v-model="show[command.name]">
+                <input type="checkbox" v-model="show[command.id]">
                 <!-- <button class="terminal-button button-show" @click="showCode(command)" type="button">
                     <i class="far fa-caret-square-down"></i>
                 </button> -->
             </div>
             <div class="command-body">
-                <!-- <p style="color: white">{{ commands[command.name].show }}</p> -->
-                <p v-if="show[command.name]">{{ command.algorithm }}</p>
-                
-                <pre v-if="commands[command.name].show">{{ command.algorithm }}</pre>
-
+                <pre v-if="show[command.id]"><code class="hljs bash">{{ command.algorithm }}</code></pre>
             </div>
         </div>
     </div>
