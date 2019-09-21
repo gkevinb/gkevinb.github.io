@@ -8,7 +8,8 @@ export default {
     data() {
         return {
             commands: {},
-            show: false
+            show: {}
+            // show: {"generate-boilerplate": true, "hello-world": false, "vue-comp": false}
         };
     },
     created() {
@@ -19,7 +20,9 @@ export default {
                 /* Perhaps make regex check better */
                 var pattern = /.+\..+/g;
                 if (!pattern.test(file.name)) {
-                    this.commands[file.name] = null
+                    this.commands[file.name] = {}
+                    this.commands[file.name]['name'] = file.name;
+                    this.show[file.name] = false;
                     this.apiCall(file.name, file.download_url)
                 }
             }
@@ -38,11 +41,12 @@ export default {
             /* Note: GET is hardcoded, for know, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
-                    this.commands[name] = response.data;
+                    this.commands[name]['algorithm'] = response.data;
                 });
         },
-        showCode: function() {
-            this.show = this.show ? false : true
+        showCode: function(command) {
+            console.log(this.commands[command.name])
+            this.commands[command.name].show = this.commands[command.name].show ? false : true
         }
     }
 };

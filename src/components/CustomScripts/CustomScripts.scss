@@ -5,6 +5,9 @@ $terminal-border-radius: 10px;
 $circle-size: 20px;
 
 #custom-scripts-tab {
+    h1{
+        text-align: center;
+    }
     pre {
         background-color: black;
         color: rgb(110, 255, 66);

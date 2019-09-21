@@ -1,7 +1,7 @@
 <div id="custom-scripts-tab">
     <div id="custom-scripts-header">
         <h1>Custom Scripts</h1>
-        <button @click="showCode" type="button">SHOW</button>
+        <!-- <button @click="showCode" type="button">SHOW</button> -->
     </div>
     <div id="terminal-tool-bar">
         <div id="red" class="circle"></div>
@@ -9,21 +9,26 @@
         <div id="green" class="circle"></div>
     </div>
     <div id="terminal-window">
-        <div v-for="(value, command) in commands" class="terminal-command" :key="command">
+        <div v-for="command in commands" class="terminal-command" :key="command.name">
             <div class="command-header">
                 <div class="dollar">$</div>
-                <div class="command">{{ command }}</div>
+                <div class="command">{{ command.name }}</div>
                 <!-- <div class="argument">$arg1</div>
                 <div class="argument">$arg2</div> -->
                 <button class="terminal-button button-copy" type="button">
                     <i class="far fa-copy"></i>
                 </button>
-                <button class="terminal-button button-show" @click="showCode" type="button">
+                <input type="checkbox" v-model="show[command.name]">
+                <!-- <button class="terminal-button button-show" @click="showCode(command)" type="button">
                     <i class="far fa-caret-square-down"></i>
-                </button>
+                </button> -->
             </div>
             <div class="command-body">
-                <pre v-if="show">{{ value }}</pre>
+                <!-- <p style="color: white">{{ commands[command.name].show }}</p> -->
+                <p v-if="show[command.name]">{{ command.algorithm }}</p>
+                
+                <pre v-if="commands[command.name].show">{{ command.algorithm }}</pre>
+
             </div>
         </div>
     </div>
