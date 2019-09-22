@@ -2,7 +2,6 @@ import axios from 'axios';
 import hljs from 'highlight.js/lib/highlight';
 import bash from 'highlight.js/lib/languages/bash';
 import 'highlight.js/styles/atom-one-dark.css';
-hljs.registerLanguage('bash', bash);
 
 export default {
     name: "custom-scripts-tab",
@@ -16,6 +15,8 @@ export default {
         };
     },
     created() {
+        hljs.registerLanguage('bash', bash);
+        
         for (let i = 0; i < this.input.length; i++) {
             let file = this.input[i]
 
