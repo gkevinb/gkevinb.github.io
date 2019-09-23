@@ -77,20 +77,14 @@ export default {
             Ex: -42.295 -> -42.2
         */
         formatQValue: function(number) {
-            if(number != 0)
-                return number.toString().substring(0, this.QVALUEDIGIT);
-            else
-                return "";
+            return number != 0 ? number.toString().substring(0, this.QVALUEDIGIT) : ""
         },
         /*
             Add '.0' if number is 0 or 1.
             Ex: 0 -> 0.0
         */
         formatValue: function(number) {
-            if(number == 0 || number == 1)
-                return number.toString() + '.0';
-            else
-                return number.toString();
+            return (number == 0 || number == 1) ? number.toString() + '.0' : number.toString();
         },
         /*
             Format matrix Id from row and column number.

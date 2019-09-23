@@ -1,16 +1,21 @@
 @mixin white-links() {
-    a{
+    $white: white;
+
+    a {
         text-decoration: none;
-        color: white;
+        color: $white;
     }
-    a:active{
-        color: white;
+
+    a:active {
+        color: $white;
     }
-    a:visited{
-        color: white;
+
+    a:visited {
+        color: $white;
     }
-    a:hover{
+
+    a:hover {
         text-decoration: none;
-        color: white;
+        color: $white;
     }
 }

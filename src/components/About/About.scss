@@ -13,6 +13,8 @@ $bme-red: #9B3535;
 
 $bubble-size: 60px;
 
+$padding-size: 10px;
+
 
 #experiences-tab{
     display: grid;
@@ -84,7 +86,7 @@ $bubble-size: 60px;
     display: block;
     overflow: auto;
 
-    padding: 10px;
+    padding: $padding-size;
     margin: 30px;
     font-size: 16px;
     letter-spacing: 1px;
@@ -100,28 +102,28 @@ $bubble-size: 60px;
     
     .title{
         font-size: 34px;
-        margin: 10px;
+        margin: $padding-size;
     }
     .institution{
-        margin: 10px;
+        margin: $padding-size;
     }
     .time-period{
         float: left;
-        margin: 10px;
+        margin: $padding-size;
     }
     .city{
         float: left;
-        margin: 10px;
+        margin: $padding-size;
     }
     .text{
         text-align: center;
-        padding-top: 10px;
+        padding-top: $padding-size;
     }
 }
 
 .description{
     float: left;
-    margin: 10px;
+    margin: $padding-size;
     width: 95%;
     border-top: 3px solid #C4C4C4;
 
@@ -131,7 +133,7 @@ $bubble-size: 60px;
 }
 
 .specialization{
-    padding-top: 10px;
+    padding-top: $padding-size;
 
     #specialization-text{
         text-align: center;
@@ -143,7 +145,7 @@ $bubble-size: 60px;
 }
 
 .thesis{
-    padding-top: 10px;
+    padding-top: $padding-size;
 
     #thesis-text{
         text-align: center;
@@ -153,7 +155,7 @@ $bubble-size: 60px;
         font-weight: bold;
     }
     #thesis-details{
-        padding-top: 10px;
+        padding-top: $padding-size;
         text-align: center;
     }
 }

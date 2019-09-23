@@ -10,30 +10,32 @@
     width: 100%;
 }
 
-#chinese_header{
+#chinese_header {
     text-align: center;
 
-    h1{
+    h1 {
         font-size: 48px;
-        @include media-breakpoint-down(sm){
+
+        @include media-breakpoint-down(sm) {
             font-size: 36px;
         }
     }
-    
-    p{
+
+    p {
         width: 60%;
         margin: auto;
         margin-bottom: 10px;
-        @include media-breakpoint-down(sm){
+
+        @include media-breakpoint-down(sm) {
             width: 90%;
         }
     }
 
-    button{
+    button {
         margin: 5px;
     }
 
-    #reminder{
+    #reminder {
         margin-top: 10px;
     }
 }
@@ -56,40 +58,42 @@ $mute-checkbox-margin-bottom: -19px;
     border-radius: 30px;
 }
 
-#mute_checkbox{
-    display:none;
+#mute_checkbox {
+    display: none;
 }
-#mute_checkbox + label
-{
+
+#mute_checkbox+label {
     @include mute-checkbox('sound');
     margin-bottom: $mute-checkbox-margin-bottom;
 }
-#mute_checkbox:checked + label
-{
+
+#mute_checkbox:checked+label {
     @include mute-checkbox('mute');
 }
 
-
 /* Flashcard Layout Styling */
 
-#flashcards_x4{
+#flashcards_x4 {
     display: grid;
     grid-row-gap: 15px;
     grid-template-columns: repeat(4, 1fr);
     margin: auto;
-    
-    @include media-breakpoint-down(sm){
+
+    @include media-breakpoint-down(sm) {
         @include single-flashcard();
     }
-    @include media-breakpoint-down(md){
+
+    @include media-breakpoint-down(md) {
         grid-column-gap: 20px;
         grid-template-columns: repeat(2, 1fr);
         width: 90%;
     }
-    @include media-breakpoint-only(lg){
+
+    @include media-breakpoint-only(lg) {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-#flashcards_x1{
+
+#flashcards_x1 {
     @include single-flashcard();
 }

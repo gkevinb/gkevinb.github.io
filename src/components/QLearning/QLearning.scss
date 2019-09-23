@@ -341,16 +341,20 @@ $columns: 5;
 
 /* =============== TILE STYLING ===================*/
 
-/*
-    Setup size of tile
-*/
+/* Setup size of tile */
 @mixin tileSize() {
     width: $tile-size;
     height: $tile-size;
 }
-/*
-    Setup image on tile
-*/
+
+/* Turn off Q-value divs for this tile  */
+@mixin turnOffQValues() {
+    div{
+        display: none;
+    }
+}
+
+/* Setup image on tile */
 @mixin backgroundImage($image, $size) {
     $url: "../../assets/img/#{$image}.png";
     background: url($url);
@@ -358,9 +362,7 @@ $columns: 5;
     background-position: center;
 }
 
-/*
-    Animation for robot falling down the hole.
-*/
+/* Animation for robot falling down the hole */
 @keyframes falling {
     0% {
         height: 100%;
@@ -384,9 +386,7 @@ $columns: 5;
     100%  { background-position: $trophy-x-position $trophy-y-position, center 5px; }
 }
 
-/*
-    Grid map for Q-Learning algorithm.
-*/
+/* Grid map for Q-Learning algorithm */
 #qlearning-map{
     display: grid;
     grid-template-rows: repeat($rows, $tile-size);
@@ -446,28 +446,21 @@ $columns: 5;
 }
 .tile--cliff{
     @include tileSize();
+    @include turnOffQValues();
 
     background-color: $cliff-color;
-
-    /* Turn off Q-value divs for this tile */
-    div{
-        display: none;
-    }
 }
 .tile--reward{
     @include tileSize();
     @include backgroundImage("trophy", "#{$trophy-size}");
+    @include turnOffQValues();
 
     background-color: $tile-color;
-
-    /* Turn off Q-value divs for this tile */
-    div{
-        display: none;
-    }
 }
 .tile--robot--falling{
     @include tileSize();
     @include backgroundImage("robot", "#{$robot-size}");
+    @include turnOffQValues();
 
     background-color: $cliff-color;
     
@@ -478,14 +471,11 @@ $columns: 5;
 
     /* Needed for keeping falling animation in the center */
     background-size: cover;
-
-    /* Turn off Q-value divs for this tile */
-    div{
-        display: none;
-    }
 }
 .tile--robot--winning{
     @include tileSize();
+    @include turnOffQValues();
+    
     $url-robot: "../../assets/img/robot.png";
     $url-trophy: "../../assets/img/trophy.png";
     background: url($url-trophy), url($url-robot);
@@ -497,9 +487,4 @@ $columns: 5;
     animation-name: winning;
     animation-duration: 1.0s;
     animation-iteration-count: infinite;
-
-    /* Turn off Q-value divs for this tile */
-    div{
-        display: none;
-    }
 }
