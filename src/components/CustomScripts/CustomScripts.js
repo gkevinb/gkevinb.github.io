@@ -1,7 +1,12 @@
 import axios from 'axios';
 import hljs from 'highlight.js/lib/highlight';
 import bash from 'highlight.js/lib/languages/bash';
+import python from 'highlight.js/lib/languages/python';
 import 'highlight.js/styles/atom-one-dark.css';
+
+const GithubAPI = axios.create({
+    baseURL: "",
+})
 
 export default {
     name: "custom-scripts-tab",
@@ -10,17 +15,19 @@ export default {
     },
     data() {
         return {
+            readMe: null,
             commands: {},
             show: [],
         };
     },
     created() {
         hljs.registerLanguage('bash', bash);
-        
+        hljs.registerLanguage('python', python);
+
         for (let i = 0; i < this.input.length; i++) {
             let file = this.input[i]
 
-            if (file.type == "file") {
+            if (file.type == 'file') {
                 /* Perhaps make regex check better */
                 var pattern = /.+\..+/g;
                 if (!pattern.test(file.name)) {
@@ -31,13 +38,16 @@ export default {
                     this.apiCall(file.name, file.download_url)
                 }
             }
+            if (file.name == 'README.md') {
+                this.apiCallReadMe(file.download_url)
+            }
         }
     },
     watch: {
         show: function () {
             let milliseconds = 0;
             setTimeout(function () {
-                //your code to be executed after 0 milliseconds, immediately!
+                /* Your code to be executed after 0 milliseconds, immediately! */
                 document.querySelectorAll('pre code').forEach((block) => {
                     hljs.highlightBlock(block);
                 });
@@ -46,13 +56,17 @@ export default {
     },
     methods: {
         apiCall: function (name, path) {
-            const GithubAPI = axios.create({
-                baseURL: "",
-            })
             /* Note: GET is hardcoded, for know, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
                     this.commands[name]['algorithm'] = response.data;
+                });
+        },
+        apiCallReadMe: function (path) {
+            /* Note: GET is hardcoded, for know, since it is the only type of request made */
+            GithubAPI.get(path)
+                .then(response => {
+                    this.readMe = response.data;
                 });
         },
     }
