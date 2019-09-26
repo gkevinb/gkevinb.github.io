@@ -18,10 +18,10 @@
                 <div class="command">{{ command.name }}</div>
                 <!-- <div class="argument">$arg1</div> -->
                 <!-- <div class="argument">$arg2</div> -->
-                <button class="terminal-button button-copy" type="button">
+                <!-- <button class="terminal-button button-copy" type="button">
                     <i class="far fa-copy"></i>
-                </button>
-                <input type="checkbox" v-model="show[command.id]">
+                </button> -->
+                <input class="show-checkbox" type="checkbox" v-model="show[command.id]">
             </div>
             <div class="command-body">
                 <pre v-if="show[command.id]">
