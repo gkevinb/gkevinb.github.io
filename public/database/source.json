@@ -42,5 +42,18 @@
             "name": "Font Awesome Free",
             "link": "https://fontawesome.com/"
         }
+    ],
+    "Custom Scripts": [{
+            "name": "Github API",
+            "link": "https://developer.github.com/v3/"
+        },
+        {
+            "name": "Font Awesome Free",
+            "link": "https://fontawesome.com/"
+        },
+        {
+            "name": "Highlight.js",
+            "link": "https://highlightjs.org/"
+        }
     ]
 }
