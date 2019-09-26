@@ -7,8 +7,11 @@
         <div id="red" class="circle"></div>
         <div id="yellow" class="circle"></div>
         <div id="green" class="circle"></div>
+        <button id="collapse-button" class="terminal-button" @click="collapseAll" type="button">
+            <i class="far fa-caret-square-down"></i>
+        </button>
     </div>
-    <div id="terminal-window">
+    <div id="terminal-window" :key="reRenderKey">
         <div v-for="command in commands" class="terminal-command" :key="command.id">
             <div class="command-header">
                 <div class="dollar">$</div>
@@ -19,12 +22,11 @@
                     <i class="far fa-copy"></i>
                 </button>
                 <input type="checkbox" v-model="show[command.id]">
-                <!-- <button class="terminal-button button-show" @click="showCode(command)" type="button">
-                    <i class="far fa-caret-square-down"></i>
-                </button> -->
             </div>
             <div class="command-body">
-                <pre v-if="show[command.id]"><code :class="classStyling(command.name)">{{ command.algorithm }}</code></pre>
+                <pre v-if="show[command.id]">
+                    <code :class="classStyling(command.name)">{{ command.algorithm }}</code>
+                </pre>
             </div>
         </div>
     </div>

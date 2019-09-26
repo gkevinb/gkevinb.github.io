@@ -36,6 +36,9 @@ $circle-size: 20px;
     #green{
         background-color: rgb(0, 185, 0);
     }
+    #collapse-button{
+        margin-left: auto;
+    }
 }
 
 #terminal-window {
@@ -73,10 +76,6 @@ $circle-size: 20px;
 
     .button-copy {
         margin-left: auto;
-    }
-
-    .button-show {
-        margin-left: 20px;
     }
 
     .terminal-button {
