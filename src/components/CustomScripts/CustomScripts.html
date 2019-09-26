@@ -24,7 +24,7 @@
                 </button> -->
             </div>
             <div class="command-body">
-                <pre v-if="show[command.id]"><code class="hljs bash">{{ command.algorithm }}</code></pre>
+                <pre v-if="show[command.id]"><code :class="classStyling(command.name)">{{ command.algorithm }}</code></pre>
             </div>
         </div>
     </div>

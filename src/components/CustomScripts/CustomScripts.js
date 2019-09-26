@@ -4,9 +4,7 @@ import bash from 'highlight.js/lib/languages/bash';
 import python from 'highlight.js/lib/languages/python';
 import 'highlight.js/styles/atom-one-dark.css';
 
-const GithubAPI = axios.create({
-    baseURL: "",
-})
+const GithubAPI = axios.create()
 
 export default {
     name: "custom-scripts-tab",
@@ -29,7 +27,8 @@ export default {
 
             if (file.type == 'file') {
                 /* Perhaps make regex check better */
-                var pattern = /.+\..+/g;
+                let pattern = /.+\..+/g;
+                
                 if (!pattern.test(file.name)) {
                     this.commands[file.name] = {}
                     this.commands[file.name]['id'] = i;
@@ -59,7 +58,18 @@ export default {
             /* Note: GET is hardcoded, for know, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
-                    this.commands[name]['algorithm'] = response.data;
+                    let algorithm = response.data
+                    let pythonPattern = /#!\/usr\/bin\/env python.*/g
+                    let bashPattern = /#!\/bin\/bash.*/g
+
+                    this.commands[name]['algorithm'] = algorithm
+
+                    if(pythonPattern.test(algorithm)){
+                        this.commands[name]['language'] = 'python'
+                    }
+                    if(bashPattern.test(algorithm)){
+                        this.commands[name]['language'] = 'bash'
+                    }
                 });
         },
         apiCallReadMe: function (path) {
@@ -69,5 +79,16 @@ export default {
                     this.readMe = response.data;
                 });
         },
+        classStyling: function(file){
+            if(this.commands[file]['language'] == 'python'){
+                return "hjls python"
+            }
+            if(this.commands[file]['language'] == 'bash'){
+                return "hjls bash"
+            }
+            else{
+                return "hjls"
+            }
+        }
     }
 };
