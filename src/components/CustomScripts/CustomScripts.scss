@@ -5,7 +5,7 @@ $terminal-border-radius: 10px;
 $circle-size: 20px;
 
 #custom-scripts-tab {
-    h1{
+    h1 {
         text-align: center;
     }
 }
@@ -21,23 +21,37 @@ $circle-size: 20px;
     margin: 30px 30px 0 30px;
     padding: 10px;
 
-    .circle{
+    .circle {
         width: $circle-size;
         height: $circle-size;
         border-radius: $circle-size;
         margin: 0 5px;
     }
-    #red{
+
+    #red {
         background-color: rgb(255, 68, 68);
     }
-    #yellow{
+
+    #yellow {
         background-color: rgb(255, 225, 57);
     }
-    #green{
+
+    #green {
         background-color: rgb(0, 185, 0);
     }
-    #collapse-button{
+
+    #collapse-button {
         margin-left: auto;
+    }
+
+    .terminal-button {
+        background-color: $top-bar-color;
+        border: none;
+        color: rgb(94, 94, 94);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0;
+        align-self: center;
     }
 }
 
@@ -53,7 +67,7 @@ $circle-size: 20px;
     display: flex;
     flex-direction: row;
 
-    margin: 20px;
+    margin: 10px;
     font-size: 24px;
     font-family: 'Courier New', Courier, monospace;
 
@@ -77,24 +91,28 @@ $circle-size: 20px;
     .button-copy {
         margin-left: auto;
     }
-    .show-checkbox{
-        margin-left: auto;
+
+    .show-checkbox {
+        margin: 5px 0 0 auto;
+        color: white;
     }
 
-    .terminal-button {
-        background-color: $terminal-color;
-        border: none;
-        color: white;
-        font-size: 32px;
-        width: 36px;
-        height: 40px;
-        cursor: pointer;
-        padding: 0;
-        align-self: center;
+    .show-checkbox input[type="checkbox"],
+    .show-checkbox .checked {
+        display: none;
     }
+
+    .show-checkbox input[type="checkbox"]:checked~.checked {
+        display: inline-block;
+    }
+
+    .show-checkbox input[type="checkbox"]:checked~.unchecked {
+        display: none;
+    }
+
 
 }
 
-.command-body{
+.command-body {
     margin: 10px;
 }

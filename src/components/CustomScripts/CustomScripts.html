@@ -8,7 +8,9 @@
         <div id="yellow" class="circle"></div>
         <div id="green" class="circle"></div>
         <button id="collapse-button" class="terminal-button" @click="collapseAll" type="button">
-            <i class="far fa-caret-square-down"></i>
+            <!-- <i class="far fa-caret-square-down"></i> -->
+            <!-- <i class="fas fa-minus-square"></i> -->
+            <i class="far fa-minus-square"></i>
         </button>
     </div>
     <div id="terminal-window" :key="reRenderKey">
@@ -21,7 +23,12 @@
                 <!-- <button class="terminal-button button-copy" type="button">
                     <i class="far fa-copy"></i>
                 </button> -->
-                <input class="show-checkbox" type="checkbox" v-model="show[command.id]">
+                <!-- <input class="show-checkbox" type="checkbox" v-model="show[command.id]"> -->
+                <label class="show-checkbox">
+                    <input type="checkbox" v-model="show[command.id]"/>
+                    <i class="far fa-caret-square-down unchecked"></i>
+                    <i class="far fa-caret-square-up checked"></i>
+                </label>
             </div>
             <div class="command-body">
                 <pre v-if="show[command.id]">
