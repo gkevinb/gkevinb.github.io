@@ -30,6 +30,9 @@ export default {
 
             if (file.name == 'README.md') {
                 this.apiCallReadMe(file.download_url)
+            } 
+            else if (file.name == '.gitignore') {
+                // NO-OP
             } else {
                 this.commands[file.name] = {}
                 this.commands[file.name]['id'] = showIndex
