@@ -356,6 +356,9 @@ $red-line-color: #FF7373;
 #MySql{
     @include resizeSVG(56px);
 }
+#Npm{
+    @include resizeSVG(56px);
+}
 
 #contact-container{
     padding-top: 40px;
