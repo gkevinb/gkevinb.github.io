@@ -6,7 +6,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "copy-dist": "cp -r ./dist/ ./",
+    "clean": "rimraf dist && rimraf css && rimraf database && rimraf files && rimraf img && rimraf js && rimraf index.html && rimraf favicon.ico",
+    "minify-json": "minify-json dist/database",
+    "deploy": "npm run clean && npm run build && npm run minify-json && npm run copy-dist",
+    "docker": "docker-compose up --build"
   },
   "repository": {
     "type": "git",
@@ -38,9 +43,6 @@
     "bootstrap": "^4.3.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "gulp": "^4.0.2",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-jsonminify": "^1.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"

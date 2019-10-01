@@ -39,12 +39,12 @@ npm run lint
 
 ### Builds and copies production files to be deployed on Github Pages
 ```
-gulp deploy
+npm run deploy
 ```
 
 ### Simulate production environment using Docker
 ```
-docker-compose up --build
+npm run docker
 ```
 
 ### Customize configuration
