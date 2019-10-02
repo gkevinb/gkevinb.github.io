@@ -3,10 +3,13 @@
 /* Flashcard sytling (needed for chinese flashcard and business card) */
 @import "../../assets/scss/flashcard";
 
+@import "../../assets/scss/laptop";
+@import "../../assets/scss/white-links";
 
-$business-card-width: 560px;
-$business-card-height: 320px;
-$business-card-radius: 10px;
+/* Standard CR80 Card size in pixels for Iphone XS */
+$business-card-width: 514px;
+$business-card-height: 326px;
+$business-card-radius: 16px;
 
 $perspective: 1800px;
 
@@ -17,33 +20,31 @@ $brand-logo-size: 48px;
 
 $text-border-color: #969696;
 
-$red-line-color: #FF7373;
-
 @mixin resizeSVG($size) {
-    svg{
+    svg {
         width: $size;
     }
 }
 
-#business-card__header{
+#business-card__header {
     text-align: center;
-    
-    @include media-breakpoint-down(sm){
+
+    @include media-breakpoint-down(sm) {
         /* Pushes business card down the screen */
         margin-bottom: 200px;
     }
 }
 
-@media only screen and (orientation: portrait){
-    #business-card-tab{
-        @include media-breakpoint-down(sm){
+@media only screen and (orientation: portrait) {
+    #business-card-tab {
+        @include media-breakpoint-down(sm) {
             /* Creates whitespace below business card */
             height: 840px;
         }
     }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 760px){
+@media only screen and (orientation: landscape) and (max-width: 760px) {
     #business-card__scene {
         @include rotateZ-axis(-90deg);
         @include flashcard-scene(376px, $business-card-height, $perspective);
@@ -62,7 +63,8 @@ $red-line-color: #FF7373;
     justify-content: center;
     flex-direction: column;
     @include flashcard-scene(0px, $business-card-height, $perspective);
-    @include media-breakpoint-up(sm){
+
+    @include media-breakpoint-up(sm) {
         @include flashcard-scene(376px, $business-card-height, $perspective);
     }
 }
@@ -73,7 +75,7 @@ $red-line-color: #FF7373;
     /* Firefox compatibility */
     width: -moz-fit-content;
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotateZ-axis(-90deg);
     }
 }
@@ -81,219 +83,60 @@ $red-line-color: #FF7373;
 #business-card.is-flipped {
     @include rotateY-axis($rotate-degrees);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotate3D(1, 1, 0, $rotate-degrees);
     }
 }
 
 /* Fix issue with Safari backface visibility on elements with absolute positioning */
-.business-card-front__element{
+.business-card-front__element {
     @include backfaceVisibility();
 }
 
-.business-card__face--front{
+.business-card__face--front {
     @include backfaceVisibility();
 
     position: absolute;
-    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: $business-card-width;
     height: $business-card-height;
     border-radius: $business-card-radius;
 
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         transform: rotateZ($rotate-degrees);
     }
 
-    #name{
+    #name {
         @extend .business-card-front__element;
-        position: absolute;
-        width: 378px;
-        height: 55px;
-        left: 98px;
-        top: 20px;
-        
+        margin: 20px 0 10px 0;
+
         font-family: 'Roboto Mono', monospace;
         font-size: 36px;
         line-height: 55px;
-        
+
         color: $text-color;
         -webkit-text-stroke: $text-border-color 1px;
-        
+
     }
 
-    #laptop{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 132px;
-        height: 88px;
-        left: 214px;
-        top: 82px;
-        
-        background: #838383;
-        box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.25);
-        -webkit-box-shadow: 0px -2px 14px rgba(0, 0, 0, 0.25);
-        -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 6px 6px 0px 0px;
-        
-    }
-    
-    #keyboard{
-        @extend .business-card-front__element;
-        position: absolute;
+    #laptop-logo {
+        position: relative;
         width: 162px;
-        height: 10px;
-        left: 199px;
-        top: 170px;
-        
-        background: #C4C4C4;
-        box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-        -webkit-box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
-        -moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 2px 2px 10px 10px;
+        height: 98px;
+
+        div {
+            @extend .business-card-front__element;
+        }
     }
 
-    #mousepad{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 36px;
-        height: 5px;
-        left: 262px;
-        top: 170px;
-        
-        background: #6B6B6B;
-        border-radius: 0px 0px 10px 10px;        
-    }
-    #screen{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 114px;
-        height: 70px;
-        left: 223px;
-        top: 91px;
-        
-        background: #2F2F2F;
-        border-radius: 2px;
-    }
-    #tab{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 114px;
-        height: 11px;
-        left: 223px;
-        top: 91px;
-
-        background: #473F3A;
-        border-radius: 2px 2px 0px 0px;
-    }
-    #coding{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 42px;
-        height: 42px;
-        left: 240px;
-        top: 100px;
-        
-        font-family: 'Rubik', sans-serif;
-        font-size: 28px;
-        line-height: 45px;
-        
-        color: #53E183;
-    }
-    #exit{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        left: 227px;
-        top: 94px;
-        
-        border-radius: 5px;
-        background: #EE5A5A;
-    }
-    #empty{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        left: 235px;
-        top: 94px;
-        
-        border-radius: 5px;
-        background: #A7A7A7;
-    }
-    #minimize{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        left: 243px;
-        top: 94px;
-        
-        border-radius: 5px;
-        background: #66EE5A;
-    }
-    .red-line{
-        @extend .business-card-front__element;
-        position: absolute;
-        height: 4px;
-
-        background: $red-line-color;
-        border-radius: 2px;
-    }
-    #red-line__1{
-        width: 37px;
-        left: 290px;
-        top: 119px;
-    }
-    #red-line__2{
-        width: 16px;
-        left: 311px;
-        top: 109px;
-    }
-    #red-line__3{
-        width: 45px;
-        left: 268px;
-        top: 139px;
-    }
-    #red-line__4{
-        width: 8px;
-        left: 319px;
-        top: 139px;
-    }
-    #red-line__5{
-        width: 28px;
-        left: 233px;
-        top: 139px;
-    }
-    #red-line__6{
-        width: 28px;
-        left: 299px;
-        top: 129px;
-    }
-    #red-line__7{
-        width: 6px;
-        left: 290px;
-        top: 129px;
-    }
-    #red-line__8{
-        width: 94px;
-        left: 233px;
-        top: 149px;
-    }
-    #red-line__9{
-        width: 16px;
-        left: 290px;
-        top: 109px;
-    }
-    #position{
-        @extend .business-card-front__element;
-        position: absolute;
-        width: 211px;
-        height: 28px;
-        left: 176px;
-        top: 195px;
+    #position {
+        margin: 14px 0 10px 0;
 
         font-family: 'Roboto Mono', monospace;
         font-style: normal;
@@ -306,6 +149,42 @@ $red-line-color: #FF7373;
 
         -webkit-text-stroke: $text-border-color 0.5px;
     }
+
+    #brand-container {
+        @include backfaceVisibility();
+    }
+
+    /* Brand Logo Styling */
+
+    .brand-logo {
+        margin: 10px;
+        width: 70px;
+        text-align: center;
+        font-size: $brand-logo-size;
+        color: $text-color;
+    }
+
+    .brand-svg {
+        svg {
+            margin-top: -4px;
+            fill: $text-color;
+            width: $brand-logo-size;
+        }
+    }
+
+    /* Custom styling for some SVG logos */
+
+    #DotNet {
+        @include resizeSVG(56px);
+    }
+
+    #MySql {
+        @include resizeSVG(56px);
+    }
+
+    #Npm {
+        @include resizeSVG(56px);
+    }
 }
 
 .business-card__face--back {
@@ -316,115 +195,70 @@ $red-line-color: #FF7373;
     height: $business-card-height;
     border-radius: $business-card-radius;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    padding-top: 40px;
+
     font-family: 'Roboto Mono', monospace;
 
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotateX-axis($rotate-degrees);
     }
-}
 
-#brand-container{
-    @include backfaceVisibility();
-    position: absolute;
-    left: 56px;
-    top: 234px;
-}
-
-.brand-logo{
-    margin: 10px;
-    width: 70px;
-    text-align: center;
-    font-size: $brand-logo-size;
-    color: $text-color;
-}
-
-.brand-svg{
-    svg{
-        margin-top: -4px;
-        fill: $text-color;
-        width: $brand-logo-size;
+    #contact-container {
+        height: 150px;
     }
-}
 
-/* Custom styling for some SVG logos */
+    .contact-info {
+        display: flex;
+        overflow: hidden;
+        color: $text-color;
 
-#DotNet{
-    @include resizeSVG(56px);
-}
-#MySql{
-    @include resizeSVG(56px);
-}
-#Npm{
-    @include resizeSVG(56px);
-}
+        .contact-icon {
+            margin: 10px;
+            // width: 60px;
+            text-align: center;
+            font-size: 32px;
+            float: left;
+        }
 
-#contact-container{
-    padding-top: 40px;
-    height: 150px;
-}
+        .contact-text {
+            font-size: 20px;
+            margin: 10px;
+            -webkit-text-stroke: $text-border-color 0.5px;
+        }
+    }
 
-.contact-info{
-    width: 72%;
-    // margin: auto;
-    margin-left: 4px;
-    float: left;
-    overflow: hidden;
-    color: $text-color;
+    #qr-code {
+        $qr-code-size: 120px;
+        width: $qr-code-size;
+        height: $qr-code-size;
+        margin: 18px 10px;
 
-    .contact-icon{
-        margin: 10px;
-        width: 60px;
+        border: 5px solid white;
+        border-radius: 5px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    #save-contact__button {
+        width: 220px;
+        height: 52px;
+        padding: 10px;
+        margin-top: -10px;
+
+        border: 1px solid rgb(233, 233, 233);
+        border-radius: 16px;
+        background-color: rgb(87, 87, 87);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
         text-align: center;
-        font-size: 32px;
-        float: left;
-    }
-    .contact-text{
         font-size: 20px;
-        float: left;
-        margin: 10px;
-        -webkit-text-stroke: $text-border-color 0.5px;
-    }
-}
 
-#save-contact__button{
-    clear: both;
-    width: 40%;
-    margin: auto;
-    margin-top: 80px;
-    padding: 10px;
-
-    border-radius: 10px;
-    background-color: rgb(179, 179, 179);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    text-align: center;
-    font-size: 20px;
-
-    /* Link */
-    a{
-        text-decoration: none;
-        color: $text-color;
+        @include white-links();
     }
-    a:active{
-        color: $text-color;
-    }
-    a:visited{
-        color: $text-color;
-    }
-    a:hover{
-        text-decoration: none;
-        color: $text-color;
-    }
-}
-
-#qr-code{
-    border: 10px solid white;
-    border-radius: 5px;
-    width: fit-content;
-    float: left;
-    margin-top: -95px;
-    margin-left: 3px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
