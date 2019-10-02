@@ -10,7 +10,8 @@
     "copy-dist": "copyfiles 'dist/**/*' './' -u 1",
     "clean": "rimraf dist && rimraf css && rimraf database && rimraf files && rimraf img && rimraf js && rimraf index.html && rimraf favicon.ico",
     "minify-json": "minify-json dist/database",
-    "deploy": "npm run clean && npm run build && npm run minify-json && npm run copy-dist && git checkout master && git add -A && git commit -m ':rocket: Deploy to Github pages' && git push origin master",
+    "deploy": "npm run clean && npm run build && npm run minify-json && npm run copy-dist",
+    "deploy-gh": "npm run deploy && git checkout master && git add -A && git commit -m ':rocket: Deploy to Github pages' && git push origin master",
     "docker": "docker-compose up --build"
   },
   "repository": {
