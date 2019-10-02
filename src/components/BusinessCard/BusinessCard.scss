@@ -5,9 +5,10 @@
 
 @import "../../assets/scss/laptop";
 
-$business-card-width: 560px;
-$business-card-height: 320px;
-$business-card-radius: 10px;
+/* Standard CR80 Card size in pixels for Iphone XS */
+$business-card-width: 514px;
+$business-card-height: 326px;
+$business-card-radius: 16px;
 
 $perspective: 1800px;
 
@@ -94,6 +95,10 @@ $text-border-color: #969696;
     @include backfaceVisibility();
 
     position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     width: $business-card-width;
     height: $business-card-height;
@@ -107,11 +112,7 @@ $text-border-color: #969696;
 
     #name{
         @extend .business-card-front__element;
-        position: absolute;
-        width: 378px;
-        height: 55px;
-        left: 98px;
-        top: 20px;
+        margin: 20px 0 10px 0;
         
         font-family: 'Roboto Mono', monospace;
         font-size: 36px;
@@ -123,19 +124,17 @@ $text-border-color: #969696;
     }
 
     #laptop-logo{
+        position: relative;
+        width: 162px;
+        height: 98px;
         div {
             @extend .business-card-front__element;
         }
     }
 
     #position{
+        margin: 14px 0 10px 0;
         
-        position: absolute;
-        width: 211px;
-        height: 28px;
-        left: 176px;
-        top: 195px;
-
         font-family: 'Roboto Mono', monospace;
         font-style: normal;
         font-weight: normal;
@@ -146,6 +145,10 @@ $text-border-color: #969696;
         color: $text-color;
 
         -webkit-text-stroke: $text-border-color 0.5px;
+    }
+
+    #brand-container{
+        @include backfaceVisibility();
     }
 }
 
@@ -164,13 +167,6 @@ $text-border-color: #969696;
     @include media-breakpoint-down(sm){
         @include rotateX-axis($rotate-degrees);
     }
-}
-
-#brand-container{
-    @include backfaceVisibility();
-    position: absolute;
-    left: 56px;
-    top: 234px;
 }
 
 .brand-logo{
