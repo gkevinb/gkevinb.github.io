@@ -4,6 +4,7 @@
 @import "../../assets/scss/flashcard";
 
 @import "../../assets/scss/laptop";
+@import "../../assets/scss/white-links";
 
 /* Standard CR80 Card size in pixels for Iphone XS */
 $business-card-width: 514px;
@@ -20,30 +21,30 @@ $brand-logo-size: 48px;
 $text-border-color: #969696;
 
 @mixin resizeSVG($size) {
-    svg{
+    svg {
         width: $size;
     }
 }
 
-#business-card__header{
+#business-card__header {
     text-align: center;
-    
-    @include media-breakpoint-down(sm){
+
+    @include media-breakpoint-down(sm) {
         /* Pushes business card down the screen */
         margin-bottom: 200px;
     }
 }
 
-@media only screen and (orientation: portrait){
-    #business-card-tab{
-        @include media-breakpoint-down(sm){
+@media only screen and (orientation: portrait) {
+    #business-card-tab {
+        @include media-breakpoint-down(sm) {
             /* Creates whitespace below business card */
             height: 840px;
         }
     }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 760px){
+@media only screen and (orientation: landscape) and (max-width: 760px) {
     #business-card__scene {
         @include rotateZ-axis(-90deg);
         @include flashcard-scene(376px, $business-card-height, $perspective);
@@ -62,7 +63,8 @@ $text-border-color: #969696;
     justify-content: center;
     flex-direction: column;
     @include flashcard-scene(0px, $business-card-height, $perspective);
-    @include media-breakpoint-up(sm){
+
+    @include media-breakpoint-up(sm) {
         @include flashcard-scene(376px, $business-card-height, $perspective);
     }
 }
@@ -73,7 +75,7 @@ $text-border-color: #969696;
     /* Firefox compatibility */
     width: -moz-fit-content;
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotateZ-axis(-90deg);
     }
 }
@@ -81,17 +83,17 @@ $text-border-color: #969696;
 #business-card.is-flipped {
     @include rotateY-axis($rotate-degrees);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotate3D(1, 1, 0, $rotate-degrees);
     }
 }
 
 /* Fix issue with Safari backface visibility on elements with absolute positioning */
-.business-card-front__element{
+.business-card-front__element {
     @include backfaceVisibility();
 }
 
-.business-card__face--front{
+.business-card__face--front {
     @include backfaceVisibility();
 
     position: absolute;
@@ -99,42 +101,43 @@ $text-border-color: #969696;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     width: $business-card-width;
     height: $business-card-height;
     border-radius: $business-card-radius;
 
     background: linear-gradient(270deg, #202020 0%, #717171 66.09%, #FFFFFF 122.41%, #FFFFFF 122.42%);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         transform: rotateZ($rotate-degrees);
     }
 
-    #name{
+    #name {
         @extend .business-card-front__element;
         margin: 20px 0 10px 0;
-        
+
         font-family: 'Roboto Mono', monospace;
         font-size: 36px;
         line-height: 55px;
-        
+
         color: $text-color;
         -webkit-text-stroke: $text-border-color 1px;
-        
+
     }
 
-    #laptop-logo{
+    #laptop-logo {
         position: relative;
         width: 162px;
         height: 98px;
+
         div {
             @extend .business-card-front__element;
         }
     }
 
-    #position{
+    #position {
         margin: 14px 0 10px 0;
-        
+
         font-family: 'Roboto Mono', monospace;
         font-style: normal;
         font-weight: normal;
@@ -147,8 +150,40 @@ $text-border-color: #969696;
         -webkit-text-stroke: $text-border-color 0.5px;
     }
 
-    #brand-container{
+    #brand-container {
         @include backfaceVisibility();
+    }
+
+    /* Brand Logo Styling */
+
+    .brand-logo {
+        margin: 10px;
+        width: 70px;
+        text-align: center;
+        font-size: $brand-logo-size;
+        color: $text-color;
+    }
+
+    .brand-svg {
+        svg {
+            margin-top: -4px;
+            fill: $text-color;
+            width: $brand-logo-size;
+        }
+    }
+
+    /* Custom styling for some SVG logos */
+
+    #DotNet {
+        @include resizeSVG(56px);
+    }
+
+    #MySql {
+        @include resizeSVG(56px);
+    }
+
+    #Npm {
+        @include resizeSVG(56px);
     }
 }
 
@@ -160,108 +195,70 @@ $text-border-color: #969696;
     height: $business-card-height;
     border-radius: $business-card-radius;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    padding-top: 40px;
+
     font-family: 'Roboto Mono', monospace;
 
     background: linear-gradient(270deg, #FFFFFF -29.46%, #717171 40.14%, #000000 103.28%, #FFFFFF 103.29%);
 
-    @include media-breakpoint-down(sm){
+    @include media-breakpoint-down(sm) {
         @include rotateX-axis($rotate-degrees);
     }
-}
 
-.brand-logo{
-    margin: 10px;
-    width: 70px;
-    text-align: center;
-    font-size: $brand-logo-size;
-    color: $text-color;
-}
-
-.brand-svg{
-    svg{
-        margin-top: -4px;
-        fill: $text-color;
-        width: $brand-logo-size;
+    #contact-container {
+        height: 150px;
     }
-}
 
-/* Custom styling for some SVG logos */
+    .contact-info {
+        display: flex;
+        overflow: hidden;
+        color: $text-color;
 
-#DotNet{
-    @include resizeSVG(56px);
-}
-#MySql{
-    @include resizeSVG(56px);
-}
-#Npm{
-    @include resizeSVG(56px);
-}
+        .contact-icon {
+            margin: 10px;
+            // width: 60px;
+            text-align: center;
+            font-size: 32px;
+            float: left;
+        }
 
-#contact-container{
-    padding-top: 40px;
-    height: 150px;
-}
+        .contact-text {
+            font-size: 20px;
+            margin: 10px;
+            -webkit-text-stroke: $text-border-color 0.5px;
+        }
+    }
 
-.contact-info{
-    width: 72%;
-    // margin: auto;
-    margin-left: 4px;
-    float: left;
-    overflow: hidden;
-    color: $text-color;
+    #qr-code {
+        $qr-code-size: 120px;
+        width: $qr-code-size;
+        height: $qr-code-size;
+        margin: 18px 10px;
 
-    .contact-icon{
-        margin: 10px;
-        width: 60px;
+        border: 5px solid white;
+        border-radius: 5px;
+
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    #save-contact__button {
+        width: 220px;
+        height: 52px;
+        padding: 10px;
+        margin-top: -10px;
+
+        border: 1px solid rgb(233, 233, 233);
+        border-radius: 16px;
+        background-color: rgb(87, 87, 87);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
         text-align: center;
-        font-size: 32px;
-        float: left;
-    }
-    .contact-text{
         font-size: 20px;
-        float: left;
-        margin: 10px;
-        -webkit-text-stroke: $text-border-color 0.5px;
-    }
-}
 
-#save-contact__button{
-    clear: both;
-    width: 40%;
-    margin: auto;
-    margin-top: 80px;
-    padding: 10px;
-
-    border-radius: 10px;
-    background-color: rgb(179, 179, 179);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    text-align: center;
-    font-size: 20px;
-
-    /* Link */
-    a{
-        text-decoration: none;
-        color: $text-color;
+        @include white-links();
     }
-    a:active{
-        color: $text-color;
-    }
-    a:visited{
-        color: $text-color;
-    }
-    a:hover{
-        text-decoration: none;
-        color: $text-color;
-    }
-}
-
-#qr-code{
-    border: 10px solid white;
-    border-radius: 5px;
-    width: fit-content;
-    float: left;
-    margin-top: -95px;
-    margin-left: 3px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
