@@ -37,9 +37,14 @@ npm run test
 npm run lint
 ```
 
-### Builds and copies production files to be deployed on Github Pages
+### Builds and copies files for production
 ```
 npm run deploy
+```
+
+### Builds and copies files for production and is deployed to Github Pages
+```
+npm run deploy-gh
 ```
 
 ### Simulate production environment using Docker
