@@ -179,6 +179,36 @@
             "character": "美",
             "english": "beautiful",
             "pinyin": "měi"
+        },
+        {
+            "id": 31,
+            "character": "六",
+            "english": "6",
+            "pinyin": "liù"
+        },
+        {
+            "id": 32,
+            "character": "七",
+            "english": "7",
+            "pinyin": "qī"
+        },
+        {
+            "id": 33,
+            "character": "八",
+            "english": "8",
+            "pinyin": "bā"
+        },
+        {
+            "id": 34,
+            "character": "九",
+            "english": "9",
+            "pinyin": "jiǔ"
+        },
+        {
+            "id": 35,
+            "character": "十",
+            "english": "10",
+            "pinyin": "shí"
         }
     ]
 }
