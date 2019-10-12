@@ -1,6 +1,17 @@
 {
-    "experiences": [{
-            "id": 1,
+    "experiences": [
+        {
+            "id": 7,
+            "tag": "morganstanley",
+            "title": "Python Full-stack Developer",
+            "company": "🏢Morgan Stanley",
+            "link": "https://www.morganstanley.com/",
+            "timePeriod": "🗓Oct 2019 - Current",
+            "city": "🏙Budapest",
+            "text": "Morgan Stanley is a leading global financial services firm providing a wide range of investment banking, securities, investment management and wealth management services. Development of internal infrastructure systems."
+        },
+        {
+            "id": 6,
             "tag": "netcompany",
             "title": "IT Consultant",
             "company": "🏢Netcompany A/S",
@@ -10,7 +21,7 @@
             "text": "Netcompany is a pure-play IT services company delivering business-critical strategic IT projects that accelerate customers’ digital transformation through digital platforms, core systems and infrastructure services. Development of internal social media website to sign-up for company wide events. Software component analysis at CPH Airport."
         },
         {
-            "id": 2,
+            "id": 5,
             "tag": "codeum",
             "title": "Junior Backend Developer",
             "company": "🏢Codeum A/S",
@@ -20,7 +31,7 @@
             "text": "Codeum is a software company with a background in the global gaming industry, specializing in building and operating gaming platforms and providing service to online bookmakers around the world. Creating Java client-side API for online gambling service. Developing an online gaming platform in ASP.NET Core."
         },
         {
-            "id": 3,
+            "id": 4,
             "tag": "buildcode",
             "title": "Software Engineer Intern",
             "company": "🏢BuildCode IVS",
@@ -30,7 +41,7 @@
             "text": "Software engineer intern at Buildcode, a construction consultant company focusing on digitizing and optimizing quality insurance in the construction industry. Develop add-on extensions for AutoDesk Revit using pyRevit, an IronPython script library. Create visualizations and perform calculations on data collected by drones using LIDAR technology."
         },
         {
-            "id": 4,
+            "id": 3,
             "tag": "sdu",
             "title": "University Instructor",
             "company": "🏫University of Southern Denmark",
@@ -40,7 +51,7 @@
             "text": "Instructor at SDU Odense for BSc. and MSc. Software Engineering courses. Instructed lab exercises in the following courses: Modeling and Simulation (MSc. level), Statistics and Experimental Methods (BSc. level), and Artificial Intelligence (BSc. level)."
         },
         {
-            "id": 5,
+            "id": 2,
             "tag": "demola",
             "title": "Software Developer",
             "company": "🏢Demola Budapest",
@@ -50,7 +61,7 @@
             "text": "Siemens initiated project through the Demola Organization. Developing an Arduino prototype for Battery Monitoring System which uses CAN Communication."
         },
         {
-            "id": 6,
+            "id": 1,
             "tag": "thyssenkrupp",
             "title": "Software Developer Intern",
             "company": "🏢ThyssenKrupp Presta Hungary",
@@ -61,7 +72,7 @@
         }
     ],
     "degrees": [{
-            "id": 1,
+            "id": 2,
             "tag": "sdu",
             "title": "MSc in Software Engineering",
             "university": "🏫University of Southern Denmark",
@@ -76,7 +87,7 @@
             }
         },
         {
-            "id": 2,
+            "id": 1,
             "tag": "bme",
             "title": "BSc in Electrical Engineering",
             "university": "🏫Budapest University of Technology and Economics",
