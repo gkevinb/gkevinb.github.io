@@ -38,7 +38,7 @@ export default {
                     component: "Home",
                     request: {
                         method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
+                        routeEndPoint: "https://www.gaborkevinbarta.com/",
                         path: "database/connect.json"
                     }
                 },
@@ -46,7 +46,7 @@ export default {
                     component: "Footer",
                     request: {
                         method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
+                        routeEndPoint: "https://www.gaborkevinbarta.com/",
                         path: "database/source.json"
                     }
                 },
@@ -54,7 +54,7 @@ export default {
                     component: "Experience",
                     request: {
                         method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
+                        routeEndPoint: "https://www.gaborkevinbarta.com/",
                         path: "database/cv.json"
                     }
                 },
@@ -62,7 +62,7 @@ export default {
                     component: "Chinese Flashcards",
                     request: {
                         method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
+                        routeEndPoint: "https://www.gaborkevinbarta.com/",
                         path: "database/china.json"
                     }
                 },
@@ -70,7 +70,7 @@ export default {
                     component: "Business Card",
                     request: {
                         method: "GET",
-                        routeEndPoint: "https://gkevinb.github.io/",
+                        routeEndPoint: "https://www.gaborkevinbarta.com/",
                         path: "database/card.json"
                     }
                 },
