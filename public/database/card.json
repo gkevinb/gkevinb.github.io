@@ -87,7 +87,7 @@
     "contact": [{
             "name": "email",
             "code": "fas fa-envelope",
-            "value": "gkbarta@yahoo.com"
+            "value": "gkevinba@gmail.com"
         },
         {
             "name": "phone",
@@ -97,7 +97,7 @@
         {
             "name": "website",
             "code": "fas fa-globe",
-            "value": "gkevinb.github.io"
+            "value": "gaborkevinbarta.com"
         }
     ]
 }
