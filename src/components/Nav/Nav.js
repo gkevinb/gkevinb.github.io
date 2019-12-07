@@ -5,7 +5,8 @@ export default {
     },
     data() {
         return {
-            currentTab: 'Home' // Home is default tab
+            currentTab: 'Home', // Home is default tab
+            url: process.env.VUE_APP_URL
         }
     },
     methods: {
