@@ -4,7 +4,7 @@
 
 Currently under construction
 
-[www.gkevinb.github.io](https://gkevinb.github.io/)
+[www.gaborkevinbarta.com](https://gaborkevinbarta.com/)
 
 ## File structure 
 
@@ -51,6 +51,15 @@ npm run deploy-gh
 ```
 npm run docker
 ```
+
+## Docker
+
+Sometimes it might be enough to use this to start docker.
+
+Start: `docker-compose up -d`
+
+Stop: `docker-compose down`
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

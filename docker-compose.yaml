@@ -3,6 +3,7 @@ version: '3.7'
 
 services:
     web-service:
+        restart: always
         build: ./
         ports:
             - 5000:80
