@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             currentTab: 'Home', // Home is default tab
-            url: process.env.VUE_APP_URL
+            url: process.env.VUE_APP_URL,
+            hostColor: process.env.VUE_APP_HOST_COLOR
         }
     },
     methods: {
@@ -27,6 +28,11 @@ export default {
             if (!colapser.classList.contains("collapsing")) {
                 hamburger.classList.toggle("is-active");
                 document.getElementById("nav-burger-meat-js").classList.toggle("nav-burger-meat__X");
+            }
+        },
+        hostColorStyling: function () {
+            return {
+                backgroundColor: this.hostColor
             }
         }
     }

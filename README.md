@@ -1,8 +1,6 @@
-# gkevinb
+# My portfolio website
 
-## My portfolio website
-
-Currently under construction
+Continously under development
 
 [www.gaborkevinbarta.com](https://gaborkevinbarta.com/)
 
@@ -21,6 +19,7 @@ npm install
 ```
 npm run serve
 ```
+A limegreen background in the title indicates it is running the development server.
 
 ### Compiles and minifies for production
 ```
@@ -49,8 +48,13 @@ npm run deploy-gh
 
 ### Simulate production environment using Docker
 ```
-npm run docker
+npm run docker-start
 ```
+To stop Docker:
+```
+npm run docker-stop
+```
+A lightblue background in the title indicates it is running the staging server.
 
 ## Docker
 
