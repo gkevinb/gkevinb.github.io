@@ -2,9 +2,9 @@ BEGIN:VCARD
 VERSION:3.0
 FN;CHARSET=UTF-8:Gábor Kevin Barta
 N;CHARSET=UTF-8:Barta;Gábor;Kevin;;
-EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:gkbarta@yahoo.com
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:gkevinba@gmail.com
 TEL;TYPE=CELL:+36204373094
 ADR;CHARSET=UTF-8;TYPE=HOME:;;;Budapest;;;Hungary
-URL;CHARSET=UTF-8:https://gkevinb.github.io/
+URL;CHARSET=UTF-8:https://gaborkevinbarta.com/
 REV:2019-10-02T11:08:53.397Z
 END:VCARD
