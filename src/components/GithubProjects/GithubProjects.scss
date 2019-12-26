@@ -6,14 +6,10 @@ $padding-size: 10px;
 }
 
 #repos-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    gap: 40px;
     justify-content: center;
-    flex-wrap: wrap;
-
-    .icons {
-        font-size: 30px;
-    }
+    grid-template-columns: repeat(auto-fill, 300px);
 }
 
 .repo-container {
@@ -25,7 +21,7 @@ $padding-size: 10px;
     box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.75);
 
     width: 300px;
-    margin: 20px;
+    // margin: 20px;
 
     border: 1px solid $border-gray;
 
@@ -36,8 +32,12 @@ $padding-size: 10px;
     }
 
     .repo-desc {
+        height: 60px;
         padding: $padding-size;
         border: 1px solid $border-gray;
+    }
+    .icons {
+        font-size: 30px;
     }
 }
 

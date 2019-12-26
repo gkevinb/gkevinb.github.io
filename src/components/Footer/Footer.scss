@@ -18,6 +18,8 @@ $footer-small-text: 14px;
 $footer-padding: 40px;
 $icon-margin: 16px;
 
+$connect-height: 200px;
+
 @mixin grey-on-hover-underline-links() {
     a {
         text-decoration: $under-line;
@@ -64,14 +66,14 @@ $icon-margin: 16px;
 
 .footer-with-credit {
     @include media-breakpoint-down(md) {
-        grid-template-rows: 120px auto 240px;
+        grid-template-rows: 120px auto $connect-height;
         grid-template-areas: "content""credit""connect";
     }
 }
 
 .footer-without-credit {
     @include media-breakpoint-down(md) {
-        grid-template-rows: 120px 240px;
+        grid-template-rows: 120px $connect-height;
         grid-template-areas: "content""connect";
     }
 }
@@ -133,9 +135,8 @@ $icon-margin: 16px;
     grid-area: connect;
     padding: $footer-padding;
 
-    /* Add space for tawk.to bubble */
     @include media-breakpoint-down(sm) {
-        height: 240px;
+        height: $connect-height;
     }
 
     @include media-breakpoint-down(md) {
