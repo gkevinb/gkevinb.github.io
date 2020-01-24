@@ -35,7 +35,7 @@
                     <div class="text">{{ degree.text }}</div>
                     <div v-if="degree.thesis" class="thesis">
                         <div id="thesis-text">Thesis</div>
-                        <a :href="degree.thesis.link">
+                        <a :href="degree.thesis.link" target="_blank">
                             <div id="thesis-title">{{ degree.thesis.title }}</div>
                         </a>
                         <div id="thesis-details">{{ degree.thesis.details }}</div>
