@@ -8,5 +8,6 @@ COPY dist/img /www/img
 COPY dist/js /www/js
 COPY dist/favicon.ico /www/favicon.ico
 COPY dist/index.html /www/index.html
+COPY dist/404.html /www/404.html
 
 COPY nginx.conf /etc/nginx/nginx.conf
