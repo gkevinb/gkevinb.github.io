@@ -9,7 +9,7 @@
     "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
     "copy-dist": "copyfiles 'dist/**/*' './' -u 1",
-    "clean": "rimraf dist && rimraf css && rimraf database && rimraf files && rimraf img && rimraf js && rimraf index.html && rimraf favicon.ico",
+    "clean": "rimraf dist && rimraf css && rimraf database && rimraf files && rimraf img && rimraf js && rimraf index.html && rimraf 404.html && rimraf favicon.ico",
     "minify-json": "minify-json dist/database",
     "deploy": "npm run clean && npm run build && npm run minify-json && npm run copy-dist",
     "deploy-gh": "npm run deploy && git checkout master && git add -A && git commit -m ':rocket: Deploy to Github pages' && git push origin master",
