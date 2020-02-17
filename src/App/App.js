@@ -8,7 +8,6 @@ import Chinese from '../components/Chinese/Chinese.vue'
 import GithubProjects from '../components/GithubProjects/GithubProjects.vue'
 import CustomScripts from '../components/CustomScripts/CustomScripts.vue'
 import Blog from '../components/Blog/Blog.vue'
-import page from 'vue-analytics'
 
 import axios from 'axios';
 
@@ -132,9 +131,6 @@ export default {
         },
         getSources: function () {
             return this.inputData['Footer'];
-        },
-        track: function () {
-            page('/');
         }
     }
 }
