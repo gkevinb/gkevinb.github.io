@@ -66,16 +66,21 @@ $gradient-orange: #ECAC81;
         color: $primary-color;
         font-size: 20px;
         text-align: center;
+        a {
+            text-decoration: none;
+            color: $primary-color;
+        }
+        a:hover {
+            color: white;
+        }
     }
     .nav-item:hover {
         color: white;
         background: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 100%);
         border-radius: 6px;
-
     }
     .sub-tab:active{
         background-color: linear-gradient(180deg, $gradient-pink 0%, $gradient-orange 100%);
-        // background-color: $gradient-orange;
         background-color: #F8F9FA;
         color: black;
     }

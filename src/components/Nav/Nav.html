@@ -15,7 +15,7 @@
 
     <div class="collapse navbar-collapse" id="colapser">
         <ul class="navbar-nav ml-auto nav-menu">
-            <li v-for="(subTabs, tab) in tabs" class="navbar-item nav-item" :class="dropDownMenu(subTabs)" :id="tab"
+            <li v-if="tab != 'Blog'" v-for="(subTabs, tab) in tabs" class="navbar-item nav-item" :class="dropDownMenu(subTabs)" :id="tab"
                 @click="setCurrentTab(tab, subTabs)">
 
                 <span v-if="subTabs.length == 0" class="nav-link">{{ tab }}</span>
@@ -27,6 +27,10 @@
                         {{ subTab }}
                     </li>
                 </ul>
+            </li>
+            <!-- Link to Blog -->
+            <li class="navbar-item nav-item" id="Blog">
+                <a href="https://gaborkevinbarta.com/blog/"><span class="nav-link">Blog</span></a>
             </li>
         </ul>
     </div>
