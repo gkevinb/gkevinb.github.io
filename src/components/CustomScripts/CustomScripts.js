@@ -4,6 +4,11 @@ import bash from 'highlight.js/lib/languages/bash';
 import python from 'highlight.js/lib/languages/python';
 import 'highlight.js/styles/atom-one-dark.css';
 
+const NAME_INDEX = 1
+const DESCRIPTION_INDEX = 2
+const ARGUMENTS_INDEX = 3
+const EXAMPLE_INDEX = 5
+
 const GithubAPI = axios.create()
 
 export default {
@@ -13,6 +18,7 @@ export default {
     },
     data() {
         return {
+            visibilityToggle: 'visible',
             readMe: null,
             commands: {},
             show: [],
@@ -82,13 +88,14 @@ export default {
         },
         filterReadMeInfo: function () {
             let pythonPattern = /#{3}\s(.*)\s\s(.*)\s\s#{4}\sArguments\s\s((-\s.+\s)+)\s#{4}\sExample\s\s```bash\s(.*)\s```/g
+            let argumentsPattern = /[^-\s].*[^\s]/g
             let readMeData = [...this.readMe.matchAll(pythonPattern)];
-            console.log(readMeData)
 
             for(let commandInfo of readMeData){
-                console.log(commandInfo)
+                this.commands[commandInfo[NAME_INDEX]]['description'] = commandInfo[DESCRIPTION_INDEX]
+                this.commands[commandInfo[NAME_INDEX]]['arguments'] = commandInfo[ARGUMENTS_INDEX].match(argumentsPattern)
+                this.commands[commandInfo[NAME_INDEX]]['example'] = commandInfo[EXAMPLE_INDEX]
             }
-
         },
         classStyling: function (file) {
             if (this.commands[file]['language'] == 'python') {
@@ -105,6 +112,9 @@ export default {
                 this.show[i] = false
             }
             this.reRenderKey += 1
+        },
+        easterEgg: function () {
+            this.visibilityToggle = 'hidden'
         }
     }
 };
