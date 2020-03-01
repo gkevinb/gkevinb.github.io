@@ -30,8 +30,7 @@ export default {
 
             if (file.name == 'README.md') {
                 this.apiCallReadMe(file.download_url)
-            } 
-            else if (file.name == '.gitignore') {
+            } else if (file.name == '.gitignore') {
                 // NO-OP
             } else {
                 this.commands[file.name] = {}
@@ -61,7 +60,7 @@ export default {
                 .then(response => {
                     let algorithm = response.data
                     let pythonPattern = /#!\/usr\/bin\/env python.*/g
-                    let bashPattern = /#!\/bin\/bash.*/g
+                    let bashPattern = /#!\/bin\/zsh.*/g
 
                     this.commands[name]['algorithm'] = algorithm
 
@@ -77,8 +76,19 @@ export default {
             /* Note: GET is hardcoded, for know, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
-                    this.readMe = response.data;
+                    this.readMe = response.data
+                    this.filterReadMeInfo()
                 });
+        },
+        filterReadMeInfo: function () {
+            let pythonPattern = /#{3}\s(.*)\s\s(.*)\s\s#{4}\sArguments\s\s((-\s.+\s)+)\s#{4}\sExample\s\s```bash\s(.*)\s```/g
+            let readMeData = [...this.readMe.matchAll(pythonPattern)];
+            console.log(readMeData)
+
+            for(let commandInfo of readMeData){
+                console.log(commandInfo)
+            }
+
         },
         classStyling: function (file) {
             if (this.commands[file]['language'] == 'python') {
