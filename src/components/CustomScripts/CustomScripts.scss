@@ -1,5 +1,9 @@
 $terminal-color: rgb(37, 37, 37);
 $top-bar-color: #c0c0c0;
+$exit-red: rgb(255, 68, 68);
+$minimize-yellow: rgb(255, 225, 57);
+$maximize-green: rgb(0, 185, 0);
+$terminal-button-color: rgb(94, 94, 94);
 
 $terminal-border-radius: 10px;
 $circle-size: 20px;
@@ -29,15 +33,15 @@ $circle-size: 20px;
     }
 
     #red {
-        background-color: rgb(255, 68, 68);
+        background-color: $exit-red;
     }
 
     #yellow {
-        background-color: rgb(255, 225, 57);
+        background-color: $minimize-yellow;
     }
 
     #green {
-        background-color: rgb(0, 185, 0);
+        background-color: $maximize-green;
     }
 
     #collapse-button {
@@ -47,7 +51,7 @@ $circle-size: 20px;
     .terminal-button {
         background-color: $top-bar-color;
         border: none;
-        color: rgb(94, 94, 94);
+        color: $terminal-button-color;
         font-size: 24px;
         cursor: pointer;
         padding: 0;
@@ -109,8 +113,6 @@ $circle-size: 20px;
     .show-checkbox input[type="checkbox"]:checked~.unchecked {
         display: none;
     }
-
-
 }
 
 .command-body {
