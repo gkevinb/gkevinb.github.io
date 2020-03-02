@@ -7,7 +7,6 @@ import QLearning from '../components/QLearning/QLearning.vue'
 import Chinese from '../components/Chinese/Chinese.vue'
 import GithubProjects from '../components/GithubProjects/GithubProjects.vue'
 import CustomScripts from '../components/CustomScripts/CustomScripts.vue'
-import Blog from '../components/Blog/Blog.vue'
 
 import axios from 'axios';
 
@@ -23,7 +22,6 @@ export default {
         'chinese-flashcards-tab': Chinese,
         'github-projects-tab': GithubProjects,
         'custom-scripts-tab': CustomScripts,
-        'blog-tab': Blog
     },
     data() {
         return {
@@ -31,8 +29,7 @@ export default {
             tabs: {
                 Home: [],
                 About: ["Experience", "Business Card"],
-                Projects: ["Github Projects", "Custom Scripts", "Q-Learning", "Chinese Flashcards"],
-                Blog: []
+                Projects: ["Github Projects", "Custom Scripts", "Q-Learning", "Chinese Flashcards"]
             },
             apis: [{
                     component: "Home",
