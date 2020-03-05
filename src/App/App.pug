@@ -1,0 +1,10 @@
+#app
+    #custom-container.container
+
+        // Navigation Bar
+        nav-comp(:tabs='tabs', @current-tab='currentTab = $event')
+        // Main content
+        .content(:is='getCurrentTab', :input='inputData[currentTab]')
+
+    // Footer content
+    footer-comp(:currentTab='currentTab', :connect='getLinks()', :sources='getSources()')

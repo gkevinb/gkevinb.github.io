@@ -1,0 +1,17 @@
+#home-tab
+    #intro-container
+        p Hi, my name is Kevin.
+        p I'm a full stack developer based in Budapest.
+        br
+        p I have a passion for web development and artificial intelligence.
+        br
+        p This is my portfolio website to showcase some of my work and interest. Feel free to have a look around and get in contact with me.
+    #links-container(v-if='input')
+        // links are sliced to only get first three website links
+        .link-container(v-for='website in input.links.slice(0, 3)')
+            a(:href='website.url' target='_blank')
+                i.link-icon(:class='website.icon')
+                .link-text {{ website.name }}
+    #construction-tape__left
+    #construction-tape__middle WEBSITE CONTINUOUSLY UNDER CONSTRUCTION
+    #construction-tape__right

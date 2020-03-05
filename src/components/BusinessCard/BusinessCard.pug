@@ -1,0 +1,41 @@
+#business-card-tab
+    #business-card__header
+        h1 Digital Business Card
+        p Click on card to flip over. Then use either the QR Code or the button to download my contact information.
+    #business-card__scene
+        #business-card(@click='flipFlashcard')
+            .business-card__face--front
+                #name {{ fullName }}
+                #laptop-logo
+                    #laptop
+                    #keyboard
+                    #mousepad
+                    #screen
+                    #tab
+                    #coding {{ codeSymbol }}
+                    #exit
+                    #empty
+                    #minimize
+                    #red-line__1.red-line
+                    #red-line__2.red-line
+                    #red-line__3.red-line
+                    #red-line__4.red-line
+                    #red-line__5.red-line
+                    #red-line__6.red-line
+                    #red-line__7.red-line
+                    #red-line__8.red-line
+                    #red-line__9.red-line
+                #position {{ position }}
+                #brand-container
+                    template(v-for='brand in chosenBrands')
+                        i(v-if='brand.code != undefined', :class='brandStyling(brand.code)')
+                        i.brand-logo.fab.brand-svg(v-if='brand.svg != undefined' v-html='brand.svg', :id='brand.name')
+            .business-card__face--back
+                #contact-container
+                    .contact-info(v-for='info in input.contact')
+                        i(:class='contactIconStyling(info.code)')
+                        .contact-text {{ info.value }}
+                #qr-code
+                    img(src='../../assets/img/qr-code.png' alt='QR CODE' height='110' width='110')
+                #save-contact__button
+                    a#save-contact__link(href='/files/user.vcf' download='user.vcf') SAVE TO CONTACT

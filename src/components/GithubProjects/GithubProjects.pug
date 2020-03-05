@@ -1,0 +1,23 @@
+#github-projects
+    #github-projects-header
+        h1 Github Projects
+        p Here are some of my Github Projects which also have a separate Github Pages website.
+        p Note some of them might be incomplete or just really simple projects.
+        br
+    #repos-container
+        .repo-container(v-for='repo in input', :key='repo.id')
+            .repo-name
+                h4 {{ repo.name }}
+            .repo-desc
+                p {{ repo.description }}
+            .links-container
+                .repository-link-container
+                    a(:href='repo.html_url' target='_blank')
+                        .repo-link
+                            i.icons.fas.fa-database
+                            div Repository
+                .website-link-container(v-if='repo.homepage')
+                    a(:href='repo.homepage' target='_blank')
+                        .repo-link
+                            i.icons.fas.fa-globe(v-if='repo.homepage')
+                            div Website

@@ -1,0 +1,23 @@
+#footer-id.footer.footer-without-credit
+    .footer-credit(v-if='currentSources.length > 0')
+        #credit-title
+            p Give Credit
+        #credit-links
+            p(v-for='source in currentSources')
+                a(:href='source.link' target='_blank') {{ source.name }}
+    .footer-content
+        #made-with.footer-content__text
+            p Made with &#x2764;&#xFE0F; by 
+                span#my-name Gabor Kevin Barta
+        #hosted-by.footer-content__text
+            p Hosted by 
+                a(href='https://pages.github.com/' target='_blank') GitHub Pages
+        #view-source.footer-content__text
+            p View 
+                a(href='https://github.com/gkevinb/gkevinb.github.io' target='_blank') Source Code
+    .footer-connect
+        #connect-title
+            p Connect
+        #connect-icons(v-if='connect')
+            a.connect-icon(v-for='link in connect.links', :id='link.id', :href='link.url' target='_blank')
+                i(:class='link.icon')

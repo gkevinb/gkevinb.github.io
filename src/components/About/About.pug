@@ -1,0 +1,33 @@
+#experiences-tab
+    #experiences-container
+        h2 Work
+        .experience-container(v-for='experience in input.experiences')
+            .bubble(:id='experience.tag')
+            .experience-card
+                .title {{ experience.title }}
+                a(:href='experience.link' target='_blank')
+                    .institution {{ experience.company }}
+                .time-period {{ experience.timePeriod }}
+                .city {{ experience.city }}
+                .description
+                    .text {{ experience.text }}
+    #education-container
+        h2 Education
+        .experience-container(v-for='degree in input.degrees')
+            .bubble(:id='degree.tag')
+            .experience-card
+                .title {{ degree.title }}
+                a(:href='degree.link' target='_blank')
+                    .institution {{ degree.university }}
+                .time-period {{ degree.timePeriod }}
+                .city {{ degree.city }}
+                .description
+                    .specialization(v-if='degree.specialization')
+                        #specialization-text Specialization
+                        #specialization-title {{ degree.specialization }}
+                    .text {{ degree.text }}
+                    .thesis(v-if='degree.thesis')
+                        #thesis-text Thesis
+                        a(:href='degree.thesis.link' target='_blank')
+                            #thesis-title {{ degree.thesis.title }}
+                        #thesis-details {{ degree.thesis.details }}

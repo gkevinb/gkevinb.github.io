@@ -1,0 +1,12 @@
+#chinese-flashcards-tab
+    #chinese_header
+        h1 Chinese Flashcards
+        p Click on a card to reveal the english and pinyin meaning of the Chinese symbol. Use this application to
+            | memorize the Chinese symbols, their pronunciation, and their meaning.
+        button(@click='pickCards(input.characters.length)' type='button') All
+        button(@click='pickCards(1)' type='button') Random
+        input#mute_checkbox(type='checkbox' name='mute' v-model='mute')
+        label#mute-checbox__label(for='mute_checkbox')
+        #reminder (Remember to unmute device as well)
+    div(:id='flashcardStyling()')
+        chinese-flashcard(v-for='(char, index) in chosenCharacters', :key='char.character', :english='char.english', :character='createCharacterArray(char.character)', :pinyin='char.pinyin', :audio='setAudio()')

@@ -1,0 +1,9 @@
+.flashcard__scene
+    .flashcard(:id='flipCardId', @click='flipFlashcard', @mouseover='writeStroke')
+        .flashcard__face.flashcard__face--front(:id='frontCardId')
+            .chinese-character(v-if='frontCardId == null', :id='leftCardId')
+            .chinese-character(v-if='frontCardId == null', :id='rightCardId')
+        .flashcard__face.flashcard__face--back
+            #pinyin {{ pinyin }}
+            #divider
+            #english {{ english }}

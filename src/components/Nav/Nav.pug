@@ -1,0 +1,24 @@
+#navigation.navbar.navbar-expand-lg
+    .navbar-brand.header
+        a(:href='url')
+            h1(:style='hostColorStyling()') Gabor Kevin Barta
+
+    // Navigation Hamburger
+    button#nav-burger-button.navbar-toggler.hamburger.hamburger--squeeze(@click='hamburgerX()' data-toggle='collapse' data-target='#colapser' type='button')
+        span.nav-burger.hamburger-box
+            span#nav-burger-meat-js.nav-burger-meat.hamburger-inner
+
+    #colapser.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto.nav-menu
+            li.navbar-item.nav-item(v-for='(subTabs, tab) in tabs', :class='dropDownMenu(subTabs)', :id='tab', @click='setCurrentTab(tab, subTabs)')
+                span.nav-link(v-if='subTabs.length == 0') {{ tab }}
+                span.nav-link.dropdown-toggle(v-else='' data-toggle='dropdown') {{ tab }}
+
+                // Subtab dropdown
+                ul.dropdown-menu(v-if='subTabs.length != 0')
+                    li.sub-tab.dropdown-item(v-for='subTab in subTabs', @click.stop='setCurrentTab(subTab)') {{ subTab }}
+            
+            // Link to Blog
+            li#Blog.navbar-item.nav-item
+                a(href='https://gaborkevinbarta.com/blog/')
+                    span.nav-link Blog

@@ -1,0 +1,67 @@
+#qlearning
+    #qlearning-header
+        h1 Q-Learning Algorithm
+        h2 The Cliff Walking Problem
+    #qlearning-instructions
+        p
+            | The Q-Learning algorithm is a reinforcement learning algorithm. It is a reinforcement learning method since
+            | it involves an agent, a set of states, and a set of actions for each state. The agent accumulates rewards
+            | when a specific action is taken at a specific state. The cliff walking problem is a classic problem solved
+            | by the Q-learning algorithm. The scenario is the following, the robot wants to find the shortest path to the
+            | trophy. However if the it steps on the black tiles it will fall down the cliff. The robot learns to find the
+            | shortest path to the trophy through trial and error. After each step taken the Q-values are updated for the
+            | that action at the specific state.
+        #qlearning-legend
+            .greek-letters &epsi;
+            .explanation Greedy factor is defined by how greedy we are with the neighboring Q values.
+            .greek-letters &alpha;
+            .explanation Learning rate is defined by how much we accept the new Q value over the old Q value.
+            .greek-letters &gamma;
+            .explanation Discount factor is used to balance the immediate and future reward.
+            .button-replica Load
+            .explanation Disabled
+            .button-replica Reset
+            .explanation Reset Q values and place robot at starting position.
+            .button-replica Learn
+            .explanation Disabled
+            .button-replica Explore
+            .explanation
+                | Start exploring the map and look for the trophy. Press again if the robot falls
+                | down the cliff or finds the trophy to start exploring again.
+    #control_panel
+        #left_screw.screw
+            div x
+        #control_panel-title Control Panel
+        #right_screw.screw
+            div x
+        #epsilon_letter.greek-letters &epsi;
+        #alpha_letter.greek-letters &alpha;
+        #gamma_letter.greek-letters &gamma;
+        #qvalue_text Show Q Values
+
+        input#epsilon_slider.slider(type='range' min='0' max='1' value='0.5' step='0.1' v-model='epsilon')
+        input#alpha_slider.slider(type='range' min='0' max='1' value='0.5' step='0.1' v-model='alpha')
+        input#gamma_slider.slider(type='range' min='0' max='1' value='0.7' step='0.1' v-model='gamma')
+        input#qvalue_checkbox(type='checkbox' v-model='showQValues')
+
+        #epsilon_value.value_screen {{ formatValue(epsilon) }}
+        #alpha_value.value_screen {{ formatValue(alpha) }}
+        #gamma_value.value_screen {{ formatValue(gamma) }}
+
+        button#load_button.btn.control-panel__button(type='button' disabled='') Load
+        button#reset_button.btn.control-panel__button(@click='reset' type='button') Reset
+        button#learn_button.btn.control-panel__button(type='button' disabled='') Learn
+        button#explore_button.btn.control-panel__button(@click='explore' type='button') Explore
+        
+    #qlearning-map(:style='gridStyling(row, column)')
+        template(v-for='(_, i) in stringToNum(row)')
+            .tile--background(v-for='(_, j) in stringToNum(column)')
+                div(:class='styleTile(i, j)', :id='matrixId(i, j)')
+                    .UP(v-if='showQValues')
+                        div {{ formatQValue(agent.qMatrix.matrix[matrixId(i, j)][UP]) }}
+                    .LEFT(v-if='showQValues')
+                        div {{ formatQValue(agent.qMatrix.matrix[matrixId(i, j)][LEFT]) }}
+                    .RIGHT(v-if='showQValues')
+                        div {{ formatQValue(agent.qMatrix.matrix[matrixId(i, j)][RIGHT]) }}
+                    .DOWN(v-if='showQValues')
+                        div {{ formatQValue(agent.qMatrix.matrix[matrixId(i, j)][DOWN]) }}

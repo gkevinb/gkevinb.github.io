@@ -1,0 +1,33 @@
+#custom-scripts-tab
+    #custom-scripts-header
+        h1 Custom Scripts
+    #terminal-emulator(:style='{ visibility: visibilityToggle }')
+        #terminal-tool-bar
+            #red.circle(@click='easterEgg')
+            #yellow.circle
+            #green.circle
+            button#collapse-button.terminal-button(@click='collapseAll' type='button')
+                // <i class="far fa-caret-square-down"></i>
+                // <i class="fas fa-minus-square"></i>
+                i.far.fa-minus-square
+        #terminal-window(:key='reRenderKey')
+            .terminal-command(v-for='command in commands', :key='command.id')
+                .command-header
+                    .dollar $
+                    .command {{ command.name }}
+                    // <div v-for="arg in command.arguments" class="argument">${{ arg.split(' ').join('_') }}</div>
+                    //
+                        <button class="terminal-button button-copy" type="button">
+                        <i class="far fa-copy"></i>
+                        </button>
+                    
+                    label.show-checkbox
+                        input(type='checkbox' v-model='show[command.id]')
+                        i.far.fa-caret-square-down.unchecked
+                        i.far.fa-caret-square-up.checked
+                .command-body(v-if='show[command.id]')
+                    p {{ command.description }}
+                    p {{ command.example }}
+                    pre
+                        code(:class="classStyling(command.name)") {{ command.algorithm }}                       
+
