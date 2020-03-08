@@ -2,7 +2,7 @@ import axios from 'axios';
 import hljs from 'highlight.js/lib/highlight';
 import bash from 'highlight.js/lib/languages/bash';
 import python from 'highlight.js/lib/languages/python';
-import 'highlight.js/styles/atom-one-dark.css';
+import 'highlight.js/styles/vs2015.css';
 
 const NAME_INDEX = 1
 const DESCRIPTION_INDEX = 2
@@ -29,7 +29,7 @@ export default {
         hljs.registerLanguage('bash', bash);
         hljs.registerLanguage('python', python);
 
-        let showIndex = 0
+        let index = 0
 
         for (let i = 0; i < this.input.length; i++) {
             let file = this.input[i]
@@ -40,11 +40,11 @@ export default {
                 // NO-OP
             } else {
                 this.commands[file.name] = {}
-                this.commands[file.name]['id'] = showIndex
+                this.commands[file.name]['id'] = index
                 this.commands[file.name]['name'] = file.name;
                 this.show.push(false)
                 this.apiCall(file.name, file.download_url)
-                showIndex = showIndex + 1
+                index = index + 1
             }
         }
     },
@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         apiCall: function (name, path) {
-            /* Note: GET is hardcoded, for know, since it is the only type of request made */
+            /* Note: GET is hardcoded, for now, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
                     let algorithm = response.data
@@ -79,7 +79,7 @@ export default {
                 });
         },
         apiCallReadMe: function (path) {
-            /* Note: GET is hardcoded, for know, since it is the only type of request made */
+            /* Note: GET is hardcoded, for now, since it is the only type of request made */
             GithubAPI.get(path)
                 .then(response => {
                     this.readMe = response.data
@@ -92,18 +92,20 @@ export default {
             let readMeData = [...this.readMe.matchAll(pythonPattern)];
 
             for(let commandInfo of readMeData){
-                this.commands[commandInfo[NAME_INDEX]]['description'] = commandInfo[DESCRIPTION_INDEX]
-                this.commands[commandInfo[NAME_INDEX]]['arguments'] = commandInfo[ARGUMENTS_INDEX].match(argumentsPattern)
-                this.commands[commandInfo[NAME_INDEX]]['example'] = commandInfo[EXAMPLE_INDEX]
+                let commandName = commandInfo[NAME_INDEX]
+                this.commands[commandName]['description'] = commandInfo[DESCRIPTION_INDEX]
+                this.commands[commandName]['arguments'] = commandInfo[ARGUMENTS_INDEX].match(argumentsPattern)
+                this.commands[commandName]['example'] = commandInfo[EXAMPLE_INDEX]
             }
         },
         classStyling: function (file) {
             if (this.commands[file]['language'] == 'python') {
-                return "hjls python"
+                return "python"
             }
             if (this.commands[file]['language'] == 'bash') {
-                return "hjls bash"
-            } else {
+                return "bash"
+            }
+            else {
                 return "hjls"
             }
         },

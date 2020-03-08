@@ -4,6 +4,7 @@ $exit-red: rgb(255, 68, 68);
 $minimize-yellow: rgb(255, 225, 57);
 $maximize-green: rgb(0, 185, 0);
 $terminal-button-color: rgb(94, 94, 94);
+$terminal-code-color: #1E1E1E;
 
 $terminal-border-radius: 10px;
 $circle-size: 20px;
@@ -120,5 +121,11 @@ $circle-size: 20px;
 
     p{
         color: white;
+    }
+    pre{
+        background-color: $terminal-code-color;
+    }
+    .hljs {
+        display: inline-block;
     }
 }

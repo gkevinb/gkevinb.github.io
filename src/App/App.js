@@ -117,7 +117,7 @@ export default {
             let API = axios.create({
                 baseURL: request.routeEndPoint,
             })
-            /* Note: GET is hardcoded, for know, since it is the only type of request made */
+            /* Note: GET is hardcoded, for now, since it is the only type of request made */
             API.get(request.path)
                 .then(response => {
                     this.inputData[component] = response.data;
