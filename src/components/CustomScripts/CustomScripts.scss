@@ -119,9 +119,16 @@ $circle-size: 20px;
 .command-body {
     margin: 10px;
 
-    p{
-        color: white;
+    .description-container{
+        background-color: $terminal-code-color;
+        padding: 8px;
+        margin-bottom: 20px;
+        
+        .tab{
+            margin-left: 32px;
+        }
     }
+    
     pre{
         background-color: $terminal-code-color;
     }

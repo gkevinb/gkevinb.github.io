@@ -15,7 +15,7 @@
                 .command-header
                     .dollar $
                     .command {{ command.name }}
-                    // <div v-for="arg in command.arguments" class="argument">${{ arg.split(' ').join('_') }}</div>
+                    
                     //
                         <button class="terminal-button button-copy" type="button">
                         <i class="far fa-copy"></i>
@@ -26,8 +26,24 @@
                         i.far.fa-caret-square-down.unchecked
                         i.far.fa-caret-square-up.checked
                 .command-body(v-if='show[command.id]')
-                    p {{ command.description }}
-                    p {{ command.example }}
+                    .description-container
+                        code.hljs-comment """
+                        br
+                        code.hljs-comment {{ command.description }}
+                        br
+                        br
+                        code.hljs-comment Arguments:
+                        br
+                        template(v-for="arg in command.arguments")
+                            code.hljs-comment.tab {{ arg.split(' ').join('_') }}
+                            br
+                        br
+                        code.hljs-comment Example:
+                        br
+                        code.hljs-comment.tab {{ command.example }}
+                        br
+                        code.hljs-comment """
+                        
                     pre
                         code(:class="classStyling(command.name)") {{ command.algorithm }}                       
 
