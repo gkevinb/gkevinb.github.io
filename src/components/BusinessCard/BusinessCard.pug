@@ -7,24 +7,7 @@
             .business-card__face--front
                 #name {{ fullName }}
                 #laptop-logo
-                    #laptop
-                    #keyboard
-                    #mousepad
-                    #screen
-                    #tab
-                    #coding {{ codeSymbol }}
-                    #exit
-                    #empty
-                    #minimize
-                    #red-line__1.red-line
-                    #red-line__2.red-line
-                    #red-line__3.red-line
-                    #red-line__4.red-line
-                    #red-line__5.red-line
-                    #red-line__6.red-line
-                    #red-line__7.red-line
-                    #red-line__8.red-line
-                    #red-line__9.red-line
+                    img(src='../../assets/img/laptop_logo.svg')
                 #position {{ position }}
                 #brand-container
                     template(v-for='brand in chosenBrands')
