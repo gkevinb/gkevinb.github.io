@@ -5,7 +5,7 @@
         p Note some of them might be incomplete or just really simple projects.
         br
     #repos-container
-        .repo-container(v-for='repo in input', :key='repo.id')
+        .repo-container(v-for='repo in repos', :key='repo.id')
             .repo-name
                 h4 {{ repo.name }}
             .repo-desc
