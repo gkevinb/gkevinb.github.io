@@ -1,5 +1,5 @@
 import axios from 'axios';
-import hljs from 'highlight.js/lib/highlight';
+import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
 import python from 'highlight.js/lib/languages/python';
 import 'highlight.js/styles/vs2015.css';
