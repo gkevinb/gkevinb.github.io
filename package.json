@@ -8,10 +8,8 @@
     "build": "vue-cli-service build",
     "build-staging": "vue-cli-service build --mode staging",
     "lint": "vue-cli-service lint",
-    "copy-dist": "copyfiles 'dist/**/*' './' -u 1",
-    "clean": "rimraf dist css database files img js index.html 404.html favicon.ico",
-    "minify-json": "minify-json dist/database",
-    "deploy": "npm run clean && npm run build && npm run minify-json && npm run copy-dist",
+    "minify-json": "minify-json docs/database",
+    "deploy": "npm run build && npm run minify-json",
     "deploy-gh": "npm run deploy && git checkout master && git add -A && git commit -m ':rocket: Deploy to Github pages' && git push origin master",
     "docker-start": "npm run build-staging && docker-compose up -d --build && open http://localhost:5000",
     "docker-stop": "docker-compose down"
