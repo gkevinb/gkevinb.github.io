@@ -8,6 +8,8 @@ $linkedin-blue: #0077B5;
 $github-grey: #181717;
 $codepen-black: #000000;
 $hackerrank-green: #2EC866;
+$instagram-purple: rgb(131,58,180);
+$instagram-gradient: linear-gradient(207deg, rgba(131,58,180,1) 0%, rgba(225,48,108,1) 49%, rgba(252,175,69,1) 100%);
 
 $footer-grey: rgb(163, 163, 163);
 $under-line: underline;
@@ -202,7 +204,22 @@ $connect-height: 200px;
         color: $codepen-black;
     }
 
+    /*
+            {
+            "id": "codepen-icon",
+            "name": "Codepen",
+            "url": "https://codepen.io/gkevinb/",
+            "icon": "fab fa-codepen"
+        }
+    */
     #hackerrank-icon:hover {
         color: $hackerrank-green;
+    }
+
+    #instagram-icon:hover {
+        background: $instagram-purple;
+        background: $instagram-gradient;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 }
